@@ -1,4 +1,14 @@
 
+<?php
+session_start();
+if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '2') {
+    header("Location: member_dashboard.php");
+    exit();
+}
+
+?>
+
+
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
 
@@ -27,16 +37,15 @@
     <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
     <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/chat.css" rel="stylesheet" type="text/css" />
+
 </head>
 
 <body>
 
     <!-- Begin page -->
     <div id="layout-wrapper">
-    <?php include './inc/admin_header.php';?>
-        
-</header>
+
+    <?php include './inc/member_header.php';?>
 
 <!-- removeNotificationModal -->
 <div id="removeNotificationModal" class="modal fade zoomIn" tabindex="-1" aria-hidden="true">
@@ -63,7 +72,7 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
         <!-- ========== App Menu ========== -->
-        <?php include './inc/admin_sidebar.php';?>
+        <?php include './inc/member_sidebar.php';?>
         <!-- Left Sidebar End -->
         <!-- Vertical Overlay-->
         <div class="vertical-overlay"></div>
@@ -75,107 +84,321 @@
 
             <div class="page-content">
                 <div class="container-fluid">
-                 
-                <main class="content">
-    <div class="container p-0">
+                    <div class="chat-wrapper d-lg-flex gap-1 mx-n4 mt-n4 p-1">
+                        <div class="chat-leftsidebar minimal-border">
+                            <div class="px-4 pt-4 mb-3">
+                                <div class="d-flex align-items-start">
+                                    <div class="flex-grow-1">
+                                        <h5 class="mb-4">Chats</h5>
+                                    </div>
+                                    <div class="flex-shrink-0">
+                                        <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="bottom" title="Add Contact">
 
-		
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class="btn btn-soft-success btn-sm material-shadow-none">
+                                                <i class="ri-add-line align-bottom"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="search-box">
+                                    <input type="text" class="form-control bg-light border-light" placeholder="Search here...">
+                                    <i class="ri-search-2-line search-icon"></i>
+                                </div>
+                            </div> <!-- .p-4 -->
 
-		<div class="card">
-			<div class="row g-0">
-				<div class="col-12 col-lg-5 col-xl-3 border-right" style="border: 1px solid #e5e3e3; padding:10px; padding-top:30px;" >
+                            <ul class="nav nav-tabs nav-tabs-custom nav-success nav-justified" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#chats" role="tab">
+                                        Chats
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#contacts" role="tab">
+                                        Contacts
+                                    </a>
+                                </li>
+                            </ul>
 
-				
+                            <div class="tab-content text-muted">
+                                <div class="tab-pane active" id="chats" role="tabpanel">
+                                    <div class="chat-room-list pt-3" data-simplebar>
+                                        <div class="d-flex align-items-center px-4 mb-2">
+                                            <div class="flex-grow-1">
+                                                <h4 class="mb-0 fs-11 text-muted text-uppercase">Direct Messages</h4>
+                                            </div>
+                                            <div class="flex-shrink-0">
+                                                <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="bottom" title="New Message">
+        
+                                                    <!-- Button trigger modal -->
+                                                    <button type="button" class="btn btn-soft-success btn-sm shadow-none material-shadow">
+                                                        <i class="ri-add-line align-bottom"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+        
+                                        <div class="chat-message-list">
+        
+                                            <ul class="list-unstyled chat-list chat-user-list" id="userList">
+                                                
+                                            </ul>
+                                        </div>
+        
+                                        <div class="d-flex align-items-center px-4 mt-4 pt-2 mb-2">
+                                            <div class="flex-grow-1">
+                                                <h4 class="mb-0 fs-11 text-muted text-uppercase">Channels</h4>
+                                            </div>
+                                            <div class="flex-shrink-0">
+                                                <div data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="bottom" title="Create group">
+                                                    <!-- Button trigger modal -->
+                                                    <button type="button" class="btn btn-soft-success btn-sm">
+                                                        <i class="ri-add-line align-bottom"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+        
+                                        <div class="chat-message-list">
+        
+                                            <ul class="list-unstyled chat-list chat-user-list mb-0" id="channelList">
+                                            </ul>
+                                        </div>
+                                        <!-- End chat-message-list -->
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="contacts" role="tabpanel">
+                                    <div class="chat-room-list pt-3" data-simplebar>
+                                        <div class="sort-contact">            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end tab contact -->
+                        </div>
+                        <!-- end chat leftsidebar -->
+                        <!-- Start User chat -->
+                        <div class="user-chat w-100 overflow-hidden minimal-border">
 
-				
-					<a href="#" class="list-group-item list-group-item-action border-0">
-						<div class="d-flex align-items-start">
-							<img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle mr-1" alt="Doris Wilder" width="40" height="40">
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="flex-grow-1 ml-3">
-								Doris Wilder
-								<div class="small"><span class="fas fa-circle chat-offline"></span> Offline</div>
-							</div>
-						</div>
-					</a>
-                    <br>
-					<a href="#" class="list-group-item list-group-item-action border-0">
-						<div class="d-flex align-items-start"  >
-							<img src="https://bootdey.com/img/Content/avatar/avatar4.png" class="rounded-circle mr-1" alt="Haley Kennedy" width="40" height="40">
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <div class="flex-grow-1 ml-3">
-								Haley Kennedy
-								<div class="small"><span class="fas fa-circle chat-offline"></span> Offline</div>
-							</div>
-						</div>
-					</a>
-                   
-					<hr class="d-block d-lg-none mt-1 mb-0">
-				</div>
-				<div class="col-12 col-lg-7 col-xl-9">
-					<div class="py-2 px-4 border-bottom d-none d-lg-block">
-						<div class="d-flex align-items-center py-1">
-							<div class="position-relative">
-								<img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
-							</div>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<div class="flex-grow-1 pl-3">
-								<strong>Sharon Lessman</strong>
-                                
-								<div class="text-muted small"><em>Typing...</em></div>
-							</div>
-							<div>
-								<button class="btn btn-primary btn-lg mr-1 px-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone feather-lg"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></button>
-								<button class="btn btn-info btn-lg mr-1 px-3 d-none d-md-inline-block"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-video feather-lg"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg></button>
-								<button class="btn btn-light border btn-lg px-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal feather-lg"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></button>
-							</div>
-						</div>
-					</div>
+                            <div class="chat-content d-lg-flex">
+                                <!-- start chat conversation section -->
+                                <div class="w-100 overflow-hidden position-relative">
+                                    <!-- conversation user -->
+                                    <div class="position-relative">
+                                        
 
-					<div class="position-relative">
-						<div class="chat-messages p-4">
+                                        <div class="position-relative" id="users-chat">
+                                            <div class="p-3 user-chat-topbar">
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-4 col-8">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="flex-shrink-0 d-block d-lg-none me-3">
+                                                                <a href="javascript: void(0);" class="user-chat-remove fs-18 p-1"><i class="ri-arrow-left-s-line align-bottom"></i></a>
+                                                            </div>
+                                                            <div class="flex-grow-1 overflow-hidden">
+                                                                <div class="d-flex align-items-center">
+                                                                    <div class="flex-shrink-0 chat-user-img online user-own-img align-self-center me-3 ms-0">
+                                                                        <img src="assets/images/users/avatar-2.jpg" class="rounded-circle avatar-xs" alt="">
+                                                                        <span class="user-status"></span>
+                                                                    </div>
+                                                                    <div class="flex-grow-1 overflow-hidden">
+                                                                        <h5 class="text-truncate mb-0 fs-16"><a class="text-reset username" data-bs-toggle="offcanvas" href="#userProfileCanvasExample" aria-controls="userProfileCanvasExample">Lisa Parker</a></h5>
+                                                                        <p class="text-truncate text-muted fs-14 mb-0 userStatus"><small>Online</small></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-8 col-4">
+                                                        <ul class="list-inline user-chat-nav text-end mb-0">
+                                                            <li class="list-inline-item m-0">
+                                                                <div class="dropdown">
+                                                                    <button class="btn btn-ghost-secondary btn-icon material-shadow-none" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <i data-feather="search" class="icon-sm"></i>
+                                                                    </button>
+                                                                    <div class="dropdown-menu p-0 dropdown-menu-end dropdown-menu-lg">
+                                                                        <div class="p-2">
+                                                                            <div class="search-box">
+                                                                                <input type="text" class="form-control bg-light border-light" placeholder="Search here..." onkeyup="searchMessages()" id="searchMessage">
+                                                                                <i class="ri-search-2-line search-icon"></i>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+    
+                                                            <li class="list-inline-item d-none d-lg-inline-block m-0">
+                                                                <button type="button" class="btn btn-ghost-secondary btn-icon material-shadow-none" data-bs-toggle="offcanvas" data-bs-target="#userProfileCanvasExample" aria-controls="userProfileCanvasExample">
+                                                                    <i data-feather="info" class="icon-sm"></i>
+                                                                </button>
+                                                            </li>
+    
+                                                            <li class="list-inline-item m-0">
+                                                                <div class="dropdown">
+                                                                    <button class="btn btn-ghost-secondary btn-icon material-shadow-none" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <i data-feather="more-vertical" class="icon-sm"></i>
+                                                                    </button>
+                                                                    <div class="dropdown-menu dropdown-menu-end">
+                                                                        <a class="dropdown-item d-block d-lg-none user-profile-show" href="#"><i class="ri-user-2-fill align-bottom text-muted me-2"></i> View Profile</a>
+                                                                        <a class="dropdown-item" href="#"><i class="ri-inbox-archive-line align-bottom text-muted me-2"></i> Archive</a>
+                                                                        <a class="dropdown-item" href="#"><i class="ri-mic-off-line align-bottom text-muted me-2"></i> Muted</a>
+                                                                        <a class="dropdown-item" href="#"><i class="ri-delete-bin-5-line align-bottom text-muted me-2"></i> Delete</a>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+    
+                                            </div>
+                                            <!-- end chat user head -->
+                                            <div class="chat-conversation p-3 p-lg-4 " id="chat-conversation" data-simplebar>
+                                                <div id="elmLoader">
+                                                    
+                                                </div>
+                                                <ul class="list-unstyled chat-conversation-list" id="users-conversation">
+                                                    
+                                                </ul>
+                                                <!-- end chat-conversation-list -->
+                                            </div>
+                                            <div class="alert alert-warning alert-dismissible copyclipboard-alert px-4 fade show " id="copyClipBoard" role="alert">
+                                                Message copied
+                                            </div>
+                                        </div>
 
-							<div class="chat-message-right pb-4">
-								<div>
-									<img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
-								
-                                    <div class="text-muted small text-nowrap mt-2">2:33 am</div>
-								</div>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
-									<div class="font-weight-bold mb-1">You</div>
-									Lorem ipsum dolor sit amet, vis erat denique in, dicunt prodesset te vix.
-								</div>
-							</div>
+                                        <div class="position-relative" id="channel-chat">
+                                            <div class="p-3 user-chat-topbar">
+                                            <div class="row align-items-center">
+                                                <div class="col-sm-4 col-8">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="flex-shrink-0 d-block d-lg-none me-3">
+                                                            <a href="javascript: void(0);" class="user-chat-remove fs-18 p-1"><i class="ri-arrow-left-s-line align-bottom"></i></a>
+                                                        </div>
+                                                        <div class="flex-grow-1 overflow-hidden">
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="flex-shrink-0 chat-user-img online user-own-img align-self-center me-3 ms-0">
+                                                                    <img src="assets/images/users/avatar-2.jpg" class="rounded-circle avatar-xs" alt="">
+                                                                </div>
+                                                                <div class="flex-grow-1 overflow-hidden">
+                                                                    <h5 class="text-truncate mb-0 fs-16"><a class="text-reset username" data-bs-toggle="offcanvas" href="#userProfileCanvasExample" aria-controls="userProfileCanvasExample">Lisa Parker</a></h5>
+                                                                    <p class="text-truncate text-muted fs-14 mb-0 userStatus"><small>24 Members</small></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-8 col-4">
+                                                    <ul class="list-inline user-chat-nav text-end mb-0">
+                                                        <li class="list-inline-item m-0">
+                                                            <div class="dropdown">
+                                                                <button class="btn btn-ghost-secondary btn-icon" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                    <i data-feather="search" class="icon-sm"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu p-0 dropdown-menu-end dropdown-menu-lg">
+                                                                    <div class="p-2">
+                                                                        <div class="search-box">
+                                                                            <input type="text" class="form-control bg-light border-light" placeholder="Search here..." onkeyup="searchMessages()" id="searchMessage">
+                                                                            <i class="ri-search-2-line search-icon"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
 
-							<div class="chat-message-left pb-4">
-								<div>
-									<img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
-									<div class="text-muted small text-nowrap mt-2">2:34 am</div>
-								</div>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<div class="flex-shrink-1 bg-light rounded py-2 px-3 ml-3">
-									<div class="font-weight-bold mb-1">Sharon Lessman</div>
-									Sit meis deleniti eu, pri vidit meliore docendi ut, an eum erat animal commodo.
-								</div>
-							</div>
+                                                        <li class="list-inline-item d-none d-lg-inline-block m-0">
+                                                            <button type="button" class="btn btn-ghost-secondary btn-icon" data-bs-toggle="offcanvas" data-bs-target="#userProfileCanvasExample" aria-controls="userProfileCanvasExample">
+                                                                <i data-feather="info" class="icon-sm"></i>
+                                                            </button>
+                                                        </li>
 
+                                                        <li class="list-inline-item m-0">
+                                                            <div class="dropdown">
+                                                                <button class="btn btn-ghost-secondary btn-icon" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                    <i data-feather="more-vertical" class="icon-sm"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                    <a class="dropdown-item d-block d-lg-none user-profile-show" href="#"><i class="ri-user-2-fill align-bottom text-muted me-2"></i> View Profile</a>
+                                                                    <a class="dropdown-item" href="#"><i class="ri-inbox-archive-line align-bottom text-muted me-2"></i> Archive</a>
+                                                                    <a class="dropdown-item" href="#"><i class="ri-mic-off-line align-bottom text-muted me-2"></i> Muted</a>
+                                                                    <a class="dropdown-item" href="#"><i class="ri-delete-bin-5-line align-bottom text-muted me-2"></i> Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
 
-						</div>
-					</div>
+                                        </div>
+                                        <!-- end chat user head -->
+                                            <div class="chat-conversation p-3 p-lg-4" id="chat-conversation" data-simplebar>
+                                                <ul class="list-unstyled chat-conversation-list" id="channel-conversation">       
+                                                </ul>
+                                                <!-- end chat-conversation-list -->
 
-					<div class="flex-grow-0 py-3 px-4 border-top">
-						<div class="input-group">
-							<input type="text" class="form-control" placeholder="Type your message">
-							<button class="btn btn-primary">Send</button>
-						</div>
-					</div>
+                                            </div>
+                                            <div class="alert alert-warning alert-dismissible copyclipboard-alert px-4 fade show " id="copyClipBoardChannel" role="alert">
+                                                Message copied
+                                            </div>
+                                        </div>
 
-				</div>
-			</div>
-		</div>
-	</div>
-</main>
-                
+                                        <!-- end chat-conversation -->
+
+                                        <div class="chat-input-section p-3 p-lg-4">
+
+                                            <form id="chatinput-form" enctype="multipart/form-data">
+                                                <div class="row g-0 align-items-center">
+                                                    <div class="col-auto">
+                                                        <div class="chat-input-links me-2">
+                                                            <div class="links-list-item">
+                                                                <button type="button" class="btn btn-link text-decoration-none emoji-btn" id="emoji-btn">
+                                                                    <i class="bx bx-smile align-middle"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col">
+                                                        <div class="chat-input-feedback">
+                                                            Please Enter a Message
+                                                        </div>
+                                                        <input type="text" class="form-control chat-input bg-light border-light" id="chat-input" placeholder="Type your message..." autocomplete="off">
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <div class="chat-input-links ms-2">
+                                                            <div class="links-list-item">
+                                                                <button type="submit" class="btn btn-success chat-send waves-effect waves-light">
+                                                                    <i class="ri-send-plane-2-fill align-bottom"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                        <div class="replyCard">
+                                            <div class="card mb-0">
+                                                <div class="card-body py-3">
+                                                    <div class="replymessage-block mb-0 d-flex align-items-start">
+                                                        <div class="flex-grow-1">
+                                                            <h5 class="conversation-name"></h5>
+                                                            <p class="mb-0"></p>
+                                                        </div>
+                                                        <div class="flex-shrink-0">
+                                                            <button type="button" id="close_toggle" class="btn btn-sm btn-link mt-n2 me-n3 fs-18">
+                                                                <i class="bx bx-x align-middle"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- end chat-wrapper -->
 
                 </div>
@@ -447,9 +670,7 @@
     <!--preloader-->
     <div id="preloader">
         <div id="status">
-            <div class="spinner-border text-primary avatar-sm" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
+          
         </div>
     </div>
 
@@ -1279,9 +1500,7 @@
                                         </span>
                                         <!-- <div id="preloader"> -->
                                         <div id="status" class="d-flex align-items-center justify-content-center">
-                                            <div class="spinner-border text-primary avatar-xxs m-auto" role="status">
-                                                <span class="visually-hidden">Loading...</span>
-                                            </div>
+                                            
                                         </div>
                                         <!-- </div> -->
                                     </label>

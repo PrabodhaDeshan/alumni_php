@@ -63,7 +63,7 @@
                     </ul>
 
                     <div class="">
-                        <a href="login.php" class="btn btn-link fw-medium text-decoration-none text-body">Sign in</a>
+                        <a href="sign_in.php" class="btn btn-link fw-medium text-decoration-none text-body">Sign in</a>
                         <!-- <a href="auth-signup-basic.html" class="btn btn-primary">Sign Up</a> -->
                     </div>
                 </div>

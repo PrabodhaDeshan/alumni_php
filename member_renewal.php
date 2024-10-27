@@ -1,17 +1,27 @@
+<?php
+session_start();
+if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '2') {
+    header("Location: member_dashboard.php");
+    exit();
+}
+
+?>
+
+
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
 
 
-<!-- Mirrored from themesbrand.com/velzon/html/master/forms-elements.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Aug 2024 06:11:45 GMT -->
+<!-- Mirrored from themesbrand.com/velzon/html/master/forms-validation.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Aug 2024 06:11:49 GMT -->
 <head>
 
     <meta charset="utf-8" />
-    <title>Alumni</title>
+    <title>Basic Elements | Velzon - Admin & Dashboard Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
-    <!-- <link rel="shortcut icon" href="assets/images/favicon.ico"> -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
 
     <!-- Layout config Js -->
     <script src="assets/js/layout.js"></script>
@@ -41,7 +51,13 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="NotificationModalbtn-close"></button>
             </div>
             <div class="modal-body">
-                
+                <div class="mt-2 text-center">
+                    <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop" colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>
+                    <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
+                        <h4>Are you sure ?</h4>
+                        <p class="text-muted mx-4 mb-0">Are you sure you want to remove this Notification ?</p>
+                    </div>
+                </div>
                 <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
                     <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
                     <button type="button" class="btn w-sm btn-danger" id="delete-notification">Yes, Delete It!</button>
@@ -67,7 +83,12 @@
 
                     <!-- start page title -->
                     <div class="row">
-                        
+                        <div class="col-12">
+                            <div class="page-title-box d-sm-flex align-items-center justify-content-between bg-galaxy-transparent">
+
+
+                            </div>
+                        </div>
                     </div>
                     <!-- end page title -->
 
@@ -76,176 +97,63 @@
                             <div class="card">
                                 <div class="card-header align-items-center d-flex">
                                     <h4 class="card-title mb-0 flex-grow-1">Member Renewal</h4>
-                                  
-                                </div><!-- end card header -->
-                                <div class="card-body">
-                                    <div class="live-preview">
-                                        <div class="row gy-4">
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="basiInput" class="form-label">Basic Input</label>
-                                                    <input type="password" class="form-control" id="basiInput">
-                                                </div>
-                                            </div>
-                                            <!--end col-->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="labelInput" class="form-label">Input with Label</label>
-                                                    <input type="password" class="form-control" id="labelInput">
-                                                </div>
-                                            </div>
-                                            <!--end col-->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="placeholderInput" class="form-label">Input with Placeholder</label>
-                                                    <input type="password" class="form-control" id="placeholderInput" placeholder="Placeholder">
-                                                </div>
-                                            </div>
-                                            <!--end col-->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="valueInput" class="form-label">Input with Value</label>
-                                                    <input type="text" class="form-control" id="valueInput" value="Input value">
-                                                </div>
-                                            </div>
-                                            <!--end col-->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="readonlyPlaintext" class="form-label">Readonly Plain Text Input</label>
-                                                    <input type="text" class="form-control-plaintext" id="readonlyPlaintext" value="Readonly input" readonly>
-                                                </div>
-                                            </div>
-                                            <!--end col-->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="readonlyInput" class="form-label">Readonly Input</label>
-                                                    <input type="text" class="form-control" id="readonlyInput" value="Readonly input" readonly>
-                                                </div>
-                                            </div>
-                                            <!--end col-->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="disabledInput" class="form-label">Disabled Input</label>
-                                                    <input type="text" class="form-control" id="disabledInput" value="Disabled input" disabled>
-                                                </div>
-                                            </div>
-                                            <!--end col-->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="iconInput" class="form-label">Input with Icon</label>
-                                                    <div class="form-icon">
-                                                        <input type="email" class="form-control form-control-icon" id="iconInput" placeholder="example@gmail.com">
-                                                        <i class="ri-mail-unread-line"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--end col-->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="iconrightInput" class="form-label">Input with Icon Right</label>
-                                                    <div class="form-icon right">
-                                                        <input type="email" class="form-control form-control-icon" id="iconrightInput" placeholder="example@gmail.com">
-                                                        <i class="ri-mail-unread-line"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--end col-->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="exampleInputdate" class="form-label">Input Date</label>
-                                                    <input type="date" class="form-control" id="exampleInputdate">
-                                                </div>
-                                            </div>
-                                            <!--end col-->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="exampleInputtime" class="form-label">Input Time</label>
-                                                    <input type="time" class="form-control" id="exampleInputtime">
-                                                </div>
-                                            </div>
-                                            <!--end col-->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="exampleInputpassword" class="form-label">Input Password</label>
-                                                    <input type="password" class="form-control" id="exampleInputpassword" value="44512465">
-                                                </div>
-                                            </div>
-                                            <!--end col-->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="exampleFormControlTextarea5" class="form-label">Example Textarea</label>
-                                                    <textarea class="form-control" id="exampleFormControlTextarea5" rows="3"></textarea>
-                                                </div>
-                                            </div>
-                                            <!--end col-->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="formtextInput" class="form-label">Form Text</label>
-                                                    <input type="password" class="form-control" id="formtextInput">
-                                                    <div id="passwordHelpBlock" class="form-text">
-                                                        Must be 8-20 characters long.
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--end col-->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="colorPicker" class="form-label">Color Picker</label>
-                                                    <input type="color" class="form-control form-control-color w-100" id="colorPicker" value="#364574">
-                                                </div>
-                                            </div>
-                                            <!--end col-->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="borderInput" class="form-label">Input Border Style</label>
-                                                    <input type="text" class="form-control border-dashed" id="borderInput" placeholder="Enter your name">
-                                                </div>
-                                            </div>
-                                            <!--end col-->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <label for="exampleDataList" class="form-label">Datalist example</label>
-                                                <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Search your country...">
-                                                <datalist id="datalistOptions">
-                                                    <option value="Switzerland">
-                                                    <option value="New York">
-                                                    <option value="France">
-                                                    <option value="Spain">
-                                                    <option value="Chicago">
-                                                    <option value="Bulgaria">
-                                                    <option value="Hong Kong">
-                                                </datalist>
-                                            </div>
-                                            <!--end col-->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="exampleInputrounded" class="form-label">Rounded Input</label>
-                                                    <input type="text" class="form-control rounded-pill" id="exampleInputrounded" placeholder="Enter your name">
-                                                </div>
-                                            </div>
-                                            <!--end col-->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div class="form-floating">
-                                                    <input type="text" class="form-control" id="firstnamefloatingInput" placeholder="Enter your firstname">
-                                                    <label for="firstnamefloatingInput">Floating Input</label>
-                                                </div>
-                                            </div>
-                                            <!--end col-->
-                                        </div>
-                                        <!--end row-->
+                                    <div class="flex-shrink-0">
+                                        
                                     </div>
-                                  
+                                </div><!-- end card header -->
+
+                                <div class="card-body">
+
+                                    <div class="live-preview">
+                                        <form class="row g-3">
+                                            <div class="col-md-4">
+                                                <label for="validationDefault01" class="form-label">Full name</label>
+                                                <input type="text" class="form-control" id="validationDefault01" value="Mark" required>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="validationDefaultUsername" class="form-label">Email address</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                                                    <input type="text" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label for="validationDefault04" class="form-label">Membership type</label>
+                                                <select class="form-select" name="membership_type" id="validationDefault04" required>
+                                                    <option selected disabled value="">Choose...</option>
+                                                    <option>...</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-11">
+                                            <input type="file" class="form-control" aria-label="file example" required>
+                                            </div>
+                                           
+                                            <div class="col-12">
+                                                <button class="btn btn-primary" type="submit">Submit form</button>
+                                            </div>
+                                        </form>
+                                    </div>
+
+
+                                   
+
                                 </div>
                             </div>
-                        </div>
-                        <!--end col-->
+                        </div> <!-- end col -->
                     </div>
-                    <!--end row-->
+                    <!-- end row -->
 
 
-                 
+                        <!-- end row -->
+
+                        <!-- end row -->
+
+                    </div>
 
                 </div> <!-- container-fluid -->
-            </div><!-- End Page-content -->
+            </div>
+            <!-- End Page-content -->
+
 
             <footer class="footer">
                 <div class="container-fluid">
@@ -268,6 +176,7 @@
     <!-- END layout-wrapper -->
 
     
+
 
 
     <!--start back-to-top-->
@@ -1239,10 +1148,13 @@
     <!-- prismjs plugin -->
     <script src="assets/libs/prismjs/prism.js"></script>
 
+    <script src="assets/js/pages/form-validation.init.js"></script>
+
+
     <script src="assets/js/app.js"></script>
 
 </body>
 
 
-<!-- Mirrored from themesbrand.com/velzon/html/master/forms-elements.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Aug 2024 06:11:45 GMT -->
+<!-- Mirrored from themesbrand.com/velzon/html/master/forms-validation.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Aug 2024 06:11:50 GMT -->
 </html>

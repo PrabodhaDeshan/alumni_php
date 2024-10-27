@@ -63,7 +63,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="chat.php">
+                            <a class="nav-link menu-link" href="member_chat.php">
                                 <i class="ri-chat-1-line"></i> <span data-key="t-widgets">Chat</span>
                             </a>
                         </li>

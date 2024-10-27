@@ -1,21 +1,30 @@
 
+<?php
+session_start();
+if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
+    header("Location: admin_dashboard.php");
+    exit();
+}
+echo "Welcome, " . $_SESSION['member_username'];
+?>
+
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
 
 
-<!-- Mirrored from themesbrand.com/velzon/html/master/apps-chat.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Aug 2024 06:10:25 GMT -->
+<!-- Mirrored from themesbrand.com/velzon/html/master/tables-listjs.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Aug 2024 06:11:55 GMT -->
 <head>
 
     <meta charset="utf-8" />
-    <title>Chat | Velzon - Admin & Dashboard Template</title>
+    <title>Listjs | Velzon - Admin & Dashboard Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
 
-    <!-- glightbox css -->
-    <link rel="stylesheet" href="assets/libs/glightbox/css/glightbox.min.css">
+    <!-- Sweet Alert css-->
+    <link href="assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
 
     <!-- Layout config Js -->
     <script src="assets/js/layout.js"></script>
@@ -27,7 +36,7 @@
     <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
     <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/chat.css" rel="stylesheet" type="text/css" />
+
 </head>
 
 <body>
@@ -35,8 +44,6 @@
     <!-- Begin page -->
     <div id="layout-wrapper">
     <?php include './inc/admin_header.php';?>
-        
-</header>
 
 <!-- removeNotificationModal -->
 <div id="removeNotificationModal" class="modal fade zoomIn" tabindex="-1" aria-hidden="true">
@@ -75,108 +82,195 @@
 
             <div class="page-content">
                 <div class="container-fluid">
-                 
-                <main class="content">
-    <div class="container p-0">
 
-		
+                    <!-- start page title -->
+                  
+                    <!-- end page title -->
 
-		<div class="card">
-			<div class="row g-0">
-				<div class="col-12 col-lg-5 col-xl-3 border-right" style="border: 1px solid #e5e3e3; padding:10px; padding-top:30px;" >
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title mb-0">View Members</h4>
+                                </div><!-- end card header -->
 
-				
+                                <div class="card-body">
+                                    <div class="listjs-table" id="customerList">
+                                        <div class="row g-4 mb-3">
+                                            <div class="col-sm-auto">
+                                                <div>
+                                                    <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i> Add</button>
+                                                    <button class="btn btn-soft-danger" onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm">
+                                                <div class="d-flex justify-content-sm-end">
+                                                    <div class="search-box ms-2">
+                                                        <input type="text" class="form-control search" placeholder="Search...">
+                                                        <i class="ri-search-line search-icon"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
-				
-					<a href="#" class="list-group-item list-group-item-action border-0">
-						<div class="d-flex align-items-start">
-							<img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle mr-1" alt="Doris Wilder" width="40" height="40">
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="flex-grow-1 ml-3">
-								Doris Wilder
-								<div class="small"><span class="fas fa-circle chat-offline"></span> Offline</div>
-							</div>
-						</div>
-					</a>
-                    <br>
-					<a href="#" class="list-group-item list-group-item-action border-0">
-						<div class="d-flex align-items-start"  >
-							<img src="https://bootdey.com/img/Content/avatar/avatar4.png" class="rounded-circle mr-1" alt="Haley Kennedy" width="40" height="40">
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <div class="flex-grow-1 ml-3">
-								Haley Kennedy
-								<div class="small"><span class="fas fa-circle chat-offline"></span> Offline</div>
-							</div>
-						</div>
-					</a>
-                   
-					<hr class="d-block d-lg-none mt-1 mb-0">
-				</div>
-				<div class="col-12 col-lg-7 col-xl-9">
-					<div class="py-2 px-4 border-bottom d-none d-lg-block">
-						<div class="d-flex align-items-center py-1">
-							<div class="position-relative">
-								<img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
-							</div>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<div class="flex-grow-1 pl-3">
-								<strong>Sharon Lessman</strong>
-                                
-								<div class="text-muted small"><em>Typing...</em></div>
-							</div>
-							<div>
-								<button class="btn btn-primary btn-lg mr-1 px-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone feather-lg"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></button>
-								<button class="btn btn-info btn-lg mr-1 px-3 d-none d-md-inline-block"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-video feather-lg"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg></button>
-								<button class="btn btn-light border btn-lg px-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal feather-lg"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></button>
-							</div>
-						</div>
-					</div>
+                                        <div class="table-responsive table-card mt-3 mb-1">
+                                            <table class="table align-middle table-nowrap" id="customerTable">
+                                                <thead class="table-light">
+                                                    <tr>
+                                                        <th scope="col" style="width: 50px;">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="checkAll" value="option">
+                                                            </div>
+                                                        </th>
+                                                        <th class="sort" data-sort="customer_name">Name</th>
+                                                        <th class="" data-sort="customer_name">Email</th>
+                                                        <th class="" data-sort="email">Batch</th>
+                                                        <th class="" data-sort="phone">Contact</th>
+                                                        <th class="" data-sort="date">Address</th>
+                                                        <th class="" data-sort="status">Status</th>
+                                                        <th class="" data-sort="action">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="list form-check-all">
+                                                    <tr>
+                                                        <th scope="row">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
+                                                            </div>
+                                                        </th>
+                                                        <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
+                                                        <td class="customer_name">Mary Cousar</td>
+                                                        <td class="email">marycousar@velzon.com</td>
+                                                        <td class="phone">580-464-4694</td>
+                                                        <td class="phone">rbebrbeb</td>
+                                                        <td class="date">06 Apr, 2021</td>
+                                                        <td class="status"><span class="badge bg-success-subtle text-success text-uppercase">Active</span></td>
+                                                        <td>
+                                                            <div class="d-flex gap-2">
+                                                                <div class="edit">
+                                                                    <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Edit</button>
+                                                                </div>
+                                                                <div class="remove">
+                                                                    <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Remove</button>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="noresult" style="display: none">
+                                                <div class="text-center">
+                                                    <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop" colors="primary:#121331,secondary:#08a88a" style="width:75px;height:75px"></lord-icon>
+                                                    <h5 class="mt-2">Sorry! No Result Found</h5>
+                                                    <p class="text-muted mb-0">We've searched more than 150+ Orders We did not find any orders for you search.</p>
+                                                </div>
+                                            </div>
+                                        </div>
 
-					<div class="position-relative">
-						<div class="chat-messages p-4">
-
-							<div class="chat-message-right pb-4">
-								<div>
-									<img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
-								
-                                    <div class="text-muted small text-nowrap mt-2">2:33 am</div>
-								</div>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
-									<div class="font-weight-bold mb-1">You</div>
-									Lorem ipsum dolor sit amet, vis erat denique in, dicunt prodesset te vix.
-								</div>
-							</div>
-
-							<div class="chat-message-left pb-4">
-								<div>
-									<img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
-									<div class="text-muted small text-nowrap mt-2">2:34 am</div>
-								</div>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<div class="flex-shrink-1 bg-light rounded py-2 px-3 ml-3">
-									<div class="font-weight-bold mb-1">Sharon Lessman</div>
-									Sit meis deleniti eu, pri vidit meliore docendi ut, an eum erat animal commodo.
-								</div>
-							</div>
+                                        <div class="d-flex justify-content-end">
+                                            <div class="pagination-wrap hstack gap-2">
+                                                <a class="page-item pagination-prev disabled" href="javascript:void(0);">
+                                                    Previous
+                                                </a>
+                                                <ul class="pagination listjs-pagination mb-0"></ul>
+                                                <a class="page-item pagination-next" href="javascript:void(0);">
+                                                    Next
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- end card -->
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end col -->
+                    </div>
+                    <!-- end row -->
 
 
-						</div>
-					</div>
+                    <div class="modal fade" id="showModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header bg-light p-3">
+                                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
+                                </div>
+                                <form class="tablelist-form" autocomplete="off">
+                                    <div class="modal-body">
+                                        <div class="mb-3" id="modal-id" style="display: none;">
+                                            <label for="id-field" class="form-label">ID</label>
+                                            <input type="text" id="id-field" class="form-control" placeholder="ID" readonly />
+                                        </div>
 
-					<div class="flex-grow-0 py-3 px-4 border-top">
-						<div class="input-group">
-							<input type="text" class="form-control" placeholder="Type your message">
-							<button class="btn btn-primary">Send</button>
-						</div>
-					</div>
+                                        <div class="mb-3">
+                                            <label for="customername-field" class="form-label">Customer Name</label>
+                                            <input type="text" id="customername-field" class="form-control" placeholder="Enter Name" required />
+                                            <div class="invalid-feedback">Please enter a customer name.</div>
+                                        </div>
 
-				</div>
-			</div>
-		</div>
-	</div>
-</main>
-                
-                    <!-- end chat-wrapper -->
+                                        <div class="mb-3">
+                                            <label for="email-field" class="form-label">Email</label>
+                                            <input type="email" id="email-field" class="form-control" placeholder="Enter Email" required />
+                                            <div class="invalid-feedback">Please enter an email.</div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="phone-field" class="form-label">Phone</label>
+                                            <input type="text" id="phone-field" class="form-control" placeholder="Enter Phone no." required />
+                                            <div class="invalid-feedback">Please enter a phone.</div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="date-field" class="form-label">Joining Date</label>
+                                            <input type="text" id="date-field" class="form-control" placeholder="Select Date" required />
+                                            <div class="invalid-feedback">Please select a date.</div>
+                                        </div>
+
+                                        <div>
+                                            <label for="status-field" class="form-label">Status</label>
+                                            <select class="form-control" data-trigger name="status-field" id="status-field" required>
+                                                <option value="">Status</option>
+                                                <option value="Active">Active</option>
+                                                <option value="Block">Block</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div class="hstack gap-2 justify-content-end">
+                                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-success" id="add-btn">Add Customer</button>
+                                            <!-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> -->
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal -->
+                    <div class="modal fade zoomIn" id="deleteRecordModal" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="btn-close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="mt-2 text-center">
+                                        <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop" colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>
+                                        <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
+                                            <h4>Are you Sure ?</h4>
+                                            <p class="text-muted mx-4 mb-0">Are you Sure You want to Remove this Record ?</p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
+                                        <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn w-sm btn-danger " id="delete-record">Yes, Delete It!</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end modal -->
 
                 </div>
                 <!-- container-fluid -->
@@ -202,239 +296,6 @@
 
     </div>
     <!-- END layout-wrapper -->
-
-    <div class="offcanvas offcanvas-end border-0" tabindex="-1" id="userProfileCanvasExample">
-        <!--end offcanvas-header-->
-        <div class="offcanvas-body profile-offcanvas p-0">
-            <div class="team-cover">
-                <img src="assets/images/small/img-9.jpg" alt="" class="img-fluid" />
-            </div>
-            <div class="p-1 pb-4 pt-0">
-                <div class="team-settings">
-                    <div class="row g-0">
-                        <div class="col">
-                            <div class="btn nav-btn">
-                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                            </div>
-                        </div>
-                        <div class="col-auto">
-                            <div class="user-chat-nav d-flex">
-                                <button type="button" class="btn nav-btn favourite-btn active">
-                                    <i class="ri-star-fill"></i>
-                                </button>
-
-                                <div class="dropdown">
-                                    <a class="btn nav-btn" href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="ri-more-2-fill"></i>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-inbox-archive-line align-bottom text-muted me-2"></i>Archive</a></li>
-                                        <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-mic-off-line align-bottom text-muted me-2"></i>Muted</a></li>
-                                        <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-delete-bin-5-line align-bottom text-muted me-2"></i>Delete</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <!--end col-->
-            </div>
-            <div class="p-3 text-center">
-                <img src="assets/images/users/avatar-2.jpg" alt="" class="avatar-lg img-thumbnail rounded-circle mx-auto profile-img">
-                <div class="mt-3">
-                    <h5 class="fs-16 mb-1"><a href="javascript:void(0);" class="link-primary username">Lisa Parker</a></h5>
-                    <p class="text-muted"><i class="ri-checkbox-blank-circle-fill me-1 align-bottom text-success"></i>Online</p>
-                </div>
-
-                <div class="d-flex gap-2 justify-content-center">
-                    <button type="button" class="btn avatar-xs p-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message">
-                        <span class="avatar-title rounded bg-light text-body">
-                            <i class="ri-question-answer-line"></i>
-                        </span>
-                    </button>
-
-                    <button type="button" class="btn avatar-xs p-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Favourite">
-                        <span class="avatar-title rounded bg-light text-body">
-                            <i class="ri-star-line"></i>
-                        </span>
-                    </button>
-
-                    <button type="button" class="btn avatar-xs p-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Phone">
-                        <span class="avatar-title rounded bg-light text-body">
-                            <i class="ri-phone-line"></i>
-                        </span>
-                    </button>
-
-                    <div class="dropdown">
-                        <button class="btn avatar-xs p-0" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="avatar-title bg-light text-body rounded">
-                                <i class="ri-more-fill"></i>
-                            </span>
-                        </button>
-
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-inbox-archive-line align-bottom text-muted me-2"></i>Archive</a></li>
-                            <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-mic-off-line align-bottom text-muted me-2"></i>Muted</a></li>
-                            <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-delete-bin-5-line align-bottom text-muted me-2"></i>Delete</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="border-top border-top-dashed p-3">
-                <h5 class="fs-15 mb-3">Personal Details</h5>
-                <div class="mb-3">
-                    <p class="text-muted text-uppercase fw-medium fs-12 mb-1">Number</p>
-                    <h6>+(256) 2451 8974</h6>
-                </div>
-                <div class="mb-3">
-                    <p class="text-muted text-uppercase fw-medium fs-12 mb-1">Email</p>
-                    <h6>lisaparker@gmail.com</h6>
-                </div>
-                <div>
-                    <p class="text-muted text-uppercase fw-medium fs-12 mb-1">Location</p>
-                    <h6 class="mb-0">California, USA</h6>
-                </div>
-            </div>
-
-            <div class="border-top border-top-dashed p-3">
-                <h5 class="fs-15 mb-3">Attached Files</h5>
-
-                <div class="vstack gap-2">
-                    <div class="border rounded border-dashed p-2">
-                        <div class="d-flex align-items-center">
-                            <div class="flex-shrink-0 me-3">
-                                <div class="avatar-xs">
-                                    <div class="avatar-title bg-light text-secondary rounded fs-20">
-                                        <i class="ri-folder-zip-line"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex-grow-1 overflow-hidden">
-                                <h5 class="fs-13 mb-1"><a href="#" class="text-body text-truncate d-block">App pages.zip</a></h5>
-                                <div class="text-muted">2.2MB</div>
-                            </div>
-                            <div class="flex-shrink-0 ms-2">
-                                <div class="d-flex gap-1">
-                                    <button type="button" class="btn btn-icon text-muted btn-sm fs-18 material-shadow-none"><i class="ri-download-2-line"></i></button>
-                                    <div class="dropdown">
-                                        <button class="btn btn-icon text-muted btn-sm fs-18 dropdown material-shadow-none" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="ri-more-fill"></i>
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#"><i class="ri-share-line align-bottom me-2 text-muted"></i> Share</a></li>
-                                            <li><a class="dropdown-item" href="#"><i class="ri-bookmark-line align-bottom me-2 text-muted"></i> Bookmark</a></li>
-                                            <li><a class="dropdown-item" href="#"><i class="ri-delete-bin-line align-bottom me-2 text-muted"></i> Delete</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="border rounded border-dashed p-2">
-                        <div class="d-flex align-items-center">
-                            <div class="flex-shrink-0 me-3">
-                                <div class="avatar-xs">
-                                    <div class="avatar-title bg-light text-secondary rounded fs-20">
-                                        <i class="ri-file-ppt-2-line"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex-grow-1 overflow-hidden">
-                                <h5 class="fs-13 mb-1"><a href="#" class="text-body text-truncate d-block">Velzon admin.ppt</a></h5>
-                                <div class="text-muted">2.4MB</div>
-                            </div>
-                            <div class="flex-shrink-0 ms-2">
-                                <div class="d-flex gap-1">
-                                    <button type="button" class="btn btn-icon text-muted btn-sm fs-18 material-shadow-none"><i class="ri-download-2-line"></i></button>
-                                    <div class="dropdown">
-                                        <button class="btn btn-icon text-muted btn-sm fs-18 dropdown material-shadow-none" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="ri-more-fill"></i>
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#"><i class="ri-share-line align-bottom me-2 text-muted"></i> Share</a></li>
-                                            <li><a class="dropdown-item" href="#"><i class="ri-bookmark-line align-bottom me-2 text-muted"></i> Bookmark</a></li>
-                                            <li><a class="dropdown-item" href="#"><i class="ri-delete-bin-line align-bottom me-2 text-muted"></i> Delete</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="border rounded border-dashed p-2">
-                        <div class="d-flex align-items-center">
-                            <div class="flex-shrink-0 me-3">
-                                <div class="avatar-xs">
-                                    <div class="avatar-title bg-light text-secondary rounded fs-20">
-                                        <i class="ri-folder-zip-line"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex-grow-1 overflow-hidden">
-                                <h5 class="fs-13 mb-1"><a href="#" class="text-body text-truncate d-block">Images.zip</a></h5>
-                                <div class="text-muted">1.2MB</div>
-                            </div>
-                            <div class="flex-shrink-0 ms-2">
-                                <div class="d-flex gap-1">
-                                    <button type="button" class="btn btn-icon text-muted btn-sm fs-18 material-shadow-none"><i class="ri-download-2-line"></i></button>
-                                    <div class="dropdown">
-                                        <button class="btn btn-icon text-muted btn-sm fs-18 dropdown material-shadow-none" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="ri-more-fill"></i>
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#"><i class="ri-share-line align-bottom me-2 text-muted"></i> Share</a></li>
-                                            <li><a class="dropdown-item" href="#"><i class="ri-bookmark-line align-bottom me-2 text-muted"></i> Bookmark</a></li>
-                                            <li><a class="dropdown-item" href="#"><i class="ri-delete-bin-line align-bottom me-2 text-muted"></i> Delete</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="border rounded border-dashed p-2">
-                        <div class="d-flex align-items-center">
-                            <div class="flex-shrink-0 me-3">
-                                <div class="avatar-xs">
-                                    <div class="avatar-title bg-light text-secondary rounded fs-20">
-                                        <i class="ri-image-2-line"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex-grow-1 overflow-hidden">
-                                <h5 class="fs-13 mb-1"><a href="#" class="text-body text-truncate d-block">bg-pattern.png</a></h5>
-                                <div class="text-muted">1.1MB</div>
-                            </div>
-                            <div class="flex-shrink-0 ms-2">
-                                <div class="d-flex gap-1">
-                                    <button type="button" class="btn btn-icon text-muted btn-sm fs-18 material-shadow-none"><i class="ri-download-2-line"></i></button>
-                                    <div class="dropdown">
-                                        <button class="btn btn-icon text-muted btn-sm fs-18 dropdown material-shadow-none" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="ri-more-fill"></i>
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#"><i class="ri-share-line align-bottom me-2 text-muted"></i> Share</a></li>
-                                            <li><a class="dropdown-item" href="#"><i class="ri-bookmark-line align-bottom me-2 text-muted"></i> Bookmark</a></li>
-                                            <li><a class="dropdown-item" href="#"><i class="ri-delete-bin-line align-bottom me-2 text-muted"></i> Delete</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="text-center mt-2">
-                        <button type="button" class="btn btn-danger">Load more <i class="ri-arrow-right-fill align-bottom ms-1"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--end offcanvas-body-->
-    </div>
-    <!--end offcanvas-->
 
 
 
@@ -1403,20 +1264,21 @@
     <script src="assets/libs/feather-icons/feather.min.js"></script>
     <script src="assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
     <script src="assets/js/plugins.js"></script>
+    <!-- prismjs plugin -->
+    <script src="assets/libs/prismjs/prism.js"></script>
+    <script src="assets/libs/list.js/list.min.js"></script>
+    <script src="assets/libs/list.pagination.js/list.pagination.min.js"></script>
 
-    <!-- glightbox js -->
-    <script src="assets/libs/glightbox/js/glightbox.min.js"></script>
+    <!-- listjs init -->
+    <script src="assets/js/pages/listjs.init.js"></script>
 
-    <!-- fgEmojiPicker js -->
-    <script src="assets/libs/fg-emoji-picker/fgEmojiPicker.js"></script>
-
-    <!-- chat init js -->
-    <script src="assets/js/pages/chat.init.js"></script>
+    <!-- Sweet Alerts js -->
+    <script src="assets/libs/sweetalert2/sweetalert2.min.js"></script>
 
     <!-- App js -->
     <script src="assets/js/app.js"></script>
 </body>
 
 
-<!-- Mirrored from themesbrand.com/velzon/html/master/apps-chat.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Aug 2024 06:10:26 GMT -->
+<!-- Mirrored from themesbrand.com/velzon/html/master/tables-listjs.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Aug 2024 06:11:55 GMT -->
 </html>

@@ -1,5 +1,4 @@
 
-
 <header id="page-topbar">
     <div class="layout-width">
         <div class="navbar-header">
@@ -79,11 +78,12 @@
                         <span class="d-flex align-items-center">
                             <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg" alt="Header Avatar">
                             <span class="text-start ms-xl-2">
-                            <?php
+                                <!-- <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Admin Name</span> -->
+                                <?php
 
-echo $_SESSION['member_username'];
-?>
-                                <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">Member</span>
+                                echo $_SESSION['member_username'];
+                                ?>
+                                <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">Admin</span>
                             </span>
                         </span>
                     </button>
@@ -91,9 +91,13 @@ echo $_SESSION['member_username'];
                         <!-- item-->
                         <h6 class="dropdown-header">Welcome Anna!</h6>
                         <a class="dropdown-item" href="member_profile.php"><i class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Profile</span></a>
+
                         <form action="logout.php" method="post" style="display: inline;">
+
                             <button type="submit">Logout</button>
                         </form>
+
+
                         <!-- <a class="dropdown-item" href="login.php"><i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span class="align-middle" data-key="t-logout">Logout</span></a> -->
                     </div>
                 </div>
