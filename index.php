@@ -1,9 +1,12 @@
+<?php
+require 'db.php'; 
+
+
+?>
+
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
     data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
-
-
-<!-- Mirrored from themesbrand.com/velzon/html/master/job-landing.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Aug 2024 06:11:28 GMT -->
 
 <head>
 
@@ -12,8 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+  
 
     <!--Swiper slider css-->
     <link href="assets/libs/swiper/swiper-bundle.min.css" rel="stylesheet" type="text/css" />
@@ -51,9 +53,9 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="index.php">Home</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="#events">Events</a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link" href="about_us.php">About Us</a>
                         </li>
@@ -137,9 +139,9 @@
                                                            Event Title
                                                            </a>
                                                         </div>
-                                                        <!-- <div class="event-location">
+                                                        <div class="event-location">
                                                            location
-                                                        </div> -->
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -154,9 +156,9 @@
                                                            Event Title
                                                            </a>
                                                         </div>
-                                                        <!-- <div class="event-location">
+                                                        <div class="event-location">
                                                            location
-                                                        </div> -->
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -171,9 +173,9 @@
                                                            Event Title
                                                            </a>
                                                         </div>
-                                                        <!-- <div class="event-location">
+                                                        <div class="event-location">
                                                            location
-                                                        </div> -->
+                                                        </div>
                                                     </div>
                                                 </div>
 
@@ -216,33 +218,35 @@
                 </div>
 
                 <div class="right">
-                    <div class="col-xl-12">
+                    <div class="col-xl-12"  >
                         <!-- Page 1: Posts 1 and 2 -->
                         <div class="card">
-                            <h5 class="card-header">Post Title 1</h5>
+                        <?php
+                        $sql = "SELECT * FROM post ";
+                        $result = $conn->query($sql);
+                        if ($result && $result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                        ?>
                             <div class="card-body">
-                                <h5 class="card-title">Special title treatment</h5>
-                                <img src="https://i.pinimg.com/originals/21/21/65/2121655ee682a0fe0f2b02adda8c3c51.jpg"
-                                    alt="">
-                                <p class="card-text">With supporting text below as a natural lead-in to additional
-                                    content.</p>
+
+                        
+
+                                <h5 class="card-title"><?php echo $row['post_title']; ?></h5>
+                                <br>
+                                <img src="backend/uploads/<?php echo $row['post_image1']; ?>" alt="">
+                                <br>
+                                <p class="card-text"><?php echo $row['post_description']; ?></p>
                                 <a href="#" class="btn btn-primary">Share</a>
+
+
                             </div>
+                            <?php
+                            }
+                        } else {
+                            echo "No books found.";
+                        }
+                        ?>
                         </div>
-
-                        <div class="card">
-                            <h5 class="card-header">Post Title 2</h5>
-                            <div class="card-body">
-                                <h5 class="card-title">Special title treatment</h5>
-                                <img src="https://images.pexels.com/photos/1535907/pexels-photo-1535907.jpeg?cs=srgb&dl=pexels-karymefranca-1535907.jpg&fm=jpg"
-                                    alt="">
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipiscing, elit id tortor
-                                    velit tempor...</p>
-                                <a href="#" class="btn btn-primary">Share</a>
-                            </div>
-                        </div>
-
-
 
                         <!-- Pagination -->
                         <nav aria-label="Page navigation">
@@ -298,18 +302,10 @@
                         </nav>
                     </div><!-- end col -->
                 </div>
-
-
-
             </div>
-
 
         </section>
         <!-- end hero section -->
-
-
-
-
    
         <section class="section" id="contact">
             <div class="container">
@@ -550,7 +546,5 @@
     <script src="assets/js/pages/swiper.init.js"></script>
 </body>
 
-
-<!-- Mirrored from themesbrand.com/velzon/html/master/job-landing.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Aug 2024 06:11:29 GMT -->
 
 </html>

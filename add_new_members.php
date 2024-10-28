@@ -11,8 +11,6 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
 
 
-<!-- Mirrored from themesbrand.com/velzon/html/master/forms-elements.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Aug 2024 06:11:45 GMT -->
-
 <head>
 
     <meta charset="utf-8" />
@@ -286,8 +284,5 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
 </script>
 
 </body>
-
-
-<!-- Mirrored from themesbrand.com/velzon/html/master/forms-elements.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Aug 2024 06:11:45 GMT -->
 
 </html>
