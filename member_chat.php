@@ -44,13 +44,13 @@ if ($selected_member_id) {
             <div class="page-content">
                 <div class="container-fluid">
                     <main class="content">
-                        <div class="container p-0">
-                            <div class="card">
+                        <div class="container p-0" >
+                            <div class="card" >
                                 <form id="messageForm">
-                                    <div class="row g-0">
+                                    <div class="row g-0"  >
                                         <div class="col-12 col-lg-5 col-xl-3 border-right"
-                                            style="border: 1px solid #e5e3e3; padding:10px; padding-top:30px;">
-                                            <ul class="list-group">
+                                            style="border: 1px solid #e5e3e3; padding:10px; padding-top:30px; ">
+                                            <ul class="list-group" style="cursor:pointer;" >
                                                 <?php
                                                 $result = $conn->query("SELECT member_id, member_username FROM members WHERE member_id != $member_id");
                                                 while ($row = $result->fetch_assoc()) {
@@ -66,8 +66,8 @@ if ($selected_member_id) {
                                             </ul>
                                         </div>
 
-                                        <div class="col-12 col-lg-7 col-xl-9">
-                                            <div class="chat-messages p-4" id="chatMessages">
+                                        <div class="col-12 col-lg-7 col-xl-9" >
+                                            <div class="chat-messages p-4" id="chatMessages" style="height:500px;" >
                                                 <?php
                                                 if ($selected_member_id) {
                                                     $messages = $conn->query("SELECT * FROM messages WHERE (sender_id = $member_id AND receiver_id = $selected_member_id) OR (sender_id = $selected_member_id AND receiver_id = $member_id) ORDER BY massege_date, massege_time");
@@ -76,14 +76,15 @@ if ($selected_member_id) {
                                                         echo "<div class='chat-message-" . ($isSender ? "right" : "left") . " pb-4'>
                                                                 
                                                             
-                                                                <div class='flex-shrink-1 bg-light rounded py-2 px-3 " . ($isSender ? "mr-3" : "ml-3") . "'>
-                                                                    <div class='font-weight-bold mb-1'  >" . ($isSender ? "You" : $selected_member_username) . "</div>
-                                                                    {$msg['massege_description']}
-                                                                    <br/>
-
-                                                                    {$msg['massege_time']}
-
-                                                                </div>
+                                                                <div class='flex-shrink-1  rounded py-2 px-3 " . ($isSender ? "mr-3" : "ml-3") . "' style='background-color: #47afff; color:#eaeaea; ' >
+                                                                    <div class='font-weight-bold mb-1' style='color: #ffffff; font-weight:600;'></div>
+                                                                    <div class='msg' style='color: #ffffff; font-weight:600;'> {$msg['massege_description']}</div>
+                                                                
+                                                                    <div class='time' style='font-size: 10px; color:#eaeaea;'>
+                                                                       {$msg['massege_time']}
+                                                                     </div>
+                                                                    </div>
+                                                                 
                                                             </div>";
                                                     }
                                                 }
@@ -114,6 +115,7 @@ if ($selected_member_id) {
                 </div>
             </footer>
         </div>
+
     </div>
 
     <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
@@ -128,14 +130,7 @@ if ($selected_member_id) {
         </div>
     </div>
 
-    <div class="customizer-setting d-none d-md-block">
-        <div class="btn-info rounded-pill shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas"
-            data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
-            <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
-        </div>
-    </div>
 
-    <?php include './inc/theme_setting.php'; ?>
 
     <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/libs/simplebar/simplebar.min.js"></script>
@@ -167,10 +162,9 @@ if ($selected_member_id) {
                         if (data.success) {
                             chatMessages.innerHTML += `<div class='chat-message-right pb-4'>
                                                         <div>
-                                                            <div class='text-muted small text-nowrap mt-2'>${data.time}</div>
                                                         </div>
-                                                        <div class='flex-shrink-1 bg-light rounded py-2 px-3 mr-3'>
-                                                            <div class='font-weight-bold mb-1'>You</div>
+                                                        <div class='flex-shrink-1 rounded py-2 px-3 mr-3' style='background-color: #47afff; font-weight:600; color:#ffffff; '>
+                                                            
                                                             ${data.message}
                                                         </div>
                                                     </div>`;

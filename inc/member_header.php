@@ -89,11 +89,9 @@ echo $_SESSION['member_username'];
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
                         <!-- item-->
-                        <h6 class="dropdown-header">Welcome Anna!</h6>
-                        <a class="dropdown-item" href="member_profile.php"><i class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Profile</span></a>
-                        <form action="logout.php" method="post" style="display: inline;">
-                            <button type="submit">Logout</button>
-                        </form>
+                        <a class="dropdown-item" href="member_profile.php"> <span class="align-middle">Profile</span></a>
+                        <a class="dropdown-item" href="logout.php"> <span class="align-middle">Logout</span></a>
+
                         <!-- <a class="dropdown-item" href="login.php"><i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span class="align-middle" data-key="t-logout">Logout</span></a> -->
                     </div>
                 </div>

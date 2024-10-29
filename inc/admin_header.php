@@ -56,10 +56,6 @@
                         </form>
                     </div>
                 </div>
-
-
-
-
                 <div class="ms-1 header-item d-none d-sm-flex">
                     <button type="button" class="btn btn-icon btn-topbar material-shadow-none btn-ghost-secondary rounded-circle" data-toggle="fullscreen">
                         <i class='bx bx-fullscreen fs-22'></i>
@@ -76,7 +72,7 @@
                 <div class="dropdown ms-sm-3 header-item topbar-user" style="background-color:white;">
                     <button type="button" class="btn material-shadow-none" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color:white;">
                         <span class="d-flex align-items-center">
-                            <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg" alt="Header Avatar">
+                            <img class="rounded-circle header-profile-user" src="assets/images/users/user.png" alt="Header Avatar">
                             <span class="text-start ms-xl-2">
                                 <!-- <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Admin Name</span> -->
                                 <?php
@@ -89,13 +85,12 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
                         <!-- item-->
-                        <h6 class="dropdown-header">Welcome Anna!</h6>
-                        <a class="dropdown-item" href="member_profile.php"><i class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Profile</span></a>
+                        <a class="dropdown-item" href="admin_profile.php"><span class="align-middle">Profile</span></a>
 
-                        <form action="logout.php" method="post" style="display: inline;">
+                        <a class="dropdown-item" href="logout.php"> <span class="align-middle">Logout</span></a>
 
-                            <button type="submit">Logout</button>
-                        </form>
+                            <!-- <button type="submit">Logout</button> -->
+                       
 
 
                         <!-- <a class="dropdown-item" href="login.php"><i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span class="align-middle" data-key="t-logout">Logout</span></a> -->

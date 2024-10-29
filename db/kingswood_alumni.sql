@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 27, 2024 at 05:22 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Oct 28, 2024 at 11:58 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -42,29 +42,10 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`event_id`, `event_title`, `event_date`, `event_time`, `event_location`, `event_description`, `event_image`) VALUES
-(1, 'sdf', '2024-08-10', '15:12:00', 'ef', 'esf', 'C:\\\\fakepath\\\\student.jpg'),
-(2, 'sport meet', '2024-08-24', '20:15:00', 'kandy', 'adidu iudghiaudghadh oaudgadgu oa doihado adiugad', 'C:\\\\fakepath\\\\boy.jpg'),
-(4, 'dsfafsafF', '2024-08-17', '10:17:00', 'EFWSEF', 'fsafEFSF', ''),
-(8, 'rgege', '2024-08-15', '17:00:00', 'greg', 'rgerg', ''),
-(9, 'dfgsdgsd', '2024-08-03', '15:22:00', 'gdgdg', 'fgsdgf', 'C:\\\\fakepath\\\\student.jpg'),
-(10, 'event 2', '2024-10-26', '12:00:00', 'colombo', 'no description', 'C:\\\\fakepath\\\\Bank-Deposit-Slip-1.jpg'),
-(14, 'anual meetup', '2024-08-10', '22:43:00', 'frfgegrg', 'gergeg', 'C:\\\\fakepath\\\\Bank-Deposit-Slip-1.jpg'),
-(15, 'anual meetup 2', '2024-08-10', '22:04:00', 'studio', 'ewfweafewwf', 'C:\\\\fakepath\\\\Bank-Deposit-Slip-1.jpg');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `massage`
---
-
-CREATE TABLE `massage` (
-  `massage_id` int(11) NOT NULL,
-  `massege_from_admin_id` int(11) DEFAULT NULL,
-  `massege_to_admin_id` int(11) DEFAULT NULL,
-  `massege_date` date DEFAULT NULL,
-  `massege_time` time DEFAULT NULL,
-  `massege_description` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+(16, 'ewfwef', '2024-10-15', '06:49:00', 'fnfdff', 'gbdbdb', NULL),
+(17, 'fwefw', '2024-10-12', '15:55:00', 'fwef', 'efwef', NULL),
+(18, 'ewwf', '2024-10-02', '03:00:00', 'wfw', 'fwefwf', NULL),
+(19, 'sport meet', '2024-10-07', '17:00:00', 'feww', 'fwefwfwefwe', '20241028112949happy-cute-brunette-caucasian-grad-260nw-789412666.png');
 
 -- --------------------------------------------------------
 
@@ -98,7 +79,8 @@ CREATE TABLE `members` (
 
 INSERT INTO `members` (`member_id`, `member_username`, `member_first_name`, `member_last_name`, `member_id_no`, `member_batch`, `member_address`, `member_address_line2`, `member_nic`, `role`, `member_wrokplace`, `member_designation`, `member_email`, `contact_number`, `password`, `confirm_password`, `status`) VALUES
 (20, 'admin', 'adam', 'ff', 'rgeg', '69', 'kandy', 'kandy', '424442453', '1', 'office3', 'manager', 'adminesh97@gmail.com', 2147483647, '$2y$10$PJ32cCLv6m.SeaGoUJKBqOX.lvPcs2CA/WwzAM.9Pa5KAS7g3kZpG', '1111', 'Active'),
-(21, 'member', 'member', 'member', 'fbdfsss', '69', '445 Heddnega33ma, Harankahawa', 'fdffdff', '4454', '2', 'office3', 'ddsss', 'kk455esh97@gmail.com', 2147483647, '$2y$10$SIiSyTWMYmzKSfbiQOgzb.72lb/csMFy7gx.T2o5YpDwszRpmOHQ6', '1234', 'Active');
+(21, 'member', 'member', 'member', 'fbdfsss', '69', '445 Heddnega33ma, Harankahawa', 'fdffdff', '4454', '2', 'office3', 'ddsss', 'kk455esh97@gmail.com', 2147483647, '$2y$10$SIiSyTWMYmzKSfbiQOgzb.72lb/csMFy7gx.T2o5YpDwszRpmOHQ6', '1234', 'Active'),
+(22, 'Prabodha', 'Prabodha', 'Deshan', '5161646464646456', '69', 'ghewrwery546', 'therhertherherherherh', '785856856856865', '2', 'tritcal', 'erhrthhr hrth', 'deshan@gmail.com', 2147483647, '$2y$10$lpExZCUewbNH6g.m81iDa.Cm4OlQX.MwdHqnNB1dHVLW9duYC/D6W', '4444', 'Active');
 
 -- --------------------------------------------------------
 
@@ -113,6 +95,44 @@ CREATE TABLE `member_renewal` (
   `membership_type` varchar(255) NOT NULL,
   `receipt` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `messages`
+--
+
+CREATE TABLE `messages` (
+  `message_id` int(11) NOT NULL,
+  `sender_id` int(11) NOT NULL,
+  `receiver_id` int(11) NOT NULL,
+  `massege_date` date NOT NULL,
+  `massege_time` time NOT NULL,
+  `massege_description` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `messages`
+--
+
+INSERT INTO `messages` (`message_id`, `sender_id`, `receiver_id`, `massege_date`, `massege_time`, `massege_description`) VALUES
+(1, 20, 21, '2024-10-28', '06:41:17', 'wefwefewf'),
+(2, 20, 22, '2024-10-28', '06:41:21', 'fewfff'),
+(3, 20, 21, '2024-10-28', '06:41:24', 'wfwfwefwf'),
+(4, 20, 22, '2024-10-28', '06:41:29', 'f yuo'),
+(5, 20, 22, '2024-10-28', '06:43:58', 'hii'),
+(6, 20, 21, '2024-10-28', '06:44:04', 'hello'),
+(7, 20, 21, '2024-10-28', '06:50:02', 'oiii'),
+(8, 20, 21, '2024-10-28', '06:50:08', 'whatsauppppp!!'),
+(9, 22, 20, '2024-10-28', '06:53:14', 'hrethert'),
+(10, 22, 20, '2024-10-28', '06:53:16', 'hrthrehrth'),
+(11, 20, 21, '2024-10-28', '07:20:58', 'wefwef wefwfefwffweffwf'),
+(12, 20, 22, '2024-10-28', '07:21:33', 'ewfwqfe fqwef gbernrn ernreerhrth'),
+(13, 20, 22, '2024-10-28', '07:29:27', 'f rgwg wer fhh uhehf weifoh oih oi fwiqef oih hi oih'),
+(14, 21, 20, '2024-10-28', '07:36:10', 'rwerwere gwergr '),
+(15, 21, 22, '2024-10-28', '07:37:16', 'hii prabodha im member'),
+(16, 22, 21, '2024-10-28', '07:37:52', 'hii member'),
+(17, 20, 22, '2024-10-28', '08:26:22', 'ggetgerwgg er');
 
 -- --------------------------------------------------------
 
@@ -135,9 +155,8 @@ CREATE TABLE `post` (
 --
 
 INSERT INTO `post` (`post_id`, `admin_id`, `post_title`, `post_description`, `post_date`, `post_time`, `post_image1`) VALUES
-(7, 0, 'Kingswwood Rugby ', 'Lorem ipsum dolor sit amet consectetur adipiscing elit vitae, auctor dis duis vivamus nulla nullam tristique, cras netus pretium maecenas facilisi velit metus. Rhoncus lectus rutrum est egestas hac arcu dis faucibus, eros sem nisl fermentum felis quis pre', '2024-09-24', '14:28:27', '66f27f338ce68-maxresdefault.jpg'),
-(8, 0, 'Kingswood Week', 'Praesent condimentum libero pretium mus lacus dui, interdum taciti tincidunt enim congue, accumsan aptent eget tempus et. Himenaeos lacus aliquam penatibus platea lacinia consequat urna, ultricies eleifend dictumst semper fames fusce ridiculus tincidunt, ', '2024-09-24', '14:30:29', '66f27fadecfc8-hq720.jpg'),
-(9, 0, 'Music Night 2024', 'praesent, iaculis curae nulla magna ad pharetra nunc ut. Tempor potenti lacus nunc euismod fringilla pretium, aenean pulvinar pharetra sociosqu integer enim, habitasse praesent feugiat dis urna. Donec primis at sapien bibendum gravida imperdiet cras iacul', '2024-09-24', '14:49:49', '66f2843560c75-concerts-wallpaper-preview.jpg');
+(21, 0, 'Kingswood rugby', 'Lorem ipsum dolor sit amet consectetur adipiscing elit, habitant ornare pulvinar gravida sem per euismod, himenaeos fames ridiculus ante habitasse fermentum. Torquent turpis lobortis vitae eleifend et nunc auctor blandit nec imperdiet, posuere quis class ', '2024-10-28', '14:47:27', '20241028101727hq720.jpg'),
+(22, 0, 'Post sample post', 'senectus curabitur scelerisque fusce, tempor sodales est varius pellentesque at cum convallis ut dis conubia. Cum mattis suspendisse quis hac mauris placerat vitae at sociosqu, vulputate primis orci suscipit aliquet curabitur sodales luctus interdum, dapi', '2024-10-28', '14:50:42', '20241028102042happy-cute-brunette-caucasian-grad-260nw-789412666.png');
 
 -- --------------------------------------------------------
 
@@ -211,12 +230,6 @@ ALTER TABLE `events`
   ADD PRIMARY KEY (`event_id`);
 
 --
--- Indexes for table `massage`
---
-ALTER TABLE `massage`
-  ADD PRIMARY KEY (`massage_id`);
-
---
 -- Indexes for table `members`
 --
 ALTER TABLE `members`
@@ -227,6 +240,14 @@ ALTER TABLE `members`
 --
 ALTER TABLE `member_renewal`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`message_id`),
+  ADD KEY `sender_id` (`sender_id`),
+  ADD KEY `receiver_id` (`receiver_id`);
 
 --
 -- Indexes for table `post`
@@ -260,19 +281,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
--- AUTO_INCREMENT for table `massage`
---
-ALTER TABLE `massage`
-  MODIFY `massage_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
-  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `member_renewal`
@@ -281,10 +296,16 @@ ALTER TABLE `member_renewal`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `role`
@@ -303,6 +324,17 @@ ALTER TABLE `user`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `messages`
+--
+ALTER TABLE `messages`
+  ADD CONSTRAINT `messages_ibfk_1` FOREIGN KEY (`sender_id`) REFERENCES `members` (`member_id`),
+  ADD CONSTRAINT `messages_ibfk_2` FOREIGN KEY (`receiver_id`) REFERENCES `members` (`member_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

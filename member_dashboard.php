@@ -701,6 +701,7 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '2') {
     </div>
 
     <!-- Theme Settings -->
+    <?php include './inc/theme_setting.php'; ?>
      
    
     <!-- JAVASCRIPT -->

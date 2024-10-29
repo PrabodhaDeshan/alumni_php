@@ -26,5 +26,6 @@ if ($result->num_rows == 1) {
     }
 } else {
     echo "User not found";
+    
 }
 ?>

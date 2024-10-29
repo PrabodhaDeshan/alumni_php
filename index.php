@@ -1,5 +1,5 @@
 <?php
-require 'db.php'; 
+require 'db.php';
 
 
 ?>
@@ -11,11 +11,11 @@ require 'db.php';
 <head>
 
     <meta charset="utf-8" />
-    <title>Job Landing | Velzon - Admin & Dashboard Template</title>
+    <title>KINGSWOOD ALUMNI</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
-  
+
 
     <!--Swiper slider css-->
     <link href="assets/libs/swiper/swiper-bundle.min.css" rel="stylesheet" type="text/css" />
@@ -64,9 +64,8 @@ require 'db.php';
                         </li>
                     </ul>
 
-                    <div class="">
+                    <div class="sign-in">
                         <a href="sign_in.php" class="btn btn-link fw-medium text-decoration-none text-body">Sign in</a>
-                        <!-- <a href="auth-signup-basic.html" class="btn btn-primary">Sign Up</a> -->
                     </div>
                 </div>
 
@@ -76,7 +75,7 @@ require 'db.php';
 
 
         <!-- start hero section -->
-        <section class="section job-hero-section bg-light pb-0" id="hero">
+        <section class="section ">
 
             <div class="sliders">
                 <div class="left">
@@ -120,89 +119,51 @@ require 'db.php';
 
                                     <!-- Swiper -->
                                     <div class="swiper navigation-swiper rounded">
-                                    <h3>Events</h3>
+                                        <h3>Events</h3>
 
                                         <div class="swiper-wrapper">
+                                        <?php
+							$sql = "SELECT * FROM events";
+							$result = $conn->query($sql);
+							$data = [];
+							if ($result) {
+								if ($result->num_rows > 0) {
 
-                                            <div class="swiper-slide">
-                                                <div class="event-card-outer">
+									while ($row = $result->fetch_assoc()) {
+										$events[] = $row;
+									}
+								} else {
+									$data = [];
+								}
+							} else {
 
-                                                
-                                                <div class="event-card">
-                                                    <div class="date">
-                                                        <div class="day">22</div>
-                                                        <div class="month">20240.10.20</div>
-                                                    </div>
-                                                    <div class="info-container">
-                                                        <div class="event-name">
-                                                        <a href="">
-                                                           Event Title
-                                                           </a>
-                                                        </div>
-                                                        <div class="event-location">
-                                                           location
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="event-card">
-                                                    <div class="date">
-                                                        <div class="day">22</div>
-                                                        <div class="month">20240.10.20</div>
-                                                    </div>
-                                                    <div class="info-container">
-                                                        <div class="event-name">
-                                                        <a href="">
-                                                           Event Title
-                                                           </a>
-                                                        </div>
-                                                        <div class="event-location">
-                                                           location
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="event-card">
-                                                    <div class="date">
-                                                        <div class="day">22</div>
-                                                        <div class="month">20240.10.20</div>
-                                                    </div>
-                                                    <div class="info-container">
-                                                        <div class="event-name">
-                                                        <a href="">
-                                                           Event Title
-                                                           </a>
-                                                        </div>
-                                                        <div class="event-location">
-                                                           location
-                                                        </div>
-                                                    </div>
-                                                </div>
+								echo "Error: " . $conn->error;
+							}
+							?>
 
-                                                </div>
-                                                
-                                            </div>
-
-                                            <div class="swiper-slide">
-                                               
-                                                <div class="event-card">
-                                                    <div class="date">
-                                                        <div class="day">22</div>
-                                                        <div class="month">20240.10.20</div>
-                                                    </div>
-                                                    <div class="info-container">
-                                                        <div class="event-name">
-                                                        <a href="">
-                                                           Event Title
-                                                           </a>
+							<?php foreach ($events as $row): ?>
+                                           
+                                                        <div class="swiper-slide">
+                                                            <div class="event-card-outer">
+                                                                <div class="event-card">
+                                                                    <div class="date">
+                                                                        <div class="day">22</div>
+                                                                        <div class="month"><?php echo $row['event_date']; ?></div>
+                                                                    </div>
+                                                                    <div class="info-container">
+                                                                        <div class="event-name">
+                                                                            <a href="event_page.php?event_id=<?= base64_encode($row["event_id"]); ?>" style="color:red;" target="_blank">
+                                                                                <?php echo $row['event_title']; ?>
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="event-location">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <!-- <div class="event-location">
-                                                           location
-                                                        </div> -->
-                                                    </div>
-                                                </div>
-                                             
-                                            </div>
+                                                        <?php endforeach; ?>
+
                                         </div>
                                         <!-- <div class="swiper-button-next material-shadow"></div>
                                         <div class="swiper-button-prev material-shadow"></div> -->
@@ -218,34 +179,33 @@ require 'db.php';
                 </div>
 
                 <div class="right">
-                    <div class="col-xl-12"  >
+                    <div class="col-xl-12">
                         <!-- Page 1: Posts 1 and 2 -->
                         <div class="card">
-                        <?php
-                        $sql = "SELECT * FROM post ";
-                        $result = $conn->query($sql);
-                        if ($result && $result->num_rows > 0) {
-                            while ($row = $result->fetch_assoc()) {
-                        ?>
-                            <div class="card-body">
-
-                        
-
-                                <h5 class="card-title"><?php echo $row['post_title']; ?></h5>
-                                <br>
-                                <img src="backend/uploads/<?php echo $row['post_image1']; ?>" alt="">
-                                <br>
-                                <p class="card-text"><?php echo $row['post_description']; ?></p>
-                                <a href="#" class="btn btn-primary">Share</a>
-
-
-                            </div>
                             <?php
+                            $sql = "SELECT * FROM post ";
+                            $result = $conn->query($sql);
+                            if ($result && $result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                                    ?>
+                                    <div class="card-body">
+
+                                      <a href="post_page.php?post_id=<?= base64_encode($row["post_id"]); ?>"  target="_blank">
+                                        <h5 class="card-title"><?php echo $row['post_title']; ?></h5></a>
+                                        <br>
+                                        <img src="backend/uploads/<?php echo $row['post_image1']; ?>" alt="">
+                                        <br>
+                                        <p class="card-text"><?php echo $row['post_description']; ?></p>
+                                        <a href="#" class="btn btn-primary">Share</a>
+
+
+                                    </div>
+                                    <?php
+                                }
+                            } else {
+                                echo "No books found.";
                             }
-                        } else {
-                            echo "No books found.";
-                        }
-                        ?>
+                            ?>
                         </div>
 
                         <!-- Pagination -->
@@ -306,7 +266,7 @@ require 'db.php';
 
         </section>
         <!-- end hero section -->
-   
+
         <section class="section" id="contact">
             <div class="container">
                 <div class="row justify-content-center">

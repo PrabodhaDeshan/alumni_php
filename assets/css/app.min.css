@@ -21298,7 +21298,11 @@ span.flatpickr-weekday {
     font-weight: 600;
 
   }
+  .event-name a{
+    color: red;
+    
 
+  }
   .event-location{
     width: 100%;
     color:#05175f;
@@ -21319,4 +21323,15 @@ span.flatpickr-weekday {
   .swiper{
     height: 600px;
     
+  }
+
+
+  .sign-in .btn{
+    color: red;
+  }
+
+
+  .event-image img{
+    width: 100%;
+
   }
