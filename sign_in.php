@@ -57,8 +57,7 @@
                                 <div class="col-lg-6">
                                     <div class="p-lg-5 p-4">
                                         <div>
-                                            <h5 class="text-primary">Welcome Back !</h5>
-                                            <p class="text-muted">Sign in to continue to Velzon.</p>
+                                            <h3 class="text-primary">SIGN IN</h3>
                                         </div>
 
                                         <div class="mt-4">
@@ -95,7 +94,7 @@
                                         </div>
 
                                         <div class="mt-5 text-center">
-                                            <p class="mb-0">Go Back to <a href="index.php" class="fw-semibold text-primary text-decoration-underline"> Home</a> </p>
+                                            <p class="mb-0">Go Back to <a href="index.php" class="fw-semibold text-primary " > Home</a> </p>
                                         </div>
                                     </div>
                                 </div>

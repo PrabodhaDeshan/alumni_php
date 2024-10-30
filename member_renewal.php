@@ -105,27 +105,28 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '2') {
                                 <div class="card-body">
 
                                     <div class="live-preview">
-                                        <form class="row g-3">
+                                        <form class="row g-3" method="post" action="backend/member_renewal_upload.php" enctype="multipart/form-data">
                                             <div class="col-md-4">
                                                 <label for="validationDefault01" class="form-label">Full name</label>
-                                                <input type="text" class="form-control" id="validationDefault01" value="Mark" required>
+                                                <input type="text" class="form-control" name="full_name" id="validationDefault01" required>
                                             </div>
                                             <div class="col-md-4">
                                                 <label for="validationDefaultUsername" class="form-label">Email address</label>
                                                 <div class="input-group">
                                                     <span class="input-group-text" id="inputGroupPrepend2">@</span>
-                                                    <input type="text" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" required>
+                                                    <input type="text" class="form-control" name="email_address" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <label for="validationDefault04" class="form-label">Membership type</label>
                                                 <select class="form-select" name="membership_type" id="validationDefault04" required>
                                                     <option selected disabled value="">Choose...</option>
-                                                    <option>...</option>
+                                                    <option >Member</option>
+                                                    <option >Admin</option>
                                                 </select>
                                             </div>
                                             <div class="col-md-11">
-                                            <input type="file" class="form-control" aria-label="file example" required>
+                                            <input type="file" class="form-control" name="receipt" aria-label="file example" required>
                                             </div>
                                            
                                             <div class="col-12">

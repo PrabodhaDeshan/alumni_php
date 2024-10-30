@@ -84,26 +84,7 @@ if (isset($_GET['post_id'])) {
                             <p class="mb-4 ff-secondary fs-16">
                                 <?php echo htmlspecialchars($event['post_description']); ?></p>
 
-                            <div class="row pt-3">
-                                <div class="col-3">
-                                    <div class="text-center">
-                                        <h4>5</h4>
-                                        <p>Dashboards</p>
-                                    </div>
-                                </div>
-                                <div class="col-3">
-                                    <div class="text-center">
-                                        <h4>150+</h4>
-                                        <p>Pages</p>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="text-center">
-                                        <h4>7+</h4>
-                                        <p>Functional Apps</p>
-                                    </div>
-                                </div>
-                            </div>
+                           
 
                         </div>
                         <div class="social-area">

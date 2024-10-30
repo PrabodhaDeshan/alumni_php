@@ -22,11 +22,10 @@ if ($selected_member_id) {
 
 <head>
     <meta charset="utf-8" />
-    <title>Chat | Velzon - Admin & Dashboard Template</title>
+    <title>KIGSWOOD ALUMNI</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
     <link rel="stylesheet" href="assets/libs/glightbox/css/glightbox.min.css">
     <script src="assets/js/layout.js"></script>
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -58,7 +57,7 @@ if ($selected_member_id) {
                                                     $activeClass = ($selected_member_id == $row['member_id']) ? 'active' : '';
                                                     echo "<li class='list-group-item $activeClass' data-id='{$row['member_id']}'>
                                                             <div class='d-flex align-items-center'>
-                                                                <img src='assets/images/users/avatar-2.jpg' class='avatar-xs rounded-circle' alt=''>
+                                                                <img src='assets/images/users/user.png' class='avatar-xs rounded-circle' alt=''>
                                                                 <div class='flex-grow-1 ms-2'>{$row['member_username']}</div>
                                                             </div>
                                                         </li>";

@@ -11,17 +11,15 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
 
 
-<!-- Mirrored from themesbrand.com/velzon/html/master/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Aug 2024 06:10:13 GMT -->
 <head>
 
     <meta charset="utf-8" />
-    <title>Dashboard | Velzon - Admin & Dashboard Template</title>
+    <title>KIGSWOOD ALUMNI</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
-
+ 
     <!-- jsvectormap css -->
     <link href="assets/libs/jsvectormap/css/jsvectormap.min.css" rel="stylesheet" type="text/css" />
 
@@ -678,7 +676,6 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
 
     <!-- Theme Settings -->
  
-    <?php include './inc/theme_setting.php';?>
 
     <!-- JAVASCRIPT -->
     <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -706,5 +703,4 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
 </body>
 
 
-<!-- Mirrored from themesbrand.com/velzon/html/master/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Aug 2024 06:10:17 GMT -->
 </html>

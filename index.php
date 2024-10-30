@@ -118,10 +118,8 @@ require 'db.php';
                                 <div class="card-body">
 
                                     <!-- Swiper -->
-                                    <div class="swiper navigation-swiper rounded">
                                         <h3>Events</h3>
 
-                                        <div class="swiper-wrapper">
                                         <?php
 							$sql = "SELECT * FROM events";
 							$result = $conn->query($sql);
@@ -143,8 +141,7 @@ require 'db.php';
 
 							<?php foreach ($events as $row): ?>
                                            
-                                                        <div class="swiper-slide">
-                                                            <div class="event-card-outer">
+                                                        
                                                                 <div class="event-card">
                                                                     <div class="date">
                                                                         <div class="day">22</div>
@@ -160,15 +157,14 @@ require 'db.php';
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                        </div>
+                                                                <br>
+
+                                                         
                                                         <?php endforeach; ?>
 
-                                        </div>
                                         <!-- <div class="swiper-button-next material-shadow"></div>
                                         <div class="swiper-button-prev material-shadow"></div> -->
                                         <div class="swiper-pagination"></div>
-                                    </div>
                                 </div>
                                 <!-- end card-body -->
                             </div><!-- end card -->
@@ -179,89 +175,68 @@ require 'db.php';
                 </div>
 
                 <div class="right">
-                    <div class="col-xl-12">
-                        <!-- Page 1: Posts 1 and 2 -->
-                        <div class="card">
-                            <?php
-                            $sql = "SELECT * FROM post ";
-                            $result = $conn->query($sql);
-                            if ($result && $result->num_rows > 0) {
-                                while ($row = $result->fetch_assoc()) {
-                                    ?>
-                                    <div class="card-body">
+    <div class="col-xl-12">
+        <!-- Pagination Variables -->
+        <?php
+        $postsPerPage = 2; // Number of posts per page
+        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $offset = ($currentPage - 1) * $postsPerPage;
 
-                                      <a href="post_page.php?post_id=<?= base64_encode($row["post_id"]); ?>"  target="_blank">
-                                        <h5 class="card-title"><?php echo $row['post_title']; ?></h5></a>
-                                        <br>
-                                        <img src="backend/uploads/<?php echo $row['post_image1']; ?>" alt="">
-                                        <br>
-                                        <p class="card-text"><?php echo $row['post_description']; ?></p>
-                                        <a href="#" class="btn btn-primary">Share</a>
+        // Get total number of posts
+        $totalPostsQuery = "SELECT COUNT(*) AS total FROM post";
+        $totalPostsResult = $conn->query($totalPostsQuery);
+        $totalPosts = $totalPostsResult->fetch_assoc()['total'];
+        $totalPages = ceil($totalPosts / $postsPerPage);
 
-
-                                    </div>
-                                    <?php
-                                }
-                            } else {
-                                echo "No books found.";
-                            }
-                            ?>
-                        </div>
-
-                        <!-- Pagination -->
-                        <nav aria-label="Page navigation">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                </li>
-                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div><!-- end col -->
+        // Fetch posts for the current page
+        $sql = "SELECT * FROM post LIMIT $postsPerPage OFFSET $offset";
+        $result = $conn->query($sql);
+        if ($result && $result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                ?>
+                <div class="card">
+                    <div class="card-body">
+                        <a href="post_page.php?post_id=<?= base64_encode($row["post_id"]); ?>" target="_blank">
+                            <h2 class="card-title"><?php echo $row['post_title']; ?></h2>
+                        </a>
+                        <br>
+                        <img src="backend/uploads/<?php echo $row['post_image1']; ?>" alt="">
+                        <br> &nbsp;
+                        <p class="card-text"><?php echo $row['post_description']; ?></p>
+                        <a href="#" class="btn btn-primary">Share</a>
+                    </div>
                 </div>
+                <?php
+            }
+        } else {
+            echo "No books found.";
+        }
+        ?>
+        
+        <!-- Pagination -->
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                <li class="page-item <?= ($currentPage == 1) ? 'disabled' : ''; ?>">
+                    <a class="page-link" href="?page=<?= $currentPage - 1; ?>" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+                    <li class="page-item <?= ($currentPage == $i) ? 'active' : ''; ?>">
+                        <a class="page-link" href="?page=<?= $i; ?>"><?= $i; ?></a>
+                    </li>
+                <?php endfor; ?>
+                <li class="page-item <?= ($currentPage == $totalPages) ? 'disabled' : ''; ?>">
+                    <a class="page-link" href="?page=<?= $currentPage + 1; ?>" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div><!-- end col -->
+</div>
 
-                <!-- Page 2: Posts 3 -->
-                <div class="right" style="display: none;"> <!-- Use JavaScript to toggle visibility -->
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <h5 class="card-header">Post Title 3</h5>
-                            <div class="card-body">
-                                <h5 class="card-title">Special title treatment</h5>
-                                <img src="https://iwritingsolutions.com/wp-content/uploads/2022/05/starry-sky-night-dark-wallpaper-preview-1.jpg"
-                                    alt="">
-                                <p class="card-text">With supporting text below as a natural lead-in to additional
-                                    content.</p>
-                                <a href="#" class="btn btn-primary">Share</a>
-                            </div>
-                        </div>
 
-                        <!-- Pagination -->
-                        <nav aria-label="Page navigation">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div><!-- end col -->
-                </div>
             </div>
 
         </section>

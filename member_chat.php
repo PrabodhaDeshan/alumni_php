@@ -57,7 +57,7 @@ if ($selected_member_id) {
                                                     $activeClass = ($selected_member_id == $row['member_id']) ? 'active' : '';
                                                     echo "<li class='list-group-item $activeClass' data-id='{$row['member_id']}'>
                                                             <div class='d-flex align-items-center'>
-                                                                <img src='assets/images/users/avatar-2.jpg' class='avatar-xs rounded-circle' alt=''>
+                                                                <img src='assets/images/users/user.png' class='avatar-xs rounded-circle' alt=''>
                                                                 <div class='flex-grow-1 ms-2'>{$row['member_username']}</div>
                                                             </div>
                                                         </li>";

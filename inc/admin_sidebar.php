@@ -92,7 +92,7 @@
                                         <a href="view_members.php" class="nav-link" data-key="t-grid-js">View Members</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="" class="nav-link" data-key="t-grid-js">View Member Renewals</a>
+                                        <a href="view_member_renewals.php" class="nav-link" data-key="t-grid-js">View Member Renewals</a>
                                     </li>
                                     
                                     

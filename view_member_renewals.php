@@ -8,7 +8,7 @@ echo "Welcome, " . $_SESSION['member_username'];
 
 require 'db.php';
 
-$result = $conn->query("SELECT * FROM members");
+$result = $conn->query("SELECT * FROM member_renewal");
 
 ?>
 
@@ -25,8 +25,6 @@ $result = $conn->query("SELECT * FROM members");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
 
     <!-- Sweet Alert css-->
     <link href="assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
@@ -99,7 +97,7 @@ $result = $conn->query("SELECT * FROM members");
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title mb-0">View Members</h4>
+                                    <h4 class="card-title mb-0">View Member Renewals</h4>
                                 </div><!-- end card header -->
 
                                 <div class="card-body">
@@ -119,15 +117,12 @@ $result = $conn->query("SELECT * FROM members");
                                                         <th class="sort" data-sort="customer_name">Name</th>
                                                         <th class="" data-sort="customer_name">Email</th>
                                                         <th class="" data-sort="email">Batch</th>
-                                                        <th class="" data-sort="phone">Contact</th>
-                                                        <th class="" data-sort="date">Address</th>
-                                                        <th class="" data-sort="status">Status</th>
                                                         <th class="" data-sort="action">Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody class="list form-check-all">
                                                     <?php
-                                                    $sql = "SELECT * FROM members ";
+                                                    $sql = "SELECT * FROM member_renewal";
                                                     $result = $conn->query($sql);
                                                     if ($result && $result->num_rows > 0) {
                                                         while ($row = $result->fetch_assoc()) {
@@ -144,27 +139,21 @@ $result = $conn->query("SELECT * FROM members");
                                                                 <td class="id" style="display:none;"><a
                                                                         href="javascript:void(0);"
                                                                         class="fw-medium link-primary">#VZ2101</a></td>
-                                                                <td class="customer_name"><?php echo $row['member_username']; ?>
-                                                                </td>
-                                                                <td class="email"><?php echo $row['member_email']; ?></td>
-                                                                <td class="batch"><?php echo $row['member_batch']; ?></td>
-                                                                <td class="batch"><?php echo $row['contact_number']; ?></td>
-                                                                <td class="batch"><?php echo $row['member_address']; ?></td>
-                                                                <td class="status"><span
-                                                                        class="badge  text-success "><?php echo $row['status']; ?>
-                                                                </td></span>
+                                                                
+                                                                <td class="email"><?php echo $row['full_name']; ?></td>
+                                                                <td class="batch"><?php echo $row['email_address']; ?></td>
+                                                                <td class="batch"><?php echo $row['membership_type']; ?></td>
+                                                                
                                                                 </td>
                                                                 <td>
                                                                     <div class="d-flex gap-2">
                                                                         <div class="edit">
-                                                                            
-                                                                            <a href="/alumni_php/update_members.php?member_id=<?= $row['member_id'] ?>"
-                                                                                class="btn btn-warning btn-sm">Edit</a>
+                                                                        <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="View">
+                                                                    <a href="javascript:void(0);"><i class="ri-eye-fill align-bottom text-muted"></i></a>
+                                                                </li>
+                                                                           
                                                                         </div>
-                                                                        <!-- <div class="remove">
-                                                                            <a href="/alumni_php/backend/delete_members.php?member_id=<?= $row['member_id'] ?>"
-                                                                                class="btn btn-danger btn-sm">Delete</a>
-                                                                        </div> -->
+                                                                       
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -269,7 +258,5 @@ $result = $conn->query("SELECT * FROM members");
     <script src="assets/js/app.js"></script>
 </body>
 
-
-<!-- Mirrored from themesbrand.com/velzon/html/master/tables-listjs.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Aug 2024 06:11:55 GMT -->
 
 </html>
