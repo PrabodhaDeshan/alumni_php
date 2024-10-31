@@ -6,7 +6,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Job Landing | Velzon - Admin & Dashboard Template</title>
+    <title>KINGSWOOD ALUMNI</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -48,9 +48,6 @@
                             <a class="nav-link active" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#events">Events</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="about_us.php">About Us</a>
                         </li>
                         <li class="nav-item">
@@ -59,7 +56,7 @@
                     </ul>
 
                     <div class="">
-                        <a href="login.php" class="btn btn-link fw-medium text-decoration-none text-body">Sign in</a>
+                        <a href="sign_in.php" class="btn btn-link fw-medium text-decoration-none text-body">Sign in</a>
                         <!-- <a href="auth-signup-basic.html" class="btn btn-primary">Sign Up</a> -->
                     </div>
                 </div>
@@ -254,9 +251,7 @@
                 <div class="row text-center text-sm-start align-items-center mt-5">
                     <div class="col-sm-6">
                         <div>
-                            <p class="copy-rights mb-0">
-                                <script> document.write(new Date().getFullYear()) </script> © Velzon - Themesbrand
-                            </p>
+                        <p class="copyright-text">Tritcal International LLC - © 2014-<?= date("Y") ?> All Rights Reserved</p>
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -309,7 +304,5 @@
     <script src="assets/js/pages/swiper.init.js"></script>
 </body>
 
-
-<!-- Mirrored from themesbrand.com/velzon/html/master/job-landing.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Aug 2024 06:11:29 GMT -->
 
 </html>

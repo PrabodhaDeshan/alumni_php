@@ -38,7 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
   
 
-    $status = $conn->real_escape_string($_POST['status']);
     $query = "INSERT INTO members (member_username,member_first_name,member_last_name,member_id_no,member_batch,member_address,member_address_line2,member_nic,role,member_wrokplace,member_designation,member_email,contact_number,password,confirm_password,status)
     VALUES ('$member_username', '$member_first_name', '$member_last_name', '$member_id_no', '$member_batch', '$member_address', '$member_address_line2', '$member_nic', '$role', '$member_wrokplace', '$member_designation', '$member_email', '$contact_number', '$hashedPassword', '$confirm_password','$status')";
     if (mysqli_query($conn, $query)) {

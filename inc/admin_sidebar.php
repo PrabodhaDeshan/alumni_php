@@ -108,7 +108,7 @@
                                 <ul class="nav nav-sm flex-column">
                                    
                                     <li class="nav-item">
-                                        <a href="charts-chartjs.html" class="nav-link" data-key="t-chartjs"> Admin settings</a>
+                                        <a href="" class="nav-link" data-key="t-chartjs"> Admin settings</a>
                                     </li>
                                    
                                 </ul>

@@ -49,12 +49,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
 
     <meta charset="utf-8" />
-    <title>Basic Elements | Velzon - Admin & Dashboard Template</title>
+    <title>KINGSWOOD ALUMNI</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
 
     <!-- Layout config Js -->
     <script src="assets/js/layout.js"></script>
@@ -135,118 +133,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                         <input type="text" value="<?= $user['member_username'] ?>" class="form-control" name="member_username">
                                                     </div>
                                                 </div>
-                                                <!--end col-->
-                                                <div class="col-xxl-3 col-md-6">
-                                                    <div>
-                                                        <label for="basiInput" class="form-label">First name</label>
-                                                        <input type="text" value="<?= $user['member_first_name'] ?>" class="form-control" name="member_first_name">
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-                                                <div class="col-xxl-3 col-md-6">
-                                                    <div>
-                                                        <label for="basiInput" class="form-label">Last name</label>
-                                                        <input type="text" value="<?= $user['member_last_name'] ?>" class="form-control" name="member_last_name">
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-                                                <div class="col-xxl-3 col-md-6">
-                                                    <div>
-                                                        <label for="valueInput" class="form-label">Member ID number</label>
-                                                        <input type="text" value="<?= $user['member_id_no'] ?>" class="form-control" name="member_id_no">
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-
-                                                <!--end col-->
-                                                <div class="col-xxl-3 col-md-6">
-                                                    <div>
-                                                        <label for="basiInput" class="form-label">Batch</label>
-                                                        <input type="text" value="<?= $user['member_batch'] ?>" class="form-control" name="member_batch">
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-                                                
+                                  
                                                 <div class="col-xxl-3 col-md-6">
                                                     <div class="form-group">
                                                         <label for="role_id">Member Type</label>
                                                         <select class="form-select" id="role_id" value="<?= $user['role'] ?>" name="role">
+                                                            <option value="Admin" disabled>Select Admin Type</option>
                                                             <option value="1">Admin</option>
                                                             <option value="2">Member</option>
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <!--end col-->
-                                                <div class="col-xxl-3 col-md-6">
-                                                    <div>
-                                                        <label for="basiInput" class="form-label">Member's NIC</label>
-                                                        <input type="text" value="<?= $user['member_nic'] ?>" class="form-control" name="member_nic">
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-
-                                                <!--end col-->
-                                                <div class="col-xxl-3 col-md-6">
-                                                    <div>
-                                                        <label for="exampleInputdate" class="form-label">Member's workplace</label>
-                                                        <input type="text" value="<?= $user['member_username'] ?>" class="form-control" name="member_wrokplace">
-
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-                                                <div class="col-xxl-6 col-md-6">
-                                                    <div>
-                                                        <label for="exampleInputdate" class="form-label">Address line 1</label>
-                                                        <input type="text" value="<?= $user['member_address'] ?>" class="form-control" name="member_address">
-
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-                                                <div class="col-xxl-6 col-md-6">
-                                                    <div>
-                                                        <label for="exampleInputdate" class="form-label">Address line 2</label>
-                                                        <input type="text" value="<?= $user['member_address_line2'] ?>" class="form-control" name="member_address_line2">
-
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-                                                <div class="col-xxl-3 col-md-6">
-                                                    <div>
-                                                        <label for="exampleFormControlTextarea5" class="form-label">Designation</label>
-                                                        <input type="text" value="<?= $user['member_designation'] ?>" class="form-control" name="member_designation">
-
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-                                                <div class="col-xxl-3 col-md-6">
-                                                    <div>
-                                                        <label for="formtextInput" class="form-label">Email</label>
-                                                        <input type="email" value="<?= $user['member_email'] ?>" class="form-control form-control-icon" name="member_email" id="iconrightInput" placeholder="example@gmail.com">
-
-
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-                                                <div class="col-xxl-3 col-md-6">
-                                                    <div>
-                                                        <label for="exampleFormControlTextarea5" class="form-label">Contact number</label>
-                                                        <input type="text" value="<?= $user['contact_number'] ?>" class="form-control" name="contact_number" id="basiInput">
-
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-                                                <div class="col-xxl-3 col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="role_id">Status</label>
-                                                        <select class="form-select" id="role_id" name="status">
-                                                            <option value="Admin" disabled>Select status</option>
-                                                            <option value="Active">Active</option>
-                                                            <option value="Inactive">Inactive</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-                                               
+                                            
 
                                                 <!--end row-->
                                                 <div class="col-12">

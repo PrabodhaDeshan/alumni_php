@@ -106,14 +106,7 @@ if ($selected_member_id) {
                     </main>
                 </div>
             </div>
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-6">&copy; <?= date('Y'); ?> Velzon.</div>
-                        <div class="col-sm-6 text-sm-end">Design & Develop by Themesbrand</div>
-                    </div>
-                </div>
-            </footer>
+            <?php include './inc/dash_footer.php';?>
         </div>
 
     </div>

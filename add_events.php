@@ -13,8 +13,6 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
     data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
 
 
-<!-- Mirrored from themesbrand.com/velzon/html/master/forms-validation.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Aug 2024 06:11:49 GMT -->
-
 <head>
 
     <meta charset="utf-8" />
@@ -22,8 +20,7 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+  
 
     <!-- Layout config Js -->
     <script src="assets/js/layout.js"></script>
@@ -164,23 +161,7 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
     </div>
     <!-- End Page-content -->
 
-
-    <footer class="footer">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-6">
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script> © Velzon.
-                </div>
-                <div class="col-sm-6">
-                    <div class="text-sm-end d-none d-sm-block">
-                        Design & Develop by Themesbrand
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <?php include './inc/dash_footer.php';?>
     </div>
     <!-- end main content-->
 
@@ -217,6 +198,5 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
 </body>
 
 
-<!-- Mirrored from themesbrand.com/velzon/html/master/forms-validation.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Aug 2024 06:11:50 GMT -->
 
 </html>

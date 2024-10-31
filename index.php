@@ -113,7 +113,7 @@ require 'db.php';
                     <div class="events">
 
                         <div class="col-xl-12 col-lg-6">
-                            <div class="card">
+                            <div class="card" >
 
                                 <div class="card-body">
 
@@ -121,7 +121,7 @@ require 'db.php';
                                         <h3>Events</h3>
 
                                         <?php
-							$sql = "SELECT * FROM events";
+							$sql = "SELECT * FROM events ORDER BY event_id DESC LIMIT 7";
 							$result = $conn->query($sql);
 							$data = [];
 							if ($result) {
@@ -144,8 +144,15 @@ require 'db.php';
                                                         
                                                                 <div class="event-card">
                                                                     <div class="date">
-                                                                        <div class="day">22</div>
-                                                                        <div class="month"><?php echo $row['event_date']; ?></div>
+                                                                    <?php 
+                
+                                          $timestamp = strtotime($row['event_date']); 
+
+                                             $day = date('d', $timestamp);
+                                             $month = date('F', $timestamp); 
+                                                                      ?>
+                                                       <div class="day"><?php echo $day; ?></div>
+                                                         <div class="month"><?php echo $month; ?></div>
                                                                     </div>
                                                                     <div class="info-container">
                                                                         <div class="event-name">
@@ -426,9 +433,8 @@ require 'db.php';
                 <div class="row text-center text-sm-start align-items-center mt-5">
                     <div class="col-sm-6">
                         <div>
-                            <p class="copy-rights mb-0">
-                                <script> document.write(new Date().getFullYear()) </script> © Velzon - Themesbrand
-                            </p>
+                        <p class="copyright-text">Tritcal International LLC - © 2014-<?= date("Y") ?> All Rights Reserved</p>
+						
                         </div>
                     </div>
                     <div class="col-sm-6">

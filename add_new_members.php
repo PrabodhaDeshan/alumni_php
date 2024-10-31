@@ -248,7 +248,7 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
                 </div>
 
             </div>
-
+            <?php include './inc/dash_footer.php';?>
         </div>
 
         <!-- JAVASCRIPT -->

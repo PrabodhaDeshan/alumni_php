@@ -85,22 +85,24 @@ if (isset($_GET['event_id'])) {
                                 <?php echo htmlspecialchars($event['event_description']); ?></p>
 
                             <div class="row pt-3">
-                                <div class="col-3">
+                                <div class="col-3" >
                                     <div class="text-center">
-                                        <h4>5</h4>
-                                        <p>Dashboards</p>
+                                    <img src="./assets/images/svg/date.svg" alt="" style="width:80px;" >
+
+                                        <p><?php echo htmlspecialchars($event['event_date']); ?></p>
                                     </div>
                                 </div>
                                 <div class="col-3">
                                     <div class="text-center">
-                                        <h4>150+</h4>
-                                        <p>Pages</p>
+                                        <img src="./assets/images/svg/time.svg" alt="" style="width:80px;" >
+                                        <p><?php echo htmlspecialchars($event['event_time']); ?></p>
                                     </div>
                                 </div>
                                 <div class="col-4">
                                     <div class="text-center">
-                                        <h4>7+</h4>
-                                        <p>Functional Apps</p>
+                                    <img src="./assets/images/svg/location.svg" alt="" style="width:80px;" >
+                                        
+                                        <p><?php echo htmlspecialchars($event['event_location']); ?></p>
                                     </div>
                                 </div>
                             </div>
