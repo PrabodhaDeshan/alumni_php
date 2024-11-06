@@ -68,13 +68,8 @@
         <!-- end navbar -->
 
 
-
-
-
-
-
         <section class="section" id="process">
-            <div class="container">
+            <div class="container" style="padding-top:50px;" >
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="text-center mb-5">

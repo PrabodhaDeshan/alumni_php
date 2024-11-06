@@ -9,8 +9,7 @@ require 'db.php';
 $user = $_SESSION['member_id'];
 
 
-$query = "SELECT member_username,member_first_name, member_last_name, member_id_no, member_batch, member_address,member_nic, member_wrokplace,member_designation, member_email,contact_number 
- FROM members WHERE member_id = '$user'";
+$query = "SELECT * FROM members WHERE member_id = '$user'";
 
 $result = mysqli_query($conn, $query); 
 
@@ -70,7 +69,8 @@ if ($result) {
                                 <div class="p-2">
                                     <h3 class="text-white mb-1"><?php echo htmlspecialchars($userData['member_username']); ?></h3>
                                     <div class="hstack text-white-50 gap-1">
-                                        <div class="me-2"><i class="ri-map-pin-user-line me-1 text-white text-opacity-75 fs-16 align-middle"></i><?php echo htmlspecialchars($userData['member_address']); ?></div>
+                                        <div class="me-2"><i class="ri-map-pin-user-line me-1 text-white text-opacity-75 fs-16 align-middle"></i><?php echo htmlspecialchars($userData['member_address']); ?>
+                                       , <?php echo htmlspecialchars($userData['member_address_line2']); ?></div>
                                     </div>
                                 </div>
                             </div>
@@ -81,15 +81,7 @@ if ($result) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div>
-                                <div class="d-flex profile-wrapper">
-                                    <ul class="nav nav-pills animation-nav profile-nav gap-2 gap-lg-3 flex-grow-1" role="tablist">
-                                        <li class="nav-item">
-                                            <a class="nav-link fs-14 active" data-bs-toggle="tab" href="#overview-tab" role="tab">
-                                                <span class="d-none d-md-inline-block">Overview</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                
                                 <div class="tab-content pt-4 text-muted">
                                     <div class="tab-pane active" id="overview-tab" role="tabpanel">
                                         <div class="row">
@@ -118,7 +110,9 @@ if ($result) {
                                                                     </tr>
                                                                     <tr>
                                                                         <th class="ps-0" scope="row">Address :</th>
-                                                                        <td class="text-muted"><?php echo htmlspecialchars($userData['member_address']); ?></td>
+                                                                        <td class="text-muted"><?php echo htmlspecialchars($userData['member_address']); ?>,
+                                                                        <?php echo htmlspecialchars($userData['member_address_line2']); ?></td>
+                                                                        <br>
                                                                     </tr>
                                                                     <tr>
                                                                         <th class="ps-0" scope="row">NIC :</th>

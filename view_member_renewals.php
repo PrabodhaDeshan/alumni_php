@@ -116,7 +116,7 @@ $result = $conn->query("SELECT * FROM member_renewal");
                                                         </th>
                                                         <th class="sort" data-sort="customer_name">Name</th>
                                                         <th class="" data-sort="customer_name">Email</th>
-                                                        <th class="" data-sort="email">Batch</th>
+                                                        <th class="" data-sort="email">Member ID number</th>
                                                         <th class="" data-sort="action">Action</th>
                                                     </tr>
                                                 </thead>
@@ -142,14 +142,14 @@ $result = $conn->query("SELECT * FROM member_renewal");
                                                                 
                                                                 <td class="email"><?php echo $row['full_name']; ?></td>
                                                                 <td class="batch"><?php echo $row['email_address']; ?></td>
-                                                                <td class="batch"><?php echo $row['membership_type']; ?></td>
+                                                                <td class="batch"><?php echo $row['member_id']; ?></td>
                                                                 
                                                                 </td>
                                                                 <td>
                                                                     <div class="d-flex gap-2">
                                                                         <div class="edit">
                                                                         <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="View">
-                                                                    <a href="javascript:void(0);"><i class="ri-eye-fill align-bottom text-muted"></i></a>
+                                                                    <a href="backend/uploads/receipt/<?= $row['receipt']; ?>" style="color: white; width:100%;" class="mybtn_01 btn btn-warning btn-sm" target="_blank">View</a>
                                                                 </li>
                                                                            
                                                                         </div>

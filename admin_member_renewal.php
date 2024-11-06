@@ -1,7 +1,7 @@
 <?php
 session_start();
-if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '2') {
-    header("Location: member_dashboard.php");
+if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
+    header("Location: admin_dashboard.php");
     exit();
 }
 
@@ -38,7 +38,7 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '2') {
     <!-- Begin page -->
     <div id="layout-wrapper">
 
-    <?php include './inc/member_header.php';?>
+    <?php include './inc/admin_header.php';?>
 
 <!-- removeNotificationModal -->
 <div id="removeNotificationModal" class="modal fade zoomIn" tabindex="-1" aria-hidden="true">
@@ -65,7 +65,7 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '2') {
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
         <!-- ========== App Menu ========== -->
-        <?php include './inc/member_sidebar.php';?>
+        <?php include './inc/admin_sidebar.php';?>
         <!-- Left Sidebar End -->
         <!-- Vertical Overlay-->
         <div class="vertical-overlay"></div>
@@ -103,7 +103,7 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '2') {
 
                                     <div class="live-preview">
                                         
-                                    <form class="row g-3" method="post" action="backend/member_renewal_upload.php" enctype="multipart/form-data">
+                                    <form class="row g-3" method="post" action="backend/admin_member_renewal_upload.php" enctype="multipart/form-data">
                                     <input type="hidden" id="sessionId" value="<?php echo $_SESSION['member_id']; ?>">
                                     <div class="col-md-4">
                                                 <label for="validationDefault01" class="form-label">Full name</label>

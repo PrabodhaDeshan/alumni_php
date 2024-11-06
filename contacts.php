@@ -73,6 +73,12 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="text-center mb-5">
+
+                        <div class="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.234173917172!2d80.58850847499923!3d7.327574713297504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae369ec820de1ff%3A0xc333997b69dd606a!2sTritcal%20International%20(Pvt.)%20Ltd!5e0!3m2!1sen!2slk!4v1730356203208!5m2!1sen!2slk" width="700" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <br>
+
                             <h3 class="mb-3 fw-semibold">Get In Touch</h3>
                             <p class="text-muted mb-4 ff-secondary">We thrive when coming up with innovative ideas but
                                 also understand that a smart concept should be supported with faucibus sapien odio

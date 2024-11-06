@@ -21352,3 +21352,8 @@ span.flatpickr-weekday {
     align-items: center;
     padding-top: 10px;
   }
+
+  .event-location{
+    padding: 10px;
+    color: #939393 ;
+  }

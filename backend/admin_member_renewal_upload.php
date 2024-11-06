@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ?>
                 <script type="text/javascript">
                     alert("Data added successfully!");
-                    window.location.replace("./../member_renewal.php");
+                    window.location.replace("./../admin_member_renewal.php");
                 </script>
                 <?php
             } else {

@@ -99,6 +99,18 @@
                                 </ul>
                             </div>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="admin_member_renewal.php">
+                                <i class="ri-repeat-line"></i> <span data-key="t-widgets">Member Renewal</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="admin_member_renewal_history.php">
+                                <i class="ri-honour-line"></i> <span data-key="t-widgets">Member Renewal History</span>
+                            </a>
+                        </li>
+                     
                        
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="#sidebarCharts" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarCharts">
@@ -107,9 +119,9 @@
                             <div class="collapse menu-dropdown" id="sidebarCharts">
                                 <ul class="nav nav-sm flex-column">
                                    
-                                    <li class="nav-item">
+                                    <!-- <li class="nav-item">
                                         <a href="" class="nav-link" data-key="t-chartjs"> Admin settings</a>
-                                    </li>
+                                    </li> -->
                                    
                                 </ul>
                             </div>

@@ -73,7 +73,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="widgets.html">
+                            <a class="nav-link menu-link" href="member_renewal_history.php">
                                 <i class="ri-honour-line"></i> <span data-key="t-widgets">Member Renewal History</span>
                             </a>
                         </li>

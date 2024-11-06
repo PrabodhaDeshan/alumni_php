@@ -161,6 +161,7 @@ require 'db.php';
                                                                             </a>
                                                                         </div>
                                                                         <div class="event-location">
+                                                                        <?php echo $row['event_location']; ?>
                                                                         </div>
                                                                     </div>
                                                                 </div>
