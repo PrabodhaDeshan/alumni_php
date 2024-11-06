@@ -65,7 +65,7 @@ $member_id = $_SESSION['member_id'];
                                                     </th>
                                                     <th class="sort" data-sort="customer_name">Name</th>
                                                     <th class="sort" data-sort="email">Email</th>
-                                                    <!-- <th class="sort" data-sort="email">Renewal Date</th> -->
+                                                    <th class="sort" data-sort="email">Renewal Date</th>
                                                     <th class="sort" data-sort="action">Action</th>
                                                 </tr>
                                             </thead>
@@ -85,7 +85,8 @@ $member_id = $_SESSION['member_id'];
                                                             </th>    
                                                             <td class="email"><?php echo htmlspecialchars($row['full_name']); ?></td>
                                                             <td class="batch"><?php echo htmlspecialchars($row['email_address']); ?></td>
-                                                            <!-- <td class="batch">2024.10.22</td> -->
+                                                            <td class="batch"><?php echo htmlspecialchars($row['created_at']); ?></td>
+
                                                             <td>
                                                                 <div class="d-flex gap-2">
                                                                     <div class="edit">

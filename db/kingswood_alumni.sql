@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 06, 2024 at 05:07 AM
+-- Generation Time: Nov 06, 2024 at 05:24 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -102,19 +102,23 @@ CREATE TABLE `member_renewal` (
   `full_name` varchar(255) NOT NULL,
   `email_address` varchar(255) DEFAULT NULL,
   `member_id` int(11) NOT NULL,
-  `receipt` text DEFAULT NULL
+  `receipt` text DEFAULT NULL,
+  `created_at` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `member_renewal`
 --
 
-INSERT INTO `member_renewal` (`id`, `full_name`, `email_address`, `member_id`, `receipt`) VALUES
-(15, 'efqefwq', 'fwefwqee@ff.kk', 21, '20241105114455uu.png'),
-(16, 'wdfqdwqf', 'efwqef@ff.ll', 21, '20241105114846aaature.PNG'),
-(17, 'regwegwegweg', 'fgwegr@ff.ll', 22, '20241105115301asefe.jpg'),
-(23, 'mbkgnndfb', 'm@hlsd.lk', 20, '20241106043507Capture.PNG'),
-(24, 'Admindd', 'ad@gmu.ll', 20, '20241106044605deposit-receipt_x.png');
+INSERT INTO `member_renewal` (`id`, `full_name`, `email_address`, `member_id`, `receipt`, `created_at`) VALUES
+(15, 'efqefwq', 'fwefwqee@ff.kk', 21, '20241105114455uu.png', ''),
+(16, 'wdfqdwqf', 'efwqef@ff.ll', 21, '20241105114846aaature.PNG', ''),
+(17, 'regwegwegweg', 'fgwegr@ff.ll', 22, '20241105115301asefe.jpg', ''),
+(23, 'mbkgnndfb', 'm@hlsd.lk', 20, '20241106043507Capture.PNG', ''),
+(24, 'Admindd', 'ad@gmu.ll', 20, '20241106044605deposit-receipt_x.png', ''),
+(25, 'john', 'jk@gm.lk', 21, '20241106051737deposit-receipt_x.png', '2024-11-06'),
+(26, 'fwqfwqefwqfwf', 'efwqf@gf.ll', 20, '20241106052237nofeat-fa40fb772870cad371d578b9175dd3d432047b66.jpg', ''),
+(27, 'adminnnnn', 'dsd@kk.kk', 20, '20241106052331uu.png', '2024-11-06');
 
 -- --------------------------------------------------------
 
@@ -327,7 +331,7 @@ ALTER TABLE `members`
 -- AUTO_INCREMENT for table `member_renewal`
 --
 ALTER TABLE `member_renewal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `messages`

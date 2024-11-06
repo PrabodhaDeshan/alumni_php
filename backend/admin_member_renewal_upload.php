@@ -25,8 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (move_uploaded_file($_FILES["receipt"]["tmp_name"], $targetFilePath)) {
           
-            $sql = "INSERT INTO member_renewal (full_name, email_address, member_id, receipt) 
-                    VALUES ('$full_name', '$email_address', '$renewal_id', '$fileName')";
+            $sql = "INSERT INTO member_renewal (full_name, email_address, member_id, receipt,created_at) 
+                    VALUES ('$full_name', '$email_address', '$renewal_id', '$fileName',CURRENT_DATE)";
             if ($conn->query($sql)) {
                 ?>
                 <script type="text/javascript">
