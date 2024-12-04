@@ -21350,10 +21350,44 @@ span.flatpickr-weekday {
   .social-area{
     display: flex;
     align-items: center;
+    justify-content: center;
     padding-top: 10px;
   }
 
   .event-location{
-    padding: 10px;
+    padding: 5px;
     color: #939393 ;
   }
+
+  .event-text-center{
+    width: 300px;
+    display: flex;
+    align-items: center;
+  }
+
+  .event-icon{
+  }
+
+  .event-p{
+    width: 80%;
+    display: flex;
+    text-align: center;
+    padding-top: 10px;
+    padding-left: 10px;
+
+
+
+  }
+  
+  .post-buttons{
+    display: flex;
+  }
+
+  .readmore{
+    display: flex;
+    align-items: flex-start;
+    padding-top: 5px;
+    padding-left: 20px;
+  }
+
+  

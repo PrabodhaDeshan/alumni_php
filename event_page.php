@@ -32,16 +32,18 @@ if (isset($_GET['event_id'])) {
 
     <meta charset="utf-8" />
     <title>KINGSWOOD ALUMNI</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
-
 
     <!--Swiper slider css-->
     <link href="assets/libs/swiper/swiper-bundle.min.css" rel="stylesheet" type="text/css" />
 
     <!-- Layout config Js -->
     <script src="assets/js/layout.js"></script>
+    <!-- Bootstrap Css -->
+    <!-- Layout config Js -->
     <!-- Bootstrap Css -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
@@ -57,12 +59,43 @@ if (isset($_GET['event_id'])) {
 
     <!-- Begin page -->
     <div class="layout-wrapper landing">
+        <nav class="navbar navbar-expand-lg navbar-landing fixed-top job-navbar" id="navbar">
+            <div class="container-fluid custom-container">
+                <a class="navbar-brand" href="index.html">
+                    <h3>KINGSWOOD ALUMNI</h3>
+                </a>
+                <button class="navbar-toggler py-0 fs-20 text-body" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="mdi mdi-menu"></i>
+                </button>
 
-        <div class="vertical-overlay" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent.show"></div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto mt-2 mt-lg-0" id="navbar-example">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.php">Home</a>
+                        </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link" href="about_us.php">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacts.php">Contacts</a>
+                        </li>
+                    </ul>
 
+                    <div class="">
+                        <a href="sign_in.php" class="btn btn-link fw-medium text-decoration-none text-body">Sign in</a>
+                        <!-- <a href="auth-signup-basic.html" class="btn btn-primary">Sign Up</a> -->
+                    </div>
+                </div>
 
-        <!-- start features -->
+            </div>
+        </nav>
+        <!-- end navbar -->
+
+        <br> &nbsp;&nbsp;&nbsp;
+
         <section class="section bg-light py-5" id="features">
             <div class="container">
                 <div class="row align-items-center gy-4">
@@ -75,65 +108,197 @@ if (isset($_GET['event_id'])) {
 
                     <div class="col-lg-6">
                         <div class="text-muted">
-                            <div class="avatar-sm icon-effect mb-4">
-                                <div class="avatar-title bg-transparent rounded-circle text-success h1">
-                                    <i class="ri-collage-line fs-36"></i>
-                                </div>
-                            </div>
+
                             <h3 class="mb-3 fs-20"><?php echo htmlspecialchars($event['event_title']); ?></h3>
-                            <p class="mb-4 ff-secondary fs-16">
-                                <?php echo htmlspecialchars($event['event_description']); ?></p>
-
-                            <div class="row pt-3">
-                                <div class="col-3" >
-                                    <div class="text-center">
-                                    <img src="./assets/images/svg/date.svg" alt="" style="width:80px;" >
-
+                            
+                            <div class="row pt-3" style=" display:block;">
+                                <div class="col-3">
+                                    <div class="event-text-center">
+                                        <div class="event-icon">
+                                            <img src="./assets/images/svg/date.svg" alt="" style="width:40px;">
+                                        </div>
+                                        <div class="event-p">
                                         <p><?php echo htmlspecialchars($event['event_date']); ?></p>
                                     </div>
+                                    </div>
+                                    
                                 </div>
-                                <div class="col-3">
-                                    <div class="text-center">
-                                        <img src="./assets/images/svg/time.svg" alt="" style="width:80px;" >
+                            </div>
+                            <br>
+                            <div class="col-3">
+                                <div class="event-text-center">
+                                    <div class="event-icon">
+                                        <img src="./assets/images/svg/time.svg" alt="" style="width:40px;">
+                                    </div>
+                                    <div class="event-p">
                                         <p><?php echo htmlspecialchars($event['event_time']); ?></p>
+
                                     </div>
                                 </div>
-                                <div class="col-4">
-                                    <div class="text-center">
-                                    <img src="./assets/images/svg/location.svg" alt="" style="width:80px;" >
-                                        
+                            </div>
+                            <br>
+                            <div class="col-3">
+                                <div class="event-text-center">
+                                    <div class="event-icon">
+                                        <img src="./assets/images/svg/location.svg" alt="" style="width:40px;">
+                                    </div>
+                                    <div class="event-p">
                                         <p><?php echo htmlspecialchars($event['event_location']); ?></p>
                                     </div>
                                 </div>
                             </div>
+                            <hr>
+
+                            <p class="mb-4 ff-secondary fs-16">
+                                <?php echo htmlspecialchars($event['event_description']); ?>
+                            </p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="social-area">
+                        <ul class="dz-social-icon style-3">
+                            <script src="https://static.elfsight.com/platform/platform.js" async></script>
+                            <div class="elfsight-app-438eb5f8-dd42-434a-a9d5-f935f21635e1" data-elfsight-app-lazy>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+    </div>
+    <!-- end container -->
+    </section>
+
+
+    <!-- Start footer -->
+    <footer class="custom-footer bg-dark py-5 position-relative">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mt-4">
+                    <div>
+                        <div>
+                            <h3>KINGSWOOD ALUMNI</h3>
 
                         </div>
-                        <div class="social-area">
-                            <ul class="dz-social-icon style-3">
-                                <script src="https://static.elfsight.com/platform/platform.js" async></script>
-                                <div class="elfsight-app-438eb5f8-dd42-434a-a9d5-f935f21635e1" data-elfsight-app-lazy>
-                                </div>
+                        <div class="mt-4 fs-13">
+                            <p>Premium Multipurpose Admin & Dashboard Template</p>
+                            <p>You can build any type of web application like eCommerce, CRM, CMS, Project
+                                management apps, Admin Panels, etc using Velzon.</p>
+                            <ul class="list-inline mb-0 footer-social-link">
+                                <li class="list-inline-item">
+                                    <a href="javascript: void(0);" class="avatar-xs d-block">
+                                        <div class="avatar-title rounded-circle">
+                                            <i class="ri-facebook-fill"></i>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="javascript: void(0);" class="avatar-xs d-block">
+                                        <div class="avatar-title rounded-circle">
+                                            <i class="ri-github-fill"></i>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="javascript: void(0);" class="avatar-xs d-block">
+                                        <div class="avatar-title rounded-circle">
+                                            <i class="ri-linkedin-fill"></i>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="javascript: void(0);" class="avatar-xs d-block">
+                                        <div class="avatar-title rounded-circle">
+                                            <i class="ri-google-fill"></i>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="javascript: void(0);" class="avatar-xs d-block">
+                                        <div class="avatar-title rounded-circle">
+                                            <i class="ri-dribbble-line"></i>
+                                        </div>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
-
-
-                    <!-- end col -->
                 </div>
-                <!-- end row -->
+
+                <div class="col-lg-7 ms-lg-auto">
+                    <div class="row">
+                        <div class="col-sm-4 mt-4">
+                            <h5 class="text-white mb-0">Company</h5>
+                            <div class="text-muted mt-3">
+                                <ul class="list-unstyled ff-secondary footer-list">
+                                    <li><a href="pages-profile.html">About Us</a></li>
+                                    <li><a href="pages-gallery.html">Gallery</a></li>
+                                    <li><a href="pages-team.html">Team</a></li>
+                                    <li><a href="pages-pricing.html">Pricing</a></li>
+                                    <li><a href="pages-timeline.html">Timeline</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 mt-4">
+                            <h5 class="text-white mb-0">For Jobs</h5>
+                            <div class="text-muted mt-3">
+                                <ul class="list-unstyled ff-secondary footer-list">
+                                    <li><a href="apps-job-lists.html">Job List</a></li>
+                                    <li><a href="apps-job-application.html">application</a></li>
+                                    <li><a href="apps-job-new.html">New Job</a></li>
+                                    <li><a href="apps-job-companies-lists.html">Company List</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 mt-4">
+                            <h5 class="text-white mb-0">Support</h5>
+                            <div class="text-muted mt-3">
+                                <ul class="list-unstyled ff-secondary footer-list">
+                                    <li><a href="pages-faqs.html">FAQ</a></li>
+                                    <li><a href="pages-faqs.html">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <!-- end container -->
-        </section>
 
+            <div class="row text-center text-sm-start align-items-center mt-5">
+                <div class="col-sm-6">
+                    <div>
+                        <p class="copyright-text">Tritcal International LLC - © 2014-<?= date("Y") ?> All Rights
+                            Reserved</p>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="text-sm-end mt-3 mt-sm-0">
+                        <ul class="list-inline mb-0 footer-list gap-4 fs-13">
+                            <li class="list-inline-item">
+                                <a href="pages-privacy-policy.html">Privacy Policy</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="pages-term-conditions.html">Terms & Conditions</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="pages-privacy-policy.html">Security</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- end footer -->
 
-
-
-
-        <!--start back-to-top-->
-        <button onclick="topFunction()" class="btn btn-danger btn-icon landing-back-top" id="back-to-top">
-            <i class="ri-arrow-up-line"></i>
-        </button>
-        <!--end back-to-top-->
+    <!--start back-to-top-->
+    <button onclick="topFunction()" class="btn btn-info btn-icon landing-back-top" id="back-to-top">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+    <!--end back-to-top-->
 
     </div>
     <!-- end layout wrapper -->
@@ -150,8 +315,14 @@ if (isset($_GET['event_id'])) {
     <!--Swiper slider js-->
     <script src="assets/libs/swiper/swiper-bundle.min.js"></script>
 
-    <!-- landing init -->
-    <script src="assets/js/pages/landing.init.js"></script>
+    <!--job landing init -->
+    <script src="assets/js/pages/job-lading.init.js"></script>
+    <!--Swiper slider js-->
+    <script src="assets/libs/swiper/swiper-bundle.min.js"></script>
+
+    <!-- swiper.init js -->
+    <script src="assets/js/pages/swiper.init.js"></script>
 </body>
+
 
 </html>
