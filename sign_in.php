@@ -27,29 +27,20 @@
 
     <!-- auth-page wrapper -->
     <div class="auth-page-wrapper1">
-        <div class="bg-overlay"></div>
-        <!-- auth-page content -->
-        <div class="auth-page-content overflow-hidden pt-lg-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card overflow-hidden card-bg-fill galaxy-border-none">
+                    <div class="col-md-12">
+                        <div class="card ">
                             <div class="row g-0">
-                                <div class="col-lg-6">
-                                    <div class="p-lg-5 p-4 auth-one-bg h-100">
-                                        <div class="bg-overlay"></div>
-                                        <div class="position-relative h-100 d-flex flex-column">
-                                            <div class="mb-4">
-                                                <a href="index.html" class="d-block">
-                                                    <h1>ALUMNI</h1>
-                                                </a>
-                                            </div>
-                                            <div class="mt-auto">
-                                              
-
+                                <div class="col-md-6">
+                                    <div class="p-md-5 p-4 auth-one-bg ">
+                                        <div class="bg-overlay" style="display:flex; justify-content:center;" >
+                                         
+                                            <div class="mt-logo" >
+                                             <img src="assets/images/kingswood.png" alt="">
+                                             </div>
                                              
                                             </div>
-                                        </div>
                                     </div>
                                 </div>
                                 <!-- end col -->
@@ -110,8 +101,6 @@
                 <!-- end row -->
             </div>
             <!-- end container -->
-        </div>
-        <!-- end auth page content -->
 
         <!-- footer -->
         

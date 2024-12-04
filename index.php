@@ -61,6 +61,10 @@ require 'db.php';
                         <li class="nav-item">
                             <a class="nav-link" href="contacts.php">Contacts</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="gallery.php">Gallery</a>
+                        </li>
+
                     </ul>
 
                     <div class="sign-in">
@@ -195,13 +199,13 @@ require 'db.php';
                         $result = $conn->query($sql);
                         if ($result && $result->num_rows > 0) {
                             while ($row = $result->fetch_assoc()) {
-                                ?>
+                        ?>
                                 <div class="card">
                                     <div class="card-body">
                                         <a href="post_page.php?post_id=<?= base64_encode($row["post_id"]); ?>" target="_blank">
                                             <h2 class="card-title"><?php echo $row['post_title']; ?></h2>
                                             <p><?php echo $row['post_date']; ?></p>
-                                
+
                                         </a>
                                         <br>
                                         <img src="backend/uploads/<?php echo $row['post_image1']; ?>" alt="">
@@ -233,12 +237,12 @@ require 'db.php';
 
                                         </div>
                                     </div>
-                                    <?php
+                            <?php
                             }
                         } else {
                             echo "No books found.";
                         }
-                        ?>
+                            ?>
 
                             <!-- Pagination -->
                             <nav aria-label="Page navigation">
@@ -261,7 +265,7 @@ require 'db.php';
                                     </li>
                                 </ul>
                             </nav>
-                        </div><!-- end col -->
+                                </div><!-- end col -->
                     </div>
                 </div>
         </section>
@@ -451,27 +455,23 @@ require 'db.php';
             </div>
 
             <div class="row text-center text-sm-start align-items-center mt-5">
-                <div class="col-sm-6">
-                    <div>
-                        <p class="copyright-text">Tritcal International LLC - © 2014-<?= date("Y") ?> All Rights
-                            Reserved</p>
-
+                    <div class="col-sm-6">
+                        <div>
+                        <p class="copyright-text">Developed by Tritcal International LLC </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="text-sm-end mt-3 mt-sm-0">
+                            <ul class="list-inline mb-0 footer-list gap-4 fs-13">
+                                <li class="list-inline-item">
+                                    <a href="pages-privacy-policy.html">Kingswoodians Cadet Union
+                                    - © 2014-<?= date("Y") ?> All Rights Reserved</a>
+                                </li>
+                               
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
-                    <div class="text-sm-end mt-3 mt-sm-0">
-                        <ul class="list-inline mb-0 footer-list gap-4 fs-13">
-                            <li class="list-inline-item">
-                                <a href="pages-privacy-policy.html">Privacy Policy</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="pages-term-conditions.html">Terms & Conditions</a>FFFF
-                                <a href="pages-privacy-policy.html">Security</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
         </div>
     </footer>
     <!-- end footer -->

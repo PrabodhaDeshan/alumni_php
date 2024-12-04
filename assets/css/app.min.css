@@ -6019,8 +6019,6 @@
     bottom: 0;
     left: 0;
     top: 0;
-    opacity: .7;
-    /* background-image: url("https://upload.wikimedia.org/wikipedia/en/f/fd/Kingswood_College_Kandy_crest.png"); */
 }
 
 
@@ -21228,7 +21226,6 @@ span.flatpickr-weekday {
 
 
 .gallery-box{
-    border: 1px solid red;
 }
 
 
@@ -21390,4 +21387,7 @@ span.flatpickr-weekday {
     padding-left: 20px;
   }
 
-  
+  .mt-logo img{
+    width: 200px;
+
+  }
