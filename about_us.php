@@ -55,6 +55,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="contacts.php">Contacts</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="gallery.php">Gallery</a>
+                        </li>
                     </ul>
 
                     <div class="">
@@ -68,7 +71,7 @@
         <!-- end navbar -->
 
         <section class="section">
-            <div class="container">
+            <div class="container" style="padding-top:50px" >
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="text-center mb-5">

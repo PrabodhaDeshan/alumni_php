@@ -19154,7 +19154,7 @@ span.flatpickr-weekday {
 }
 
 .images-menu .swiper-slide {
-    width: auto;
+    width: 400;
     display: inline-block
 }
 
@@ -21387,7 +21387,89 @@ span.flatpickr-weekday {
     padding-left: 20px;
   }
 
+ 
   .mt-logo img{
     width: 200px;
+    display: flex;
+    align-items: center;
+    margin-left: 70px;
 
+  }
+
+
+
+  .events-cards{
+    display: flex;
+    width: 100%;
+    height: 90px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+
+
+  }
+
+  .dates{
+    width: 35%;
+    height: 90px;
+    background-color: #05175f;
+    color: white;
+    
+  }
+
+  .days{
+    font-size: 30px;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    
+  }
+
+.months{
+    display: flex;
+    justify-content: center;
+
+}
+  .event-names{
+    width: 100%;
+    padding: 10px;
+    color: #000;
+    font-weight: 600;
+
+  }
+  .event-names a{
+    color: red;
+    
+
+  }
+  .event-locations{
+    width: 100%;
+    color:#05175f;
+    font-weight: 400;
+
+
+  }
+.post-head{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .mt-logo
+    {
+        display: none;
+      
+    }
+    
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .social-area2
+    {
+        display: none;
+      
+    }
+
+    
   }

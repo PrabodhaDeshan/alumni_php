@@ -31,7 +31,7 @@ if (isset($_GET['event_id'])) {
 <head>
 
     <meta charset="utf-8" />
-    <title>KINGSWOOD ALUMNI</title>
+    <title>Events</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
@@ -82,6 +82,9 @@ if (isset($_GET['event_id'])) {
                         <li class="nav-item">
                             <a class="nav-link" href="contacts.php">Contacts</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="gallery.php">Gallery</a>
+                        </li>
                     </ul>
 
                     <div class="">
@@ -97,20 +100,16 @@ if (isset($_GET['event_id'])) {
         <br> &nbsp;&nbsp;&nbsp;
 
         <section class="section bg-light py-5" id="features">
-            <div class="container">
+            <div class="container-ev" style="padding:40px" >
                 <div class="row align-items-center gy-4">
-                    <div class="col-lg-6 col-sm-7 mx-auto">
-                        <div class="event-image">
-                            <img src="backend/uploads/events<?php echo $event['event_image']; ?>"
-                                alt="<?php echo htmlspecialchars($event['event_title']); ?>">
-                        </div>
-                    </div>
+                   
 
                     <div class="col-lg-6">
                         <div class="text-muted">
 
-                            <h3 class="mb-3 fs-20"><?php echo htmlspecialchars($event['event_title']); ?></h3>
-                            
+                            <h3 class="mb-3 fw-semibold"><?php echo htmlspecialchars($event['event_title']); ?></h3>
+                           
+
                             <div class="row pt-3" style=" display:block;">
                                 <div class="col-3">
                                     <div class="event-text-center">
@@ -118,10 +117,10 @@ if (isset($_GET['event_id'])) {
                                             <img src="./assets/images/svg/date.svg" alt="" style="width:40px;">
                                         </div>
                                         <div class="event-p">
-                                        <p><?php echo htmlspecialchars($event['event_date']); ?></p>
+                                            <p><?php echo htmlspecialchars($event['event_date']); ?></p>
+                                        </div>
                                     </div>
-                                    </div>
-                                    
+
                                 </div>
                             </div>
                             <br>
@@ -154,6 +153,12 @@ if (isset($_GET['event_id'])) {
                             </p>
                         </div>
                     </div>
+                    <div class="col-lg-6 col-sm-7 mx-auto">
+                        <div class="event-image">
+                            <img src="backend/uploads/events<?php echo $event['event_image']; ?>"
+                                alt="<?php echo htmlspecialchars($event['event_title']); ?>">
+                        </div>
+                    </div>
                     <hr>
                     <div class="social-area">
                         <ul class="dz-social-icon style-3">
@@ -164,13 +169,79 @@ if (isset($_GET['event_id'])) {
                     </div>
                 </div>
 
-
                 <!-- end col -->
-            </div>
             <!-- end row -->
     </div>
     <!-- end container -->
     </section>
+    <!-- start client section -->
+    <div class="pt-8 mt-8" style="height:500px;">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="text-center mt-5">
+                    <h3 class="mb-3 fw-semibold">Related Events</h3>
+              
+
+                        <!-- Swiper -->
+                        <div class="swiper trusted-client-slider mt-sm-5 mt-4 mb-sm-5 mb-4" dir="ltr">
+                            <div class="swiper-wrapper">
+
+                                <?php
+                                $sql = "SELECT * FROM events ORDER BY event_id DESC LIMIT 7";
+                                $result = $conn->query($sql);
+                                $data = [];
+                                if ($result) {
+                                    if ($result->num_rows > 0) {
+
+                                        while ($row = $result->fetch_assoc()) {
+                                            $events[] = $row;
+                                        }
+                                    } else {
+                                        $data = [];
+                                    }
+                                } else {
+
+                                    echo "Error: " . $conn->error;
+                                }
+                                ?>
+
+                                <?php foreach ($events as $row): ?>
+                                    <div class="swiper-slide" style="height:100px; ">
+                                        <div class="events-cards">
+                                            <div class="dates">
+                                                <?php
+                                                $timestamp = strtotime($row['event_date']);
+                                                $day = date('d', $timestamp);
+                                                $month = date('F', $timestamp);
+                                                ?>
+
+                                                <div class="days"><?php echo $day; ?></div>
+                                                <div class="months"><?php echo $month; ?></div>
+                                            </div>
+                                            <div class="info-containers">
+                                                <div class="event-names" style="color:red;">
+                                                <?php echo $row['event_title']; ?>
+                                                </div>
+                                                <div class="event-locations">
+                                                <?php echo $row['event_location']; ?>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                <?php endforeach; ?>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- end row -->
+        <!-- end container -->
+    </div>
+    <!-- end client section -->
 
 
     <!-- Start footer -->
@@ -322,6 +393,9 @@ if (isset($_GET['event_id'])) {
 
     <!-- swiper.init js -->
     <script src="assets/js/pages/swiper.init.js"></script>
+
+    <!-- landing init -->
+    <script src="assets/js/pages/landing.init.js"></script>
 </body>
 
 

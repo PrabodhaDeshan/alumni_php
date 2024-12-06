@@ -10,7 +10,7 @@ require 'db.php';
 <head>
 
     <meta charset="utf-8" />
-    <title>KINGSWOOD ALUMNI</title>
+    <title>Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -90,15 +90,18 @@ require 'db.php';
                                     <img class="d-block img-fluid mx-auto"
                                         src="https://thumbs.dreamstime.com/b/vertical-shot-road-magnificent-mountains-under-blue-sky-captured-california-163571053.jpg"
                                         alt="First slide">
-                                    <h2 class="position-absolute top-50 start-50 translate-middle text-white">Kingswood
+                                    <h2
+                                        class="position-absolute top-50 start-50 translate-middle text-white opacity-50 text-center">
+                                        Kingswood
                                         Alumni</h2>
                                 </div>
                                 <div class="carousel-item">
                                     <img class="d-block img-fluid mx-auto"
                                         src="https://thumbs.dreamstime.com/b/vertical-shot-road-magnificent-mountains-under-blue-sky-captured-california-163571053.jpg"
                                         alt="Second slide">
-                                    <h2 class="position-absolute top-50 start-50 translate-middle text-white">
-                                        Kingswoodians Cadet Union
+                                    <h2
+                                        class="position-absolute top-50 start-50 translate-middle text-white opacity-50 text-center">
+                                        Kingswoodians alumni Cadet union
                                     </h2>
 
                                 </div>
@@ -106,7 +109,9 @@ require 'db.php';
                                     <img class="d-block img-fluid mx-auto"
                                         src="https://thumbs.dreamstime.com/b/vertical-shot-road-magnificent-mountains-under-blue-sky-captured-california-163571053.jpg"
                                         alt="Third slide">
-                                    <h2 class="position-absolute top-50 start-50 translate-middle text-white">Kingswood
+                                    <h2
+                                        class="position-absolute top-50 start-50 translate-middle text-white opacity-50 text-center">
+                                        Kingswood
                                         Alumni</h2>
 
                                 </div>
@@ -131,7 +136,7 @@ require 'db.php';
                                     <!-- Swiper -->
                                     <h3>Events</h3>
                                     <?php
-                                    $sql = "SELECT * FROM events ORDER BY event_id DESC LIMIT 7";
+                                    $sql = "SELECT * FROM events ORDER BY event_id DESC LIMIT 10";
                                     $result = $conn->query($sql);
                                     $data = [];
                                     if ($result) {
@@ -199,13 +204,15 @@ require 'db.php';
                         $result = $conn->query($sql);
                         if ($result && $result->num_rows > 0) {
                             while ($row = $result->fetch_assoc()) {
-                        ?>
+                                ?>
                                 <div class="card">
                                     <div class="card-body">
                                         <a href="post_page.php?post_id=<?= base64_encode($row["post_id"]); ?>" target="_blank">
-                                            <h2 class="card-title"><?php echo $row['post_title']; ?></h2>
-                                            <p><?php echo $row['post_date']; ?></p>
-
+                                            <div class="post-head">
+                                                <h2 class="card-title"><?php echo $row['post_title']; ?></h2>
+                                                <p style="color:#afafaf;"><?php echo $row['post_date']; ?> &nbsp
+                                                    <?php echo $row['post_time']; ?></p>
+                                            </div>
                                         </a>
                                         <br>
                                         <img src="backend/uploads/<?php echo $row['post_image1']; ?>" alt="">
@@ -237,12 +244,12 @@ require 'db.php';
 
                                         </div>
                                     </div>
-                            <?php
+                                    <?php
                             }
                         } else {
                             echo "No books found.";
                         }
-                            ?>
+                        ?>
 
                             <!-- Pagination -->
                             <nav aria-label="Page navigation">
@@ -265,7 +272,7 @@ require 'db.php';
                                     </li>
                                 </ul>
                             </nav>
-                                </div><!-- end col -->
+                        </div><!-- end col -->
                     </div>
                 </div>
         </section>
@@ -455,23 +462,23 @@ require 'db.php';
             </div>
 
             <div class="row text-center text-sm-start align-items-center mt-5">
-                    <div class="col-sm-6">
-                        <div>
+                <div class="col-sm-6">
+                    <div>
                         <p class="copyright-text">Developed by Tritcal International LLC </p>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="text-sm-end mt-3 mt-sm-0">
-                            <ul class="list-inline mb-0 footer-list gap-4 fs-13">
-                                <li class="list-inline-item">
-                                    <a href="pages-privacy-policy.html">Kingswoodians Cadet Union
-                                    - © 2014-<?= date("Y") ?> All Rights Reserved</a>
-                                </li>
-                               
-                            </ul>
-                        </div>
                     </div>
                 </div>
+                <div class="col-sm-6">
+                    <div class="text-sm-end mt-3 mt-sm-0">
+                        <ul class="list-inline mb-0 footer-list gap-4 fs-13">
+                            <li class="list-inline-item">
+                                <a href="pages-privacy-policy.html">Kingswoodians Cadet Union
+                                    - © 2014-<?= date("Y") ?> All Rights Reserved</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
     <!-- end footer -->

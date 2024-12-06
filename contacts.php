@@ -53,6 +53,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="contacts.php">Contacts</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="gallery.php">Gallery</a>
+                        </li>
                     </ul>
 
                     <div class="">
@@ -64,21 +67,17 @@
             </div>
         </nav>
         <!-- end navbar -->
-         <div class="map">
-            
-         </div>
+        <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.67522728721!2d80.61308667499895!3d7.277746113939184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae368942d21023f%3A0x3843546e47aefe57!2sKingswood%20College%2C%20Kandy!5e0!3m2!1sen!2slk!4v1733464834822!5m2!1sen!2slk" width="100%" height="650" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        </div>
 
         <section class="section" id="contact">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="text-center mb-5">
-
-                        <div class="map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.234173917172!2d80.58850847499923!3d7.327574713297504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae369ec820de1ff%3A0xc333997b69dd606a!2sTritcal%20International%20(Pvt.)%20Ltd!5e0!3m2!1sen!2slk!4v1730356203208!5m2!1sen!2slk" width="700" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
-                        <br>
-
+                            <br>
                             <h3 class="mb-3 fw-semibold">Get In Touch</h3>
                             <p class="text-muted mb-4 ff-secondary">We thrive when coming up with innovative ideas but
                                 also understand that a smart concept should be supported with faucibus sapien odio
@@ -257,7 +256,8 @@
                 <div class="row text-center text-sm-start align-items-center mt-5">
                     <div class="col-sm-6">
                         <div>
-                        <p class="copyright-text">Tritcal International LLC - © 2014-<?= date("Y") ?> All Rights Reserved</p>
+                            <p class="copyright-text">Tritcal International LLC - © 2014-<?= date("Y") ?> All Rights
+                                Reserved</p>
                         </div>
                     </div>
                     <div class="col-sm-6">
