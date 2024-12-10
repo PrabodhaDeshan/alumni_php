@@ -108,12 +108,6 @@ $result = $conn->query("SELECT * FROM member_renewal");
                                             <table class="table align-middle table-nowrap" id="customerTable">
                                                 <thead class="table-light">
                                                     <tr>
-                                                        <th scope="col" style="width: 50px;">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    id="checkAll" value="option">
-                                                            </div>
-                                                        </th>
                                                         <th class="sort" data-sort="customer_name">Name</th>
                                                         <th class="" data-sort="customer_name">Email</th>
                                                         <th class="" data-sort="email">Member ID number</th>
@@ -128,14 +122,6 @@ $result = $conn->query("SELECT * FROM member_renewal");
                                                         while ($row = $result->fetch_assoc()) {
                                                             ?>
                                                             <tr>
-                                                                <th scope="row">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="checkbox"
-                                                                            name="chk_child" value="option1">
-                                                                    </div>
-                                                                </th>
-
-
                                                                 <td class="id" style="display:none;"><a
                                                                         href="javascript:void(0);"
                                                                         class="fw-medium link-primary">#VZ2101</a></td>

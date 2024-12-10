@@ -170,7 +170,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                 <div class="col-xxl-3 col-md-6">
                                                     <div class="form-group">
                                                         <label for="role_id">Member Type</label>
-                                                        <select class="form-select" id="role_id" value="<?= $user['role'] ?>" name="role">
+                                                        <select class="form-select" id="role_id"  name="role">
+                                                        <option value="<?= $user['role'] ?>" selected>Select status</option>
                                                             <option value="1">Admin</option>
                                                             <option value="2">Member</option>
                                                         </select>
@@ -239,9 +240,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                     <div class="form-group">
                                                         <label for="role_id">Status</label>
                                                         <select class="form-select" id="role_id" name="status">
-                                                            <option value="Admin" disabled>Select status</option>
-                                                            <option value="Active">Active</option>
-                                                            <option value="Inactive">Inactive</option>
+                                                            <option value="<?= $user['status'] ?>" selected>Select status</option>
+                                                            <option value="1">Active</option>
+                                                            <option value="2">Inactive</option>
                                                         </select>
                                                     </div>
                                                 </div>

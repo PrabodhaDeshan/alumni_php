@@ -68,7 +68,7 @@ require 'db.php';
                     </ul>
 
                     <div class="sign-in">
-                        <a href="sign_in.php" class="btn btn-link fw-medium text-decoration-none text-body">Sign in</a>
+                        <a href="sign_in.php" class="btn btn-link fw-medium text-decoration-none text-body" style="font-size: 18px; " >Sign in</a>
                     </div>
                 </div>
 
@@ -464,17 +464,17 @@ require 'db.php';
             <div class="row text-center text-sm-start align-items-center mt-5">
                 <div class="col-sm-6">
                     <div>
-                        <p class="copyright-text">Developed by Tritcal International LLC </p>
+                    <a style="color:white;" href="pages-privacy-policy.html">Kingswoodians Cadet Union
+                    All Rights Reserved</a>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="text-sm-end mt-3 mt-sm-0">
                         <ul class="list-inline mb-0 footer-list gap-4 fs-13">
                             <li class="list-inline-item">
-                                <a href="pages-privacy-policy.html">Kingswoodians Cadet Union
-                                    - © 2014-<?= date("Y") ?> All Rights Reserved</a>
+                            <p class="copyright-text">Developed by  Tritcal International LLC - © 2014-<?= date("Y") ?> </p>
+                                
                             </li>
-
                         </ul>
                     </div>
                 </div>

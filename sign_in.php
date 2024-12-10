@@ -26,6 +26,8 @@
 
 <body>
 
+<span class="loader"></span>
+
     <!-- auth-page wrapper -->
     <div class="auth-page-wrapper1">
         <div class="container">
@@ -57,6 +59,16 @@
                                     </div>
 
                                     <div class="mt-4">
+
+                                        <div class="mt-4">
+                                            <?php
+                                            session_start();
+                                            if (isset($_SESSION['error'])) {
+                                                echo "<div class='alert alert-danger' role='alert'>" . $_SESSION['error'] . "</div>";
+                                                unset($_SESSION['error']);
+                                            }
+                                            ?>
+                                        </div>
                                         <form action="login.php" method="POST">
 
                                             <div class="mb-3">
@@ -78,10 +90,13 @@
                                                             class="ri-eye-fill align-middle"></i></button>
                                                 </div>
                                             </div>
-                                          
+
                                             <div class="mt-4">
                                                 <button class="btn btn-success w-100" type="submit">Sign In</button>
                                             </div>
+
+
+
                                         </form>
                                     </div>
 

@@ -58,11 +58,6 @@ $member_id = $_SESSION['member_id'];
                                         <table class="table align-middle table-nowrap" id="customerTable">
                                             <thead class="table-light">
                                                 <tr>
-                                                    <th scope="col" style="width: 50px;">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" id="checkAll" value="option">
-                                                        </div>
-                                                    </th>
                                                     <th class="sort" data-sort="customer_name">Name</th>
                                                     <th class="sort" data-sort="email">Email</th>
                                                     <th class="sort" data-sort="email">Renewal Date</th>
@@ -78,11 +73,7 @@ $member_id = $_SESSION['member_id'];
                                                     while ($row = $result->fetch_assoc()) {
                                                         ?>
                                                         <tr>
-                                                            <th scope="row">
-                                                                <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
-                                                                </div>
-                                                            </th>    
+                                                              
                                                             <td class="email"><?php echo htmlspecialchars($row['full_name']); ?></td>
                                                             <td class="batch"><?php echo htmlspecialchars($row['email_address']); ?></td>
                                                             <td class="batch"><?php echo htmlspecialchars($row['created_at']); ?></td>

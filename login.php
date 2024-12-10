@@ -22,10 +22,11 @@ if ($result->num_rows == 1) {
             header("Location: member_dashboard.php");
         }
     } else {
-        echo "Invalid password";
+        $_SESSION['error'] = "Invalid password.";
+        header("Location: sign_in.php");
     }
 } else {
-    echo "User not found";
-    
+    $_SESSION['error'] = "User not found.";
+    header("Location: sign_in.php");
 }
 ?>

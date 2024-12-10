@@ -101,26 +101,18 @@ $result = $conn->query("SELECT * FROM members");
                                 <div class="card-header">
                                     <h4 class="card-title mb-0">View Members</h4>
                                 </div><!-- end card header -->
-
                                 <div class="card-body">
                                     <div class="listjs-table" id="customerList">
-
-
                                         <div class="table-responsive table-card mt-3 mb-1">
                                             <table class="table align-middle table-nowrap" id="customerTable">
                                                 <thead class="table-light">
                                                     <tr>
-                                                        <th scope="col" style="width: 50px;">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    id="checkAll" value="option">
-                                                            </div>
-                                                        </th>
                                                         <th class="sort" data-sort="customer_name">Name</th>
                                                         <th class="" data-sort="customer_name">Email</th>
                                                         <th class="" data-sort="email">Batch</th>
                                                         <th class="" data-sort="phone">Contact</th>
                                                         <th class="" data-sort="date">Address</th>
+                                                        <th class="" data-sort="date">Role</th>
                                                         <th class="" data-sort="status">Status</th>
                                                         <th class="" data-sort="action">Action</th>
                                                     </tr>
@@ -133,31 +125,46 @@ $result = $conn->query("SELECT * FROM members");
                                                         while ($row = $result->fetch_assoc()) {
                                                             ?>
                                                             <tr>
-                                                                <th scope="row">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="checkbox"
-                                                                            name="chk_child" value="option1">
-                                                                    </div>
-                                                                </th>
-
-
                                                                 <td class="id" style="display:none;"><a
                                                                         href="javascript:void(0);"
                                                                         class="fw-medium link-primary">#VZ2101</a></td>
-                                                                <td class="customer_name"><?php echo $row['member_username']; ?>
+                                                                <td class="customer_name">
+                                                                    <?php echo $row['member_first_name']; ?>
+                                                                    <?php echo $row['member_last_name']; ?>
+                                                                    <br>
+                                                                    <p style="color:#93c4f2; font-size:12px;">
+                                                                        <?php echo $row['member_username']; ?>
+                                                                    </p>
                                                                 </td>
                                                                 <td class="email"><?php echo $row['member_email']; ?></td>
                                                                 <td class="batch"><?php echo $row['member_batch']; ?></td>
                                                                 <td class="batch"><?php echo $row['contact_number']; ?></td>
-                                                                <td class="batch"><?php echo $row['member_address']; ?></td>
-                                                                <td class="status"><span
-                                                                        class="badge  text-success "><?php echo $row['status']; ?>
-                                                                </td></span>
+                                                                <td class="batch"><?php echo $row['member_address']; ?>,
+                                                                    <br>
+                                                                    <?php echo $row['member_address_line2']; ?>
+                                                                </td>
+                                                                <td class="batch"> <?php
+                                                                    if ($row['role'] == 1) {
+                                                                        echo '<span>Admin</span>';
+                                                                    } elseif ($row['role'] == 2) {
+                                                                        echo '<span>Member</span>';
+                                                                    }
+                                                                    ?></td>
+
+                                                                <td class="status">
+                                                                    <?php
+                                                                    if ($row['status'] == 1) {
+                                                                        echo '<span class="badge text-success">Active</span>';
+                                                                    } elseif ($row['status'] == 2) {
+                                                                        echo '<span class="badge text-danger">Inactive</span>';
+                                                                    }
+                                                                    ?>
+                                                                </td>
                                                                 </td>
                                                                 <td>
                                                                     <div class="d-flex gap-2">
                                                                         <div class="edit">
-                                                                            
+
                                                                             <a href="/alumni_php/update_members.php?member_id=<?= $row['member_id'] ?>"
                                                                                 class="btn btn-warning btn-sm">Edit</a>
                                                                         </div>
@@ -187,7 +194,6 @@ $result = $conn->query("SELECT * FROM members");
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="d-flex justify-content-end">
                                             <div class="pagination-wrap hstack gap-2">
                                                 <a class="page-item pagination-prev disabled"
@@ -208,23 +214,17 @@ $result = $conn->query("SELECT * FROM members");
                         <!-- end col -->
                     </div>
                     <!-- end row -->
-
-
-
-
                 </div>
                 <!-- container-fluid -->
             </div>
             <!-- End Page-content -->
 
-            <?php include './inc/dash_footer.php';?>
+            <?php include './inc/dash_footer.php'; ?>
         </div>
         <!-- end main content-->
 
     </div>
     <!-- END layout-wrapper -->
-
-
 
     <!--start back-to-top-->
     <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">

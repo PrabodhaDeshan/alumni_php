@@ -205,8 +205,8 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
                                                         <label for="role_id">Status</label>
                                                         <select class="form-select" id="role_id" name="status">
                                                             <option value="Admin" disabled>Select status</option>
-                                                            <option value="Active">Active</option>
-                                                            <option value="Inactive">Inactive</option>
+                                                            <option value="1">Active</option>
+                                                            <option value="2">Inactive</option>
                                                         </select>
                                                     </div>
                                                 </div>

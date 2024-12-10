@@ -63,184 +63,123 @@
                                 </li>
                             </ul>
 
-                            <div class="">
-                                <a href="sign_in.php" class="btn btn-link fw-medium text-decoration-none text-body">Sign
-                                    in</a>
-                                <!-- <a href="auth-signup-basic.html" class="btn btn-primary">Sign Up</a> -->
+                            <div class="sign-in">
+                                <a href="sign_in.php" class="btn btn-link fw-medium text-decoration-none text-body"
+                                    style="font-size: 18px; ">Sign in</a>
                             </div>
                         </div>
 
                     </div>
                 </nav>
-                <!-- end navbar -->
-
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="">
                             <div class="card-body px-1">
                                 <div class="row">
                                     <div class="col-lg-12">
-
-
                                         <div class="row gallery-wrapper">
-                                            <div class="element-item col-xxl-3 col-xl-4 col-sm-6 project designing development"
+                                            <div class="element-item col-md-3 col-sm-6 project designing development"
                                                 data-category="designing development">
                                                 <div class="gallery-box card">
                                                     <div class="gallery-container">
-                                                        <a class="image-popup" href="assets/images/small/img-1.jpg"
-                                                            title="">
-                                                            <img class="gallery-img img-fluid mx-auto"
-                                                                src="assets/images/small/img-1.jpg" alt="" />
-                                                            <div class="gallery-overlay">
-                                                                <h5 class="overlay-caption">Glasses and laptop from
-                                                                    above</h5>
-                                                            </div>
-                                                        </a>
+                                                        <img class="gallery-img img-fluid mx-auto"
+                                                            src="assets/images/small/img-1.jpg" alt=""
+                                                            onclick="openModal('assets/images/small/img-1.jpg')" />
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!-- end col -->
-                                            <div class="element-item col-xxl-3 col-xl-4 col-sm-6 photography"
-                                                data-category="photography">
-                                                <div class="gallery-box card">
-                                                    <div class="gallery-container">
-                                                        <a class="image-popup" href="assets/images/small/img-2.jpg"
-                                                            title="">
-                                                            <img class="gallery-img img-fluid mx-auto"
-                                                                src="assets/images/small/img-2.jpg" alt="" />
-                                                            <div class="gallery-overlay">
-                                                                <h5 class="overlay-caption">Working at a coffee shop
-                                                                </h5>
-                                                            </div>
-                                                        </a>
-
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                            <!-- end col -->
-                                            <div class="element-item col-xxl-3 col-xl-4 col-sm-6 project development"
-                                                data-category="development">
-                                                <div class="gallery-box card">
-                                                    <div class="gallery-container">
-                                                        <a class="image-popup" href="assets/images/small/img-3.jpg"
-                                                            title="">
-                                                            <img class="gallery-img img-fluid mx-auto"
-                                                                src="assets/images/small/img-3.jpg" alt="" />
-                                                            <div class="gallery-overlay">
-                                                                <h5 class="overlay-caption">Photo was taken in Beach
-                                                                </h5>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-
-
-                                                </div>
-                                            </div>
-                                            <!-- end col -->
-                                            <div class="element-item col-xxl-3 col-xl-4 col-sm-6 project designing"
-                                                data-category="project designing">
-                                                <div class="gallery-box card">
-                                                    <div class="gallery-container">
-                                                        <a class="image-popup" href="assets/images/small/img-4.jpg"
-                                                            title="">
-                                                            <img class="gallery-img img-fluid mx-auto"
-                                                                src="assets/images/small/img-4.jpg" alt="" />
-                                                            <div class="gallery-overlay">
-                                                                <h5 class="overlay-caption">Drawing a sketch</h5>
-                                                            </div>
-                                                        </a>
-
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                            <!-- end col -->
-                                            <div class="element-item col-xxl-3 col-xl-4 col-sm-6 project designing"
-                                                data-category="project designing">
-                                                <div class="gallery-box card">
-                                                    <div class="gallery-container">
-                                                        <a class="image-popup" href="assets/images/small/img-5.jpg"
-                                                            title="">
-                                                            <img class="gallery-img img-fluid mx-auto"
-                                                                src="assets/images/small/img-5.jpg" alt="" />
-                                                            <div class="gallery-overlay">
-                                                                <h5 class="overlay-caption">Working from home little
-                                                                    spot</h5>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                            <!-- end col -->
-                                            <div class="element-item col-xxl-3 col-xl-4 col-sm-6 photography"
-                                                data-category="photography">
-                                                <div class="gallery-box card">
-                                                    <div class="gallery-container">
-                                                        <a class="image-popup" href="assets/images/small/img-6.jpg"
-                                                            title="">
-                                                            <img class="gallery-img img-fluid mx-auto"
-                                                                src="assets/images/small/img-6.jpg" alt="" />
-                                                            <div class="gallery-overlay">
-                                                                <h5 class="overlay-caption">Project discussion with team
-                                                                </h5>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-
-
-                                                </div>
-                                            </div>
-                                            <!-- end col -->
-                                            <div class="element-item col-xxl-3 col-xl-4 col-sm-6 project designing development"
+                                            <div class="element-item col-md-3 col-sm-6 project designing development"
                                                 data-category="designing development">
                                                 <div class="gallery-box card">
                                                     <div class="gallery-container">
-                                                        <a class="image-popup" href="assets/images/small/img-7.jpg"
-                                                            title="">
-                                                            <img class="gallery-img img-fluid mx-auto"
-                                                                src="assets/images/small/img-7.jpg" alt="" />
-                                                            <div class="gallery-overlay">
-                                                                <h5 class="overlay-caption">Sunrise above a beach</h5>
-                                                            </div>
-                                                        </a>
+                                                        <img class="gallery-img img-fluid mx-auto"
+                                                            src="assets/images/small/img-3.jpg" alt=""
+                                                            onclick="openModal('assets/images/small/img-3.jpg')" />
                                                     </div>
-
                                                 </div>
                                             </div>
-                                            <!-- end col -->
-                                            <div class="element-item col-xxl-3 col-xl-4 col-sm-6 photography"
-                                                data-category="photography">
+                                            <div class="element-item col-md-3 col-sm-6 project designing development"
+                                                data-category="designing development">
                                                 <div class="gallery-box card">
                                                     <div class="gallery-container">
-                                                        <a class="image-popup" href="assets/images/small/img-8.jpg"
-                                                            title="">
-                                                            <img class="gallery-img img-fluid mx-auto"
-                                                                src="assets/images/small/img-8.jpg" alt="" />
-                                                            <div class="gallery-overlay">
-                                                                <h5 class="overlay-caption">Glasses and laptop from
-                                                                    above</h5>
-                                                            </div>
-                                                        </a>
+                                                        <img class="gallery-img img-fluid mx-auto"
+                                                            src="assets/images/small/img-6.jpg" alt=""
+                                                            onclick="openModal('assets/images/small/img-6.jpg')" />
                                                     </div>
-
                                                 </div>
                                             </div>
-                                            <!-- end col -->
+                                            <div class="element-item col-md-3 col-sm-6 project designing development"
+                                                data-category="designing development">
+                                                <div class="gallery-box card">
+                                                    <div class="gallery-container">
+                                                        <img class="gallery-img img-fluid mx-auto"
+                                                            src="assets/images/small/img-7.jpg" alt=""
+                                                            onclick="openModal('assets/images/small/img-7.jpg')" />
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
+                                        
+                                        <!-- end row -->
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="row gallery-wrapper">
+                                            <div class="element-item col-md-3 col-sm-6 project designing development"
+                                                data-category="designing development">
+                                                <div class="gallery-box card">
+                                                    <div class="gallery-container">
+                                                        <img class="gallery-img img-fluid mx-auto"
+                                                            src="assets/images/small/img-5.jpg" alt=""
+                                                            onclick="openModal('assets/images/small/img-5.jpg')" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="element-item col-md-3 col-sm-6 project designing development"
+                                                data-category="designing development">
+                                                <div class="gallery-box card">
+                                                    <div class="gallery-container">
+                                                        <img class="gallery-img img-fluid mx-auto"
+                                                            src="assets/images/small/img-8.jpg" alt=""
+                                                            onclick="openModal('assets/images/small/img-8.jpg')" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="element-item col-md-3 col-sm-6 project designing development"
+                                                data-category="designing development">
+                                                <div class="gallery-box card">
+                                                    <div class="gallery-container">
+                                                        <img class="gallery-img img-fluid mx-auto"
+                                                            src="assets/images/small/img-9.jpg" alt=""
+                                                            onclick="openModal('assets/images/small/img-9.jpg')" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="element-item col-md-3 col-sm-6 project designing development"
+                                                data-category="designing development">
+                                                <div class="gallery-box card">
+                                                    <div class="gallery-container">
+                                                        <img class="gallery-img img-fluid mx-auto"
+                                                            src="assets/images/small/img-10.jpg" alt=""
+                                                            onclick="openModal('assets/images/small/img-10.jpg')" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
                                         <!-- end row -->
                                     </div>
                                 </div>
                                 <!-- end row -->
                             </div>
-                            <!-- ene card body -->
+                            <!-- end card body -->
                         </div>
                         <!-- end card -->
                     </div>
                     <!-- end col -->
                 </div>
-
 
 
                 <!--start back-to-top-->
@@ -253,6 +192,7 @@
         </div>
     </div>
 
+  
     <!-- Start footer -->
     <footer class="custom-footer bg-dark py-5 position-relative">
         <div class="container">
@@ -350,21 +290,16 @@
             <div class="row text-center text-sm-start align-items-center mt-5">
                 <div class="col-sm-6">
                     <div>
-                        <p class="copyright-text">Tritcal International LLC - © 2014-<?= date("Y") ?> All Rights
-                            Reserved</p>
+                    <a style="color:white;" href="pages-privacy-policy.html">Kingswoodians Cadet Union
+                    All Rights Reserved</a>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="text-sm-end mt-3 mt-sm-0">
                         <ul class="list-inline mb-0 footer-list gap-4 fs-13">
                             <li class="list-inline-item">
-                                <a href="pages-privacy-policy.html">Privacy Policy</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="pages-term-conditions.html">Terms & Conditions</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="pages-privacy-policy.html">Security</a>
+                            <p class="copyright-text">Developed by  Tritcal International LLC - © 2014-<?= date("Y") ?> </p>
+                                
                             </li>
                         </ul>
                     </div>
@@ -373,8 +308,32 @@
         </div>
     </footer>
     <!-- end footer -->
+
     <!-- end layout wrapper -->
 
+<!-- Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img id="modalImage" src="" alt="" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+    function openModal(imageSrc) {
+        const modalImage = document.getElementById('modalImage');
+        modalImage.src = imageSrc;
+        const modal = new bootstrap.Modal(document.getElementById('imageModal'));
+        modal.show();
+    }
+</script>
 
     <!-- JAVASCRIPT -->
     <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
