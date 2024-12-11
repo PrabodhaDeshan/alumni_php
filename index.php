@@ -83,39 +83,39 @@ require 'db.php';
                 <div class="col-xl-4 left">
                     <div class="sliders">
                         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner" role="listbox">
+                        <div class="carousel-inner" role="listbox">
 
-                                <div class="carousel-item active">
+<div class="carousel-item active">
 
-                                    <img class="d-block img-fluid mx-auto"
-                                        src="https://thumbs.dreamstime.com/b/vertical-shot-road-magnificent-mountains-under-blue-sky-captured-california-163571053.jpg"
-                                        alt="First slide">
-                                    <h2
-                                        class="position-absolute top-50 start-50 translate-middle text-white opacity-50 text-center">
-                                        Kingswood
-                                        Alumni</h2>
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block img-fluid mx-auto"
-                                        src="https://thumbs.dreamstime.com/b/vertical-shot-road-magnificent-mountains-under-blue-sky-captured-california-163571053.jpg"
-                                        alt="Second slide">
-                                    <h2
-                                        class="position-absolute top-50 start-50 translate-middle text-white opacity-50 text-center">
-                                        Kingswoodians alumni Cadet union
-                                    </h2>
+    <img class="d-block img-fluid mx-auto"
+        src="assets/images/img-1.jpg"
+        alt="First slide">
+    <h2
+        class="position-absolute top-50 start-50 translate-middle text-white opacity-50 text-center">
+        Kingswood
+        Alumni</h2>
+</div>
+<div class="carousel-item">
+    <img class="d-block img-fluid mx-auto"
+        src="assets/images/img-2.jpg"
+        alt="Second slide">
+    <h2
+        class="position-absolute top-50 start-50 translate-middle text-white opacity-50 text-center">
+        Kingswoodians alumni Cadet union
+    </h2>
 
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block img-fluid mx-auto"
-                                        src="https://thumbs.dreamstime.com/b/vertical-shot-road-magnificent-mountains-under-blue-sky-captured-california-163571053.jpg"
-                                        alt="Third slide">
-                                    <h2
-                                        class="position-absolute top-50 start-50 translate-middle text-white opacity-50 text-center">
-                                        Kingswood
-                                        Alumni</h2>
+</div>
+<div class="carousel-item">
+    <img class="d-block img-fluid mx-auto"
+        src="assets/images/img-3.jpg"
+        alt="Third slide">
+    <h2
+        class="position-absolute top-50 start-50 translate-middle text-white opacity-50 text-center">
+        Kingswood
+        Alumni</h2>
 
-                                </div>
-                            </div>
+</div>
+</div>
                             <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
                                 data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
