@@ -21209,7 +21209,7 @@ span.flatpickr-weekday {
     width: 100%;
 
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 1200px) {
     .sliders {
         display: block;
       
@@ -21220,6 +21220,17 @@ span.flatpickr-weekday {
     .right{
         width: 100%;
     }
+
+    .events{
+        width: 200%;
+        display: flex;
+    }
+
+    .card{
+        width: 100%;
+    }
+   
+
   }
 
 
@@ -21265,6 +21276,7 @@ span.flatpickr-weekday {
     padding: 30px 0px 0px 0px;
     width: 100%;
 
+
   }
 
   .event-card{
@@ -21276,6 +21288,8 @@ span.flatpickr-weekday {
 
 
   }
+
+
 
   .date{
     width: 35%;
@@ -21334,11 +21348,9 @@ span.flatpickr-weekday {
     
   }
 
-
   .sign-in .btn{
     color: red;
   }
-
 
   .event-image img{
     width: 100%;
@@ -21372,8 +21384,6 @@ span.flatpickr-weekday {
     padding-top: 10px;
     padding-left: 10px;
 
-
-
   }
   
   .post-buttons{
@@ -21386,7 +21396,6 @@ span.flatpickr-weekday {
     padding-top: 5px;
     padding-left: 20px;
   }
-
  
   .mt-logo img{
     width: 200px;
@@ -21395,8 +21404,6 @@ span.flatpickr-weekday {
     margin-left: 70px;
 
   }
-
-
 
   .events-cards{
     display: flex;
@@ -21475,5 +21482,7 @@ span.flatpickr-weekday {
   }
   
 
-
+.logo img{
+    width: 150px;
+}
 

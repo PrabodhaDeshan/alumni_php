@@ -36,44 +36,9 @@ require 'db.php';
 
     <!-- Begin page -->
     <div class="layout-wrapper landing">
-        <nav class="navbar navbar-expand-lg navbar-landing fixed-top job-navbar" id="navbar">
-            <div class="container-fluid custom-container">
-                <a class="navbar-brand" href="index.html">
-                    <h3>Kingswoodians Cadet Union</h3>
-                </a>
-                <button class="navbar-toggler py-0 fs-20 text-body" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="mdi mdi-menu"></i>
-                </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mx-auto mt-2 mt-lg-0" id="navbar-example">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="index.php">Home</a>
-                        </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="#events">Events</a>
-                        </li> -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="about_us.php">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contacts.php">Contacts</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="gallery.php">Gallery</a>
-                        </li>
 
-                    </ul>
-
-                    <div class="sign-in">
-                        <a href="sign_in.php" class="btn btn-link fw-medium text-decoration-none text-body" style="font-size: 18px; " >Sign in</a>
-                    </div>
-                </div>
-
-            </div>
-        </nav>
+        <?php include 'navbar.php'; ?>
         <!-- end navbar -->
 
 
@@ -83,39 +48,33 @@ require 'db.php';
                 <div class="col-xl-4 left">
                     <div class="sliders">
                         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner" role="listbox">
+                            <div class="carousel-inner" role="listbox">
 
-<div class="carousel-item active">
+                                <div class="carousel-item active">
 
-    <img class="d-block img-fluid mx-auto"
-        src="assets/images/img-1.jpg"
-        alt="First slide">
-    <h2
-        class="position-absolute top-50 start-50 translate-middle text-white opacity-50 text-center">
-        Kingswood
-        Alumni</h2>
-</div>
-<div class="carousel-item">
-    <img class="d-block img-fluid mx-auto"
-        src="assets/images/img-2.jpg"
-        alt="Second slide">
-    <h2
-        class="position-absolute top-50 start-50 translate-middle text-white opacity-50 text-center">
-        Kingswoodians alumni Cadet union
-    </h2>
+                                    <img class="d-block img-fluid mx-auto" src="assets/images/img-1.jpg"
+                                        alt="First slide">
+                                    <h2
+                                        class="position-absolute top-50 start-50 translate-middle text-white opacity-50 text-center">
+                                        Kingswood Alumni</h2>
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block img-fluid mx-auto" src="assets/images/img-2.jpg"
+                                        alt="Second slide">
+                                    <h2
+                                        class="position-absolute top-50 start-50 translate-middle text-white opacity-50 text-center">
+                                        Kingswoodians alumni Cadet union </h2>
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block img-fluid mx-auto" src="assets/images/img-3.jpg"
+                                        alt="Third slide">
+                                    <h2
+                                        class="position-absolute top-50 start-50 translate-middle text-white opacity-50 text-center">
+                                        Kingswood
+                                        Alumni</h2>
 
-</div>
-<div class="carousel-item">
-    <img class="d-block img-fluid mx-auto"
-        src="assets/images/img-3.jpg"
-        alt="Third slide">
-    <h2
-        class="position-absolute top-50 start-50 translate-middle text-white opacity-50 text-center">
-        Kingswood
-        Alumni</h2>
-
-</div>
-</div>
+                                </div>
+                            </div>
                             <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
                                 data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -130,7 +89,7 @@ require 'db.php';
                     </div>
 
                     <div class="events">
-                        <div class="col-xl-12 col-lg-6">
+                        <div class="col-xl-12 col-lg-6" style=" width:100%">
                             <div class="card">
                                 <div class="card-body">
                                     <!-- Swiper -->
@@ -211,7 +170,8 @@ require 'db.php';
                                             <div class="post-head">
                                                 <h2 class="card-title"><?php echo $row['post_title']; ?></h2>
                                                 <p style="color:#afafaf;"><?php echo $row['post_date']; ?> &nbsp
-                                                    <?php echo $row['post_time']; ?></p>
+                                                    <?php echo $row['post_time']; ?>
+                                                </p>
                                             </div>
                                         </a>
                                         <br>
@@ -225,9 +185,7 @@ require 'db.php';
                                                     class="btn btn-primary waves-effect waves-light "
                                                     href="post_page.php?post_id=<?= base64_encode($row["post_id"]); ?>"
                                                     target="_blank">Read More</a>
-
                                             </div>
-
                                             <div class="social-area2">
                                                 <!-- Base Buttons -->
 
@@ -239,10 +197,10 @@ require 'db.php';
                                                     </div>
                                                 </ul>
                                             </div>
-
                                             <!-- Base Buttons -->
-
                                         </div>
+                                        <hr>
+
                                     </div>
                                     <?php
                             }
@@ -368,119 +326,7 @@ require 'db.php';
 
 
     <!-- Start footer -->
-    <footer class="custom-footer bg-dark py-5 position-relative">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mt-4">
-                    <div>
-                        <div>
-                            <h3>KINGSWOOD ALUMNI</h3>
-
-                        </div>
-                        <div class="mt-4 fs-13">
-                            <p>Premium Multipurpose Admin & Dashboard Template</p>
-                            <p>You can build any type of web application like eCommerce, CRM, CMS, Project
-                                management apps, Admin Panels, etc using Velzon.</p>
-                            <ul class="list-inline mb-0 footer-social-link">
-                                <li class="list-inline-item">
-                                    <a href="javascript: void(0);" class="avatar-xs d-block">
-                                        <div class="avatar-title rounded-circle">
-                                            <i class="ri-facebook-fill"></i>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="javascript: void(0);" class="avatar-xs d-block">
-                                        <div class="avatar-title rounded-circle">
-                                            <i class="ri-github-fill"></i>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="javascript: void(0);" class="avatar-xs d-block">
-                                        <div class="avatar-title rounded-circle">
-                                            <i class="ri-linkedin-fill"></i>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="javascript: void(0);" class="avatar-xs d-block">
-                                        <div class="avatar-title rounded-circle">
-                                            <i class="ri-google-fill"></i>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="javascript: void(0);" class="avatar-xs d-block">
-                                        <div class="avatar-title rounded-circle">
-                                            <i class="ri-dribbble-line"></i>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-7 ms-lg-auto">
-                    <div class="row">
-                        <div class="col-sm-4 mt-4">
-                            <h5 class="text-white mb-0">Company</h5>
-                            <div class="text-muted mt-3">
-                                <ul class="list-unstyled ff-secondary footer-list">
-                                    <li><a href="pages-profile.html">About Us</a></li>
-                                    <li><a href="pages-gallery.html">Gallery</a></li>
-                                    <li><a href="pages-team.html">Team</a></li>
-                                    <li><a href="pages-pricing.html">Pricing</a></li>
-                                    <li><a href="pages-timeline.html">Timeline</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-sm-4 mt-4">
-                            <h5 class="text-white mb-0">For Jobs</h5>
-                            <div class="text-muted mt-3">
-                                <ul class="list-unstyled ff-secondary footer-list">
-                                    <li><a href="apps-job-lists.html">Job List</a></li>
-                                    <li><a href="apps-job-application.html">application</a></li>
-                                    <li><a href="apps-job-new.html">New Job</a></li>
-                                    <li><a href="apps-job-companies-lists.html">Company List</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-sm-4 mt-4">
-                            <h5 class="text-white mb-0">Support</h5>
-                            <div class="text-muted mt-3">
-                                <ul class="list-unstyled ff-secondary footer-list">
-                                    <li><a href="pages-faqs.html">FAQ</a></li>
-                                    <li><a href="pages-faqs.html">Contact</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="row text-center text-sm-start align-items-center mt-5">
-                <div class="col-sm-6">
-                    <div>
-                    <a style="color:white;" href="pages-privacy-policy.html">Kingswoodians Cadet Union
-                    All Rights Reserved</a>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="text-sm-end mt-3 mt-sm-0">
-                        <ul class="list-inline mb-0 footer-list gap-4 fs-13">
-                            <li class="list-inline-item">
-                            <p class="copyright-text">Developed by  Tritcal International LLC - © 2014-<?= date("Y") ?> </p>
-                                
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <?php include 'footer.php'; ?>
     <!-- end footer -->
 
     <!--start back-to-top-->
