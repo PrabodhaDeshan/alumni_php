@@ -96,29 +96,33 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
                                                 <div class="col-xxl-3 col-md-6">
                                                     <div>
 
-                                                        <label for="basiInput" class="form-label">Username</label>
-                                                        <input type="text" class="form-control" name="member_username">
+                                                        <label for="basiInput" class="form-label">Username<strong
+                                                        style="color:red;"> *</strong></label>
+                                                        <input type="text" class="form-control" name="member_username" required>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
                                                 <div class="col-xxl-3 col-md-6">
                                                     <div>
-                                                        <label for="basiInput" class="form-label">First name</label>
-                                                        <input type="text" class="form-control" name="member_first_name">
+                                                        <label for="basiInput" class="form-label">First name<strong
+                                                        style="color:red;"> *</strong></label>
+                                                        <input type="text" class="form-control" name="member_first_name" required>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
                                                 <div class="col-xxl-3 col-md-6">
                                                     <div>
-                                                        <label for="basiInput" class="form-label">Last name</label>
-                                                        <input type="text" class="form-control" name="member_last_name">
+                                                        <label for="basiInput" class="form-label">Last name<strong
+                                                        style="color:red;"> *</strong></label>
+                                                        <input type="text" class="form-control" name="member_last_name" required>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
                                                 <div class="col-xxl-3 col-md-6">
                                                     <div>
-                                                        <label for="valueInput" class="form-label">Member ID number</label>
-                                                        <input type="text" class="form-control" name="member_id_no">
+                                                        <label for="valueInput" class="form-label">Member ID number<strong
+                                                        style="color:red;"> *</strong></label>
+                                                        <input type="text" class="form-control" name="member_id_no" required>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -133,8 +137,9 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
                                                 <!--end col-->
                                                 <div class="col-xxl-3 col-md-6">
                                                     <div class="form-group">
-                                                        <label for="role_id">Member Type</label>
-                                                        <select class="form-select" id="role_id" name="role">
+                                                        <label for="role_id">Member Type<strong
+                                                        style="color:red;"> *</strong></label>
+                                                        <select class="form-select" id="role_id" name="role" required>
                                                             <option value="Admin" disabled>Select Admin Type</option>
                                                             <option value="1">Admin</option>
                                                             <option value="2">Member</option>
@@ -144,7 +149,8 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
                                                 <!--end col-->
                                                 <div class="col-xxl-3 col-md-6">
                                                     <div>
-                                                        <label for="basiInput" class="form-label">Member's NIC</label>
+                                                        <label for="basiInput" class="form-label">Member's NIC<strong
+                                                        style="color:red;"> *</strong></label>
                                                         <input type="text" class="form-control" name="member_nic">
                                                     </div>
                                                 </div>
@@ -161,7 +167,8 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
                                                 <!--end col-->
                                                 <div class="col-xxl-6 col-md-6">
                                                     <div>
-                                                        <label for="exampleInputdate" class="form-label">Address line 1</label>
+                                                        <label for="exampleInputdate" class="form-label">Address line 1<strong
+                                                        style="color:red;"> *</strong></label>
                                                         <input type="text" class="form-control" name="member_address">
 
                                                     </div>
@@ -194,8 +201,9 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
                                                 <!--end col-->
                                                 <div class="col-xxl-3 col-md-6">
                                                     <div>
-                                                        <label for="exampleFormControlTextarea5" class="form-label">Contact number</label>
-                                                        <input type="text" class="form-control" name="contact_number" id="basiInput">
+                                                        <label for="exampleFormControlTextarea5" class="form-label">Contact number<strong
+                                                        style="color:red;"> *</strong></label>
+                                                        <input type="text" class="form-control" name="contact_number" id="basiInput" required>
 
                                                     </div>
                                                 </div>
@@ -213,14 +221,16 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
                                                 <!--end col-->
                                                 <div class="col-xxl-6 col-md-6">
                                                     <div>
-                                                        <label for="passwordInput" class="form-label">Password</label>
+                                                        <label for="passwordInput" class="form-label">Password<strong
+                                                        style="color:red;"> *</strong></label>
                                                         <input type="password" class="form-control" name="password" id="passwordInput" required>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-xxl-6 col-md-6">
                                                     <div>
-                                                        <label for="confirmPasswordInput" class="form-label">Confirm Password</label>
+                                                        <label for="confirmPasswordInput" class="form-label">Confirm Password<strong
+                                                        style="color:red;"> *</strong></label>
                                                         <input type="password" class="form-control" name="confirm_password" id="confirmPasswordInput" required>
                                                         <div id="passwordMatchMessage" style="color: red; font-size: 0.9em; display: none;">
                                                             Passwords do not match.

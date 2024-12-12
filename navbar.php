@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-landing fixed-top job-navbar" id="navbar">
             <div class="container-fluid custom-container">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.php">
                    <div class="logo">
                     <img src="assets/images/cadet.jpg" alt="">
                    </div>

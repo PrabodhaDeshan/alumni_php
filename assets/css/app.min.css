@@ -21356,10 +21356,11 @@ span.flatpickr-weekday {
     width: 100%;
 
   }
-  .social-area{
+  .social-area2{
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content:end;
     padding-top: 10px;
   }
 
@@ -21392,7 +21393,7 @@ span.flatpickr-weekday {
 
   .readmore{
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     padding-top: 5px;
     padding-left: 20px;
   }
@@ -21446,21 +21447,16 @@ span.flatpickr-weekday {
   }
   .event-names a{
     color: red;
-    
-
   }
   .event-locations{
     width: 100%;
     color:#05175f;
     font-weight: 400;
-
-
   }
 .post-head{
     display: flex;
     justify-content: space-between;
 }
-
 
 @media only screen and (max-width: 1000px) {
     .mt-logo
@@ -21471,18 +21467,21 @@ span.flatpickr-weekday {
     
   }
 
-  @media only screen and (max-width: 1000px) {
+  @media only screen and (max-width: 1200px) {
     .readmore
     {
         display: none;
-      
     }
-
-    
+    .social-area2{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
   }
-  
 
 .logo img{
     width: 150px;
 }
 
+
+  
