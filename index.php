@@ -52,28 +52,20 @@ require 'db.php';
 
                                 <div class="carousel-item active">
 
-                                    <img class="d-block img-fluid mx-auto" src="assets/images/img-1.jpg"
+                                    <img class="d-block img-fluid mx-auto" src="assets/images/kwd.jpg"
                                         alt="First slide">
                                     <h2
                                         class="position-absolute top-50 start-50 translate-middle text-white opacity-50 text-center">
                                         Kingswood Alumni</h2>
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block img-fluid mx-auto" src="assets/images/img-2.jpg"
+                                    <img class="d-block img-fluid mx-auto" src="assets/images/wood.jpg"
                                         alt="Second slide">
                                     <h2
                                         class="position-absolute top-50 start-50 translate-middle text-white opacity-50 text-center">
                                         Kingswoodians alumni Cadet union </h2>
                                 </div>
-                                <div class="carousel-item">
-                                    <img class="d-block img-fluid mx-auto" src="assets/images/img-3.jpg"
-                                        alt="Third slide">
-                                    <h2
-                                        class="position-absolute top-50 start-50 translate-middle text-white opacity-50 text-center">
-                                        Kingswood
-                                        Alumni</h2>
-
-                                </div>
+                              
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
                                 data-bs-slide="prev">
@@ -205,7 +197,7 @@ require 'db.php';
                                     <?php
                             }
                         } else {
-                            echo "No books found.";
+                            echo "No Posts found.";
                         }
                         ?>
 

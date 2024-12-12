@@ -32,75 +32,34 @@
 
     <!-- Begin page -->
     <div class="layout-wrapper landing">
-    <?php include 'navbar.php';?>
+        <?php include 'navbar.php'; ?>
         <!-- end navbar -->
 
         <section class="section">
-            <div class="container" style="padding-top:50px" >
+            <div class="container" style="padding-top:100px">
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="text-center mb-5">
-                            <h3 class="mb-3 fw-semibold">Our Work Process</h3>
-                            <p class="text-muted mb-4 ff-secondary">In an ideal world this website wouldn’t exist, a client would acknowledge the importance of having web copy before the Proin vitae ipsum vel ex finibus semper design starts.</p>
+                            <h2 class="mb-3 fw-semibold">Our Historical Journey: Milestones That Made Us Who We Are</h2>
+                            <p class="text-muted mb-4 ff-secondary">Kingswood College was founded by Louis Edmund Blaze,
+                                with eleven students, as a boys' high school. At the time, most schools on the island
+                                had been classified as state‑aided government schools or missionary schools. Government
+                                grants were available until a school was established, with a solid core of teachers and
+                                an expanding role. Still, institutions run by individuals did not qualify for government
+                                assistance. The first few years of the school's existence were a struggle for Blaze. Fee
+                                income barely covered the cost of running the school, so Blaze handed the struggling
+                                institution over to be managed by the Methodist mission. In 1961, the state took over
+                                the school.</p>
                         </div>
                     </div>
                 </div>
-                <!-- end row -->
 
-                <div class="row text-center">
-                    <div class="col-lg-4">
-                        <div class="process-card mt-4">
-                            <div class="process-arrow-img d-none d-lg-block">
-                                <img src="assets/images/landing/process-arrow-img.png" alt="" class="img-fluid">
-                            </div>
-                            <div class="avatar-sm icon-effect mx-auto mb-4">
-                                <div class="avatar-title bg-transparent text-success rounded-circle h1">
-                                    <i class="ri-quill-pen-line"></i>
-                                </div>
-                            </div>
-
-                            <h5>Tell us what you need</h5>
-                            <p class="text-muted ff-secondary">The profession and the employer and your desire to make your mark.</p>
-                        </div>
-                    </div>
-                    <!-- end col -->
-                    <div class="col-lg-4">
-                        <div class="process-card mt-4">
-                            <div class="process-arrow-img d-none d-lg-block">
-                                <img src="assets/images/landing/process-arrow-img.png" alt="" class="img-fluid">
-                            </div>
-                            <div class="avatar-sm icon-effect mx-auto mb-4">
-                                <div class="avatar-title bg-transparent text-success rounded-circle h1">
-                                    <i class="ri-user-follow-line"></i>
-                                </div>
-                            </div>
-
-                            <h5>Get free quotes</h5>
-                            <p class="text-muted ff-secondary">The most important aspect of beauty was, therefore, an inherent part.</p>
-                        </div>
-                    </div>
-                    <!-- end col -->
-                    <div class="col-lg-4">
-                        <div class="process-card mt-4">
-                            <div class="avatar-sm icon-effect mx-auto mb-4">
-                                <div class="avatar-title bg-transparent text-success rounded-circle h1">
-                                    <i class="ri-book-mark-line"></i>
-                                </div>
-                            </div>
-
-                            <h5>Deliver high quality product</h5>
-                            <p class="text-muted ff-secondary">We quickly learn to fear and thus automatically avoid potentially.</p>
-                        </div>
-                    </div>
-                    <!-- end col -->
-                </div>
-                <!-- end row -->
             </div>
             <!-- end container -->
         </section>
 
-            <!-- start review -->
-            <section class="section bg-primary" id="reviews">
+        <!-- start review -->
+        <section class="section bg-primary" id="reviews">
             <div class="bg-overlay bg-overlay-pattern"></div>
             <div class="container">
                 <div class="row justify-content-center">
@@ -109,56 +68,65 @@
                             <div>
                                 <i class="ri-double-quotes-l text-success display-3"></i>
                             </div>
-                            <h4 class="text-white mb-5"><span class="text-success">19k</span>+ Satisfied clients</h4>
+                            <h2 class="text-white mb-5"><span class="text-success">Over Vision and goals </h2>
 
                             <!-- Swiper -->
                             <div class="swiper client-review-swiper rounded" dir="ltr">
                                 <div class="swiper-wrapper">
-                                    <div class="swiper-slide" style="background-color: #405189;" >
+                                    <div class="swiper-slide" style="background-color: #405189;">
                                         <div class="row justify-content-center">
                                             <div class="col-10">
                                                 <div class="text-white-50">
-                                                    <p class="fs-20 ff-secondary mb-4">" I am givng 5 stars. Theme is great and everyone one stuff everything in theme. Future request should not affect current state of theme. "</p>
+
+                                                <img src="assets/images/presidant.webp" alt="" style="width:120px; border-radius:100%" >
+                                                    <p class="fs-20 ff-secondary mb-4">" I am givng 5 stars. Theme is
+                                                        great and everyone one stuff everything in theme. Future request
+                                                        should not affect current state of theme. "</p>
 
                                                     <div>
-                                                        <h5 class="text-white">gregoriusus</h5>
-                                                        <p>- Skote User</p>
+                                                        <h5 class="text-white">President</h5>
+                                                        <p>- cadet union</p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- end slide -->
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide" style="background-color: #405189;">
                                         <div class="row justify-content-center">
                                             <div class="col-10">
                                                 <div class="text-white-50">
-                                                    <p class="fs-20 ff-secondary mb-4">" Awesome support. Had few issues while setting up because of my device, the support team helped me fix them up in a day. Everything looks clean and good. Highly recommended! "</p>
+                                                <img src="assets/images/presidant.webp" alt="" style="width:120px; border-radius:100%" >
+
+                                                    <p class="fs-20 ff-secondary mb-4">" I am givng 5 stars. Theme is
+                                                        great and everyone one stuff everything in theme. Future request
+                                                        should not affect current state of theme. "</p>
 
                                                     <div>
-                                                        <h5 class="text-white">GeekyGreenOwl</h5>
-                                                        <p>- Skote User</p>
+                                                        <h5 class="text-white">President</h5>
+                                                        <p>- cadet union</p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- end slide -->
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide" style="background-color: #405189;">
                                         <div class="row justify-content-center">
                                             <div class="col-10">
                                                 <div class="text-white-50">
-                                                    <p class="fs-20 ff-secondary mb-4">" Amazing template, Redux store and components is nicely designed. It's a great start point for an admin based project. Clean Code and good documentation. Template is completely in React and absolutely no usage of jQuery "</p>
+                                                <img src="assets/images/presidant.webp" alt="" style="width:120px; border-radius:100%" >
+
+                                                    <p class="fs-20 ff-secondary mb-4">" I am givng 5 stars. Theme is
+                                                        great and everyone one stuff everything in theme. Future request
+                                                        should not affect current state of theme. "</p>
 
                                                     <div>
-                                                        <h5 class="text-white">sreeks456</h5>
-                                                        <p>- Veltrix User</p>
+                                                        <h5 class="text-white">President</h5>
+                                                        <p>- cadet union</p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- end slide -->
                                 </div>
                                 <div class="swiper-button-next bg-white rounded-circle"></div>
                                 <div class="swiper-button-prev bg-white rounded-circle"></div>
@@ -173,25 +141,31 @@
             </div>
             <!-- end container -->
         </section>
+
+
         <!-- end review -->
         <section class="section" id="process">
-            <div class="container" style="padding-top:50px;" >
+            <div class="container" style="padding-top:50px;">
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="text-center mb-5">
-                            <h1 class="mb-3 ff-secondary fw-semibold lh-base">How <span class="text-primary">it's
-                                    work</span> creative jobs & quickly features</h1>
-                            <p class="text-muted">A creative person has the ability to invent and develop original
-                                ideas, Lorem ipsum dolor sit amet consectetur adipiscing elit, eget proin leo magnis
-                                ridiculus tincidunt interdum ultrices, cras varius fusce congue sociosqu neque. Platea
-                                quis montes erat tristique curae mus malesuada congue dignissim, inceptos est faucibus
-                                fames vestibulum sapien proin magnis, hendrerit dictumst penatibus senectus urna potenti
-                                mollis elementum. A fames aliquam consequat convallis dui dapibus eget praesent
-                                condimentum, quisque augue vestibulum vulputate imperdiet maecenas risus sed mattis
-                                dictum, volutpat odio torquent phasellus luctus hac ac ultricies. Penatibus vestibulum
-                                ultrices habitant rutrum in eros a, torquent malesuada urna sollicitudin litora cubilia
-                                imperdiet nulla, tortor mi iaculis arcu at mauris.especially in the arts. Like so many
-                                creative people, he was never satisfied.</p>
+                            <h1 class="mb-3 ff-secondary fw-semibold lh-base"> "Kingswood Cadet Union: Celebrating a
+                                Tradition of Unity and Leadership"</h1>
+                            <p class="text-muted">In 1891,a well known educationalist,Sir Louis Edmand Blaze OBE,JP,BA
+                                esq. founded a school,The Kingswood. Blaze belonged to a Ceylonese burgher family,but at
+                                Kingswood there was no any religion except for the religion of Kingswood. It is he who
+                                firstly coined the term “Gentlemen of Kingswood” to describe the well mannered behaviour
+                                of boys of his school. Since then, Kingswood has produced thousands of great
+                                personalities. The college marks its 130th year of excellence this year. Kingswood is
+                                one of the first five schools to form a cadet movement in the island. The history of
+                                Cadeting in Sri Lanka runs back to the 1880’s.
+
+                                Captain Earnest Handscomb Spencer’s courageous enthusiasm lead to the formation of a
+                                Cadet company in Kingswood. In the year 1902 Kingswood cadeting came under the guidance
+                                of CLI(Ceylon Light Infantry),but already cadeting training was given to the
+                                Kingswoodians unofficially. Every school cadet movements were fully governed by the
+                                CLI,But any of the Kingswood cadet activities were not interfered by the CLI before
+                                1902,because of the discipline of “Gentlemen of Kingswood”.</p>
                         </div>
                     </div>
                     <!-- end col -->
@@ -201,12 +175,12 @@
             </div>
             <!--end container-->
         </section>
- 
 
 
-    <!-- Start footer -->
-    <?php include 'footer.php';?>
-    <!-- end footer -->
+
+        <!-- Start footer -->
+        <?php include 'footer.php'; ?>
+        <!-- end footer -->
 
         <!--start back-to-top-->
         <button onclick="topFunction()" class="btn btn-info btn-icon landing-back-top" id="back-to-top">
@@ -237,8 +211,29 @@
     <!-- swiper.init js -->
     <script src="assets/js/pages/swiper.init.js"></script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const reviewSwiper = new Swiper('.client-review-swiper', {
+                loop: true, // Enable looping of slides
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                autoplay: {
+                    delay: 5000, // Slide will change every 5 seconds
+                    disableOnInteraction: false, // Continue autoplay after user interaction
+                },
+                slidesPerView: 1, // Show one slide at a time
+                spaceBetween: 30, // Space between slides
+            });
+        });
+    </script>
 
-    
+
 </body>
 
 
