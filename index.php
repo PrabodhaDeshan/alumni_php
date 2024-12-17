@@ -32,6 +32,13 @@ require 'db.php';
 
 </head>
 
+<style>
+    body{
+        overflow-x: hidden;
+    }
+</style>
+
+
 <body data-bs-spy="scroll" data-bs-target="#navbar-example">
 
     <!-- Begin page -->
@@ -45,7 +52,7 @@ require 'db.php';
         <!-- start hero section -->
         <section class="section ">
             <div class="row">
-                <div class="col-xl-4 left">
+                <div class="col-md-4 left">
                     <div class="sliders">
                         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner" role="listbox">
@@ -81,7 +88,7 @@ require 'db.php';
                     </div>
 
                     <div class="events">
-                        <div class="col-xl-12 col-lg-6" style=" width:100%">
+                        <div class="col-lg-12 col-md-6" style=" width:100%">
                             <div class="card">
                                 <div class="card-body">
                                     <!-- Swiper -->
@@ -137,9 +144,8 @@ require 'db.php';
                         </div>
                     </div>
                 </div>
-
-                <div class="col-xl-8 right">
-                    <div class="col-xl-12">
+                <div class="col-md-8 right">
+                    <div class="col-md-12">
                         <!-- Pagination Variables -->
                         <?php
                         $postsPerPage = 10;
@@ -224,7 +230,7 @@ require 'db.php';
                             </nav>
                         </div><!-- end col -->
                     </div>
-                </div>
+                </div> </div>
         </section>
     </div>
 
