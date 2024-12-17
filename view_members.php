@@ -108,9 +108,7 @@ $result = $conn->query("SELECT * FROM members");
                                                 <thead class="table-light">
                                                     <tr>
                                                         <th class="sort" data-sort="customer_name">Name</th>
-                                                        <th class="" data-sort="customer_name">Email</th>
-                                                        <th class="" data-sort="email">Batch</th>
-                                                        <th class="" data-sort="phone">Contact</th>
+                                                        <th class="" data-sort="customer_name">Contact</th>
                                                         <th class="" data-sort="date">Address</th>
                                                         <th class="" data-sort="date">Role</th>
                                                         <th class="" data-sort="status">Status</th>
@@ -131,14 +129,12 @@ $result = $conn->query("SELECT * FROM members");
                                                                 <td class="customer_name">
                                                                     <?php echo $row['member_first_name']; ?>
                                                                     <?php echo $row['member_last_name']; ?>
-                                                                    <br>
                                                                     <p style="color:#93c4f2; font-size:12px;">
                                                                         <?php echo $row['member_username']; ?>
+                                                                    <br>Batch : <?php echo $row['member_batch']; ?><hr>
                                                                     </p>
                                                                 </td>
-                                                                <td class="email"><?php echo $row['member_email']; ?></td>
-                                                                <td class="batch"><?php echo $row['member_batch']; ?></td>
-                                                                <td class="batch"><?php echo $row['contact_number']; ?></td>
+                                                                <td class="email"><?php echo $row['member_email']; ?><br><?php echo $row['contact_number']; ?></td>
                                                                 <td class="batch"><?php echo $row['member_address']; ?>,
                                                                     <br>
                                                                     <?php echo $row['member_address_line2']; ?>
@@ -165,13 +161,9 @@ $result = $conn->query("SELECT * FROM members");
                                                                     <div class="d-flex gap-2">
                                                                         <div class="edit">
 
-                                                                            <a href="/alumni_php/update_members.php?member_id=<?= $row['member_id'] ?>"
+                                                                            <a href="update_members.php?member_id=<?= $row['member_id'] ?>"
                                                                                 class="btn btn-warning btn-sm">Edit</a>
                                                                         </div>
-                                                                        <!-- <div class="remove">
-                                                                            <a href="/alumni_php/backend/delete_members.php?member_id=<?= $row['member_id'] ?>"
-                                                                                class="btn btn-danger btn-sm">Delete</a>
-                                                                        </div> -->
                                                                     </div>
                                                                 </td>
                                                             </tr>

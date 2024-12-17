@@ -39,10 +39,12 @@
                                 <div class="p-md-5 p-4 auth-one-bg ">
                                     <div class="bg-overlay" style="display:flex; justify-content:center;">
 
-                                        <div class="mt-logo">
-                                            <img src="assets/images/kingswood.png" alt="">
-                                            <h3 class="text-primary">Old kingswoodian's Cadet Union</h3>
-
+                                        <div class="mt-logo center">
+                                            <center>
+                                                <img src="assets/images/kingswood.png" alt="" style="width:50%;">
+                                                <h3 class="text-primary" style="color:#000000;">Old kingswoodian's Cadet Union</h3>
+                                                <p>Login</p>
+                                            </center>
                                         </div>
 
                                     </div>
