@@ -37,6 +37,7 @@ if (isset($_GET['post_id'])) {
     <meta content="Themesbrand" name="author" />
 
 
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favi.png">
     <!--Swiper slider css-->
     <link href="assets/libs/swiper/swiper-bundle.min.css" rel="stylesheet" type="text/css" />
 
@@ -66,7 +67,7 @@ if (isset($_GET['post_id'])) {
 
         <!-- start features -->
         <section class="section bg-light py-5" id="features">
-            <div class="container-ps " style="padding:40px">
+            <div class="container-ps " style="padding:100px 40px 40px 40px;">
                 <div class="row align-items-center gy-4">
                     <div class="col-lg-6">
                         <div class="text-muted">
@@ -115,6 +116,7 @@ if (isset($_GET['post_id'])) {
     <!-- end layout wrapper -->
 
 
+
     <!-- JAVASCRIPT -->
     <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/libs/simplebar/simplebar.min.js"></script>
@@ -126,8 +128,13 @@ if (isset($_GET['post_id'])) {
     <!--Swiper slider js-->
     <script src="assets/libs/swiper/swiper-bundle.min.js"></script>
 
-    <!-- landing init -->
-    <script src="assets/js/pages/landing.init.js"></script>
+    <!--job landing init -->
+    <script src="assets/js/pages/job-lading.init.js"></script>
+    <!--Swiper slider js-->
+    <script src="assets/libs/swiper/swiper-bundle.min.js"></script>
+
+    <!-- swiper.init js -->
+    <script src="assets/js/pages/swiper.init.js"></script>
 </body>
 
 </html>

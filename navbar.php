@@ -2,7 +2,7 @@
             <div class="container-fluid custom-container">
                 <a class="navbar-brand" href="index.php">
                    <div class="logo">
-                    <img src="assets/images/cadet.jpg" alt="">
+                    <img src="assets/images/cadet.jpg" alt="" style="width:45%;">
                    </div>
                 </a>
                 <button class="navbar-toggler py-0 fs-20 text-body" type="button" data-bs-toggle="collapse"

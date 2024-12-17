@@ -10,11 +10,12 @@ require 'db.php';
 <head>
 
     <meta charset="utf-8" />
-    <title>Home</title>
+    <title>Kingswood Collage Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
 
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favi.png">
 
     <!--Swiper slider css-->
     <link href="assets/libs/swiper/swiper-bundle.min.css" rel="stylesheet" type="text/css" />
@@ -32,13 +33,6 @@ require 'db.php';
 
 </head>
 
-<style>
-    body{
-        overflow-x: hidden;
-    }
-</style>
-
-
 <body data-bs-spy="scroll" data-bs-target="#navbar-example">
 
     <!-- Begin page -->
@@ -52,7 +46,7 @@ require 'db.php';
         <!-- start hero section -->
         <section class="section ">
             <div class="row">
-                <div class="col-md-4 left">
+                <div class="col-lg-4 left">
                     <div class="sliders">
                         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner" role="listbox">
@@ -63,10 +57,10 @@ require 'db.php';
                                         alt="First slide">
                                     <h2
                                         class="position-absolute top-50 start-50 translate-middle text-white opacity-50 text-center">
-                                        Kingswood Alumni</h2>
+                                        Kingswoodians alumni Cadet union</h2>
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block img-fluid mx-auto" src="assets/images/wood.jpg"
+                                    <img class="d-block img-fluid mx-auto" src="assets/images/wood.JPG"
                                         alt="Second slide">
                                     <h2
                                         class="position-absolute top-50 start-50 translate-middle text-white opacity-50 text-center">
@@ -88,7 +82,7 @@ require 'db.php';
                     </div>
 
                     <div class="events">
-                        <div class="col-lg-12 col-md-6" style=" width:100%">
+                        <div class="col-xl-12 col-lg-6" style=" width:100%">
                             <div class="card">
                                 <div class="card-body">
                                     <!-- Swiper -->
@@ -144,95 +138,94 @@ require 'db.php';
                         </div>
                     </div>
                 </div>
-                <div class="col-md-8 right">
-                    <div class="col-md-12">
+
+                <div class="col-lg-8 right">
+                    <!--<div class="col-lg-12">-->
+                        <div class="card">
+                            <div class="card-body">
                         <!-- Pagination Variables -->
-                        <?php
-                        $postsPerPage = 10;
-                        $currentPage = isset($_GET['page']) ? (int) $_GET['page'] : 1;
-                        $offset = ($currentPage - 1) * $postsPerPage;
-
-                        $totalPostsQuery = "SELECT COUNT(*) AS total FROM post";
-                        $totalPostsResult = $conn->query($totalPostsQuery);
-                        $totalPosts = $totalPostsResult->fetch_assoc()['total'];
-                        $totalPages = ceil($totalPosts / $postsPerPage);
-
-                        $sql = "SELECT * FROM post LIMIT $postsPerPage OFFSET $offset";
-                        $result = $conn->query($sql);
-                        if ($result && $result->num_rows > 0) {
-                            while ($row = $result->fetch_assoc()) {
-                                ?>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <a href="post_page.php?post_id=<?= base64_encode($row["post_id"]); ?>" target="_blank">
-                                            <div class="post-head">
-                                                <h2 class="card-title"><?php echo $row['post_title']; ?></h2>
-                                                <p style="color:#afafaf;"><?php echo $row['post_date']; ?> &nbsp
-                                                    <?php echo $row['post_time']; ?>
-                                                </p>
-                                            </div>
-                                        </a>
-                                        <br>
-                                        <img src="backend/uploads/<?php echo $row['post_image1']; ?>" alt="">
-                                        <br> &nbsp;
-                                        <p class="card-text"><?php echo $row['post_description']; ?></p>
-
-                                        <div class="post-buttons">
-                                            <div class="readmore">
-                                                <a style="width:200px; height:40px;"
-                                                    class="btn btn-primary waves-effect waves-light "
-                                                    href="post_page.php?post_id=<?= base64_encode($row["post_id"]); ?>"
-                                                    target="_blank">Read More</a>
-                                            </div>
-                                            <div class="social-area2">
-                                                <!-- Base Buttons -->
-
-                                                <ul class="dz-social-icon style-3" style="display:flex;">
-                                                    <script src="https://static.elfsight.com/platform/platform.js"
-                                                        async></script>
-                                                    <div class="elfsight-app-438eb5f8-dd42-434a-a9d5-f935f21635e1"
-                                                        data-elfsight-app-lazy>
-                                                    </div>
-                                                </ul>
-                                            </div>
-                                            <!-- Base Buttons -->
+                            <?php
+                            $postsPerPage = 10;
+                            $currentPage = isset($_GET['page']) ? (int) $_GET['page'] : 1;
+                            $offset = ($currentPage - 1) * $postsPerPage;
+    
+                            $totalPostsQuery = "SELECT COUNT(*) AS total FROM post";
+                            $totalPostsResult = $conn->query($totalPostsQuery);
+                            $totalPosts = $totalPostsResult->fetch_assoc()['total'];
+                            $totalPages = ceil($totalPosts / $postsPerPage);
+    
+                            $sql = "SELECT * FROM post ORDER BY post_id DESC LIMIT $postsPerPage OFFSET $offset";
+                            $result = $conn->query($sql);
+                            if ($result && $result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                                    ?>
+                                    <a href="post_page.php?post_id=<?= base64_encode($row["post_id"]); ?>" target="_blank">
+                                        <div class="post-head">
+                                            <h2 class="card-title"><?php echo $row['post_title']; ?></h2>
+                                            <p style="color:#afafaf;"><?php echo $row['post_date']; ?> &nbsp
+                                                <?php echo $row['post_time']; ?>
+                                            </p>
                                         </div>
-                                        <hr>
-
+                                    </a>
+                                    <br>
+                                    <img src="backend/uploads/<?php echo $row['post_image1']; ?>" alt="">
+                                    <br> &nbsp;
+                                    <p class="card-text"><?php echo $row['post_description']; ?></p>
+    
+                                    <div class="post-buttons">
+                                        <div class="readmore">
+                                            <a style="width:200px; height:40px;"
+                                                class="btn btn-primary waves-effect waves-light "
+                                                href="post_page.php?post_id=<?= base64_encode($row["post_id"]); ?>"
+                                                target="_blank">Read More</a>
+                                        </div>
+                                        <div class="social-area2">
+                                            <!-- Base Buttons -->
+    
+                                            <ul class="dz-social-icon style-3" style="display:flex;">
+                                                <script src="https://static.elfsight.com/platform/platform.js"
+                                                    async></script>
+                                                <div class="elfsight-app-438eb5f8-dd42-434a-a9d5-f935f21635e1"
+                                                    data-elfsight-app-lazy>
+                                                </div>
+                                            </ul>
+                                        </div>
+                                        <!-- Base Buttons -->
                                     </div>
-                                    <?php
+                                    <hr>
+                                <?php
+                                }
+                            } else {
+                                echo "No Posts found.";
                             }
-                        } else {
-                            echo "No Posts found.";
-                        }
-                        ?>
-
+                            ?>
                             <!-- Pagination -->
-                            <nav aria-label="Page navigation">
-                                <ul class="pagination justify-content-center">
-                                    <li class="page-item <?= ($currentPage == 1) ? 'disabled' : ''; ?>">
-                                        <a class="page-link" href="?page=<?= $currentPage - 1; ?>"
-                                            aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
-                                        </a>
-                                    </li>
-                                    <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-                                        <li class="page-item <?= ($currentPage == $i) ? 'active' : ''; ?>">
-                                            <a class="page-link" href="?page=<?= $i; ?>"><?= $i; ?></a>
+                                <nav aria-label="Page navigation">
+                                    <ul class="pagination justify-content-center">
+                                        <li class="page-item <?= ($currentPage == 1) ? 'disabled' : ''; ?>">
+                                            <a class="page-link" href="?page=<?= $currentPage - 1; ?>"
+                                                aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                            </a>
                                         </li>
-                                    <?php endfor; ?>
-                                    <li class="page-item <?= ($currentPage == $totalPages) ? 'disabled' : ''; ?>">
-                                        <a class="page-link" href="?page=<?= $currentPage + 1; ?>" aria-label="Next">
-                                            <span aria-hidden="true">&raquo;</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
+                                        <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+                                            <li class="page-item <?= ($currentPage == $i) ? 'active' : ''; ?>">
+                                                <a class="page-link" href="?page=<?= $i; ?>"><?= $i; ?></a>
+                                            </li>
+                                        <?php endfor; ?>
+                                        <li class="page-item <?= ($currentPage == $totalPages) ? 'disabled' : ''; ?>">
+                                            <a class="page-link" href="?page=<?= $currentPage + 1; ?>" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
                         </div><!-- end col -->
                     </div>
-                </div> </div>
+                <!--</div>-->
+            </div>
         </section>
-    </div>
 
     <!-- end hero section -->
 

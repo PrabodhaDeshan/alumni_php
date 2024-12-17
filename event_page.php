@@ -31,12 +31,13 @@ if (isset($_GET['event_id'])) {
 <head>
 
     <meta charset="utf-8" />
-    <title>Events</title>
+    <title>Kingswood Collage Events</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
 
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favi.png">
     <!--Swiper slider css-->
     <link href="assets/libs/swiper/swiper-bundle.min.css" rel="stylesheet" type="text/css" />
 
@@ -142,11 +143,11 @@ if (isset($_GET['event_id'])) {
     <!-- end container -->
     </section>
     <!-- start client section -->
-    <div class="pt-8 mt-8" style="height:500px;">
+    <!--<div class="pt-8 mt-8" style="height:500px;">-->
         <div class="row">
             <div class="col-lg-12">
                 <div class="text-center mt-5"
-                    style="display:flex; align-items-center; height:250px; background-color:white; padding:20px">
+                    style="display:flex; align-items-center; height:300px; background-color:white; padding:20px">
 
 
                     <!-- Swiper -->
@@ -208,7 +209,7 @@ if (isset($_GET['event_id'])) {
         </div>
         <!-- end row -->
         <!-- end container -->
-    </div>
+    <!--</div>-->
     <!-- end client section -->
 
 

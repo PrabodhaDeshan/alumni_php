@@ -103,8 +103,8 @@ $result = $conn->query("SELECT * FROM members");
                                 </div><!-- end card header -->
                                 <div class="card-body">
                                     <div class="listjs-table" id="customerList">
-                                        <div class="table-responsive table-card mt-3 mb-1">
-                                            <table class="table align-middle table-nowrap" id="customerTable">
+                                    <div class="table-responsive table-card mt-3 mb-1">
+                                        <table class="table align-middle table-nowrap" id="customerTable">
                                                 <thead class="table-light">
                                                     <tr>
                                                         <th class="sort" data-sort="customer_name">Name</th>

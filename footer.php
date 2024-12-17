@@ -5,7 +5,7 @@
                 <div>
                     <div>
                         <div class="logo">
-                            <img src="assets/images/cadet.jpg" alt="">
+                            <img src="assets/images/cadet.jpg" alt="" style="width:50%;">
                         </div>
 
                     </div>
@@ -94,22 +94,14 @@
         </div>
 
         <div class="row text-center text-sm-start align-items-center mt-5">
-            <div class="col-sm-6">
-                <div>
-                    <a style="color:white;" href="pages-privacy-policy.html">Kingswoodians Cadet Union
-                        All Rights Reserved</a>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="text-sm-end mt-3 mt-sm-0">
-                    <ul class="list-inline mb-0 footer-list gap-4 fs-13">
-                        <li class="list-inline-item">
-                            <p class="copyright-text">Developed by Tritcal International LLC - © 2014-<?= date("Y") ?>
-                            </p>
+            <div class="text-sm-end mt-3 mt-sm-0">
+                <ul class="list-inline mb-0 footer-list gap-4 fs-13">
+                    <li class="list-inline-item">
+                        <p class="copyright-text" href="https://tritcal.com">Kingswoodians Cadet Union
+                    All Rights Reserved. Developed by Tritcal International LLC - © 2014-<?= date("Y") ?></p>
 
-                        </li>
-                    </ul>
-                </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
