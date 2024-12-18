@@ -11,7 +11,7 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
 
-<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favi.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favi.png">
     <!--Swiper slider css-->
     <link href="assets/libs/swiper/swiper-bundle.min.css" rel="stylesheet" type="text/css" />
 
@@ -32,10 +32,13 @@
 
     <!-- Begin page -->
     <div class="layout-wrapper landing">
-    <?php include 'navbar.php';?>
+        <?php include 'navbar.php'; ?>
         <!-- end navbar -->
         <div class="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.67522728721!2d80.61308667499895!3d7.277746113939184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae368942d21023f%3A0x3843546e47aefe57!2sKingswood%20College%2C%20Kandy!5e0!3m2!1sen!2slk!4v1733464834822!5m2!1sen!2slk" width="100%" height="650" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.67522728721!2d80.61308667499895!3d7.277746113939184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae368942d21023f%3A0x3843546e47aefe57!2sKingswood%20College%2C%20Kandy!5e0!3m2!1sen!2slk!4v1733464834822!5m2!1sen!2slk"
+                width="100%" height="650" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
 
         </div>
 
@@ -46,9 +49,8 @@
                         <div class="text-center mb-5">
                             <br>
                             <h3 class="mb-3 fw-semibold">Get In Touch</h3>
-                            <p class="text-muted mb-4 ff-secondary">We thrive when coming up with innovative ideas but
-                                also understand that a smart concept should be supported with faucibus sapien odio
-                                measurable results.</p>
+                            <p class="text-muted mb-4 ff-secondary">A prestigious institution with a rich legacy of excellence in education. Whether you’re seeking admission details, alumni connections, or general information, our team is here to assist you. Reach out to us via phone, email, or visit our campus to experience the vibrant Kingswoodian spirit firsthand. We look forward to hearing from you!</p>
+
                         </div>
                     </div>
                 </div>
@@ -58,17 +60,14 @@
                     <div class="col-lg-4">
                         <div>
                             <div class="mt-4">
-                                <h5 class="fs-13 text-muted text-uppercase">Office Address 1:</h5>
-                                <div class="ff-secondary fw-semibold">4461 Cedar Street Moro, <br />AR 72368</div>
+                                <h5 class="fs-13 text-muted text-uppercase">Our Address :</h5>
+                                <div class="ff-secondary fw-semibold">Kingswood College, Peradeniya Rd, <br />Kandy
+                                    20000</div>
+
+                                <h5 class="fs-13 text-muted text-uppercase">Contact us via Email:</h5>
+                                <div class="ff-secondary fw-semibold">kits2k20@gmail.com</div>
                             </div>
-                            <div class="mt-4">
-                                <h5 class="fs-13 text-muted text-uppercase">Office Address 2:</h5>
-                                <div class="ff-secondary fw-semibold">2467 Swick Hill Street <br />New Orleans, LA</div>
-                            </div>
-                            <div class="mt-4">
-                                <h5 class="fs-13 text-muted text-uppercase">Working Hours:</h5>
-                                <div class="ff-secondary fw-semibold">9:00am to 6:00pm</div>
-                            </div>
+
                         </div>
                     </div>
                     <!-- end col -->
@@ -127,9 +126,9 @@
 
 
 
-    <!-- Start footer -->
-    <?php include 'footer.php';?>
-    <!-- end footer -->
+        <!-- Start footer -->
+        <?php include 'footer.php'; ?>
+        <!-- end footer -->
 
         <!--start back-to-top-->
         <button onclick="topFunction()" class="btn btn-info btn-icon landing-back-top" id="back-to-top">

@@ -44,8 +44,9 @@
                             <h2 class="mb-3 fw-semibold">Our Historical Journey: Milestones That Made Us Who We Are</h2>
                             <p class="text-muted mb-4 ff-secondary">Kingswood College was founded by Louis Edmund Blaze,
                                 with eleven students, as a boys' high school. At the time, most schools on the island
-                                had been classified as state‑aided government schools or missionary schools. Government
-                                grants were available until a school was established, with a solid core of teachers and
+                                had been classified as state‑aided government schools or missionary schools.
+                                <br>
+                                Government grants were available until a school was established, with a solid core of teachers and
                                 an expanding role. Still, institutions run by individuals did not qualify for government
                                 assistance. The first few years of the school's existence were a struggle for Blaze. Fee
                                 income barely covered the cost of running the school, so Blaze handed the struggling
@@ -158,10 +159,10 @@
                                 firstly coined the term “Gentlemen of Kingswood” to describe the well mannered behaviour
                                 of boys of his school. Since then, Kingswood has produced thousands of great
                                 personalities. The college marks its 130th year of excellence this year. Kingswood is
-                                one of the first five schools to form a cadet movement in the island. The history of
-                                Cadeting in Sri Lanka runs back to the 1880’s.
-
-                                Captain Earnest Handscomb Spencer’s courageous enthusiasm lead to the formation of a
+                                one of the first five schools to form a cadet movement in the island. 
+                                <br>&nbsp; <br>&nbsp;
+                                The history of
+                                Cadeting in Sri Lanka runs back to the 1880’s. Captain Earnest Handscomb Spencer’s courageous enthusiasm lead to the formation of a
                                 Cadet company in Kingswood. In the year 1902 Kingswood cadeting came under the guidance
                                 of CLI(Ceylon Light Infantry),but already cadeting training was given to the
                                 Kingswoodians unofficially. Every school cadet movements were fully governed by the

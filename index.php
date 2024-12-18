@@ -3,6 +3,7 @@ require 'db.php';
 
 ?>
 
+
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
     data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
@@ -31,6 +32,12 @@ require 'db.php';
     <!-- custom Css-->
     <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />
 
+    <style>
+        body{
+            overflow-x: hidden;
+        }
+    </style>
+
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar-example">
@@ -56,15 +63,15 @@ require 'db.php';
                                     <img class="d-block img-fluid mx-auto" src="assets/images/kwd.jpg"
                                         alt="First slide">
                                     <h2
-                                        class="position-absolute top-50 start-50 translate-middle text-white opacity-50 text-center">
-                                        Kingswoodians alumni Cadet union</h2>
+                                        class="position-absolute top-50 start-50 translate-middle text-white  text-center">
+                                        Kingswoodians Cadet union</h2>
                                 </div>
                                 <div class="carousel-item">
                                     <img class="d-block img-fluid mx-auto" src="assets/images/wood.JPG"
                                         alt="Second slide">
                                     <h2
-                                        class="position-absolute top-50 start-50 translate-middle text-white opacity-50 text-center">
-                                        Kingswoodians alumni Cadet union </h2>
+                                        class="position-absolute top-50 start-50 translate-middle text-white  text-center">
+                                        Kingswoodians Cadet union </h2>
                                 </div>
                               
                             </div>
@@ -229,15 +236,13 @@ require 'db.php';
 
     <!-- end hero section -->
 
-    <section class="section" id="contact">
+    <section class="section" id="contact" style="border: padding-top:0" >
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="text-center mb-5">
                         <h3 class="mb-3 fw-semibold">Get In Touch</h3>
-                        <p class="text-muted mb-4 ff-secondary">We thrive when coming up with innovative ideas but
-                            also understand that a smart concept should be supported with faucibus sapien odio
-                            measurable results.</p>
+                        <p class="text-muted mb-4 ff-secondary">A prestigious institution with a rich legacy of excellence in education. Whether you’re seeking admission details, alumni connections, or general information, our team is here to assist you. Reach out to us via phone, email, or visit our campus to experience the vibrant Kingswoodian spirit firsthand. We look forward to hearing from you!</p>
                     </div>
                 </div>
             </div>
@@ -247,17 +252,13 @@ require 'db.php';
                 <div class="col-lg-4">
                     <div>
                         <div class="mt-4">
-                            <h5 class="fs-13 text-muted text-uppercase">Office Address 1:</h5>
-                            <div class="ff-secondary fw-semibold">4461 Cedar Street Moro, <br />AR 72368</div>
+                            <h5 class="fs-13 text-muted text-uppercase">Our Address :</h5>
+                            <div class="ff-secondary fw-semibold">Kingswood College, Peradeniya Rd, <br />Kandy 20000</div>
+
+                            <h5 class="fs-13 text-muted text-uppercase">Contact us via Email:</h5>
+                            <div class="ff-secondary fw-semibold">kits2k20@gmail.com</div>
                         </div>
-                        <div class="mt-4">
-                            <h5 class="fs-13 text-muted text-uppercase">Office Address 2:</h5>
-                            <div class="ff-secondary fw-semibold">2467 Swick Hill Street <br />New Orleans, LA</div>
-                        </div>
-                        <div class="mt-4">
-                            <h5 class="fs-13 text-muted text-uppercase">Working Hours:</h5>
-                            <div class="ff-secondary fw-semibold">9:00am to 6:00pm</div>
-                        </div>
+                      
                     </div>
                 </div>
                 <!-- end col -->

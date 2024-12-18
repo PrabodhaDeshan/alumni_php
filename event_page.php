@@ -37,7 +37,7 @@ if (isset($_GET['event_id'])) {
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
 
-<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favi.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favi.png">
     <!--Swiper slider css-->
     <link href="assets/libs/swiper/swiper-bundle.min.css" rel="stylesheet" type="text/css" />
 
@@ -77,43 +77,37 @@ if (isset($_GET['event_id'])) {
                             <h3 class="mb-3 fw-semibold"><?php echo htmlspecialchars($event['event_title']); ?></h3>
 
 
-                            <div class="row pt-3" style=" display:block;">
-                                <div class="col-3">
+                            <div class="row pt-3">
+                                <div class="col-3" style="display:flex; width:100%">
                                     <div class="event-text-center">
                                         <div class="event-icon">
-                                            <img src="./assets/images/svg/date.svg" alt="" style="width:40px;">
+                                            <img src="./assets/images/svg/date.svg" alt="" style="width:30px;">
                                         </div>
                                         <div class="event-p">
                                             <p><?php echo htmlspecialchars($event['event_date']); ?></p>
                                         </div>
                                     </div>
+                                    <div class="event-text-center" style="display:flex; align-items:center;">
+                                        <div class="event-icon">
+                                            <img src="./assets/images/svg/time.svg" alt="" style="width:30px;">
+                                        </div>
+                                        <div class="event-p">
+                                            <p><?php echo htmlspecialchars($event['event_time']); ?></p>
+
+                                        </div>
+                                    </div>
+                                    <div class="event-text-center">
+                                        <div class="event-icon">
+                                            <img src="./assets/images/svg/location.svg" alt="" style="width:30px;">
+                                        </div>
+                                        <div class="event-p">
+                                            <p><?php echo htmlspecialchars($event['event_location']); ?></p>
+                                        </div>
+                                    </div>
 
                                 </div>
                             </div>
                             <br>
-                            <div class="col-3">
-                                <div class="event-text-center">
-                                    <div class="event-icon">
-                                        <img src="./assets/images/svg/time.svg" alt="" style="width:40px;">
-                                    </div>
-                                    <div class="event-p">
-                                        <p><?php echo htmlspecialchars($event['event_time']); ?></p>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="col-3">
-                                <div class="event-text-center">
-                                    <div class="event-icon">
-                                        <img src="./assets/images/svg/location.svg" alt="" style="width:40px;">
-                                    </div>
-                                    <div class="event-p">
-                                        <p><?php echo htmlspecialchars($event['event_location']); ?></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
 
                             <p class="mb-4 ff-secondary fs-16">
                                 <?php echo htmlspecialchars($event['event_description']); ?>
@@ -126,89 +120,85 @@ if (isset($_GET['event_id'])) {
                                 alt="<?php echo htmlspecialchars($event['event_title']); ?>">
                         </div>
                     </div>
+                    <ul class="dz-social-icon style-3">
+                        <script src="https://static.elfsight.com/platform/platform.js" async></script>
+                        <div class="elfsight-app-438eb5f8-dd42-434a-a9d5-f935f21635e1" data-elfsight-app-lazy>
+                    </ul>
+
+
                     <hr>
 
                 </div>
 
             </div>
-
-            <ul class="dz-social-icon style-3">
-                <script src="https://static.elfsight.com/platform/platform.js" async></script>
-                <div class="elfsight-app-438eb5f8-dd42-434a-a9d5-f935f21635e1" data-elfsight-app-lazy>
-            </ul>
-
-            <!-- end col -->
-            <!-- end row -->
     </div>
     <!-- end container -->
     </section>
     <!-- start client section -->
     <!--<div class="pt-8 mt-8" style="height:500px;">-->
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="text-center mt-5"
-                    style="display:flex; align-items-center; height:300px; background-color:white; padding:20px">
+    <div class="row" style="background-color:white; " >
+        <div class="col-lg-12">
+            <div class="text-center mt-5"
+                style="display:flex; height:300px; background-color:white; ">
+                <!-- Swiper -->
+                <div class="swiper trusted-client-slider mt-sm-5 mt-4 mb-sm-5 mb-4" dir="ltr">
+                    <h3 class="mb-3 fw-semibold" style="text-align:center;">Related Events</h3>
+                     <br>
+                    <div class="swiper-wrapper">
 
+                        <?php
+                        $sql = "SELECT * FROM events ORDER BY event_id DESC LIMIT 7";
+                        $result = $conn->query($sql);
+                        $data = [];
+                        if ($result) {
+                            if ($result->num_rows > 0) {
 
-                    <!-- Swiper -->
-                    <div class="swiper trusted-client-slider mt-sm-5 mt-4 mb-sm-5 mb-4" dir="ltr">
-                        <h3 class="mb-3 fw-semibold" style="text-align:center;">Related Events</h3>
-
-                        <div class="swiper-wrapper">
-
-                            <?php
-                            $sql = "SELECT * FROM events ORDER BY event_id DESC LIMIT 7";
-                            $result = $conn->query($sql);
-                            $data = [];
-                            if ($result) {
-                                if ($result->num_rows > 0) {
-
-                                    while ($row = $result->fetch_assoc()) {
-                                        $events[] = $row;
-                                    }
-                                } else {
-                                    $data = [];
+                                while ($row = $result->fetch_assoc()) {
+                                    $events[] = $row;
                                 }
                             } else {
-
-                                echo "Error: " . $conn->error;
+                                $data = [];
                             }
-                            ?>
+                        } else {
 
-                            <?php foreach ($events as $row): ?>
-                                <div class="swiper-slide" style="height:100px; background-color:white; ">
-                                    <div class="events-cards">
-                                        <div class="dates">
-                                            <?php
-                                            $timestamp = strtotime($row['event_date']);
-                                            $day = date('d', $timestamp);
-                                            $month = date('F', $timestamp);
-                                            ?>
+                            echo "Error: " . $conn->error;
+                        }
+                        ?>
 
-                                            <div class="days"><?php echo $day; ?></div>
-                                            <div class="months"><?php echo $month; ?></div>
+                        <?php foreach ($events as $row): ?>
+                            <div class="swiper-slide" style="height:100px; background-color:white; ">
+                                <div class="events-cards">
+                                    <div class="dates">
+                                        <?php
+                                        $timestamp = strtotime($row['event_date']);
+                                        $day = date('d', $timestamp);
+                                        $month = date('F', $timestamp);
+                                        ?>
+
+                                        <div class="days"><?php echo $day; ?></div>
+                                        <div class="months"><?php echo $month; ?></div>
+                                    </div>
+                                    <div class="info-containers">
+                                        <div class="event-names" style="color:red;">
+                                            <?php echo $row['event_title']; ?>
                                         </div>
-                                        <div class="info-containers">
-                                            <div class="event-names" style="color:red;">
-                                                <?php echo $row['event_title']; ?>
-                                            </div>
-                                            <div class="event-locations">
-                                                <?php echo $row['event_location']; ?>
-                                            </div>
+                                        <div class="event-locations">
+                                            <?php echo $row['event_location']; ?>
                                         </div>
                                     </div>
-
                                 </div>
-                            <?php endforeach; ?>
 
-                        </div>
+                            </div>
+                        <?php endforeach; ?>
+
                     </div>
                 </div>
-
             </div>
+
         </div>
-        <!-- end row -->
-        <!-- end container -->
+    </div>
+    <!-- end row -->
+    <!-- end container -->
     <!--</div>-->
     <!-- end client section -->
 

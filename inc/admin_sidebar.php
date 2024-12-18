@@ -119,9 +119,13 @@
                             <div class="collapse menu-dropdown" id="sidebarCharts">
                                 <ul class="nav nav-sm flex-column">
                                    
-                                    <!-- <li class="nav-item">
-                                        <a href="" class="nav-link" data-key="t-chartjs"> Admin settings</a>
-                                    </li> -->
+                                    <li class="nav-item">
+                                        <a href="admin_change.php" class="nav-link" data-key="t-chartjs"> Admin Change</a>
+                                    </li> 
+
+                                    <li class="nav-item">
+                                        <a href="" class="nav-link" data-key="t-chartjs"> Password settings</a>
+                                    </li> 
                                    
                                 </ul>
                             </div>
