@@ -112,15 +112,18 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
                                     </div>
                                     <br>
                                     <!-- Example Textarea -->
-                                    <div> 
-                                        <label for="exampleFormControlTextarea5" class="form-label" >Post Description</label>
-                                        <textarea class="form-control" name="post_description" id="exampleFormControlTextarea5"
-                                            rows="3"></textarea>
+                                    <div>
+                                        <label for="exampleFormControlTextarea5" class="form-label">Post
+                                            Description</label>
+                                        <textarea class="form-control" name="post_description"
+                                            id="exampleFormControlTextarea5" rows="3"></textarea>
                                     </div>
                                     <br>
                                     <div>
-                                        <label for="formFile" class="form-label">Upload Post </label>
-                                        <input class="form-control" type="file" name="post_image1" id="formFile">
+                                        <label for="formFile" class="form-label">Upload Post</label>
+                                        <input class="form-control" type="file" name="post_images[]" id="formFile"
+                                            multiple accept="image/*">
+                                        <small>You can upload up to 5 images.</small>
                                     </div>
                                     <br>
                                     <div class="col-12">
@@ -140,7 +143,7 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
     <!-- End Page-content -->
 
 
-    <?php include './inc/dash_footer.php';?>
+    <?php include './inc/dash_footer.php'; ?>
     </div>
     <!-- end main content-->
 

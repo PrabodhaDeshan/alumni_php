@@ -21482,3 +21482,19 @@ span.flatpickr-weekday {
 }
 
 
+.thumb-img{
+    padding: 10px;
+    width: 100%;
+}
+
+
+.thumb-img img{
+    width: 100%;
+    height: 80%;
+
+    
+}
+
+.thumb{
+    display: flex;
+}

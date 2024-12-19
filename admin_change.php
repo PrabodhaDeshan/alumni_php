@@ -5,13 +5,11 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
     exit();
 }
 
-
 require 'db.php';
 
-$result = $conn->query("SELECT * FROM members");
+$result = $conn->query("SELECT * FROM members ");
 
 ?>
-
 
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
@@ -21,12 +19,11 @@ $result = $conn->query("SELECT * FROM members");
 <head>
 
     <meta charset="utf-8" />
-    <title>Listjs | Velzon - Admin & Dashboard Template</title>
+    <title>Admin Change</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
 
     <!-- Sweet Alert css-->
     <link href="assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
@@ -114,7 +111,7 @@ $result = $conn->query("SELECT * FROM members");
                                                 </thead>
                                                 <tbody class="list form-check-all">
                                                     <?php
-                                                    $sql = "SELECT * FROM members ";
+                                                    $sql = "SELECT * FROM members WHERE status = 1";
                                                     $result = $conn->query($sql);
                                                     if ($result && $result->num_rows > 0) {
                                                         while ($row = $result->fetch_assoc()) {
@@ -145,7 +142,7 @@ $result = $conn->query("SELECT * FROM members");
                                                                     <div class="d-flex gap-2">
                                                                         <div class="edit">
 
-                                                                            <a href="update_members.php?member_id=<?= $row['member_id'] ?>"
+                                                                            <a href="change_admin.php?member_id=<?= $row['member_id'] ?>"
                                                                                 class="btn btn-warning btn-sm">Edit</a>
                                                                         </div>
                                                                     </div>

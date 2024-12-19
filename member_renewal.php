@@ -8,7 +8,8 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '2') {
 ?>
 
 <!doctype html>
-<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
+    data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
 
 <head>
 
@@ -38,34 +39,37 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '2') {
     <!-- Begin page -->
     <div id="layout-wrapper">
 
-    <?php include './inc/member_header.php';?>
+        <?php include './inc/member_header.php'; ?>
 
-<!-- removeNotificationModal -->
-<div id="removeNotificationModal" class="modal fade zoomIn" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="NotificationModalbtn-close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="mt-2 text-center">
-                    <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop" colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>
-                    <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
-                        <h4>Are you sure ?</h4>
-                        <p class="text-muted mx-4 mb-0">Are you sure you want to remove this Notification ?</p>
+        <!-- removeNotificationModal -->
+        <div id="removeNotificationModal" class="modal fade zoomIn" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                            id="NotificationModalbtn-close"></button>
                     </div>
-                </div>
-                <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
-                    <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn w-sm btn-danger" id="delete-notification">Yes, Delete It!</button>
-                </div>
-            </div>
+                    <div class="modal-body">
+                        <div class="mt-2 text-center">
+                            <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop"
+                                colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>
+                            <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
+                                <h4>Are you sure ?</h4>
+                                <p class="text-muted mx-4 mb-0">Are you sure you want to remove this Notification ?</p>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
+                            <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn w-sm btn-danger" id="delete-notification">Yes, Delete
+                                It!</button>
+                        </div>
+                    </div>
 
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
         <!-- ========== App Menu ========== -->
-        <?php include './inc/member_sidebar.php';?>
+        <?php include './inc/member_sidebar.php'; ?>
         <!-- Left Sidebar End -->
         <!-- Vertical Overlay-->
         <div class="vertical-overlay"></div>
@@ -81,7 +85,8 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '2') {
                     <!-- start page title -->
                     <div class="row">
                         <div class="col-12">
-                            <div class="page-title-box d-sm-flex align-items-center justify-content-between bg-galaxy-transparent">
+                            <div
+                                class="page-title-box d-sm-flex align-items-center justify-content-between bg-galaxy-transparent">
 
 
                             </div>
@@ -95,38 +100,45 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '2') {
                                 <div class="card-header align-items-center d-flex">
                                     <h4 class="card-title mb-0 flex-grow-1">Member Renewal</h4>
                                     <div class="flex-shrink-0">
-                                        
+
                                     </div>
                                 </div><!-- end card header -->
 
                                 <div class="card-body">
 
                                     <div class="live-preview">
-                                        
-                                    <form class="row g-3" method="post" action="backend/member_renewal_upload.php" enctype="multipart/form-data">
-                                    <input type="hidden" id="sessionId" value="<?php echo $_SESSION['member_id']; ?>">
-                                    <div class="col-md-4">
+
+                                        <form class="row g-3" method="post" action="backend/member_renewal_upload.php"
+                                            enctype="multipart/form-data">
+                                            <input type="hidden" id="sessionId"
+                                                value="<?php echo $_SESSION['member_id']; ?>">
+                                            <div class="col-md-6">
                                                 <label for="validationDefault01" class="form-label">Full name</label>
-                                                <input type="text" class="form-control" name="full_name" id="validationDefault01" required>
+                                                <input type="text" class="form-control" name="full_name"
+                                                    id="validationDefault01" required>
                                             </div>
-                                            <div class="col-md-4">
-                                                <label for="validationDefaultUsername" class="form-label">Email address</label>
+                                            <div class="col-md-6">
+                                                <label for="validationDefaultUsername" class="form-label">Email
+                                                    address</label>
                                                 <div class="input-group">
                                                     <span class="input-group-text" id="inputGroupPrepend2">@</span>
-                                                    <input type="text" class="form-control" name="email_address" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" required>
+                                                    <input type="text" class="form-control" name="email_address"
+                                                        id="validationDefaultUsername"
+                                                        aria-describedby="inputGroupPrepend2" required>
                                                 </div>
                                             </div>
-                                           
-                                            <div class="col-md-11">
-                                            <input type="file" class="form-control" name="receipt" aria-label="file example" required>
+
+                                            <div class="col-md-12">
+                                                <input type="file" class="form-control" name="receipt"
+                                                    aria-label="file example" required>
                                             </div>
-                                           
+
                                             <div class="col-12">
                                                 <button class="btn btn-primary" type="submit">Submit form</button>
                                             </div>
                                         </form>
                                     </div>
-                                   
+
                                 </div>
                             </div>
                         </div> <!-- end col -->
@@ -134,23 +146,23 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '2') {
                     <!-- end row -->
 
 
-                        <!-- end row -->
+                    <!-- end row -->
 
-                        <!-- end row -->
+                    <!-- end row -->
 
-                    </div>
+                </div>
 
-                </div> <!-- container-fluid -->
-            </div>
-            <!-- End Page-content -->
-            <?php include './inc/dash_footer.php';?>
+            </div> <!-- container-fluid -->
         </div>
-        <!-- end main content-->
+        <!-- End Page-content -->
+        <?php include './inc/dash_footer.php'; ?>
+    </div>
+    <!-- end main content-->
 
     </div>
     <!-- END layout-wrapper -->
 
-    
+
 
 
 
@@ -160,7 +172,7 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '2') {
     </button>
     <!--end back-to-top-->
 
- 
+
 
     <!-- JAVASCRIPT -->
     <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -182,4 +194,5 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '2') {
 
 
 <!-- Mirrored from themesbrand.com/velzon/html/master/forms-validation.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Aug 2024 06:11:50 GMT -->
+
 </html>

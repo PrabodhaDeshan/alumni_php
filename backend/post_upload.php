@@ -8,28 +8,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $post_title = htmlspecialchars(trim($_POST['post_title']));
     $post_description = htmlspecialchars(trim($_POST['post_description']));
+    $imageFields = ['post_image1', 'post_image2', 'post_image3', 'post_image4', 'post_image5'];
 
-    if (isset($_FILES["post_image1"]) && $_FILES["post_image1"]["error"] == UPLOAD_ERR_OK) {
-        $fileName = date("YmdHis") . basename(str_replace(" ", "_", $_FILES["post_image1"]["name"]));
-        $targetFilePath = $target_dir . $fileName;
+    $uploadedFiles = [];
+    if (isset($_FILES['post_images']) && count($_FILES['post_images']['name']) > 0) {
+        foreach ($_FILES['post_images']['name'] as $key => $name) {
+            if ($key >= 5) break; 
+            if ($_FILES['post_images']['error'][$key] === UPLOAD_ERR_OK) {
+                $fileName = date("YmdHis") . "_" . basename(str_replace(" ", "_", $name));
+                $targetFilePath = $target_dir . $fileName;
 
-        if (move_uploaded_file($_FILES["post_image1"]["tmp_name"], $targetFilePath)) {
-            $sql = "INSERT INTO post (post_title, post_description, post_image1) VALUES ('$post_title', '$post_description', '$fileName')";
-            if ($conn->query($sql)) {
-                ?>
-                <script type="text/javascript">
-                    alert("Data added successfully!");
-                    window.location.replace("./../add_posts.php");
-                </script>
-                <?php
-            } else {
-                echo "Error: " . $conn->error;
+                if (move_uploaded_file($_FILES['post_images']['tmp_name'][$key], $targetFilePath)) {
+                    $uploadedFiles[] = $fileName;
+                }
             }
-        } else {
-            echo "File upload failed.";
         }
+    }
+
+    while (count($uploadedFiles) < 5) {
+        $uploadedFiles[] = null;
+    }
+
+    $sql = "INSERT INTO post (post_title, post_description, post_image1, post_image2, post_image3, post_image4, post_image5) 
+            VALUES ('$post_title', '$post_description', 
+            " . (isset($uploadedFiles[0]) ? "'{$uploadedFiles[0]}'" : "NULL") . ", 
+            " . (isset($uploadedFiles[1]) ? "'{$uploadedFiles[1]}'" : "NULL") . ", 
+            " . (isset($uploadedFiles[2]) ? "'{$uploadedFiles[2]}'" : "NULL") . ", 
+            " . (isset($uploadedFiles[3]) ? "'{$uploadedFiles[3]}'" : "NULL") . ", 
+            " . (isset($uploadedFiles[4]) ? "'{$uploadedFiles[4]}'" : "NULL") . ")";
+
+    if ($conn->query($sql)) {
+        ?>
+        <script type="text/javascript">
+            alert("Data added successfully!");
+            window.location.replace("./../add_posts.php");
+        </script>
+        <?php
     } else {
-        echo "No file uploaded or there was an upload error.";
+        echo "Error: " . $conn->error;
     }
 }
 

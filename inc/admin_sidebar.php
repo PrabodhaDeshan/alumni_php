@@ -102,12 +102,12 @@
 
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="admin_member_renewal.php">
-                                <i class="ri-repeat-line"></i> <span data-key="t-widgets">Member Renewal</span>
+                                <i class="ri-repeat-line"></i> <span data-key="t-widgets">My Member Renewal</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="admin_member_renewal_history.php">
-                                <i class="ri-honour-line"></i> <span data-key="t-widgets">Member Renewal History</span>
+                                <i class="ri-honour-line"></i> <span data-key="t-widgets">My Renewal History</span>
                             </a>
                         </li>
                      

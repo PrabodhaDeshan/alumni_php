@@ -16,7 +16,7 @@ require 'db.php';
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
 
-<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favi.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favi.png">
 
     <!--Swiper slider css-->
     <link href="assets/libs/swiper/swiper-bundle.min.css" rel="stylesheet" type="text/css" />
@@ -33,7 +33,7 @@ require 'db.php';
     <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />
 
     <style>
-        body{
+        body {
             overflow-x: hidden;
         }
     </style>
@@ -73,7 +73,7 @@ require 'db.php';
                                         class="position-absolute top-50 start-50 translate-middle text-white  text-center">
                                         Kingswoodians Cadet union </h2>
                                 </div>
-                              
+
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
                                 data-bs-slide="prev">
@@ -145,28 +145,31 @@ require 'db.php';
                         </div>
                     </div>
                 </div>
-
                 <div class="col-lg-8 right">
-                    <!--<div class="col-lg-12">-->
-                        <div class="card">
-                            <div class="card-body">
-                        <!-- Pagination Variables -->
+                    <div class="card">
+                        <div class="card-body">
                             <?php
                             $postsPerPage = 10;
                             $currentPage = isset($_GET['page']) ? (int) $_GET['page'] : 1;
                             $offset = ($currentPage - 1) * $postsPerPage;
-    
+
                             $totalPostsQuery = "SELECT COUNT(*) AS total FROM post";
                             $totalPostsResult = $conn->query($totalPostsQuery);
                             $totalPosts = $totalPostsResult->fetch_assoc()['total'];
                             $totalPages = ceil($totalPosts / $postsPerPage);
-    
+
                             $sql = "SELECT * FROM post ORDER BY post_id DESC LIMIT $postsPerPage OFFSET $offset";
                             $result = $conn->query($sql);
                             if ($result && $result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
+                                    $images = [];
+                                    for ($i = 0; $i <= 5; $i++) {
+                                        if (!empty($row["post_image$i"])) {
+                                            $images[] = $row["post_image$i"];
+                                        }
+                                    }
                                     ?>
-                                    <a href="post_page.php?post_id=<?= base64_encode($row["post_id"]); ?>" target="_blank">
+                                    <a href="post_page.php?post_id=<?= base64_encode($row['post_id']); ?>">
                                         <div class="post-head">
                                             <h2 class="card-title"><?php echo $row['post_title']; ?></h2>
                                             <p style="color:#afafaf;"><?php echo $row['post_date']; ?> &nbsp
@@ -175,157 +178,176 @@ require 'db.php';
                                         </div>
                                     </a>
                                     <br>
-                                    <img src="backend/uploads/<?php echo $row['post_image1']; ?>" alt="">
-                                    <br> &nbsp;
+                                    <!-- Main Image -->
+                                    <div class="main-image">
+                                        <img id="mainImage-<?php echo $row['post_id']; ?>"
+                                            src="backend/uploads/<?php echo $images[0]; ?>" alt=""
+                                            style="width:100%; height:auto;">
+                                    </div>
+                                    <br>
+                                    <!-- Thumbnails Section -->
+                                    <?php if (count($images) > 1): ?>
+                                        <div class="thumbnails" style="display:flex;  justify-content:left;">
+                                            <?php foreach (array_slice($images, 0) as $thumbnail): ?>
+                                                <div class="thumbnail" style="width:10%;">
+                                                    <img src="backend/uploads/<?php echo $thumbnail; ?>" alt=""
+                                                        style="width:80%; height:80%; cursor:pointer;"
+                                                        onclick="changeMainImage('<?php echo $row['post_id']; ?>', this.src);">
+                                                </div>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                    <br>
                                     <p class="card-text"><?php echo $row['post_description']; ?></p>
-    
+
                                     <div class="post-buttons">
                                         <div class="readmore">
                                             <a style="width:200px; height:40px;"
-                                                class="btn btn-primary waves-effect waves-light "
-                                                href="post_page.php?post_id=<?= base64_encode($row["post_id"]); ?>"
-                                                target="_blank">Read More</a>
+                                                class="btn btn-primary waves-effect waves-light"
+                                                href="post_page.php?post_id=<?= base64_encode($row['post_id']); ?>">Read
+                                                More</a>
                                         </div>
                                         <div class="social-area2">
-                                            <!-- Base Buttons -->
-    
                                             <ul class="dz-social-icon style-3" style="display:flex;">
-                                                <script src="https://static.elfsight.com/platform/platform.js"
-                                                    async></script>
+                                                <script src="https://static.elfsight.com/platform/platform.js" async></script>
                                                 <div class="elfsight-app-438eb5f8-dd42-434a-a9d5-f935f21635e1"
                                                     data-elfsight-app-lazy>
                                                 </div>
                                             </ul>
                                         </div>
-                                        <!-- Base Buttons -->
                                     </div>
                                     <hr>
-                                <?php
+                                    <?php
                                 }
                             } else {
                                 echo "No Posts found.";
                             }
                             ?>
-                            <!-- Pagination -->
-                                <nav aria-label="Page navigation">
-                                    <ul class="pagination justify-content-center">
-                                        <li class="page-item <?= ($currentPage == 1) ? 'disabled' : ''; ?>">
-                                            <a class="page-link" href="?page=<?= $currentPage - 1; ?>"
-                                                aria-label="Previous">
-                                                <span aria-hidden="true">&laquo;</span>
-                                            </a>
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination justify-content-center">
+                                    <li class="page-item <?= ($currentPage == 1) ? 'disabled' : ''; ?>">
+                                        <a class="page-link" href="?page=<?= $currentPage - 1; ?>"
+                                            aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                    <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+                                        <li class="page-item <?= ($currentPage == $i) ? 'active' : ''; ?>">
+                                            <a class="page-link" href="?page=<?= $i; ?>"><?= $i; ?></a>
                                         </li>
-                                        <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-                                            <li class="page-item <?= ($currentPage == $i) ? 'active' : ''; ?>">
-                                                <a class="page-link" href="?page=<?= $i; ?>"><?= $i; ?></a>
-                                            </li>
-                                        <?php endfor; ?>
-                                        <li class="page-item <?= ($currentPage == $totalPages) ? 'disabled' : ''; ?>">
-                                            <a class="page-link" href="?page=<?= $currentPage + 1; ?>" aria-label="Next">
-                                                <span aria-hidden="true">&raquo;</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div><!-- end col -->
+                                    <?php endfor; ?>
+                                    <li class="page-item <?= ($currentPage == $totalPages) ? 'disabled' : ''; ?>">
+                                        <a class="page-link" href="?page=<?= $currentPage + 1; ?>" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
+                </div>
+
                 <!--</div>-->
             </div>
         </section>
 
-    <!-- end hero section -->
+        <!-- end hero section -->
 
-    <section class="section" id="contact" style="border: padding-top:0" >
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="text-center mb-5">
-                        <h3 class="mb-3 fw-semibold">Get In Touch</h3>
-                        <p class="text-muted mb-4 ff-secondary">A prestigious institution with a rich legacy of excellence in education. Whether you’re seeking admission details, alumni connections, or general information, our team is here to assist you. Reach out to us via phone, email, or visit our campus to experience the vibrant Kingswoodian spirit firsthand. We look forward to hearing from you!</p>
-                    </div>
-                </div>
-            </div>
-            <!-- end row -->
-
-            <div class="row gy-4">
-                <div class="col-lg-4">
-                    <div>
-                        <div class="mt-4">
-                            <h5 class="fs-13 text-muted text-uppercase">Our Address :</h5>
-                            <div class="ff-secondary fw-semibold">Kingswood College, Peradeniya Rd, <br />Kandy 20000</div>
-
-                            <h5 class="fs-13 text-muted text-uppercase">Contact us via Email:</h5>
-                            <div class="ff-secondary fw-semibold">kits2k20@gmail.com</div>
+        <section class="section" id="contact" style="border: padding-top:0">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="text-center mb-5">
+                            <h3 class="mb-3 fw-semibold">Get In Touch</h3>
+                            <p class="text-muted mb-4 ff-secondary">A prestigious institution with a rich legacy of
+                                excellence in education. Whether you’re seeking admission details, alumni connections,
+                                or general information, our team is here to assist you. Reach out to us via phone,
+                                email, or visit our campus to experience the vibrant Kingswoodian spirit firsthand. We
+                                look forward to hearing from you!</p>
                         </div>
-                      
                     </div>
                 </div>
-                <!-- end col -->
-                <div class="col-lg-8">
-                    <div>
-                        <form>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="mb-4">
-                                        <label for="name" class="form-label fs-13">Name</label>
-                                        <input name="name" id="name" type="text"
-                                            class="form-control bg-light border-light" placeholder="Your name*">
+                <!-- end row -->
+
+                <div class="row gy-4">
+                    <div class="col-lg-4">
+                        <div>
+                            <div class="mt-4">
+                                <h5 class="fs-13 text-muted text-uppercase">Our Address :</h5>
+                                <div class="ff-secondary fw-semibold">Kingswood College, Peradeniya Rd, <br />Kandy
+                                    20000</div>
+
+                                <h5 class="fs-13 text-muted text-uppercase">Contact us via Email:</h5>
+                                <div class="ff-secondary fw-semibold">kits2k20@gmail.com</div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- end col -->
+                    <div class="col-lg-8">
+                        <div>
+                            <form>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="mb-4">
+                                            <label for="name" class="form-label fs-13">Name</label>
+                                            <input name="name" id="name" type="text"
+                                                class="form-control bg-light border-light" placeholder="Your name*">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-4">
+                                            <label for="email" class="form-label fs-13">Email</label>
+                                            <input name="email" id="email" type="email"
+                                                class="form-control bg-light border-light" placeholder="Your email*">
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="mb-4">
-                                        <label for="email" class="form-label fs-13">Email</label>
-                                        <input name="email" id="email" type="email"
-                                            class="form-control bg-light border-light" placeholder="Your email*">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="mb-4">
+                                            <label for="subject" class="form-label fs-13">Subject</label>
+                                            <input type="text" class="form-control bg-light border-light" id="subject"
+                                                name="subject" placeholder="Your Subject.." />
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="mb-4">
-                                        <label for="subject" class="form-label fs-13">Subject</label>
-                                        <input type="text" class="form-control bg-light border-light" id="subject"
-                                            name="subject" placeholder="Your Subject.." />
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="mb-3">
+                                            <label for="comments" class="form-label fs-13">Message</label>
+                                            <textarea name="comments" id="comments" rows="3"
+                                                class="form-control bg-light border-light"
+                                                placeholder="Your message..."></textarea>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="mb-3">
-                                        <label for="comments" class="form-label fs-13">Message</label>
-                                        <textarea name="comments" id="comments" rows="3"
-                                            class="form-control bg-light border-light"
-                                            placeholder="Your message..."></textarea>
+                                <div class="row">
+                                    <div class="col-lg-12 text-end">
+                                        <input type="submit" id="submit" name="send" class="submitBnt btn btn-primary"
+                                            value="Send Message">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12 text-end">
-                                    <input type="submit" id="submit" name="send" class="submitBnt btn btn-primary"
-                                        value="Send Message">
-                                </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
+                <!-- end row -->
             </div>
-            <!-- end row -->
-        </div>
-        <!-- end container -->
-    </section>
-    <!-- end contact -->
+            <!-- end container -->
+        </section>
+        <!-- end contact -->
 
 
-    <!-- Start footer -->
-    <?php include 'footer.php'; ?>
-    <!-- end footer -->
+        <!-- Start footer -->
+        <?php include 'footer.php'; ?>
+        <!-- end footer -->
 
-    <!--start back-to-top-->
-    <button onclick="topFunction()" class="btn btn-info btn-icon landing-back-top" id="back-to-top">
-        <i class="ri-arrow-up-line"></i>
-    </button>
-    <!--end back-to-top-->
+        <!--start back-to-top-->
+        <button onclick="topFunction()" class="btn btn-info btn-icon landing-back-top" id="back-to-top">
+            <i class="ri-arrow-up-line"></i>
+        </button>
+        <!--end back-to-top-->
 
     </div>
     <!-- end layout wrapper -->
@@ -349,6 +371,16 @@ require 'db.php';
 
     <!-- swiper.init js -->
     <script src="assets/js/pages/swiper.init.js"></script>
+
+
+    <script>
+        function changeMainImage(postId, newSrc) {
+            const mainImage = document.getElementById(`mainImage-${postId}`);
+            if (mainImage) {
+                mainImage.src = newSrc;
+            }
+        }
+    </script>
 </body>
 
 </html>

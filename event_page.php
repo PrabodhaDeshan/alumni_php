@@ -167,6 +167,7 @@ if (isset($_GET['event_id'])) {
 
                         <?php foreach ($events as $row): ?>
                             <div class="swiper-slide" style="height:100px; background-color:white; ">
+                            
                                 <div class="events-cards">
                                     <div class="dates">
                                         <?php
@@ -179,14 +180,17 @@ if (isset($_GET['event_id'])) {
                                         <div class="months"><?php echo $month; ?></div>
                                     </div>
                                     <div class="info-containers">
+                                    <a href="event_page.php?event_id=<?= base64_encode($row["event_id"]); ?>">
+
                                         <div class="event-names" style="color:red;">
                                             <?php echo $row['event_title']; ?>
-                                        </div>
+                                        </div></a>
                                         <div class="event-locations">
                                             <?php echo $row['event_location']; ?>
                                         </div>
                                     </div>
                                 </div>
+                                
 
                             </div>
                         <?php endforeach; ?>

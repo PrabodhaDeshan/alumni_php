@@ -90,6 +90,30 @@ if (isset($_GET['post_id'])) {
                             <img src="backend/uploads/<?php echo $event['post_image1']; ?>"
                                 alt="<?php echo htmlspecialchars($event['post_title']); ?>">
                         </div>
+
+                        <br>
+
+                    <div class="thumb">
+                    
+                        <div class="thumb-img">
+                        <img src="backend/uploads/<?php echo $event['post_image2']; ?>"
+                        alt="">
+                        </div>
+                        <div class="thumb-img">
+                        <img src="backend/uploads/<?php echo $event['post_image3']; ?>"
+                        alt="">
+                        </div>
+                        <div class="thumb-img">
+                        <img src="backend/uploads/<?php echo $event['post_image4']; ?>"
+                        alt="">
+                        </div>
+                        <div class="thumb-img">
+                        <img src="backend/uploads/<?php echo $event['post_image5']; ?>"
+                        alt="">
+                        </div>
+                        
+                        </div>
+
                     </div>
 
                     <!-- end col -->
