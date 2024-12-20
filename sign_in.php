@@ -5,11 +5,11 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>KINGSWOOD ALUMNI</title>
+    <title>Sign In</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
-
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favi.png">
 
     <!-- Layout config Js -->
     <script src="assets/js/layout.js"></script>
@@ -43,7 +43,7 @@
                                             <center>
                                                 <img src="assets/images/kingswood.png" alt="" style="width:50%;">
                                                 <h3 class="text-primary" style="color:#000000;">Old kingswoodian's Cadet Union</h3>
-                                                <p>Login</p>
+                                                <h4>Login</h4>
                                             </center>
                                         </div>
 

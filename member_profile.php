@@ -33,7 +33,7 @@ if ($result) {
 
 <head>
     <meta charset="utf-8" />
-    <title>Profile | Velzon - Admin & Dashboard Template</title>
+    <title>Profile-Member</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -43,6 +43,8 @@ if ($result) {
     <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favi.png">
+
 </head>
 
 <body>

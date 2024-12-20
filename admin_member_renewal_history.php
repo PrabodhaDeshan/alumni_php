@@ -17,7 +17,7 @@ $member_id = $_SESSION['member_id'];
 
 <head>
     <meta charset="utf-8" />
-    <title>KINGSWOOD ALUMNI</title>
+    <title>Member renewal history</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -35,6 +35,7 @@ $member_id = $_SESSION['member_id'];
     <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
     <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favi.png">
 
 </head>
 

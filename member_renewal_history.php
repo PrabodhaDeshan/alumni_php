@@ -17,10 +17,11 @@ $member_id = $_SESSION['member_id'];
 
 <head>
     <meta charset="utf-8" />
-    <title>KINGSWOOD ALUMNI</title>
+    <title>Member Renewal History </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favi.png">
 
     <!-- Sweet Alert css-->
     <link href="assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />

@@ -29,7 +29,7 @@ foreach ($tables as $table) {
 
 <head>
     <meta charset="utf-8" />
-    <title>Dashboard | Velzon - Admin & Dashboard Template</title>
+    <title>Dashboard-Member</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -41,7 +41,7 @@ foreach ($tables as $table) {
     <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />
-
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favi.png">
     <!-- JS Files -->
     <script src="assets/js/layout.js"></script>
 </head>

@@ -124,7 +124,7 @@
                                     </li> 
 
                                     <li class="nav-item">
-                                        <a href="" class="nav-link" data-key="t-chartjs"> Password settings</a>
+                                        <a href="admin_password_change.php" class="nav-link" data-key="t-chartjs"> Password settings</a>
                                     </li> 
                                    
                                 </ul>

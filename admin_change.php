@@ -24,6 +24,7 @@ $result = $conn->query("SELECT * FROM members ");
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favi.png">
 
     <!-- Sweet Alert css-->
     <link href="assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />

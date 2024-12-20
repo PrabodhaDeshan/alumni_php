@@ -35,12 +35,12 @@ foreach ($tables as $table) {
 <head>
 
     <meta charset="utf-8" />
-    <title>KIGSWOOD ALUMNI</title>
+    <title>Dashboard - Admin </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
- 
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favi.png">
     <!-- jsvectormap css -->
     <link href="assets/libs/jsvectormap/css/jsvectormap.min.css" rel="stylesheet" type="text/css" />
 

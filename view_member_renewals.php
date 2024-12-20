@@ -21,13 +21,14 @@ $result = $conn->query("SELECT * FROM member_renewal");
 <head>
 
     <meta charset="utf-8" />
-    <title>Listjs | Velzon - Admin & Dashboard Template</title>
+    <title>View Member Renewals</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
 
     <!-- Sweet Alert css-->
     <link href="assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favi.png">
 
     <!-- Layout config Js -->
     <script src="assets/js/layout.js"></script>

@@ -13,12 +13,11 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
 <head>
 
     <meta charset="utf-8" />
-    <title>Basic Elements | Velzon - Admin & Dashboard Template</title>
+    <title>Member renewal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
 
     <!-- Layout config Js -->
     <script src="assets/js/layout.js"></script>
@@ -30,6 +29,7 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
     <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
     <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favi.png">
 
 </head>
 
@@ -109,7 +109,7 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
                                                 <label for="validationDefault01" class="form-label">Full name</label>
                                                 <input type="text" class="form-control" name="full_name" id="validationDefault01" required>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-8">
                                                 <label for="validationDefaultUsername" class="form-label">Email address</label>
                                                 <div class="input-group">
                                                     <span class="input-group-text" id="inputGroupPrepend2">@</span>
@@ -117,7 +117,7 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
                                                 </div>
                                             </div>
                                            
-                                            <div class="col-md-11">
+                                            <div class="col-md-12">
                                             <input type="file" class="form-control" name="receipt" aria-label="file example" required>
                                             </div>
                                            

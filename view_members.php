@@ -21,12 +21,12 @@ $result = $conn->query("SELECT * FROM members");
 <head>
 
     <meta charset="utf-8" />
-    <title>Listjs | Velzon - Admin & Dashboard Template</title>
+    <title>View Members</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favi.png">
 
     <!-- Sweet Alert css-->
     <link href="assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />

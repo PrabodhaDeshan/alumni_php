@@ -31,13 +31,13 @@ if (isset($_GET['post_id'])) {
 <head>
 
     <meta charset="utf-8" />
-    <title>KINGSWOOD ALUMNI</title>
+    <title>Posts </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
 
 
-<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favi.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favi.png">
     <!--Swiper slider css-->
     <link href="assets/libs/swiper/swiper-bundle.min.css" rel="stylesheet" type="text/css" />
 
@@ -51,7 +51,7 @@ if (isset($_GET['post_id'])) {
     <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
     <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />
-
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favi.png">
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar-example">
@@ -59,7 +59,7 @@ if (isset($_GET['post_id'])) {
     <!-- Begin page -->
     <div class="layout-wrapper landing">
 
-    <?php include 'navbar.php';?>
+        <?php include 'navbar.php'; ?>
 
         <div class="vertical-overlay" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent.show"></div>
 
@@ -87,33 +87,25 @@ if (isset($_GET['post_id'])) {
                     </div>
                     <div class="col-lg-6 col-sm-7 mx-auto">
                         <div class="event-image">
-                            <img src="backend/uploads/<?php echo $event['post_image1']; ?>"
+                            <img id="mainImage" src="backend/uploads/<?php echo $event['post_image1']; ?>"
                                 alt="<?php echo htmlspecialchars($event['post_title']); ?>">
                         </div>
 
                         <br>
 
-                    <div class="thumb">
-                    
-                        <div class="thumb-img">
-                        <img src="backend/uploads/<?php echo $event['post_image2']; ?>"
-                        alt="">
-                        </div>
-                        <div class="thumb-img">
-                        <img src="backend/uploads/<?php echo $event['post_image3']; ?>"
-                        alt="">
-                        </div>
-                        <div class="thumb-img">
-                        <img src="backend/uploads/<?php echo $event['post_image4']; ?>"
-                        alt="">
-                        </div>
-                        <div class="thumb-img">
-                        <img src="backend/uploads/<?php echo $event['post_image5']; ?>"
-                        alt="">
-                        </div>
-                        
-                        </div>
-
+                        <?php
+                        if (!empty($event['post_image1']) || !empty($event['post_image2'])|| !empty($event['post_image3']) || !empty($event['post_image4']) || !empty($event['post_image5'])): ?>
+                            <div class="thumb">
+                                <?php for ($i = 1; $i <= 5; $i++): ?>
+                                    <?php if (!empty($event['post_image' . $i])): ?>
+                                        <div class="thumb-img">
+                                            <img src="backend/uploads/<?php echo $event['post_image' . $i]; ?>" alt=""
+                                                onclick="updateMainImage(this.src)">
+                                        </div>
+                                    <?php endif; ?>
+                                <?php endfor; ?>
+                            </div>
+                        <?php endif; ?>
                     </div>
 
                     <!-- end col -->
@@ -125,7 +117,7 @@ if (isset($_GET['post_id'])) {
 
 
         <!-- Start footer -->
-        <?php include 'footer.php';?>
+        <?php include 'footer.php'; ?>
         <!-- end footer -->
 
         <!--start back-to-top-->
@@ -159,6 +151,15 @@ if (isset($_GET['post_id'])) {
 
     <!-- swiper.init js -->
     <script src="assets/js/pages/swiper.init.js"></script>
+
+    <script>
+        function updateMainImage(src) {
+            const mainImage = document.getElementById('mainImage');
+            if (mainImage) {
+                mainImage.src = src;
+            }
+        }
+    </script>
 </body>
 
 </html>
