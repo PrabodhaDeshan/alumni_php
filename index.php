@@ -253,7 +253,7 @@ require 'db.php';
 
         <!-- end hero section -->
 
-        <section class="section" id="contact" style="border: padding-top:0">
+        <section class="section" id="contact" >
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-8">

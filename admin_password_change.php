@@ -7,6 +7,9 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
 ?>
 
 
+
+
+
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
     data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
@@ -71,19 +74,19 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
                                                 <!--end col-->
                                                 <div class="col-lg-6 col-md-6">
                                                     <div>
-                                                        <label for="passwordInput" class="form-label">Old
+                                                        <label for="passwordInput" class="form-label">New 
                                                             Password<strong style="color:red;"> *</strong></label>
                                                         <input type="password" class="form-control" name="password"
-                                                            id="passwordInput" required>
+                                                            id="passwordInput" placeholder="Enter your new password here" required>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-lg-6 col-md-6">
                                                     <div>
-                                                        <label for="confirmPasswordInput" class="form-label">New
+                                                        <label for="confirmPasswordInput" class="form-label">Confirm New
                                                             Password<strong style="color:red;"> *</strong></label>
                                                         <input type="password" class="form-control"
-                                                            name="confirm_password" id="confirmPasswordInput" required>
+                                                            name="confirm_password" id="confirmPasswordInput" placeholder="Confirm your new passord" required>
                                                         <div id="passwordMatchMessage"
                                                             style="color: red; font-size: 0.9em; display: none;">
                                                             Passwords do not match.

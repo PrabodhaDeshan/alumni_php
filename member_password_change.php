@@ -63,33 +63,37 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '2') {
                                 </div><!-- end card header -->
                                 <div class="card-body">
                                     <div class="live-preview">
-                                        <form action="admin_password_change.php" method="POST">
+                                    <form action="backend/a_password_change.php" method="POST">
                                             <div class="row gy-4">
 
                                                 <!--end col-->
                                                 <div class="col-lg-6 col-md-6">
                                                     <div>
-                                                        <label for="passwordInput" class="form-label">Old Password<strong
-                                                        style="color:red;"> *</strong></label>
-                                                        <input type="password" class="form-control" name="password" id="passwordInput" required>
+                                                        <label for="passwordInput" class="form-label">New 
+                                                            Password<strong style="color:red;"> *</strong></label>
+                                                        <input type="password" class="form-control" name="password"
+                                                            id="passwordInput" placeholder="Enter your new password here" required>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-lg-6 col-md-6">
                                                     <div>
-                                                        <label for="confirmPasswordInput" class="form-label">New Password<strong
-                                                        style="color:red;"> *</strong></label>
-                                                        <input type="password" class="form-control" name="confirm_password" id="confirmPasswordInput" required>
-                                                        <div id="passwordMatchMessage" style="color: red; font-size: 0.9em; display: none;">
+                                                        <label for="confirmPasswordInput" class="form-label">Confirm New
+                                                            Password<strong style="color:red;"> *</strong></label>
+                                                        <input type="password" class="form-control"
+                                                            name="confirm_password" id="confirmPasswordInput" placeholder="Confirm your new passord" required>
+                                                        <div id="passwordMatchMessage"
+                                                            style="color: red; font-size: 0.9em; display: none;">
                                                             Passwords do not match.
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <!--end row-->
                                                 <div class="col-12">
-                                                   
-                                                <button class="btn btn-primary" type="submit" onclick="validatePassword()">Change</button>
-                                              
+
+                                                    <button class="btn btn-primary" type="submit"
+                                                        onclick="validatePassword()">Change</button>
+
                                                 </div>
 
                                             </div>
