@@ -3513,9 +3513,6 @@
     transition-delay: .1s
 }
 
-.logo {
-    line-height: 70px
-}
 
 .logo .logo-sm {
     display: none
@@ -21356,7 +21353,8 @@ span.flatpickr-weekday {
     width: 100%;
 
   }
-  .social-area2{
+  .readmore{
+    border: 1px solid red;
     width: 100%;
     display: flex;
     align-items: center;
@@ -21389,11 +21387,10 @@ span.flatpickr-weekday {
     display: flex;
   }
 
-  .readmore{
+  .social-area2{
     display: flex;
     align-items: center;
-    padding-top: 5px;
-    padding-left: 20px;
+
   }
  
   .mt-logo img{
@@ -21477,10 +21474,15 @@ span.flatpickr-weekday {
     }
   }
 
-.logo img{
-    width: 150px;
-}
 
+@media only screen and (max-width: 600px) {
+    .logo {
+        width: 100%;
+    }
+  
+  }
+
+  
 
 .thumb-img{
     padding: 10px;
@@ -21498,3 +21500,64 @@ span.flatpickr-weekday {
 .thumb{
     display: flex;
 }
+
+.thumbnail{
+    width: 10%;
+}
+
+.thumbnails{
+    display:flex; 
+  }
+
+
+@media only screen and (max-width: 600px) {
+   
+    .thumbnails{
+        justify-content: center;
+
+      }
+      .thumbnail{
+        width: 100%;
+    }
+  
+  }
+
+.card1{
+    width: 100%;
+    margin-top: 100px;
+    display: flex;
+
+}
+
+.left-card{
+    width: 30%;
+    padding: 10px;
+
+}
+
+.right-card{
+    width: 70%;
+    margin-top: 10px;
+
+
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .card1{
+        display: block;
+    }
+
+    .left-card{
+        width: 100%;
+       
+    
+    }
+    
+    .right-card{
+        width: 100%;
+    
+    }
+  }
+
+

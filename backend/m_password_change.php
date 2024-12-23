@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['member_id'])) {
-    header("Location: admin_dashboard.php");
+    header("Location: member_dashboard.php");
     exit();
 }
 
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sql = "UPDATE members SET password = '$hashed_password' WHERE member_id = '$member_id'";
 
     if (mysqli_query($conn, $sql)) {
-        header("Location: ../admin_password_change.php");
+        header("Location: ../member_password_change.php");
         echo "Password changed successfully.";
     } else {
         echo "An error occurred while updating the password: " . mysqli_error($conn);
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     mysqli_close($conn);
 } else {
-    header("Location: ../admin_password_change.php");
+    header("Location: ../member_password_change.php");
     exit();
 }
 ?>

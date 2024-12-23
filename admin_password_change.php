@@ -161,12 +161,7 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
                     return false;
                 }
 
-                if (newPassword.length < 8) {
-                    alert("Password must be at least 8 characters long.");
-                    return false;
-                }
-
-                return true; // Form submission proceeds
+                return true; 
             }
         </script>
 

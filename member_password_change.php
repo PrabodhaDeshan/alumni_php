@@ -63,7 +63,7 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '2') {
                                 </div><!-- end card header -->
                                 <div class="card-body">
                                     <div class="live-preview">
-                                    <form action="backend/a_password_change.php" method="POST">
+                                    <form action="backend/m_password_change.php" method="POST">
                                             <div class="row gy-4">
 
                                                 <!--end col-->
@@ -135,10 +135,10 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '2') {
 
         if (password !== confirmPassword) {
             message.style.display = 'block';
-            return false; // Prevent form submission
+            return false; 
         } else {
             message.style.display = 'none';
-            return true; // Allow form submission
+            return true; 
         }
     }
 

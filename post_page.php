@@ -2,7 +2,6 @@
 require 'db.php';
 
 if (isset($_GET['post_id'])) {
-
     $id = intval(base64_decode($_GET["post_id"]));
 
     $sql = "SELECT * FROM post WHERE post_id = $id";
@@ -19,14 +18,17 @@ if (isset($_GET['post_id'])) {
     exit;
 }
 
-
+$imageCount = 0;
+for ($i = 1; $i <= 5; $i++) {
+    if (!empty($event['post_image' . $i])) {
+        $imageCount++;
+    }
+}
 ?>
-
 
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
     data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
-
 
 <head>
 
@@ -35,7 +37,6 @@ if (isset($_GET['post_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
-
 
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favi.png">
     <!--Swiper slider css-->
@@ -62,8 +63,6 @@ if (isset($_GET['post_id'])) {
         <?php include 'navbar.php'; ?>
 
         <div class="vertical-overlay" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent.show"></div>
-
-
 
         <!-- start features -->
         <section class="section bg-light py-5" id="features">
@@ -93,8 +92,7 @@ if (isset($_GET['post_id'])) {
 
                         <br>
 
-                        <?php
-                        if (!empty($event['post_image1']) || !empty($event['post_image2'])|| !empty($event['post_image3']) || !empty($event['post_image4']) || !empty($event['post_image5'])): ?>
+                        <?php if ($imageCount > 1): ?>
                             <div class="thumb">
                                 <?php for ($i = 1; $i <= 5; $i++): ?>
                                     <?php if (!empty($event['post_image' . $i])): ?>
@@ -115,7 +113,6 @@ if (isset($_GET['post_id'])) {
             <!-- end container -->
         </section>
 
-
         <!-- Start footer -->
         <?php include 'footer.php'; ?>
         <!-- end footer -->
@@ -130,8 +127,6 @@ if (isset($_GET['post_id'])) {
 
     </div>
     <!-- end layout wrapper -->
-
-
 
     <!-- JAVASCRIPT -->
     <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>

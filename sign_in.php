@@ -26,7 +26,7 @@
 
 <body>
 
-<span class="loader"></span>
+    <span class="loader"></span>
 
     <!-- auth-page wrapper -->
     <div class="auth-page-wrapper1">
@@ -37,13 +37,15 @@
                         <div class="row g-0">
                             <div class="col-md-6">
                                 <div class="p-md-5 p-4 auth-one-bg ">
-                                    <div class="bg-overlay" style="display:flex; justify-content:center;">
+                                    <div class="bg-overlay"
+                                        style="display:flex; justify-content:center; align-items: center; ">
 
                                         <div class="mt-logo center">
+
                                             <center>
-                                                <img src="assets/images/kingswood.png" alt="" style="width:50%;">
-                                                <h3 class="text-primary" style="color:#000000;">Old kingswoodian's Cadet Union</h3>
-                                                <h4>Login</h4>
+                                            <img src="assets/images/KLOGO.png" alt=""
+                                            style=" width:60%;">
+                                              
                                             </center>
                                         </div>
 

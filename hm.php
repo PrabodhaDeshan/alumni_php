@@ -3,6 +3,7 @@ require 'db.php';
 
 ?>
 
+
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
     data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
@@ -14,7 +15,7 @@ require 'db.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
-    <!-- App favicon -->
+
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favi.png">
 
     <!--Swiper slider css-->
@@ -31,6 +32,7 @@ require 'db.php';
     <!-- custom Css-->
     <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />
 
+
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar-example">
@@ -38,12 +40,15 @@ require 'db.php';
     <!-- Begin page -->
     <div class="layout-wrapper landing">
 
+
         <?php include 'navbar.php'; ?>
+        <!-- end navbar -->
 
-        <section>
-            <div class="card1">
 
-                <div class="left-card">
+        <!-- start hero section -->
+        <section class="section">
+            <div class="row">
+                <div class="col-lg-4 col-md-12 left">
                     <div class="sliders">
                         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner" role="listbox">
@@ -57,7 +62,7 @@ require 'db.php';
                                         Kingswoodians Cadet union</h2>
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block img-fluid mx-auto" src="assets/images/kwd.jpg"
+                                    <img class="d-block img-fluid mx-auto" src="assets/images/wood.JPG"
                                         alt="Second slide">
                                     <h2
                                         class="position-absolute top-50 start-50 translate-middle text-white  text-center">
@@ -77,9 +82,9 @@ require 'db.php';
                             </a>
                         </div>
                     </div>
-                    <br>
+
                     <div class="events">
-                        <div class="col-lg-6 col-sm-12" style=" width:100%">
+                        <div class="col-lg-6 col-sm-12"  style=" width:100%">
                             <div class="card">
                                 <div class="card-body">
                                     <!-- Swiper -->
@@ -135,8 +140,7 @@ require 'db.php';
                         </div>
                     </div>
                 </div>
-
-                <div class="right-card">
+                <div class="col-lg-8 col-md-12 right">
                     <div class="card">
                         <div class="card-body">
                             <?php
@@ -178,9 +182,9 @@ require 'db.php';
                                     <br>
                                     <!-- Thumbnails Section -->
                                     <?php if (count($images) > 1): ?>
-                                        <div class="thumbnails" >
+                                        <div class="thumbnails" style="display:flex;  justify-content:left;">
                                             <?php foreach (array_slice($images, 0) as $thumbnail): ?>
-                                                <div class="thumbnail">
+                                                <div class="thumbnail" style="width:10%;">
                                                     <img src="backend/uploads/<?php echo $thumbnail; ?>" alt=""
                                                         style="width:80%; height:80%; cursor:pointer;"
                                                         onclick="changeMainImage('<?php echo $row['post_id']; ?>', this.src);">
@@ -192,20 +196,20 @@ require 'db.php';
                                     <p class="card-text"><?php echo $row['post_description']; ?></p>
 
                                     <div class="post-buttons">
-                                        <div class="social-area2">
+                                        <div class="readmore">
                                             <a style="width:200px; height:40px;"
                                                 class="btn btn-primary waves-effect waves-light"
                                                 href="post_page.php?post_id=<?= base64_encode($row['post_id']); ?>">Read
                                                 More</a>
-
-                                            &nbsp;
-                                            <a style="width:200px; height:40px;"
-                                                class="btn btn-success waves-effect waves-light"
-                                                href="post_page.php?post_id=<?= base64_encode($row['post_id']); ?>">Share</a>
-
                                         </div>
-
-
+                                        <div class="social-area2">
+                                            <ul class="dz-social-icon style-3" style="display:flex;">
+                                                <script src="https://static.elfsight.com/platform/platform.js" async></script>
+                                                <div class="elfsight-app-438eb5f8-dd42-434a-a9d5-f935f21635e1"
+                                                    data-elfsight-app-lazy>
+                                                </div>
+                                            </ul>
+                                        </div>
                                     </div>
                                     <hr>
                                     <?php
@@ -236,18 +240,15 @@ require 'db.php';
                             </nav>
                         </div>
                     </div>
-
                 </div>
 
+                <!--</div>-->
             </div>
-
-
-
         </section>
 
+        <!-- end hero section -->
 
-
-        <section class="section" id="contact">
+        <section class="section" id="contact" >
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
@@ -330,18 +331,15 @@ require 'db.php';
             </div>
             <!-- end container -->
         </section>
-
-
-
+        <!-- end contact -->
 
 
         <!-- Start footer -->
         <?php include 'footer.php'; ?>
         <!-- end footer -->
 
-
         <!--start back-to-top-->
-        <button onclick="topFunction()" class="btn btn-danger btn-icon landing-back-top" id="back-to-top">
+        <button onclick="topFunction()" class="btn btn-info btn-icon landing-back-top" id="back-to-top">
             <i class="ri-arrow-up-line"></i>
         </button>
         <!--end back-to-top-->
@@ -361,15 +359,13 @@ require 'db.php';
     <!--Swiper slider js-->
     <script src="assets/libs/swiper/swiper-bundle.min.js"></script>
 
-    <!-- landing init -->
-    <script src="assets/js/pages/landing.init.js"></script>
-
-    <!--Swiper slider js-->
-    <script src="assets/libs/swiper/swiper-bundle.min.js"></script>
-
     <!--job landing init -->
     <script src="assets/js/pages/job-lading.init.js"></script>
     <!--Swiper slider js-->
+    <script src="assets/libs/swiper/swiper-bundle.min.js"></script>
+
+    <!-- swiper.init js -->
+    <script src="assets/js/pages/swiper.init.js"></script>
 
 
     <script>

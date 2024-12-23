@@ -5,7 +5,7 @@
                 <div>
                     <div>
                         <div class="logo">
-                            <img src="assets/images/cadet.jpg" alt="" style="width:50%;">
+                            <img src="assets/images/CC.png" alt="" style="width:50%;">
                         </div>
 
                     </div>
