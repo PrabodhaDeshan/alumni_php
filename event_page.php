@@ -67,7 +67,7 @@ if (isset($_GET['event_id'])) {
 
         <section class="section bg-light py-5" id="features">
             <div class="container-ev"
-                style="padding:40px;  align-items: center; display: flex; justify-content: center; ">
+                style="padding-top:40px;  align-items: center; display: flex; justify-content: center; ">
                 <div class="row align-items-center gy-4" style="width:90%;">
 
 
@@ -78,7 +78,7 @@ if (isset($_GET['event_id'])) {
 
 
                             <div class="row pt-3">
-                                <div class="col-3" style="display:flex; width:100%">
+                                <div class="event-outer" style="display:flex; width:100%">
                                     <div class="event-text-center">
                                         <div class="event-icon">
                                             <img src="./assets/images/svg/date.svg" alt="" style="width:30px;">
@@ -96,7 +96,8 @@ if (isset($_GET['event_id'])) {
 
                                         </div>
                                     </div>
-                                    <div class="event-text-center">
+                                    <div class="loc_d">
+                                <div class="event-text-center">
                                         <div class="event-icon">
                                             <img src="./assets/images/svg/location.svg" alt="" style="width:30px;">
                                         </div>
@@ -104,7 +105,19 @@ if (isset($_GET['event_id'])) {
                                             <p><?php echo htmlspecialchars($event['event_location']); ?></p>
                                         </div>
                                     </div>
+                                </div>
+                                   
+                                </div>
 
+                                <div class="loc_m">
+                                <div class="event-text-center">
+                                        <div class="event-icon">
+                                            <img src="./assets/images/svg/location.svg" alt="" style="width:30px;">
+                                        </div>
+                                        <div class="event-p">
+                                            <p><?php echo htmlspecialchars($event['event_location']); ?></p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <br>
