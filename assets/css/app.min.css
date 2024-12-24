@@ -21558,6 +21558,16 @@ span.flatpickr-weekday {
         width: 100%;
     
     }
+    .event-outer{
+        display: block;
+    
+    
+    }
   }
 
 
+
+.event-text-center{
+
+
+}
