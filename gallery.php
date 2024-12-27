@@ -103,6 +103,8 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            
                                             <div class="element-item col-md-3 col-sm-6 project designing development"
                                                 data-category="designing development">
                                                 <div class="gallery-box card">

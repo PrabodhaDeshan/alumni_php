@@ -22,13 +22,6 @@
                             <li class="list-inline-item">
                                 <a href="javascript: void(0);" class="avatar-xs d-block">
                                     <div class="avatar-title rounded-circle">
-                                        <i class="ri-github-fill"></i>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="javascript: void(0);" class="avatar-xs d-block">
-                                    <div class="avatar-title rounded-circle">
                                         <i class="ri-linkedin-fill"></i>
                                     </div>
                                 </a>
@@ -37,13 +30,6 @@
                                 <a href="javascript: void(0);" class="avatar-xs d-block">
                                     <div class="avatar-title rounded-circle">
                                         <i class="ri-google-fill"></i>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="javascript: void(0);" class="avatar-xs d-block">
-                                    <div class="avatar-title rounded-circle">
-                                        <i class="ri-dribbble-line"></i>
                                     </div>
                                 </a>
                             </li>

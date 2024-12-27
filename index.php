@@ -178,7 +178,7 @@ require 'db.php';
                                     <br>
                                     <!-- Thumbnails Section -->
                                     <?php if (count($images) > 1): ?>
-                                        <div class="thumbnails" >
+                                        <div class="thumbnails">
                                             <?php foreach (array_slice($images, 0) as $thumbnail): ?>
                                                 <div class="thumbnail">
                                                     <img src="backend/uploads/<?php echo $thumbnail; ?>" alt=""
@@ -236,16 +236,9 @@ require 'db.php';
                             </nav>
                         </div>
                     </div>
-
                 </div>
-
             </div>
-
-
-
         </section>
-
-
 
         <section class="section" id="contact">
             <div class="container">
@@ -330,10 +323,6 @@ require 'db.php';
             </div>
             <!-- end container -->
         </section>
-
-
-
-
 
         <!-- Start footer -->
         <?php include 'footer.php'; ?>
