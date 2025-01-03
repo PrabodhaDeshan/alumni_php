@@ -240,6 +240,69 @@ require 'db.php';
             </div>
         </section>
 
+
+        <section>
+
+            <div class="events2">
+                <div class="col-lg-6 col-sm-12" style=" width:100%">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- Swiper -->
+                            <h3>Events</h3>
+                            <?php
+                            $sql = "SELECT * FROM events ORDER BY event_id DESC LIMIT 10";
+                            $result = $conn->query($sql);
+                            $data = [];
+                            if ($result) {
+                                if ($result->num_rows > 0) {
+
+                                    while ($row = $result->fetch_assoc()) {
+                                        $events[] = $row;
+                                    }
+                                } else {
+                                    $data = [];
+                                }
+                            } else {
+
+                                echo "Error: " . $conn->error;
+                            }
+                            ?>
+
+                            <?php foreach ($events as $row): ?>
+                                <a href="event_page.php?event_id=<?= base64_encode($row["event_id"]); ?>" target="_blank">
+                                    <div class="event-card">
+                                        <div class="date">
+                                            <?php
+                                            $timestamp = strtotime($row['event_date']);
+                                            $day = date('d', $timestamp);
+                                            $month = date('F', $timestamp);
+                                            ?>
+                                            <div class="day"><?php echo $day; ?></div>
+                                            <div class="month"><?php echo $month; ?></div>
+                                        </div>
+                                        <div class="info-container">
+                                            <div class="event-name" style="color:red;">
+                                                <?php echo $row['event_title']; ?>
+                                            </div>
+                                            <div class="event-location">
+                                                <?php echo $row['event_location']; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <br>
+                            <?php endforeach; ?>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <!-- end card-body -->
+                    </div><!-- end card -->
+                </div>
+            </div>
+
+        </section>
+
+
+
         <section class="section" id="contact">
             <div class="container">
                 <div class="row justify-content-center">
@@ -271,6 +334,10 @@ require 'db.php';
                         </div>
                     </div>
                     <!-- end col -->
+
+
+
+
                     <div class="col-lg-8">
                         <div>
                             <form>
@@ -318,6 +385,10 @@ require 'db.php';
                             </form>
                         </div>
                     </div>
+
+
+
+
                 </div>
                 <!-- end row -->
             </div>

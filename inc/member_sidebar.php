@@ -38,6 +38,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link menu-link" href="member_post.php">
+                        <i class="ri-honour-line"></i> <span data-key="t-widgets">Add Posts</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarCharts" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarCharts">
                         <i class="ri-settings-2-line"></i> <span data-key="t-charts">Settings</span>
