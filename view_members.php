@@ -153,6 +153,8 @@ $result = $conn->query("SELECT * FROM members");
                                                                         echo '<span class="badge text-success">Active</span>';
                                                                     } elseif ($row['status'] == 2) {
                                                                         echo '<span class="badge text-danger">Inactive</span>';
+                                                                    }elseif ($row['status'] == 3) {
+                                                                        echo '<span class="badge text-info">Pending</span>';
                                                                     }
                                                                     ?>
                                                                 </td>

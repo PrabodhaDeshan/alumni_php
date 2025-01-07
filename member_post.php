@@ -70,7 +70,7 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '2') {
         </div><!-- /.modal -->
         <!-- ========== App Menu ========== -->
 
-        <?php include './inc/admin_sidebar.php'; ?>
+        <?php include './inc/member_sidebar.php'; ?>
 
         <!-- Left Sidebar End -->
         <!-- Vertical Overlay-->
@@ -103,8 +103,6 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '2') {
 
                             <div class="live-preview">
                                 <form method="post" action="backend/member_post_upload.php" enctype="multipart/form-data">
-
-
                                     <div>
                                         <label for="placeholderInput" class="form-label">Post Title</label>
                                         <input type="text" name="post_title" class="form-control" id="placeholderInput"

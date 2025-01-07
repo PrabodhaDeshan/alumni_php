@@ -43,9 +43,8 @@
                                         <div class="mt-logo center">
 
                                             <center>
-                                            <img src="assets/images/KLOGO.png" alt=""
-                                            style=" width:60%;">
-                                              
+                                                <img src="assets/images/KLOGO.png" alt="" style=" width:60%;">
+
                                             </center>
                                         </div>
 
@@ -94,17 +93,18 @@
                                                             class="ri-eye-fill align-middle"></i></button>
                                                 </div>
                                             </div>
-
                                             <div class="mt-4">
                                                 <button class="btn btn-success w-100" type="submit">Sign In</button>
                                             </div>
 
-
-
                                         </form>
                                     </div>
+                                    <div class="mt-2 text-center">
+                                        <p class="mb-0">Don't have an account? <a href="member_reg.php"
+                                                class="fw-semibold text-primary "> Sign up</a> </p>
+                                    </div>
 
-                                    <div class="mt-5 text-center">
+                                    <div class="mt-4 text-center">
                                         <p class="mb-0">Go Back to <a href="index.php"
                                                 class="fw-semibold text-primary "> Home</a> </p>
                                     </div>

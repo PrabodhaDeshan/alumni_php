@@ -243,6 +243,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                             <option value="<?= $user['status'] ?>" selected>Select status</option>
                                                             <option value="1">Active</option>
                                                             <option value="2">Inactive</option>
+                                                            <option value="3">Pending</option>
                                                         </select>
                                                     </div>
                                                 </div>

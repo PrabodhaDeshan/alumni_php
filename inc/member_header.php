@@ -1,3 +1,31 @@
+
+<?php
+
+require 'db.php'; 
+$user = $_SESSION['member_id'];
+
+$query = "SELECT * FROM members WHERE member_id = '$user'";
+
+$result = mysqli_query($conn, $query); 
+
+if ($result) {
+    $userData = mysqli_fetch_assoc($result);
+  
+    if (!$userData) {
+      
+        echo "User not found.";
+        exit();
+    }
+} else {
+    echo "Error: " . mysqli_error($conn);
+    exit();
+}
+
+?>
+
+
+
+
 <header id="page-topbar">
     <div class="layout-width">
         <div class="navbar-header">
@@ -88,8 +116,8 @@
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                         style="background-color:white;">
                         <span class="d-flex align-items-center">
-                            <img class="rounded-circle header-profile-user" src="assets/images/users/user.png"
-                                alt="Header Avatar">
+                        <img src="backend/uploads/pic<?php echo $userData['profile_pic']; ?>"
+                        alt=""  class="img-thumbnail rounded-circle" style="width:40px;" >
                             <span class="text-start ms-xl-2">
                                 <?php
 

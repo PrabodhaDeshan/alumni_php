@@ -8,7 +8,6 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '2') {
 require 'db.php'; 
 $user = $_SESSION['member_id'];
 
-
 $query = "SELECT * FROM members WHERE member_id = '$user'";
 
 $result = mysqli_query($conn, $query); 
@@ -64,12 +63,13 @@ if ($result) {
                         <div class="row g-4">
                             <div class="col-auto">
                                 <div class="avatar-lg">
-                                    <img src="assets/images/users/user.png" alt="user-img" class="img-thumbnail rounded-circle" />
+                                <img src="backend/uploads/pic<?php echo $userData['profile_pic']; ?>"
+                                alt=""  class="img-thumbnail rounded-circle">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="p-2">
-                                    <h3 class="text-white mb-1"><?php echo htmlspecialchars($userData['member_username']); ?></h3>
+                                    <h3 class="text-white mb-1"><?php echo htmlspecialchars($userData['member_username']);?></h3>
                                     <div class="hstack text-white-50 gap-1">
                                         <div class="me-2"><i class="ri-map-pin-user-line me-1 text-white text-opacity-75 fs-16 align-middle"></i><?php echo htmlspecialchars($userData['member_address']); ?>
                                        , <?php echo htmlspecialchars($userData['member_address_line2']); ?></div>
@@ -77,7 +77,6 @@ if ($result) {
                                 </div>
                             </div>
                         </div>
-
                     </div>
 
                     <div class="row">
