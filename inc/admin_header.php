@@ -1,4 +1,29 @@
 
+<?php
+
+require 'db.php'; 
+$user = $_SESSION['member_id'];
+
+$query = "SELECT * FROM members WHERE member_id = '$user'";
+
+$result = mysqli_query($conn, $query); 
+
+if ($result) {
+    $userData = mysqli_fetch_assoc($result);
+  
+    if (!$userData) {
+      
+        echo "User not found.";
+        exit();
+    }
+} else {
+    echo "Error: " . mysqli_error($conn);
+    exit();
+}
+
+?>
+
+
 <header id="page-topbar">
     <div class="layout-width">
         <div class="navbar-header">
@@ -42,9 +67,7 @@
             <div class="d-flex align-items-center">
 
                 <div class="dropdown d-md-none topbar-head-dropdown header-item">
-                    <button type="button" class="btn btn-icon btn-topbar material-shadow-none btn-ghost-secondary rounded-circle" id="page-header-search-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="bx bx-search fs-22"></i>
-                    </button>
+                  
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-search-dropdown">
                         <form class="p-3">
                             <div class="form-group m-0">
@@ -72,7 +95,8 @@
                 <div class="dropdown ms-sm-3 header-item topbar-user" style="background-color:white;">
                     <button type="button" class="btn material-shadow-none" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color:white;">
                         <span class="d-flex align-items-center">
-                            <img class="rounded-circle header-profile-user" src="assets/images/users/user.png" alt="Header Avatar">
+                        <img src="backend/uploads/pic<?php echo $userData['profile_pic']; ?>"
+                        alt=""  class="img-thumbnail rounded-circle" style="width:40px;" >
                             <span class="text-start ms-xl-2">
                                 <!-- <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Admin Name</span> -->
                                 <?php

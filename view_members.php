@@ -226,8 +226,6 @@ $result = $conn->query("SELECT * FROM members");
     </button>
     <!--end back-to-top-->
 
-
-
     <!-- JAVASCRIPT -->
     <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/libs/simplebar/simplebar.min.js"></script>
@@ -249,8 +247,5 @@ $result = $conn->query("SELECT * FROM members");
     <!-- App js -->
     <script src="assets/js/app.js"></script>
 </body>
-
-
-<!-- Mirrored from themesbrand.com/velzon/html/master/tables-listjs.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Aug 2024 06:11:55 GMT -->
 
 </html>

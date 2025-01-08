@@ -53,7 +53,14 @@
                                 <a href="member_password_change.php" class="nav-link" data-key="t-chartjs"> Password
                                     settings</a>
                             </li>
-
+                        </ul>
+                    </div>
+                    <div class="collapse menu-dropdown" id="sidebarCharts">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="profile_settings.php" class="nav-link" data-key="t-chartjs"> profile
+                                    settings</a>
+                            </li>
                         </ul>
                     </div>
                 </li>

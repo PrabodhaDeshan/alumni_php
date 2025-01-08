@@ -10,7 +10,7 @@ if (isset($_GET['post_id'])) {
     if ($result->num_rows > 0) {
         $event = $result->fetch_assoc();
     } else {
-        echo "Book not found.";
+        echo "Post not found.";
         exit;
     }
 } else {

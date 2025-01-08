@@ -62,7 +62,8 @@ if ($result) {
                         <div class="row g-4">
                             <div class="col-auto">
                                 <div class="avatar-lg">
-                                    <img src="assets/images/users/user.png" alt="user-img" class="img-thumbnail rounded-circle" />
+                                <img src="backend/uploads/pic<?php echo $userData['profile_pic']; ?>"
+                                alt="" class="img-thumbnail rounded-circle">
                                 </div>
                             </div>
                             <div class="col">

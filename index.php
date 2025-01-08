@@ -144,12 +144,12 @@ require 'db.php';
                             $currentPage = isset($_GET['page']) ? (int) $_GET['page'] : 1;
                             $offset = ($currentPage - 1) * $postsPerPage;
 
-                            $totalPostsQuery = "SELECT COUNT(*) AS total FROM post";
+                            $totalPostsQuery = "SELECT COUNT(*) AS total FROM post ";
                             $totalPostsResult = $conn->query($totalPostsQuery);
                             $totalPosts = $totalPostsResult->fetch_assoc()['total'];
                             $totalPages = ceil($totalPosts / $postsPerPage);
 
-                            $sql = "SELECT * FROM post ORDER BY post_id DESC LIMIT $postsPerPage OFFSET $offset";
+                            $sql = "SELECT * FROM post WHERE post_status = 1 ORDER BY post_id DESC LIMIT $postsPerPage OFFSET $offset";
                             $result = $conn->query($sql);
                             if ($result && $result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
@@ -298,11 +298,7 @@ require 'db.php';
                     </div><!-- end card -->
                 </div>
             </div>
-
         </section>
-
-
-
         <section class="section" id="contact">
             <div class="container">
                 <div class="row justify-content-center">
@@ -334,10 +330,6 @@ require 'db.php';
                         </div>
                     </div>
                     <!-- end col -->
-
-
-
-
                     <div class="col-lg-8">
                         <div>
                             <form>
@@ -385,10 +377,6 @@ require 'db.php';
                             </form>
                         </div>
                     </div>
-
-
-
-
                 </div>
                 <!-- end row -->
             </div>

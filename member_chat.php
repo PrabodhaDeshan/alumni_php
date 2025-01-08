@@ -10,11 +10,17 @@ $selected_member_id = isset($_GET['receiver_id']) ? intval($_GET['receiver_id'])
 
 $selected_member_username = null;
 if ($selected_member_id) {
-    $memberQuery = $conn->query("SELECT member_username FROM members WHERE member_id = $selected_member_id");
+    $memberQuery = $conn->query("SELECT * FROM members WHERE member_id = $selected_member_id");
     $memberRow = $memberQuery->fetch_assoc();
     $selected_member_username = $memberRow ? $memberRow['member_username'] : 'Unknown';
 }
+
+
+
+
 ?>
+
+
 
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
@@ -34,7 +40,7 @@ if ($selected_member_id) {
     <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/chat.css" rel="stylesheet" type="text/css" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favi.png">
-    
+
 </head>
 
 <body>
@@ -46,20 +52,20 @@ if ($selected_member_id) {
             <div class="page-content">
                 <div class="container-fluid">
                     <main class="content">
-                        <div class="container p-0" >
-                            <div class="card" >
+                        <div class="container p-0">
+                            <div class="card">
                                 <form id="messageForm">
-                                    <div class="row g-0"  >
+                                    <div class="row g-0">
                                         <div class="col-12 col-lg-5 col-xl-3 border-right"
                                             style="border: 1px solid #e5e3e3; padding:10px; padding-top:30px; ">
-                                            <ul class="list-group" style="cursor:pointer;" >
+                                            <ul class="list-group" style="cursor:pointer;">
                                                 <?php
-                                                $result = $conn->query("SELECT member_id, member_username FROM members WHERE member_id != $member_id");
+                                                $result = $conn->query("SELECT * FROM members WHERE member_id != $member_id");
                                                 while ($row = $result->fetch_assoc()) {
                                                     $activeClass = ($selected_member_id == $row['member_id']) ? 'active' : '';
                                                     echo "<li class='list-group-item $activeClass' data-id='{$row['member_id']}'>
                                                             <div class='d-flex align-items-center'>
-                                                                <img src='assets/images/users/user.png' class='avatar-xs rounded-circle' alt=''>
+                                                                <img src='backend/uploads/pic<?php echo $row[profile_pic];?>' class='avatar-xs rounded-circle' alt=''>
                                                                 <div class='flex-grow-1 ms-2'>{$row['member_username']}</div>
                                                             </div>
                                                         </li>";
@@ -68,8 +74,8 @@ if ($selected_member_id) {
                                             </ul>
                                         </div>
 
-                                        <div class="col-12 col-lg-7 col-xl-9" >
-                                            <div class="chat-messages p-4" id="chatMessages" style="height:500px;" >
+                                        <div class="col-12 col-lg-7 col-xl-9">
+                                            <div class="chat-messages p-4" id="chatMessages" style="height:500px;">
                                                 <?php
                                                 if ($selected_member_id) {
                                                     $messages = $conn->query("SELECT * FROM messages WHERE (sender_id = $member_id AND receiver_id = $selected_member_id) OR (sender_id = $selected_member_id AND receiver_id = $member_id) ORDER BY massege_date, massege_time");
@@ -108,7 +114,7 @@ if ($selected_member_id) {
                     </main>
                 </div>
             </div>
-            <?php include './inc/dash_footer.php';?>
+            <?php include './inc/dash_footer.php'; ?>
         </div>
 
     </div>

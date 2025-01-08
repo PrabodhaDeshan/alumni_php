@@ -69,7 +69,12 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="add_posts.php">
-                                <i class="ri-terminal-window-fill"></i> <span data-key="t-widgets">Add Posts</span>
+                                <i class="ri-terminal-window-fill"></i> <span data-key="t-widgets">Add New Post</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="posts.php">
+                                <i class="ri-terminal-window-fill"></i> <span data-key="t-widgets">Posts</span>
                             </a>
                         </li>
                         <li class="nav-item">

@@ -124,6 +124,13 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '2') {
                                         <small>You can upload up to 5 images.</small>
                                     </div>
                                     <br>
+                                    <div class="col-md-6" hidden>
+                                        <div class="form-group">
+                                            <select class="form-select" id="role_id" name="post_status">
+                                                <option selected value="2"></option>
+                                            </select>
+                                        </div>
+                                    </div>
                                     <div class="col-12">
                                         <button class="btn btn-primary" type="submit">Add post</button>
                                     </div>
