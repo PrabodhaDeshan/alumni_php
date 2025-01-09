@@ -90,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <!-- Begin page -->
     <div id="layout-wrapper">
-        <?php include './inc/member_header.php'; ?>
+        <?php include './inc/admin_header.php'; ?>
 
         <!-- removeNotificationModal -->
         <div id="removeNotificationModal" class="modal fade zoomIn" tabindex="-1" aria-hidden="true">
@@ -120,7 +120,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
         <!-- ========== App Menu ========== -->
-        <?php include './inc/member_sidebar.php'; ?>
+        <?php include './inc/admin_sidebar.php'; ?>
         <!-- Left Sidebar End -->
         <!-- Vertical Overlay-->
         <div class="vertical-overlay"></div>
@@ -154,6 +154,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                 <!--end col-->
                                                 <div class="col-lg-3 col-md-6">
                                                     <div>
+                                                        <label for="basiInput" class="form-label">Batch</label>
+                                                        <input type="text" value="<?= $mem['member_batch'] ?>"
+                                                            class="form-control" name="member_batch">
+                                                    </div>
+                                                </div>
+                                                <!--end col-->
+                                                <div class="col-lg-3 col-md-6">
+                                                    <div>
                                                         <label for="basiInput" class="form-label">First name</label>
                                                         <input type="text" value="<?= $mem['member_first_name']; ?>"
                                                             class="form-control" name="member_first_name">
@@ -174,16 +182,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                             number</label>
                                                         <input type="text" value="<?= $mem['member_id_no'] ?>"
                                                             class="form-control" name="member_id_no">
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-
-                                                <!--end col-->
-                                                <div class="col-lg-3 col-md-6">
-                                                    <div>
-                                                        <label for="basiInput" class="form-label">Batch</label>
-                                                        <input type="text" value="<?= $mem['member_batch'] ?>"
-                                                            class="form-control" name="member_batch">
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -216,25 +214,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                             class="form-control" name="member_wrokplace">
                                                     </div>
                                                 </div>
-                                                <!--end col-->
-                                                <div class="col-lg-6 col-md-6">
-                                                    <div>
-                                                        <label for="exampleInputdate" class="form-label">Address line
-                                                            1</label>
-                                                        <input type="text" value="<?= $mem['member_address'] ?>"
-                                                            class="form-control" name="member_address">
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
-                                                <div class="col-lg-6 col-md-6">
-                                                    <div>
-                                                        <label for="exampleInputdate" class="form-label">Address line
-                                                            2</label>
-                                                        <input type="text" value="<?= $mem['member_address_line2'] ?>"
-                                                            class="form-control" name="member_address_line2">
-                                                    </div>
-                                                </div>
-                                                <!--end col-->
                                                 <div class="col-lg-3 col-md-6">
                                                     <div>
                                                         <label for="exampleFormControlTextarea5"
@@ -244,6 +223,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                     </div>
                                                 </div>
                                                 <!--end col-->
+                                                <div class="col-lg-3 col-md-6">
+                                                    <div>
+                                                        <label for="exampleInputdate" class="form-label">Address line
+                                                            1</label>
+                                                        <input type="text" value="<?= $mem['member_address'] ?>"
+                                                            class="form-control" name="member_address">
+                                                    </div>
+                                                </div>
+                                                <!--end col-->
+                                                <div class="col-lg-3 col-md-6">
+                                                    <div>
+                                                        <label for="exampleInputdate" class="form-label">Address line
+                                                            2</label>
+                                                        <input type="text" value="<?= $mem['member_address_line2'] ?>"
+                                                            class="form-control" name="member_address_line2">
+                                                    </div>
+                                                </div>
+                                                <!--end col-->
+
                                                 <div class="col-lg-3 col-md-6">
                                                     <div>
                                                         <label for="formtextInput" class="form-label">Email</label>
@@ -274,7 +272,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <!--end col-->
+                                                <!-- <div class="col-lg-12 col-md-12">
+                                                    <div>
+                                                        <label for="exampleFormControlTextarea5"
+                                                            class="form-label">Profile
+                                                            Picture</label>
+                                                        <input type="file" class="form-control" name="profile_pic"
+                                                            id="basiInput">
+                                                    </div>
+                                                </div> -->
                                                 <!--end row-->
                                                 <div class="col-12">
 

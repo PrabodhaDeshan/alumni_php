@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
                 <script type="text/javascript">
                     alert("Data added successfully!");
-                    window.location.replace("./../member_reg.php");
+                    window.location.replace("./../index.php");
                 </script>
 <?php
             } else {

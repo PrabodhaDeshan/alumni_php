@@ -71,8 +71,6 @@
     </div>
     <div id="scrollbar">
         <div class="container-fluid">
-
-
             <div id="two-column-menu">
             </div>
             <ul class="navbar-nav" id="navbar-nav">
@@ -95,7 +93,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="posts.php">
-                        <i class="ri-terminal-window-fill"></i> <span data-key="t-widgets">Posts</span>
+                        <i class="ri-terminal-window-fill"></i> <span data-key="t-widgets">Post Approval</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -103,8 +101,6 @@
                         <i class="bx bx-notepad"></i> <span data-key="t-widgets">Add Events</span>
                     </a>
                 </li>
-
-
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarTables" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarTables">

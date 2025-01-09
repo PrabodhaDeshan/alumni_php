@@ -35,7 +35,7 @@ require 'db.php';
     <div id="layout-wrapper">
         <?php include './inc/admin_header.php'; ?>
         <?php include './inc/admin_sidebar.php'; ?>
-        
+
         <div class="main-content">
             <div class="page-content">
                 <div class="container-fluid">
@@ -46,31 +46,53 @@ require 'db.php';
                                     <h4 class="card-title mb-0">Posts</h4>
                                 </div>
                                 <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th>Post Title</th>
-                                                    <th>Date and Time</th>
-                                                    <th>Status</th>
-                                                    <th>View</th>
-                                                    <th>Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
-                                                $sql = "SELECT * FROM post";
-                                                $result = $conn->query($sql);
+                                    <div class="listjs-table" id="customerList">
+                                        <div class="row g-4 mb-3">
+                                            <div class="col-sm-auto">
 
-                                                if ($result && $result->num_rows > 0) {
-                                                    while ($row = $result->fetch_assoc()) {
-                                                        ?>
-                                                        <tr data-post-id="<?php echo $row['post_id']; ?>">
-                                                            <td><?php echo $row['post_title']; ?></td>
-                                                            <td><?php echo $row['post_date']; ?>
-                                                        <br>
-                                                        <p style="font-size:12px;" ><?php echo $row['post_time']; ?></td></p> 
-                                                            <td class="status">
+                                            </div>
+                                            <div class="col-sm">
+                                                <div class="d-flex justify-content-sm-end">
+                                                    <div class="search-box ms-2">
+                                                        <input type="text" class="form-control search"
+                                                            placeholder="Search...">
+                                                        <i class="ri-search-line search-icon"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="table-responsive table-card mt-3 mb-1">
+                                            <table class="table align-middle table-nowrap" id="customerTable">
+                                                <thead class="table-light">
+                                                    <tr>
+                                                        <th>Post Title</th>
+                                                        <th>Date and Time</th>
+                                                        <th>Posted by</th>
+                                                        <th>Status</th>
+                                                        <th>View</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="list form-check-all">
+                                                    <?php
+                                                    $sql = "SELECT * FROM post ORDER BY post_status DESC";
+                                                    $result = $conn->query($sql);
+
+                                                    if ($result && $result->num_rows > 0) {
+                                                        while ($row = $result->fetch_assoc()) {
+                                                            ?>
+                                                           <tr data-post-id="<?php echo $row['post_id']; ?>">
+                                                                <td class="name"><?php echo $row['post_title']; ?></td>
+
+                                                                <td><?php echo $row['post_date']; ?>
+                                                                    <br>
+                                                                    <p style="font-size:12px;"><?php echo $row['post_time']; ?>
+                                                                    </p>
+                                                                </td>
+                                                                <td><?php echo $row['admin_id']; ?></td>
+
+                                                                <td class="status">
                                                                 <?php
                                                                 if ($row['post_status'] == 1) {
                                                                     echo '<span class="badge text-success">Approved</span>';
@@ -79,21 +101,48 @@ require 'db.php';
                                                                 }
                                                                 ?>
                                                             </td>
-                                                            <td>
-                                                                <a style="font-size:14px; font-weight:600; color:green;" href="post_page.php?post_id=<?= base64_encode($row['post_id']); ?>">View</a>
-                                                            </td>
-                                                            <td>
-                                                                <button class="btn btn-secondary btn-sm approve-btn">Approve</button>
-                                                            </td>
-                                                        </tr>
-                                                        <?php
+                                                                
+                                                                <td>
+                                                                    <a style="font-size:14px; font-weight:600; color:green;"
+                                                                        href="post_page.php?post_id=<?= base64_encode($row['post_id']); ?>">View</a>
+                                                                </td>
+                                                                <td>
+                                                                    <button
+                                                                        class="btn btn-secondary btn-sm approve-btn">Approve</button>
+                                                                </td>
+                                                            </tr>
+                                                            <?php
+                                                        }
+                                                    } else {
+                                                        echo "<tr><td colspan='5'>No data found.</td></tr>";
                                                     }
-                                                } else {
-                                                    echo "<tr><td colspan='5'>No data found.</td></tr>";
-                                                }
-                                                ?>
-                                            </tbody>
-                                        </table>
+                                                    ?>
+                                                </tbody>
+                                            </table>
+                                            <div class="noresult" style="display: none">
+                                                <div class="text-center">
+                                                    <lord-icon src="https://cdn.lordicon.com/msoeawqm.json"
+                                                        trigger="loop" colors="primary:#121331,secondary:#08a88a"
+                                                        style="width:75px;height:75px"></lord-icon>
+                                                    <h5 class="mt-2">Sorry! No Result Found</h5>
+                                                    <p class="text-muted mb-0">We've searched more than 150+ Orders We
+                                                        did not find any orders for you search.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex justify-content-end">
+                                            <div class="pagination-wrap hstack gap-2">
+                                                <a class="page-item pagination-prev disabled"
+                                                    href="javascript:void(0);">
+                                                    Previous
+                                                </a>
+                                                <ul class="pagination listjs-pagination mb-0"></ul>
+                                                <a class="page-item pagination-next" href="javascript:void(0);">
+                                                    Next
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -108,39 +157,60 @@ require 'db.php';
     <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/libs/sweetalert2/sweetalert2.min.js"></script>
     <script src="assets/js/app.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const approveButtons = document.querySelectorAll(".approve-btn");
+    <script src="assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="assets/libs/node-waves/waves.min.js"></script>
+    <script src="assets/libs/feather-icons/feather.min.js"></script>
+    <script src="assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <!-- prismjs plugin -->
+    <script src="assets/libs/prismjs/prism.js"></script>
+    <script src="assets/libs/list.js/list.min.js"></script>
+    <script src="assets/libs/list.pagination.js/list.pagination.min.js"></script>
 
-            approveButtons.forEach((button) => {
-                button.addEventListener("click", function () {
-                    const row = button.closest("tr");
-                    const postId = row.dataset.postId;
+    <!-- listjs init -->
+    <script src="assets/js/pages/listjs.init.js"></script>
 
-                    fetch("approve_post.php", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify({ post_id: postId }),
+    <!-- Sweet Alerts js -->
+
+    <!-- App js -->
+</body>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const approveButtons = document.querySelectorAll(".approve-btn");
+
+        approveButtons.forEach((button) => {
+            button.addEventListener("click", function () {
+                const row = button.closest("tr");
+                const postId = row.dataset.postId;
+
+                fetch("approve_post.php", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ post_id: postId }),
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        if (data.success) {
+                            const statusCell = row.querySelector(".status");
+                            statusCell.innerHTML = '<span class="badge text-success">Approved</span>';
+                            Swal.fire("Success", "Post approved successfully!", "success");
+                        } else {
+                            Swal.fire("Error", "Failed to approve the post: " + data.message, "error");
+                        }
                     })
-                        .then((response) => response.json())
-                        .then((data) => {
-                            if (data.success) {
-                                const statusCell = row.querySelector(".status");
-                                statusCell.innerHTML = '<span class="badge text-success">Approved</span>';
-                                Swal.fire("Success", "Post approved successfully!", "success");
-                            } else {
-                                Swal.fire("Error", "Failed to approve the post: " + data.message, "error");
-                            }
-                        })
-                        .catch((error) => {
-                            console.error("Error:", error);
-                            Swal.fire("Error", "An error occurred.", "error");
-                        });
-                });
+                    .catch((error) => {
+                        console.error("Error:", error);
+                        Swal.fire("Error", "An error occurred.", "error");
+                    });
             });
         });
-    </script>
+    });
+</script>
 </body>
+
 </html>

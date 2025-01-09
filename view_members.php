@@ -117,7 +117,7 @@ $result = $conn->query("SELECT * FROM members");
                                                 </thead>
                                                 <tbody class="list form-check-all">
                                                     <?php
-                                                    $sql = "SELECT * FROM members ";
+                                                    $sql = "SELECT * FROM members ORDER BY status DESC";
                                                     $result = $conn->query($sql);
                                                     if ($result && $result->num_rows > 0) {
                                                         while ($row = $result->fetch_assoc()) {
@@ -134,6 +134,7 @@ $result = $conn->query("SELECT * FROM members");
                                                                     <br>Batch : <?php echo $row['member_batch']; ?><hr>
                                                                     </p>
                                                                 </td>
+                                                                <td><?php echo $row['member_address']; ?></td>
                                                                 <td class="email"><?php echo $row['member_email']; ?><br><?php echo $row['contact_number']; ?></td>
                                                                 <td class="batch"><?php echo $row['member_address']; ?>,
                                                                     <br>

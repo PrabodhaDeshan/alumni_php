@@ -10,7 +10,7 @@ require 'db.php';
 <head>
 
     <meta charset="utf-8" />
-    <title></title>
+    <title>Sign Up</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -38,24 +38,29 @@ require 'db.php';
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header align-items-center d-flex">
-                        <h4 class="card-title mb-0 flex-grow-1">Sign In To Kingswoodian's Cadet Union</h4>
+                        <h4 class="card-title mb-0 flex-grow-1">Sign Up To Kingswoodian's Cadet Union</h4>
 
                     </div><!-- end card header -->
                     <div class="card-body">
                         <div class="live-preview">
                             <form action="backend/member_registration.php" method="POST" enctype="multipart/form-data">
                                 <div class="row gy-4">
-
-                                    <div class="col-xxl-3 col-md-6">
+                                    <div class="col-lg-3 col-md-3">
                                         <div>
-
                                             <label for="basiInput" class="form-label">Username<strong
                                                     style="color:red;"> *</strong></label>
                                             <input type="text" class="form-control" name="member_username" required>
                                         </div>
                                     </div>
                                     <!--end col-->
-                                    <div class="col-xxl-3 col-md-6">
+                                  
+                                    <div class="col-lg-3 col-md-3">
+                                        <div>
+                                            <label for="basiInput" class="form-label">Batch</label>
+                                            <input type="text" class="form-control" name="member_batch">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3">
                                         <div>
                                             <label for="basiInput" class="form-label">First name<strong
                                                     style="color:red;"> *</strong></label>
@@ -63,7 +68,7 @@ require 'db.php';
                                         </div>
                                     </div>
                                     <!--end col-->
-                                    <div class="col-xxl-3 col-md-6">
+                                    <div class="col-lg-3 col-md-3">
                                         <div>
                                             <label for="basiInput" class="form-label">Last name<strong
                                                     style="color:red;"> *</strong></label>
@@ -71,7 +76,7 @@ require 'db.php';
                                         </div>
                                     </div>
                                     <!--end col-->
-                                    <div class="col-xxl-3 col-md-6">
+                                    <div class="col-lg-3 col-md-6">
                                         <div>
                                             <label for="valueInput" class="form-label">Member ID number<strong
                                                     style="color:red;"> *</strong></label>
@@ -79,16 +84,7 @@ require 'db.php';
                                         </div>
                                     </div>
                                     <!--end col-->
-
-                                    <!--end col-->
-                                    <div class="col-xxl-3 col-md-6">
-                                        <div>
-                                            <label for="basiInput" class="form-label">Batch</label>
-                                            <input type="text" class="form-control" name="member_batch">
-                                        </div>
-                                    </div>
-                                    <!--end col-->
-                                    <div class="col-xxl-3 col-md-6" hidden>
+                                    <div class="col-lg-3 col-md-6" hidden>
                                         <div class="form-group">
                                             <label for="role_id">Member Type<strong style="color:red;">
                                                     *</strong></label>
@@ -100,7 +96,7 @@ require 'db.php';
                                         </div>
                                     </div>
                                     <!--end col-->
-                                    <div class="col-xxl-3 col-md-6">
+                                    <div class="col-lg-3 col-md-6">
                                         <div>
                                             <label for="basiInput" class="form-label">Member's NIC<strong
                                                     style="color:red;"> *</strong></label>
@@ -108,31 +104,13 @@ require 'db.php';
                                         </div>
                                     </div>
                                     <!--end col-->
-                                    <!--end col-->
-                                    <div class="col-xxl-6 col-md-6">
+                                    <div class="col-lg-3 col-md-3">
                                         <div>
                                             <label for="exampleInputdate" class="form-label">Member's workplace</label>
                                             <input type="text" class="form-control" name="member_wrokplace">
                                         </div>
                                     </div>
-                                    <!--end col-->
-                                    <div class="col-xxl-6 col-md-6">
-                                        <div>
-                                            <label for="exampleInputdate" class="form-label">Address line 1<strong
-                                                    style="color:red;"> *</strong></label>
-                                            <input type="text" class="form-control" name="member_address">
-                                        </div>
-                                    </div>
-                                    <!--end col-->
-                                    <div class="col-xxl-6 col-md-6">
-                                        <div>
-                                            <label for="exampleInputdate" class="form-label">Address line 2</label>
-                                            <input type="text" class="form-control" name="member_address_line2">
-
-                                        </div>
-                                    </div>
-                                    <!--end col-->
-                                    <div class="col-xxl-3 col-md-6">
+                                    <div class="col-lg-3 col-md-3">
                                         <div>
                                             <label for="exampleFormControlTextarea5"
                                                 class="form-label">Designation</label>
@@ -140,7 +118,24 @@ require 'db.php';
                                         </div>
                                     </div>
                                     <!--end col-->
-                                    <div class="col-xxl-3 col-md-6">
+                                    <!--end col-->
+                                    <div class="col-lg-3 col-md-3">
+                                        <div>
+                                            <label for="exampleInputdate" class="form-label">Address line 1<strong
+                                                    style="color:red;"> *</strong></label>
+                                            <input type="text" class="form-control" name="member_address">
+                                        </div>
+                                    </div>
+                                    <!--end col-->
+                                    <div class="col-lg-3 col-md-3">
+                                        <div>
+                                            <label for="exampleInputdate" class="form-label">Address line 2</label>
+                                            <input type="text" class="form-control" name="member_address_line2">
+                                        </div>
+                                    </div>
+                                    <!--end col-->
+                                   
+                                    <div class="col-lg-3 col-md-6">
                                         <div>
                                             <label for="formtextInput" class="form-label">Email</label>
                                             <input type="email" class="form-control form-control-icon"
@@ -148,7 +143,7 @@ require 'db.php';
                                         </div>
                                     </div>
                                     <!--end col-->
-                                    <div class="col-xxl-3 col-md-6">
+                                    <div class="col-lg-3 col-md-6">
                                         <div>
                                             <label for="exampleFormControlTextarea5" class="form-label">Contact
                                                 number<strong style="color:red;"> *</strong></label>
@@ -156,27 +151,7 @@ require 'db.php';
                                                 required>
                                         </div>
                                     </div>
-                                    <div class="col-xxl-3 col-md-6">
-                                        <div>
-                                            <label for="exampleFormControlTextarea5" class="form-label">Profile
-                                                Picture</label>
-                                            <input type="file" class="form-control" name="profile_pic" id="basiInput">
-                                        </div>
-                                    </div>
-                                    <!--end col-->
-                                    <div class="col-xxl-3 col-md-6" hidden>
-                                        <div class="form-group">
-                                            <label for="role_id">Status</label>
-                                            <select class="form-select" id="role_id" name="status">
-                                                <option value="Admin" disabled>Select status</option>
-                                                <option value="1">Active</option>
-                                                <option value="2">Inactive</option>
-                                                <option selected value="3">Pending</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <!--end col-->
-                                    <div class="col-xxl-6 col-md-6">
+                                    <div class="col-lg-3 col-md-3">
                                         <div>
                                             <label for="passwordInput" class="form-label">Password<strong
                                                     style="color:red;"> *</strong></label>
@@ -184,7 +159,7 @@ require 'db.php';
                                                 id="passwordInput" required>
                                         </div>
                                     </div>
-                                    <div class="col-xxl-6 col-md-6">
+                                    <div class="col-lg-3 col-md-3">
                                         <div>
                                             <label for="confirmPasswordInput" class="form-label">Confirm Password<strong
                                                     style="color:red;"> *</strong></label>
@@ -196,6 +171,27 @@ require 'db.php';
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div>
+                                            <label for="exampleFormControlTextarea5" class="form-label">Profile
+                                                Picture</label>
+                                            <input type="file" class="form-control" name="profile_pic" id="basiInput">
+                                        </div>
+                                    </div>
+                                    <!--end col-->
+                                    <div class="col-lg-3 col-md-6" hidden>
+                                        <div class="form-group">
+                                            <label for="role_id">Status</label>
+                                            <select class="form-select" id="role_id" name="status">
+                                                <option value="Admin" disabled>Select status</option>
+                                                <option value="1">Active</option>
+                                                <option value="2">Inactive</option>
+                                                <option selected value="3">Pending</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!--end col-->
+                                   
                                     <!--end row-->
                                     <div class="col-12" style="display:flex; justify-content:end;">
                                         <button class="btn btn-primary" type="submit"

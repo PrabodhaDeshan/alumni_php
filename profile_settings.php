@@ -4,16 +4,13 @@ require 'db.php';
 
 session_start();
 
-// Ensure the user is logged in and has the appropriate role
 if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '2') {
     header("Location: member_dashboard.php");
     exit();
 }
 
-// Fetch the logged-in member's ID from the session
 $member_id = $_SESSION['member_id'];
 
-// Fetch member details based on the session member ID
 $result = $conn->query("SELECT * FROM members WHERE member_id = $member_id");
 $mem = $result->fetch_assoc();
 
@@ -271,7 +268,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                     </div>
                                                 </div>
                                                 <div class="col-xxl-3 col-md-6">
-                                                    <div>
+                                                    <div>   
                                                         <label for="exampleFormControlTextarea5"
                                                             class="form-label">Profile
                                                             Picture</label>

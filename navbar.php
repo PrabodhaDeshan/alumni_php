@@ -2,9 +2,9 @@
 session_start();
 
 if ($_SESSION) {
-    $role =  $_SESSION['role'];
+    $role = $_SESSION['role'];
 } else {
-    $role =  0;
+    $role = 0;
 }
 ?>
 
@@ -16,8 +16,8 @@ if ($_SESSION) {
             </div>
         </a>
         <button class="navbar-toggler py-0 fs-20 text-body" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
             <i class="mdi mdi-menu"></i>
         </button>
 
@@ -40,18 +40,45 @@ if ($_SESSION) {
             <div class="sign-in">
                 <?php
                 if ($role == 1) {
-                ?>
-                    <a href="admin_dashboard.php" class="btn btn-link fw-medium text-decoration-none text-body" style="font-size: 18px; ">Admin Account</a>
-                <?php
+                    ?>
+                    <li class="nav-item dropdown" style="list-style:none;" >
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Admin Account
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="admin_chat.php">Chat</a></li>
+                            <li><a class="dropdown-item" href="add_posts.php">Add new post</a></li>
+                            <li><a class="dropdown-item" href="posts.php">Post Approval </a></li>
+                            <li><a class="dropdown-item" href="add_events.php">Add Events </a></li>
+                            <li><a class="dropdown-item" href="add_new_members.php">Add new members </a></li>
+                            <li><a class="dropdown-item" href="view_members.php">View members </a></li>
+                            <li><a class="dropdown-item" href="view_member_renewals.php">View member renewals</a></li>
+                            <li><a class="dropdown-item" href="admin_member_renewal.php">My member renewals </a></li>
+                            <li><a class="dropdown-item" href="admin_member_renewal_history.php">My renewal history </a></li>
+                            <li><a class="dropdown-item" href="admin_change.php">Admin change </a></li>
+                            <li><a class="dropdown-item" href="admin_password_change.php">Password settings </a></li>
+                            <li><a class="dropdown-item" href="a_profile_settings.php">Profile settings </a></li>
+
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                        </ul>
+                    </li>
+                    <?php
                 } elseif ($role == 2) {
-                ?>
-                    <a href="member_dashboard.php" class="btn btn-link text-decoration-none text-body" style="font-size: 18px; ">Member Account</a>
-                <?php
+                    ?>
+                    <a href="member_dashboard.php" class="btn btn-link text-decoration-none text-body"
+                        style="font-size: 18px; ">Member Account</a>
+                    <?php
                 } else {
-                ?>
-                    <a href="sign_in.php" class="btn btn-link fw-medium text-decoration-none text-body" style="font-size: 18px; ">Sign in</a>
-                    <a href="member_reg.php" class="btn btn-link fw-medium text-decoration-none text-body" style="font-size: 18px; ">Sign up</a>
-                <?php
+                    ?>
+                    <a href="sign_in.php" class="btn btn-link fw-medium text-decoration-none text-body"
+                        style="font-size: 18px; ">Sign in</a>
+                    <a href="member_reg.php" class="btn btn-link fw-medium text-decoration-none text-body"
+                        style="font-size: 18px; ">Sign up</a>
+                    <?php
                 }
                 ?>
 
