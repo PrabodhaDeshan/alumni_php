@@ -65,7 +65,7 @@ if ($selected_member_id) {
                                                     $activeClass = ($selected_member_id == $row['member_id']) ? 'active' : '';
                                                     echo "<li class='list-group-item $activeClass' data-id='{$row['member_id']}'>
                                                             <div class='d-flex align-items-center'>
-                                                                <img src='backend/uploads/pic<?php echo $row[profile_pic];?>' class='avatar-xs rounded-circle' alt=''>
+                                                                <img src='backend/uploads/pic/" . $row['profile_pic'] . "' class='avatar-xs rounded-circle' alt=''>
                                                                 <div class='flex-grow-1 ms-2'>{$row['member_username']}</div>
                                                             </div>
                                                         </li>";
@@ -145,19 +145,19 @@ if ($selected_member_id) {
     <script src="assets/js/app.js"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const messageForm = document.getElementById('messageForm');
             const chatMessages = document.getElementById('chatMessages');
 
-            messageForm.addEventListener('submit', function (e) {
+            messageForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 const formData = new FormData(messageForm);
                 const selectedId = document.querySelector('.list-group-item.active').dataset.id;
 
                 fetch('send_message.php?receiver_id=' + selectedId, {
-                    method: 'POST',
-                    body: formData
-                })
+                        method: 'POST',
+                        body: formData
+                    })
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
@@ -175,7 +175,7 @@ if ($selected_member_id) {
             });
 
             document.querySelectorAll('.list-group-item').forEach(item => {
-                item.addEventListener('click', function () {
+                item.addEventListener('click', function() {
                     const selectedId = this.dataset.id;
                     window.location.href = '?receiver_id=' + selectedId;
                 });

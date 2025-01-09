@@ -1,8 +1,8 @@
 <?php
 
-require './../db.php'; 
+require './../db.php';
 
-$target_dir = "uploads/pic"; 
+$target_dir = "uploads/";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -32,12 +32,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $sql = "INSERT INTO members (member_username, member_first_name, member_last_name,member_id_no,member_batch,role, member_nic,member_wrokplace,member_address,member_address_line2,member_designation,member_email,contact_number,password,status,profile_pic) 
             VALUES ('$member_username', '$member_first_name', '$member_last_name','$member_id_no', '$member_batch','$role', '$member_nic','$member_wrokplace','$member_address','$member_address_line2','$member_designation','$member_email','$contact_number','$hashed_password','$status','$fileName')";
             if ($conn->query($sql)) {
-                ?>
+?>
                 <script type="text/javascript">
                     alert("Data added successfully!");
                     window.location.replace("./../member_reg.php");
                 </script>
-                <?php
+<?php
             } else {
                 echo "Error: " . $conn->error;
             }
@@ -51,6 +51,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $conn->close();
 ?>
-
-
-

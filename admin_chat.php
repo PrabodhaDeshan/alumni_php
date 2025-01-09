@@ -45,20 +45,20 @@ if ($selected_member_id) {
             <div class="page-content">
                 <div class="container-fluid">
                     <main class="content">
-                        <div class="container p-0" >
-                            <div class="card" >
+                        <div class="container p-0">
+                            <div class="card">
                                 <form id="messageForm">
-                                    <div class="row g-0"  >
+                                    <div class="row g-0">
                                         <div class="col-12 col-lg-5 col-xl-3 border-right"
                                             style="border: 1px solid #e5e3e3; padding:10px; padding-top:30px; ">
-                                            <ul class="list-group" style="cursor:pointer;" >
+                                            <ul class="list-group" style="cursor:pointer;">
                                                 <?php
-                                                $result = $conn->query("SELECT member_id, member_username FROM members WHERE member_id != $member_id");
+                                                $result = $conn->query("SELECT member_id, member_username,profile_pic FROM members WHERE member_id != $member_id");
                                                 while ($row = $result->fetch_assoc()) {
                                                     $activeClass = ($selected_member_id == $row['member_id']) ? 'active' : '';
                                                     echo "<li class='list-group-item $activeClass' data-id='{$row['member_id']}'>
                                                             <div class='d-flex align-items-center'>
-                                                                <img src='assets/images/users/user.png' class='avatar-xs rounded-circle' alt=''>
+                                                                <img src='backend/uploads/" . $row['profile_pic'] . "' class='avatar-xs rounded-circle' alt=''>
                                                                 <div class='flex-grow-1 ms-2'>{$row['member_username']}</div>
                                                             </div>
                                                         </li>";
@@ -67,8 +67,8 @@ if ($selected_member_id) {
                                             </ul>
                                         </div>
 
-                                        <div class="col-12 col-lg-7 col-xl-9" >
-                                            <div class="chat-messages p-4" id="chatMessages" style="height:500px;" >
+                                        <div class="col-12 col-lg-7 col-xl-9">
+                                            <div class="chat-messages p-4" id="chatMessages" style="height:500px;">
                                                 <?php
                                                 if ($selected_member_id) {
                                                     $messages = $conn->query("SELECT * FROM messages WHERE (sender_id = $member_id AND receiver_id = $selected_member_id) OR (sender_id = $selected_member_id AND receiver_id = $member_id) ORDER BY massege_date, massege_time");
@@ -107,68 +107,68 @@ if ($selected_member_id) {
                     </main>
                 </div>
             </div>
-            <?php include './inc/dash_footer.php';?>
-    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
-        <i class="ri-arrow-up-line"></i>
-    </button>
+            <?php include './inc/dash_footer.php'; ?>
+            <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+                <i class="ri-arrow-up-line"></i>
+            </button>
 
-    <div id="preloader">
-        <div id="status">
-            <div class="spinner-border text-primary avatar-sm" role="status">
-                <span class="visually-hidden">Loading...</span>
+            <div id="preloader">
+                <div id="status">
+                    <div class="spinner-border text-primary avatar-sm" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
 
-   
 
-    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/libs/simplebar/simplebar.min.js"></script>
-    <script src="assets/libs/node-waves/waves.min.js"></script>
-    <script src="assets/libs/feather-icons/feather.min.js"></script>
-    <script src="assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
-    <script src="assets/js/plugins.js"></script>
-    <script src="assets/libs/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/libs/fg-emoji-picker/fgEmojiPicker.js"></script>
-    <script src="assets/js/pages/chat.init.js"></script>
-    <script src="assets/js/app.js"></script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const messageForm = document.getElementById('messageForm');
-            const chatMessages = document.getElementById('chatMessages');
+            <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <script src="assets/libs/simplebar/simplebar.min.js"></script>
+            <script src="assets/libs/node-waves/waves.min.js"></script>
+            <script src="assets/libs/feather-icons/feather.min.js"></script>
+            <script src="assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
+            <script src="assets/js/plugins.js"></script>
+            <script src="assets/libs/glightbox/js/glightbox.min.js"></script>
+            <script src="assets/libs/fg-emoji-picker/fgEmojiPicker.js"></script>
+            <script src="assets/js/pages/chat.init.js"></script>
+            <script src="assets/js/app.js"></script>
 
-            messageForm.addEventListener('submit', function (e) {
-                e.preventDefault();
-                const formData = new FormData(messageForm);
-                const selectedId = document.querySelector('.list-group-item.active').dataset.id;
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const messageForm = document.getElementById('messageForm');
+                    const chatMessages = document.getElementById('chatMessages');
 
-                fetch('send_message.php?receiver_id=' + selectedId, {
-                    method: 'POST',
-                    body: formData
-                })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            chatMessages.innerHTML += `<div class='chat-message-right pb-4'>
+                    messageForm.addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        const formData = new FormData(messageForm);
+                        const selectedId = document.querySelector('.list-group-item.active').dataset.id;
+
+                        fetch('send_message.php?receiver_id=' + selectedId, {
+                                method: 'POST',
+                                body: formData
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.success) {
+                                    chatMessages.innerHTML += `<div class='chat-message-right pb-4'>
                                                         
                                                         <div class='flex-shrink-1 rounded py-2 px-3 mr-3' style='background-color: #47afff; font-weight:600; color:#ffffff; '>
                                                             ${data.message}
                                                         </div>
                                                     </div>`;
-                            messageForm.reset();
-                        }
+                                    messageForm.reset();
+                                }
+                            });
                     });
-            });
 
-            document.querySelectorAll('.list-group-item').forEach(item => {
-                item.addEventListener('click', function () {
-                    const selectedId = this.dataset.id;
-                    window.location.href = '?receiver_id=' + selectedId;
+                    document.querySelectorAll('.list-group-item').forEach(item => {
+                        item.addEventListener('click', function() {
+                            const selectedId = this.dataset.id;
+                            window.location.href = '?receiver_id=' + selectedId;
+                        });
+                    });
                 });
-            });
-        });
-    </script>
+            </script>
 </body>
 
 </html>
