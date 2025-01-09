@@ -4,16 +4,13 @@ require 'db.php';
 
 session_start();
 
-// Ensure the user is logged in and has the appropriate role
-if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '2') {
-    header("Location: member_dashboard.php");
+if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
+    header("Location: admin_dashboard.php");
     exit();
 }
 
-// Fetch the logged-in member's ID from the session
 $member_id = $_SESSION['member_id'];
 
-// Fetch member details based on the session member ID
 $result = $conn->query("SELECT * FROM members WHERE member_id = $member_id");
 $mem = $result->fetch_assoc();
 
@@ -51,14 +48,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             WHERE member_id = $member_id";
 
     if ($conn->query($sql) === TRUE) {
-        header("Location: member_dashboard.php");
+        header("Location: admin_dashboard.php");
         exit();
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
 }
 ?>
-
 
 
 <!doctype html>
@@ -212,15 +208,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                     </div>
                                                 </div>
                                                 <!--end col-->
-
-                                                <!--end col-->
                                                 <div class="col-lg-3 col-md-6">
                                                     <div>
                                                         <label for="exampleInputdate" class="form-label">Member's
                                                             workplace</label>
                                                         <input type="text" value="<?= $mem['member_username'] ?>"
                                                             class="form-control" name="member_wrokplace">
-
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -230,7 +223,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                             1</label>
                                                         <input type="text" value="<?= $mem['member_address'] ?>"
                                                             class="form-control" name="member_address">
-
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -240,7 +232,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                             2</label>
                                                         <input type="text" value="<?= $mem['member_address_line2'] ?>"
                                                             class="form-control" name="member_address_line2">
-
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -268,15 +259,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                             class="form-label">Contact number</label>
                                                         <input type="text" value="<?= $mem['contact_number'] ?>"
                                                             class="form-control" name="contact_number" id="basiInput">
-                                                    </div>
-                                                </div>
-                                                <div class="col-xxl-3 col-md-6">
-                                                    <div>
-                                                        <label for="exampleFormControlTextarea5"
-                                                            class="form-label">Profile
-                                                            Picture</label>
-                                                        <input type="file" class="form-control" name="profile_pic"
-                                                            id="basiInput">
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -307,13 +289,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <!--end col-->
                         </div>
                         <!--end row-->
-
-
                     </div>
                 </div>
-
             </div>
-
         </div>
 
         <!-- JAVASCRIPT -->
