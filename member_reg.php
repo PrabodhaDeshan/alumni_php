@@ -108,7 +108,6 @@ require 'db.php';
                                         </div>
                                     </div>
                                     <!--end col-->
-
                                     <!--end col-->
                                     <div class="col-xxl-6 col-md-6">
                                         <div>
