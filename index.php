@@ -1,6 +1,8 @@
 <?php
 require 'db.php';
 
+
+
 ?>
 
 <!doctype html>
@@ -140,7 +142,7 @@ require 'db.php';
                     <div class="card">
                         <div class="card-body">
                             <?php
-                            $postsPerPage = 10;
+                            $postsPerPage = 15;
                             $currentPage = isset($_GET['page']) ? (int) $_GET['page'] : 1;
                             $offset = ($currentPage - 1) * $postsPerPage;
 
@@ -159,13 +161,45 @@ require 'db.php';
                                             $images[] = $row["post_image$i"];
                                         }
                                     }
+
                                     ?>
                                     <a href="post_page.php?post_id=<?= base64_encode($row['post_id']); ?>">
+                                        <?php
+
+                                        $admin_id = $row['admin_id'];
+                                        $post_date = $row['post_date'];
+                                        $post_time = $row['post_time'];
+
+                                        $mem_username = "SELECT member_username FROM members WHERE member_id = '$admin_id'";
+                                        $username_result = mysqli_query($conn, $mem_username);
+                                        $member_username = mysqli_fetch_assoc($username_result)['member_username'];
+                                        ?>
+
                                         <div class="post-head">
+                                            <div class="userp">
+                                                <?php
+                                                $profilePic = isset($row['profile_pic']) && !empty($row['profile_pic']) ? "backend/uploads/{$row['profile_pic']}" : "inc/user.png";
+                                                ?>
+                                                <img src="<?= $profilePic; ?>" alt="" class="img-thumbnail rounded-circle"
+                                                    style="width:30px;">
+
+                                                &nbsp;
+
+                                                <h6 style="padding-top:5px;" class="card-title"><?php echo $member_username; ?>
+                                                </h6>
+                                            </div>
+
+                                            <div class="ptime">
+
+                                                <p style="color:#afafaf;"><?php echo $post_date; ?> &nbsp
+                                                    <?php echo $post_time; ?>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="post-by">
                                             <h2 class="card-title"><?php echo $row['post_title']; ?></h2>
-                                            <p style="color:#afafaf;"><?php echo $row['post_date']; ?> &nbsp
-                                                <?php echo $row['post_time']; ?>
-                                            </p>
+
                                         </div>
                                     </a>
                                     <br>
@@ -250,7 +284,7 @@ require 'db.php';
                             <!-- Swiper -->
                             <h3>Events</h3>
                             <?php
-                            $sql = "SELECT * FROM events ORDER BY event_id DESC LIMIT 10";
+                            $sql = "SELECT * FROM events ORDER BY event_id DESC LIMIT 15";
                             $result = $conn->query($sql);
                             $data = [];
                             if ($result) {

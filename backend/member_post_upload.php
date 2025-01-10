@@ -1,6 +1,7 @@
 <?php
 
 require './../db.php'; 
+session_start(); 
 
 $target_dir = "uploads/"; 
 
@@ -9,9 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $post_title = htmlspecialchars(trim($_POST['post_title']));
     $post_description = htmlspecialchars(trim($_POST['post_description']));
     $post_status = htmlspecialchars(trim($_POST['post_status']));
-
-
     $imageFields = ['post_image1', 'post_image2', 'post_image3', 'post_image4', 'post_image5'];
+
     $uploadedFiles = [];
     if (isset($_FILES['post_images']) && count($_FILES['post_images']['name']) > 0) {
         foreach ($_FILES['post_images']['name'] as $key => $name) {
@@ -31,8 +31,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $uploadedFiles[] = null;
     }
 
-    $sql = "INSERT INTO post (post_title, post_description, post_status, post_image1, post_image2, post_image3, post_image4, post_image5) 
-            VALUES ('$post_title', '$post_description', '$post_status',
+    $member_id = isset($_SESSION['member_id']) ? $_SESSION['member_id'] : null;
+
+    $sql = "INSERT INTO post (post_title, post_description, post_status, admin_id, post_image1, post_image2, post_image3, post_image4, post_image5) 
+            VALUES ('$post_title', '$post_description', '$post_status', 
+            " . ($member_id !== null ? "'$member_id'" : "NULL") . ",
             " . (isset($uploadedFiles[0]) ? "'{$uploadedFiles[0]}'" : "NULL") . ", 
             " . (isset($uploadedFiles[1]) ? "'{$uploadedFiles[1]}'" : "NULL") . ", 
             " . (isset($uploadedFiles[2]) ? "'{$uploadedFiles[2]}'" : "NULL") . ", 

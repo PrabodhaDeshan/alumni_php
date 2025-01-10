@@ -8,10 +8,9 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
     exit();
 }
 
-
 $member_id = $_GET['member_id'];
 $result = $conn->query("SELECT * FROM members WHERE member_id=$member_id");
-$user = $result->fetch_assoc();
+$admncng = $result->fetch_assoc();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $member_username = $_POST['member_username'];
@@ -113,9 +112,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <div class="page-content">
                 <div class="container-fluid">
-
-
-
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
@@ -127,72 +123,63 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                     <div class="live-preview">
                                     <form method="post">
                                             <div class="row gy-4">
-
                                             <div class="col-lg-3 col-md-6" >
                                                     <div class="form-group">
                                                         <label for="role_id">Member Type</label>
                                                         <select class="form-select" id="role_id"  name="role">
-                                                        <option value="<?= $user['role'] ?>" selected>Select status</option>
+                                                        <option value="<?= $admncng['role'] ?>" selected>Select status</option>
                                                             <option value="1">Admin</option>
                                                             <option value="2">Member</option>
                                                         </select>
                                                     </div>
                                                 </div>
-
                                                 <div class="col-lg-3 col-md-6" style="opacity: 0.5;" >
                                                     <div>
-
                                                         <label for="basiInput" class="form-label">Username</label>
-                                                        <input type="text" value="<?= $user['member_username'] ?>" class="form-control" name="member_username" readonly>
+                                                        <input type="text" value="<?= $admncng['member_username'] ?>" class="form-control" name="member_username" readonly>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
                                                 <div class="col-lg-3 col-md-6" style="opacity: 0.5;">
                                                     <div>
                                                         <label for="basiInput" class="form-label">First name</label>
-                                                        <input type="text" value="<?= $user['member_first_name'] ?>" class="form-control" name="member_first_name" readonly>
+                                                        <input type="text" value="<?= $admncng['member_first_name'] ?>" class="form-control" name="member_first_name" readonly>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
                                                 <div class="col-lg-3 col-md-6" style="opacity: 0.5;">
                                                     <div>
                                                         <label for="basiInput" class="form-label">Last name</label>
-                                                        <input type="text" value="<?= $user['member_last_name'] ?>" class="form-control" name="member_last_name" readonly>
+                                                        <input type="text" value="<?= $admncng['member_last_name'] ?>" class="form-control" name="member_last_name" readonly>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
                                                 <div class="col-lg-3 col-md-6" style="opacity: 0.5;">
                                                     <div>
                                                         <label for="valueInput" class="form-label">Member ID number</label>
-                                                        <input type="text" value="<?= $user['member_id_no'] ?>" class="form-control" name="member_id_no" readonly>
+                                                        <input type="text" value="<?= $admncng['member_id_no'] ?>" class="form-control" name="member_id_no" readonly>
                                                     </div>
                                                 </div>
-                                                <!--end col-->
-
                                                 <!--end col-->
                                                 <div class="col-lg-3 col-md-6" style="opacity: 0.5;">
                                                     <div>
                                                         <label for="basiInput" class="form-label">Batch</label>
-                                                        <input type="text" value="<?= $user['member_batch'] ?>" class="form-control" name="member_batch" readonly>
+                                                        <input type="text" value="<?= $admncng['member_batch'] ?>" class="form-control" name="member_batch" readonly>
                                                     </div>
                                                 </div>
-                                                <!--end col-->
-                                                
-                                               
                                                 <!--end col-->
                                                 <div class="col-lg-3 col-md-6" style="opacity: 0.5;">
                                                     <div>
                                                         <label for="basiInput" class="form-label">Member's NIC</label>
-                                                        <input type="text" value="<?= $user['member_nic'] ?>" class="form-control" name="member_nic" readonly>
+                                                        <input type="text" value="<?= $admncng['member_nic'] ?>" class="form-control" name="member_nic" readonly>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
 
-                                                <!--end col-->
                                                 <div class="col-lg-3 col-md-6" style="opacity: 0.5;">
                                                     <div>
                                                         <label for="exampleInputdate" class="form-label">Member's workplace</label>
-                                                        <input type="text" value="<?= $user['member_username'] ?>" class="form-control" name="member_wrokplace" readonly>
+                                                        <input type="text" value="<?= $admncng['member_username'] ?>" class="form-control" name="member_wrokplace" readonly>
 
                                                     </div>
                                                 </div>
@@ -200,49 +187,42 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                 <div class="col-lg-6 col-md-6" style="opacity: 0.5;">
                                                     <div>
                                                         <label for="exampleInputdate" class="form-label">Address line 1</label>
-                                                        <input type="text" value="<?= $user['member_address'] ?>" class="form-control" name="member_address" readonly>
-
+                                                        <input type="text" value="<?= $admncng['member_address'] ?>" class="form-control" name="member_address" readonly>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
                                                 <div class="col-lg-6 col-md-6" style="opacity: 0.5;">
                                                     <div>
                                                         <label for="exampleInputdate" class="form-label">Address line 2</label>
-                                                        <input type="text" value="<?= $user['member_address_line2'] ?>" class="form-control" name="member_address_line2" readonly>
-
+                                                        <input type="text" value="<?= $admncng['member_address_line2'] ?>" class="form-control" name="member_address_line2" readonly>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
                                                 <div class="col-lg-3 col-md-6" style="opacity: 0.5;">
                                                     <div>
                                                         <label for="exampleFormControlTextarea5" class="form-label">Designation</label>
-                                                        <input type="text" value="<?= $user['member_designation'] ?>" class="form-control" name="member_designation" readonly>
-
+                                                        <input type="text" value="<?= $admncng['member_designation'] ?>" class="form-control" name="member_designation" readonly>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
                                                 <div class="col-lg-3 col-md-6" style="opacity: 0.5;">
                                                     <div>
                                                         <label for="formtextInput" class="form-label">Email</label>
-                                                        <input type="email" value="<?= $user['member_email'] ?>" class="form-control form-control-icon" name="member_email" id="iconrightInput" placeholder="example@gmail.com" readonly>
-
-
+                                                        <input type="email" value="<?= $admncng['member_email'] ?>" class="form-control form-control-icon" name="member_email" id="iconrightInput" placeholder="example@gmail.com" readonly>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
                                                 <div class="col-lg-3 col-md-6" style="opacity: 0.5;">
                                                     <div>
                                                         <label for="exampleFormControlTextarea5" class="form-label">Contact number</label>
-                                                        <input type="text" value="<?= $user['contact_number'] ?>" class="form-control" name="contact_number" id="basiInput" readonly>
-
+                                                        <input type="text" value="<?= $admncng['contact_number'] ?>" class="form-control" name="contact_number" id="basiInput" readonly>
                                                     </div>
                                                 </div>
-                                              
                                              <div class="col-lg-3 col-md-6" style="opacity: 0.5;">
                                                     <div class="form-group" hidden >
                                                         <label for="role_id">Status</label>
                                                         <select class="form-select" id="role_id" name="status" readonly>
-                                                            <option value="<?= $user['status'] ?>" selected>Select status</option >
+                                                            <option value="<?= $admncng['status'] ?>" selected>Select status</option >
                                                             <option selected value="1">Active</option>
                                                             <option value="2">Inactive</option>
                                                         </select>
@@ -253,7 +233,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                 <div class="col-12">
                                                    
                                                 <button class="btn btn-primary" type="submit" onclick="validatePassword()">Update</button>
-                                              
                                                 </div>
 
                                             </div>
@@ -264,13 +243,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <!--end col-->
                         </div>
                         <!--end row-->
-
-
                     </div>
                 </div>
-
             </div>
-
         </div>
 
         <!-- JAVASCRIPT -->
@@ -295,10 +270,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if (password !== confirmPassword) {
             message.style.display = 'block';
-            return false; // Prevent form submission
+            return false; 
         } else {
             message.style.display = 'none';
-            return true; // Allow form submission
+            return true; 
         }
     }
 

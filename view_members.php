@@ -94,21 +94,34 @@ $result = $conn->query("SELECT * FROM members");
                     <!-- start page title -->
 
                     <!-- end page title -->
-
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title mb-0">View Members</h4>
+                                    <h4 class="card-title mb-0">Add, Edit & Remove</h4>
                                 </div><!-- end card header -->
+
                                 <div class="card-body">
                                     <div class="listjs-table" id="customerList">
-                                    <div class="table-responsive table-card mt-3 mb-1">
-                                        <table class="table align-middle table-nowrap" id="customerTable">
+                                        <div class="row g-4 mb-3">
+                                            <div class="col-sm">
+                                                <div class="d-flex justify-content-sm-end">
+                                                    <div class="search-box ms-2">
+                                                        <input type="text" class="form-control search"
+                                                            placeholder="Search...">
+                                                        <i class="ri-search-line search-icon"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="table-responsive table-card mt-3 mb-1">
+                                            <table class="table align-middle table-nowrap" id="customerTable">
                                                 <thead class="table-light">
                                                     <tr>
                                                         <th class="sort" data-sort="customer_name">Name</th>
                                                         <th class="" data-sort="customer_name">Contact</th>
+                                                        <th class="" data-sort="customer_name">Email</th>
                                                         <th class="" data-sort="date">Address</th>
                                                         <th class="" data-sort="date">Role</th>
                                                         <th class="" data-sort="status">Status</th>
@@ -131,22 +144,25 @@ $result = $conn->query("SELECT * FROM members");
                                                                     <?php echo $row['member_last_name']; ?>
                                                                     <p style="color:#93c4f2; font-size:12px;">
                                                                         <?php echo $row['member_username']; ?>
-                                                                    <br>Batch : <?php echo $row['member_batch']; ?><hr>
+                                                                        <br>Batch : <?php echo $row['member_batch']; ?>
+                                                                        <hr>
                                                                     </p>
                                                                 </td>
-                                                                <td><?php echo $row['member_address']; ?></td>
-                                                                <td class="email"><?php echo $row['member_email']; ?><br><?php echo $row['contact_number']; ?></td>
+                                                                <td><?php echo $row['contact_number']; ?></td>
+                                                                <td class="email">
+                                                                    <?php echo $row['member_email']; ?><br><?php echo $row['contact_number']; ?>
+                                                                </td>
                                                                 <td class="batch"><?php echo $row['member_address']; ?>,
                                                                     <br>
                                                                     <?php echo $row['member_address_line2']; ?>
                                                                 </td>
                                                                 <td class="batch"> <?php
-                                                                    if ($row['role'] == 1) {
-                                                                        echo '<span>Admin</span>';
-                                                                    } elseif ($row['role'] == 2) {
-                                                                        echo '<span>Member</span>';
-                                                                    }
-                                                                    ?></td>
+                                                                if ($row['role'] == 1) {
+                                                                    echo '<span>Admin</span>';
+                                                                } elseif ($row['role'] == 2) {
+                                                                    echo '<span>Member</span>';
+                                                                }
+                                                                ?></td>
 
                                                                 <td class="status">
                                                                     <?php
@@ -154,7 +170,7 @@ $result = $conn->query("SELECT * FROM members");
                                                                         echo '<span class="badge text-success">Active</span>';
                                                                     } elseif ($row['status'] == 2) {
                                                                         echo '<span class="badge text-danger">Inactive</span>';
-                                                                    }elseif ($row['status'] == 3) {
+                                                                    } elseif ($row['status'] == 3) {
                                                                         echo '<span class="badge text-info">Pending</span>';
                                                                     }
                                                                     ?>
@@ -189,6 +205,7 @@ $result = $conn->query("SELECT * FROM members");
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="d-flex justify-content-end">
                                             <div class="pagination-wrap hstack gap-2">
                                                 <a class="page-item pagination-prev disabled"
@@ -202,12 +219,14 @@ $result = $conn->query("SELECT * FROM members");
                                             </div>
                                         </div>
                                     </div>
-                                </div><!-- end card -->
+                                </div>
+                                <!-- end card -->
                             </div>
                             <!-- end col -->
                         </div>
                         <!-- end col -->
                     </div>
+
                     <!-- end row -->
                 </div>
                 <!-- container-fluid -->

@@ -84,11 +84,6 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '2') {
             <div class="page-content">
                 <div class="container-fluid">
 
-                    <!-- start page title -->
-
-                    <!-- end page title -->
-
-
                     <div class="card">
                         <div class="card-header align-items-center d-flex">
                             <h4 class="card-title mb-0 flex-grow-1">Add posts</h4>
@@ -126,7 +121,7 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '2') {
                                     <br>
                                     <div class="col-md-6" hidden>
                                         <div class="form-group">
-                                            <select class="form-select" id="role_id" name="post_status">
+                                            <select class="form-select" id="" name="post_status">
                                                 <option selected value="2"></option>
                                             </select>
                                         </div>

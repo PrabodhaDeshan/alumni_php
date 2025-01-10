@@ -62,8 +62,19 @@ if ($result) {
                         <div class="row g-4">
                             <div class="col-auto">
                                 <div class="avatar-lg">
-                                <img src="backend/uploads/pic<?php echo $userData['profile_pic']; ?>"
-                                alt="" class="img-thumbnail rounded-circle">
+
+                                <?php
+                            if ($userData['profile_pic'] == NULL) {
+                                ?>
+                                <img src="inc/user.png" alt="" class="img-thumbnail rounded-circle" style="width:100px;">
+                                <?php
+                            } else {
+                                ?>
+                                <img src="backend/uploads/<?= $userData['profile_pic']; ?>" alt=""
+                                    class="img-thumbnail rounded-circle" style="width:100px;">
+                                <?php
+                            }
+                            ?>
                                 </div>
                             </div>
                             <div class="col">

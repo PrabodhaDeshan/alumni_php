@@ -1,11 +1,16 @@
 <?php
 session_start();
+
+// Check for valid session and role
 if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
     header("Location: admin_dashboard.php");
     exit();
 }
-echo "Welcome, " . $_SESSION['member_username'];
 
+// Display the username
+echo "Welcome, " . htmlspecialchars($_SESSION['member_username'], ENT_QUOTES, 'UTF-8');
+
+// Include database connection
 require 'db.php';
 ?>
 
@@ -21,13 +26,10 @@ require 'db.php';
     <meta content="Themesbrand" name="author" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favi.png">
 
-    <!-- Sweet Alert CSS -->
+    <!-- CSS Links -->
     <link href="assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
-    <!-- Bootstrap CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <!-- Icons CSS -->
     <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <!-- App CSS-->
     <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -48,9 +50,7 @@ require 'db.php';
                                 <div class="card-body">
                                     <div class="listjs-table" id="customerList">
                                         <div class="row g-4 mb-3">
-                                            <div class="col-sm-auto">
-
-                                            </div>
+                                            <div class="col-sm-auto"></div>
                                             <div class="col-sm">
                                                 <div class="d-flex justify-content-sm-end">
                                                     <div class="search-box ms-2">
@@ -69,7 +69,6 @@ require 'db.php';
                                                         <th>Post Title</th>
                                                         <th>Date and Time</th>
                                                         <th>Posted by</th>
-                                                        <th>Status</th>
                                                         <th>View</th>
                                                         <th>Action</th>
                                                     </tr>
@@ -81,34 +80,32 @@ require 'db.php';
 
                                                     if ($result && $result->num_rows > 0) {
                                                         while ($row = $result->fetch_assoc()) {
+                                                            $adminId = (int)$row['admin_id'];
+                                                            $memberQuery = "SELECT member_username FROM members WHERE member_id = $adminId";
+                                                            $memberResult = $conn->query($memberQuery);
+                                                            $memberUsername = $memberResult && $memberResult->num_rows > 0
+                                                                ? htmlspecialchars($memberResult->fetch_assoc()['member_username'], ENT_QUOTES, 'UTF-8')
+                                                                : "Unknown";
                                                             ?>
-                                                           <tr data-post-id="<?php echo $row['post_id']; ?>">
-                                                                <td class="name"><?php echo $row['post_title']; ?></td>
-
-                                                                <td><?php echo $row['post_date']; ?>
+                                                            <tr data-post-id="<?php echo $row['post_id']; ?>">
+                                                                <td><?php echo htmlspecialchars($row['post_title'], ENT_QUOTES, 'UTF-8'); ?></td>
+                                                                <td>
+                                                                    <?php echo htmlspecialchars($row['post_date'], ENT_QUOTES, 'UTF-8'); ?>
                                                                     <br>
-                                                                    <p style="font-size:12px;"><?php echo $row['post_time']; ?>
-                                                                    </p>
+                                                                    <p style="font-size:12px;"><?php echo htmlspecialchars($row['post_time'], ENT_QUOTES, 'UTF-8'); ?></p>
                                                                 </td>
-                                                                <td><?php echo $row['admin_id']; ?></td>
-
-                                                                <td class="status">
-                                                                <?php
-                                                                if ($row['post_status'] == 1) {
-                                                                    echo '<span class="badge text-success">Approved</span>';
-                                                                } elseif ($row['post_status'] == 2) {
-                                                                    echo '<span class="badge text-info">Pending</span>';
-                                                                }
-                                                                ?>
-                                                            </td>
-                                                                
+                                                                <td class="customer_name"><?php echo $memberUsername; ?></td>
                                                                 <td>
                                                                     <a style="font-size:14px; font-weight:600; color:green;"
                                                                         href="post_page.php?post_id=<?= base64_encode($row['post_id']); ?>">View</a>
                                                                 </td>
                                                                 <td>
-                                                                    <button
-                                                                        class="btn btn-secondary btn-sm approve-btn">Approve</button>
+                                                                    <?php if ($row['post_status'] == 1): ?>
+                                                                        <span class="text-success">Approved</span>
+                                                                    <?php elseif ($row['post_status'] == 2): ?>
+                                                                        <button
+                                                                            class="btn btn-secondary btn-sm approve-btn">Approve</button>
+                                                                    <?php endif; ?>
                                                                 </td>
                                                             </tr>
                                                             <?php
@@ -125,8 +122,8 @@ require 'db.php';
                                                         trigger="loop" colors="primary:#121331,secondary:#08a88a"
                                                         style="width:75px;height:75px"></lord-icon>
                                                     <h5 class="mt-2">Sorry! No Result Found</h5>
-                                                    <p class="text-muted mb-0">We've searched more than 150+ Orders We
-                                                        did not find any orders for you search.</p>
+                                                    <p class="text-muted mb-0">We've searched more than 150+ Orders but
+                                                        found no match.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -134,13 +131,9 @@ require 'db.php';
                                         <div class="d-flex justify-content-end">
                                             <div class="pagination-wrap hstack gap-2">
                                                 <a class="page-item pagination-prev disabled"
-                                                    href="javascript:void(0);">
-                                                    Previous
-                                                </a>
+                                                    href="javascript:void(0);">Previous</a>
                                                 <ul class="pagination listjs-pagination mb-0"></ul>
-                                                <a class="page-item pagination-next" href="javascript:void(0);">
-                                                    Next
-                                                </a>
+                                                <a class="page-item pagination-next" href="javascript:void(0);">Next</a>
                                             </div>
                                         </div>
                                     </div>
@@ -155,8 +148,6 @@ require 'db.php';
     </div>
 
     <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/libs/sweetalert2/sweetalert2.min.js"></script>
-    <script src="assets/js/app.js"></script>
     <script src="assets/libs/simplebar/simplebar.min.js"></script>
     <script src="assets/libs/node-waves/waves.min.js"></script>
     <script src="assets/libs/feather-icons/feather.min.js"></script>
@@ -171,46 +162,38 @@ require 'db.php';
     <script src="assets/js/pages/listjs.init.js"></script>
 
     <!-- Sweet Alerts js -->
+    <script src="assets/libs/sweetalert2/sweetalert2.min.js"></script>
 
     <!-- App js -->
-</body>
+    <script src="assets/js/app.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll(".approve-btn").forEach(button => {
+                button.addEventListener("click", function () {
+                    const row = button.closest("tr");
+                    const postId = row.dataset.postId;
 
-
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const approveButtons = document.querySelectorAll(".approve-btn");
-
-        approveButtons.forEach((button) => {
-            button.addEventListener("click", function () {
-                const row = button.closest("tr");
-                const postId = row.dataset.postId;
-
-                fetch("approve_post.php", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ post_id: postId }),
-                })
-                    .then((response) => response.json())
-                    .then((data) => {
-                        if (data.success) {
-                            const statusCell = row.querySelector(".status");
-                            statusCell.innerHTML = '<span class="badge text-success">Approved</span>';
-                            Swal.fire("Success", "Post approved successfully!", "success");
-                        } else {
-                            Swal.fire("Error", "Failed to approve the post: " + data.message, "error");
-                        }
+                    fetch("approve_post.php", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ post_id: postId })
                     })
-                    .catch((error) => {
-                        console.error("Error:", error);
-                        Swal.fire("Error", "An error occurred.", "error");
-                    });
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                row.querySelector(".approve-btn").remove();
+                                Swal.fire("Success", "Post approved successfully!", "success");
+                            } else {
+                                Swal.fire("Error", data.message, "error");
+                            }
+                        })
+                        .catch(error => {
+                            console.error("Error:", error);
+                            Swal.fire("Error", "An error occurred while processing.", "error");
+                        });
+                });
             });
         });
-    });
-</script>
+    </script>
 </body>
-
 </html>

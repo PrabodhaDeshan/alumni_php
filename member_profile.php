@@ -5,18 +5,18 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '2') {
     exit();
 }
 
-require 'db.php'; 
+require 'db.php';
 $user = $_SESSION['member_id'];
 
 $query = "SELECT * FROM members WHERE member_id = '$user'";
 
-$result = mysqli_query($conn, $query); 
+$result = mysqli_query($conn, $query);
 
 if ($result) {
     $userData = mysqli_fetch_assoc($result);
-  
+
     if (!$userData) {
-      
+
         echo "User not found.";
         exit();
     }
@@ -28,7 +28,8 @@ if ($result) {
 ?>
 
 <!doctype html>
-<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
+    data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
 
 <head>
     <meta charset="utf-8" />
@@ -49,10 +50,10 @@ if ($result) {
 <body>
 
     <div id="layout-wrapper">
-        <?php include './inc/member_header.php';?>
-        
-        <?php include './inc/member_sidebar.php';?>
-        
+        <?php include './inc/member_header.php'; ?>
+
+        <?php include './inc/member_sidebar.php'; ?>
+
         <div class="main-content">
             <div class="page-content">
                 <div class="container-fluid">
@@ -63,16 +64,30 @@ if ($result) {
                         <div class="row g-4">
                             <div class="col-auto">
                                 <div class="avatar-lg">
-                                <img src="backend/uploads/pic<?php echo $userData['profile_pic']; ?>"
-                                alt=""  class="img-thumbnail rounded-circle">
+
+                                    <?php
+                                    if ($userData['profile_pic'] == NULL) {
+                                        ?>
+                                        <img src="inc/user.png" alt="" class="img-thumbnail rounded-circle"
+                                            style="width:100px;">
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <img src="backend/uploads/<?= $userData['profile_pic']; ?>" alt=""
+                                            class="img-thumbnail rounded-circle" style="width:100px;">
+                                        <?php
+                                    }
+                                    ?>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="p-2">
-                                    <h3 class="text-white mb-1"><?php echo htmlspecialchars($userData['member_username']);?></h3>
+                                    <h3 class="text-white mb-1">
+                                        <?php echo htmlspecialchars($userData['member_username']); ?></h3>
                                     <div class="hstack text-white-50 gap-1">
-                                        <div class="me-2"><i class="ri-map-pin-user-line me-1 text-white text-opacity-75 fs-16 align-middle"></i><?php echo htmlspecialchars($userData['member_address']); ?>
-                                       , <?php echo htmlspecialchars($userData['member_address_line2']); ?></div>
+                                        <div class="me-2"><i
+                                                class="ri-map-pin-user-line me-1 text-white text-opacity-75 fs-16 align-middle"></i><?php echo htmlspecialchars($userData['member_address']); ?>
+                                            , <?php echo htmlspecialchars($userData['member_address_line2']); ?></div>
                                     </div>
                                 </div>
                             </div>
@@ -82,7 +97,7 @@ if ($result) {
                     <div class="row">
                         <div class="col-lg-12">
                             <div>
-                                
+
                                 <div class="tab-content pt-4 text-muted">
                                     <div class="tab-pane active" id="overview-tab" role="tabpanel">
                                         <div class="row">
@@ -95,45 +110,66 @@ if ($result) {
                                                                 <tbody>
                                                                     <tr>
                                                                         <th class="ps-0" scope="row">First Name :</th>
-                                                                        <td class="text-muted"><?php echo htmlspecialchars($userData['member_first_name']); ?></td>
+                                                                        <td class="text-muted">
+                                                                            <?php echo htmlspecialchars($userData['member_first_name']); ?>
+                                                                        </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <th class="ps-0" scope="row">Last Name :</th>
-                                                                        <td class="text-muted"><?php echo htmlspecialchars($userData['member_last_name']); ?></td>
+                                                                        <td class="text-muted">
+                                                                            <?php echo htmlspecialchars($userData['member_last_name']); ?>
+                                                                        </td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <th class="ps-0" scope="row">Member ID number :</th>
-                                                                        <td class="text-muted"><?php echo htmlspecialchars($userData['member_id_no']); ?></td>
+                                                                        <th class="ps-0" scope="row">Member ID number :
+                                                                        </th>
+                                                                        <td class="text-muted">
+                                                                            <?php echo htmlspecialchars($userData['member_id_no']); ?>
+                                                                        </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <th class="ps-0" scope="row">Batch :</th>
-                                                                        <td class="text-muted"><?php echo htmlspecialchars($userData['member_batch']); ?></td>
+                                                                        <td class="text-muted">
+                                                                            <?php echo htmlspecialchars($userData['member_batch']); ?>
+                                                                        </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <th class="ps-0" scope="row">Address :</th>
-                                                                        <td class="text-muted"><?php echo htmlspecialchars($userData['member_address']); ?>,
-                                                                        <?php echo htmlspecialchars($userData['member_address_line2']); ?></td>
+                                                                        <td class="text-muted">
+                                                                            <?php echo htmlspecialchars($userData['member_address']); ?>,
+                                                                            <?php echo htmlspecialchars($userData['member_address_line2']); ?>
+                                                                        </td>
                                                                         <br>
                                                                     </tr>
                                                                     <tr>
                                                                         <th class="ps-0" scope="row">NIC :</th>
-                                                                        <td class="text-muted"><?php echo htmlspecialchars($userData['member_nic']); ?></td>
+                                                                        <td class="text-muted">
+                                                                            <?php echo htmlspecialchars($userData['member_nic']); ?>
+                                                                        </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <th class="ps-0" scope="row">Workplace :</th>
-                                                                        <td class="text-muted"><?php echo htmlspecialchars($userData['member_wrokplace']); ?></td>
+                                                                        <td class="text-muted">
+                                                                            <?php echo htmlspecialchars($userData['member_wrokplace']); ?>
+                                                                        </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <th class="ps-0" scope="row">Designation</th>
-                                                                        <td class="text-muted"><?php echo htmlspecialchars($userData['member_designation']); ?></td>
+                                                                        <td class="text-muted">
+                                                                            <?php echo htmlspecialchars($userData['member_designation']); ?>
+                                                                        </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <th class="ps-0" scope="row">Email</th>
-                                                                        <td class="text-muted"><?php echo htmlspecialchars($userData['member_email']); ?></td>
+                                                                        <td class="text-muted">
+                                                                            <?php echo htmlspecialchars($userData['member_email']); ?>
+                                                                        </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <th class="ps-0" scope="row">Contact number</th>
-                                                                        <td class="text-muted"><?php echo htmlspecialchars($userData['contact_number']); ?></td>
+                                                                        <td class="text-muted">
+                                                                            <?php echo htmlspecialchars($userData['contact_number']); ?>
+                                                                        </td>
                                                                     </tr>
                                                                 </tbody>
                                                             </table>
@@ -151,7 +187,7 @@ if ($result) {
                 </div>
             </div>
             <?php include './inc/dash_footer.php'; ?>
-       
+
         </div>
 
     </div>

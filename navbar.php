@@ -69,15 +69,34 @@ if ($_SESSION) {
                     <?php
                 } elseif ($role == 2) {
                     ?>
-                    <a href="member_dashboard.php" class="btn btn-link text-decoration-none text-body"
-                        style="font-size: 18px; ">Member Account</a>
+                    
+                    <li class="nav-item dropdown" style="list-style:none;" >
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Member Account
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="member_dashboard.php">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="member_chat.php">Chat</a></li>
+                            <li><a class="dropdown-item" href="member_renewal.php">Member renewals</a></li>
+                            <li><a class="dropdown-item" href="member_renewal_history.php">My renewal history </a></li>
+                            <li><a class="dropdown-item" href="member_post.php">Add post </a></li>
+                            <li><a class="dropdown-item" href="member_password_change.php">Password settings </a></li>
+                            <li><a class="dropdown-item" href="profile_settings.php">Profile settings </a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                        </ul>
+                    </li>
+
                     <?php
                 } else {
                     ?>
                     <a href="sign_in.php" class="btn btn-link fw-medium text-decoration-none text-body"
-                        style="font-size: 18px; ">Sign in</a>
+                        style="font-size: 16px; ">Sign in</a>
                     <a href="member_reg.php" class="btn btn-link fw-medium text-decoration-none text-body"
-                        style="font-size: 18px; ">Sign up</a>
+                        style="font-size: 16px; ">Sign up</a>
                     <?php
                 }
                 ?>
