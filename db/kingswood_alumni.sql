@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 08, 2025 at 12:13 PM
+-- Generation Time: Feb 26, 2025 at 09:39 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -73,8 +73,8 @@ CREATE TABLE `members` (
   `member_wrokplace` varchar(255) DEFAULT NULL,
   `member_designation` varchar(255) DEFAULT NULL,
   `member_email` varchar(255) NOT NULL,
-  `contact_number` int(11) NOT NULL,
-  `profile_pic` text DEFAULT NULL,
+  `contact_number` varchar(100) NOT NULL,
+  `profile_pic` varchar(255) DEFAULT NULL,
   `password` varchar(255) NOT NULL,
   `confirm_password` varchar(255) NOT NULL,
   `status` varchar(255) DEFAULT NULL
@@ -85,14 +85,18 @@ CREATE TABLE `members` (
 --
 
 INSERT INTO `members` (`member_id`, `member_username`, `member_first_name`, `member_last_name`, `member_id_no`, `member_batch`, `member_address`, `member_address_line2`, `member_nic`, `role`, `member_wrokplace`, `member_designation`, `member_email`, `contact_number`, `profile_pic`, `password`, `confirm_password`, `status`) VALUES
-(20, 'admin', 'admin', 'lastname', 'rgeg', '69', 'kandy', 'kandyffwefwef', '424442453', '1', 'admin', 'manager', 'adminesh97@gmail.com', 2147483647, 'pic2025010711301666beeabb5fa40.jpg', '$2y$10$QiRFbps5K2cIrQ6GWWQzV.LW.KbiJwImoq7VQdWnQyDPQ0Jlmrpfu', '1111', '1'),
-(21, 'member', 'member', 'member', '5164484684', '692', '445 Heddnega33ma,', ' Harankahawa', '4454', '2', 'member', 'ddsss', 'kk455esh97@gmail.com', 2147483647, NULL, '$2y$10$h1LIXsnooC4mPQwogRCXbuDhEowNawjQdx3uL7jaXZJgNWLotpFcW', '1234', '1'),
-(22, 'Prabodha69', 'prabodha', 'deshan', '45355', '69', 'gdfgdgg', 'dgdgdgg', '45455', '1', 'Prabodha69', 'tggdgdfg', 't34@nmm.jj', 56463456, NULL, '$2y$10$lpExZCUewbNH6g.m81iDa.Cm4OlQX.MwdHqnNB1dHVLW9duYC/D6W', '4444', '1'),
-(23, 'lakshithaya', 'dwd', 'member2', '4234234', '24s', 'colombo', 'colombo 7ff', '34234324432', '2', 'lakshithaya', 'gregwergrweg', 'gwerggerg@dg.jjs', 564643656, NULL, '$2y$10$l7BcIRL3EZHyTC57S2R8EeD.DQFKjOIDaXWi9Zs9eAh5xStQe3vBS', '5555', '1'),
-(24, 'User1', 'User1', 'User1', '34242325', '46', 'hrethrthrthrthdheh66', 'ghergewrgwergweg', '653463456436', '2', 'User1', 'rtetwetwet', 'efwefwf@hh.jj', 64563465, NULL, '$2y$10$K1IQoJCX7EphETcn3LOEFuZX1o/VgIHXEg1nqAqx29HufaDwSsBTO', '5555', '2'),
-(29, 'mem70', 'fgdhg', 'fghhfghfhgfh', '56465464', '56', 'grdgrgegrg ergegerg', '45 rergwergwegrewrg', '53534535345v', '2', 'mem70', 'gegegerge', 'gerg@gg.jj', 2147483647, NULL, '$2y$10$aAq8/1kl/DV6CcTfgAozDeOMq5WCwpDGp5IS2AcvtSwtKdZpkVMqG', '9999', '1'),
-(32, 'deshanga', 'deshan', 'geghergewrge', '56456564', '88', 'cvssvsdbvergerh', 'xcbzbxcbxcb', '5464645646', '2', 'deshantha', 'btetjrtshf', 'bergr@ff.kk', 574756757, '', '$2y$10$AxYxR.LPaSIM5Ux3YqFoq.23FierFm1Nn7YvTOD9vkaPS5Ie2PVcu', '9900', '1'),
-(54, '', '', '', '', '', '', '', '', '', '', '', '', 0, '2025010810481666beeabb5fa40.jpg', '$2y$10$EJkQM48UENBV2WHrQneTL.il2VZNr9ImZrqTCtu2BZkLLjvIpNYTu', '', '');
+(20, 'admin', 'admin', 'lastname', 'rgeg', '69', 'kandybxx', 'kandyffwefwef', '424442453', '1', 'admin', 'manager', 'adminesh97@gmail.com', '2147483647', NULL, '$2y$10$QiRFbps5K2cIrQ6GWWQzV.LW.KbiJwImoq7VQdWnQyDPQ0Jlmrpfu', '1111', '1'),
+(21, 'member', 'member', 'member', '5164484684', '692', '445 Heddnega33ma,', ' Harankahawa', '4454', '2', 'member', 'ddsss', 'kk455esh97@gmail.com', '2147483647', NULL, '$2y$10$h1LIXsnooC4mPQwogRCXbuDhEowNawjQdx3uL7jaXZJgNWLotpFcW', '1234', '1'),
+(22, 'Prabodha69', 'prabodha', 'deshan', '45355', '69', 'gdfgdgg', 'dgdgdgg', '45455', '1', 'Prabodha69', 'tggdgdfg', 't34@nmm.jj', '56463456', NULL, '$2y$10$lpExZCUewbNH6g.m81iDa.Cm4OlQX.MwdHqnNB1dHVLW9duYC/D6W', '4444', '1'),
+(23, 'lakshitha', 'dwd', 'member2', '4234234', '24s', 'colombo', 'colombo 7ff', '34234324432', '2', 'lakshithaya', 'gregwergrweg', 'gwerggerg@dg.jjs', '564643656', NULL, '$2y$10$l7BcIRL3EZHyTC57S2R8EeD.DQFKjOIDaXWi9Zs9eAh5xStQe3vBS', '5555', '1'),
+(24, 'User1', 'User1', 'User1', '34242325', '46', 'hrethrthrthrthdheh66', 'ghergewrgwergweg', '653463456436', '2', 'User1', 'rtetwetwet', 'efwefwf@hh.jj', '64563465', NULL, '$2y$10$K1IQoJCX7EphETcn3LOEFuZX1o/VgIHXEg1nqAqx29HufaDwSsBTO', '5555', '2'),
+(29, 'mem70', 'fgdhg', 'fghhfghfhgfh', '56465464', '56', 'grdgrgegrg ergegerg', '45 rergwergwegrewrg', '53534535345v', '2', 'mem70', 'gegegerge', 'gerg@gg.jj', '2147483647', NULL, '$2y$10$aAq8/1kl/DV6CcTfgAozDeOMq5WCwpDGp5IS2AcvtSwtKdZpkVMqG', '9999', '1'),
+(32, 'deshanga', 'deshan', 'geghergewrge', '56456564', '88', 'cvssvsdbvergerh', 'xcbzbxcbxcb', '5464645646', '2', 'deshantha', 'btetjrtshf', 'bergr@ff.kk', '574756757', '', '$2y$10$AxYxR.LPaSIM5Ux3YqFoq.23FierFm1Nn7YvTOD9vkaPS5Ie2PVcu', '9900', '1'),
+(54, '', '', '', '', '', '', '', '', '', '', '', '', '0', '2025010810481666beeabb5fa40.jpg', '$2y$10$EJkQM48UENBV2WHrQneTL.il2VZNr9ImZrqTCtu2BZkLLjvIpNYTu', '', ''),
+(55, 'bnzdjlffho', 'nfthhrth', 'thrthrthr', '5675675675', 'fdfghghd', 'vcbnvbncvbn', 'nbmbmbm', '65757657', '2', 'nmbnm', 'bmghgh', 'bnm@ghgf.hj', '756757', '20250109074636unnamed.jpg', '$2y$10$3F8X6orN4BHcFSN/sIZ2mu9ctxiVu3TLLmR3rgC11yONoSWGVtMEW', '', '3'),
+(56, 'john', 'efwefwfwfe', 'fwefwfwfw', '34554534545', 'wfwe', 'rtherhrhth', 'thrthrth', '45345443455', '2', 'john', 'fgdfg', 'dgdfgf@fdf.kk', '56456456', '20250110071608unnamed.png', '$2y$10$9c57rDnZdN52irH7qs7.oew6AACNPDwbzFE1nEdS0e1DP3P/qheOW', '', '1'),
+(57, 'brian', 'ghfhfgh', 'hfhfh', '5756756757', '56', 'fghfghf', 'fdhdfhhh', '6756767', '2', 'brian', 'gfhfh', 'fhfg@ff.kk', '564756757', NULL, '$2y$10$iuD/JWYYh6D5o6D2LwwTm.yiwCKA51ZgfSJ4ZZQkkximlbBG1cm9W', '', '1'),
+(58, 'sample', 'sample', 'fdgdgsdfg', '3453534535', '33', 'hfgh', 'fghfhfdghgfh', '535454535', '2', 'sample', 'hfghfghfh', 'fhfdh@fdgd.jj', '6456456456', '2025011010352266beeabb5fa40.jpg', '$2y$10$3SxieJhtv/SXlnmafpL9QO48aym.oQW4XkFBe0WI0LoQ1zPK9KUfi', '', '1');
 
 -- --------------------------------------------------------
 
@@ -161,7 +165,7 @@ INSERT INTO `messages` (`message_id`, `sender_id`, `receiver_id`, `massege_date`
 
 CREATE TABLE `post` (
   `post_id` int(11) NOT NULL,
-  `admin_id` int(11) NOT NULL,
+  `admin_id` int(11) DEFAULT NULL,
   `post_title` varchar(255) NOT NULL,
   `post_description` varchar(255) DEFAULT NULL,
   `post_date` date NOT NULL DEFAULT current_timestamp(),
@@ -179,15 +183,17 @@ CREATE TABLE `post` (
 --
 
 INSERT INTO `post` (`post_id`, `admin_id`, `post_title`, `post_description`, `post_date`, `post_time`, `post_image1`, `post_image2`, `post_image3`, `post_image4`, `post_image5`, `post_status`) VALUES
-(25, 0, 'Kingswood college cricket tournement 2024', 'Lorem ipsum dolor sit amet consectetur adipiscing elit quam odio, id blandit est nisi eros nunc massa tortor, lobortis donec senectus ad ornare suspendisse montes egestas. Odio gravida justo per litora sociis viverra sed, blandit fusce primis orci at nibh', '2024-12-12', '12:25:08', '20241212075507IMG_0189.webp', '', NULL, NULL, NULL, 1),
-(26, 0, 'Kingswood cadet', 'Sollicitudin rhoncus augue primis tellus feugiat ante viverra sociosqu, mi sed hac nulla mus ut vehicula penatibus ligula, netus proin metus id purus malesuada ad. Integer nisi porta fusce facilisis vivamus suscipit taciti sodales, neque congue in torquen', '2024-12-12', '12:25:49', '20241212075549IMG_1367-scaled.webp', '', NULL, NULL, NULL, 1),
-(27, 0, 'Sample pos3 nweivw iohweoh', 'Lorem ipsum dolor sit amet consectetur adipiscing elit turpis nibh, erat dui senectus maecenas mauris habitant auctor aenean suscipit, non fringilla netus porttitor diam porta tempus congue. Cubilia placerat lacus cum nisl hendrerit fringilla dapibus eu q', '2024-12-12', '12:33:19', '20241212080319IMG_1307-1.webp', '', NULL, NULL, NULL, 1),
-(28, 0, 'new post upload y3434ythrthrth', 'us rutrum ad dictumst commodo congue bibendum maecenas, ut montes varius aliquet aliquam integer leo. Quis lobortis pretium cum interdum risus aptent leo, nisi quam dapibus blandit turpis mi, suscipit purus est magna metus feugiat. Nascetur conubia facili', '2024-12-19', '13:45:55', '20241219091555_IMG_0189.webp', '20241219091555_IMG_0320.webp', '20241219091555_IMG_1296.webp', '20241219091555_IMG_1307-1.webp', '20241219091555_IMG_1367-scaled.webp', 1),
-(31, 0, 'fwfwfw', 'fwfwefwfwef erferfgere gwg wrge ger egerg', '2025-01-03', '15:50:21', '20250103112021_ai-generated-purple-heart-tree-background-purple-trees-wallpaper-photo.jpg', NULL, NULL, NULL, NULL, 1),
-(32, 0, 'fwefwfwfwf', 'fwefwfwefwf', '2025-01-08', '09:49:34', '20250108051934_desktop-wallpaper-nature-forest-road-and-background-dark-forest-road.jpg', NULL, NULL, NULL, NULL, 1),
-(33, 0, 'rgegr', 'gegewgergwe', '2025-01-08', '09:57:51', '20250108052751_dfwef.PNG', '20250108052751_software-development-service-flyer-template-software-agency-poster-leaflet-design-a4-template-brochure-design-cover-flyer-poster-print-ready-free-vector.jpg', '20250108052751_creative-design-agency-flyer-template_120329-52.jpg', NULL, NULL, 2),
-(35, 0, 'new post after update membverwr', 'fwfwqfwfw', '2025-01-08', '10:11:30', '20250108054130_ai-generated-purple-heart-tree-background-purple-trees-wallpaper-photo.jpg', NULL, NULL, NULL, NULL, 2),
-(36, 0, 'adminpost after update', 'e, platea semper potenti odio vehicula cum ad bibendum blandit, tempus orci eget nisi habitasse ridiculus erat. Pellentesque penatibus natoque vulputate consequat platea gravida tincidunt bibendum, tempor ut rutrum conubia phasellus convallis lacinia laor', '2025-01-08', '10:17:16', '20250108054716_desktop-wallpaper-nature-forest-road-and-background-dark-forest-road.jpg', '20250108054716_ai-generated-purple-heart-tree-background-purple-trees-wallpaper-photo.jpg', '20250108054716_dfwef.PNG', '20250108054716_Capture.PNG', NULL, 2);
+(25, 20, 'Kingswood college cricket tournement 2024', 'Lorem ipsum dolor sit amet consectetur adipiscing elit quam odio, id blandit est nisi eros nunc massa tortor, lobortis donec senectus ad ornare suspendisse montes egestas. Odio gravida justo per litora sociis viverra sed, blandit fusce primis orci at nibh', '2024-12-12', '12:25:08', '20241212075507IMG_0189.webp', '', NULL, NULL, NULL, 1),
+(26, 22, 'Kingswood cadet', 'Sollicitudin rhoncus augue primis tellus feugiat ante viverra sociosqu, mi sed hac nulla mus ut vehicula penatibus ligula, netus proin metus id purus malesuada ad. Integer nisi porta fusce facilisis vivamus suscipit taciti sodales, neque congue in torquen', '2024-12-12', '12:25:49', '20241212075549IMG_1367-scaled.webp', '', NULL, NULL, NULL, 1),
+(27, 21, 'Sample pos3 nweivw iohweoh', 'Lorem ipsum dolor sit amet consectetur adipiscing elit turpis nibh, erat dui senectus maecenas mauris habitant auctor aenean suscipit, non fringilla netus porttitor diam porta tempus congue. Cubilia placerat lacus cum nisl hendrerit fringilla dapibus eu q', '2024-12-12', '12:33:19', '20241212080319IMG_1307-1.webp', '', NULL, NULL, NULL, 2),
+(28, 20, 'new post upload y3434ythrthrth', 'us rutrum ad dictumst commodo congue bibendum maecenas, ut montes varius aliquet aliquam integer leo. Quis lobortis pretium cum interdum risus aptent leo, nisi quam dapibus blandit turpis mi, suscipit purus est magna metus feugiat. Nascetur conubia facili', '2024-12-19', '13:45:55', '20241219091555_IMG_0189.webp', '20241219091555_IMG_0320.webp', '20241219091555_IMG_1296.webp', '20241219091555_IMG_1307-1.webp', '20241219091555_IMG_1367-scaled.webp', 1),
+(31, 23, 'fwfwfw', 'fwfwefwfwef erferfgere gwg wrge ger egerg', '2025-01-03', '15:50:21', '20250103112021_ai-generated-purple-heart-tree-background-purple-trees-wallpaper-photo.jpg', NULL, NULL, NULL, NULL, 1),
+(32, 21, 'fwefwfwfwf', 'fwefwfwefwf', '2025-01-08', '09:49:34', '20250108051934_desktop-wallpaper-nature-forest-road-and-background-dark-forest-road.jpg', NULL, NULL, NULL, NULL, 1),
+(35, 21, 'new post after update membverwr', 'fwfwqfwfw', '2025-01-08', '10:11:30', '20250108054130_ai-generated-purple-heart-tree-background-purple-trees-wallpaper-photo.jpg', NULL, NULL, NULL, NULL, 1),
+(36, 21, 'adminpost after update', 'e, platea semper potenti odio vehicula cum ad bibendum blandit, tempus orci eget nisi habitasse ridiculus erat. Pellentesque penatibus natoque vulputate consequat platea gravida tincidunt bibendum, tempor ut rutrum conubia phasellus convallis lacinia laor', '2025-01-08', '10:17:16', '20250108054716_desktop-wallpaper-nature-forest-road-and-background-dark-forest-road.jpg', '20250108054716_ai-generated-purple-heart-tree-background-purple-trees-wallpaper-photo.jpg', '20250108054716_dfwef.PNG', '20250108054716_Capture.PNG', NULL, 1),
+(38, 20, 'rgegrge', 'gergeg', '2025-01-09', '15:11:30', '20250109104130_desktop-wallpaper-nature-forest-road-and-background-dark-forest-road.jpg', '20250109104130_ai-generated-purple-heart-tree-background-purple-trees-wallpaper-photo.jpg', NULL, NULL, NULL, 2),
+(39, 58, 'Lorem ipsum dolor sit amet consectetur adipiscing elit 2024', 'Lorem ipsum dolor sit amet consectetur adipiscing elit semper sociosqu tincidunt id et sagittis vestibulum, phasellus ut sem fermentum ridiculus molestie aptent laoreet tempor dignissim suspendisse ac convallis. Orci morbi dictumst auctor mi fringilla him', '2025-01-10', '15:06:50', '20250110103650_2I8A3571-scaled.webp', '20250110103650_IMG_0133.webp', '20250110103650_IMG_1309-1.webp', '20250110103650_IMG_9969-scaled.webp', NULL, 1),
+(45, 58, 'new post', 'efwfe we fwq ef wefwwwwwwwwwwwwwwwwwwwww wefwefe', '2025-01-10', '15:33:36', '20250110110336_IMG_0133.webp', NULL, NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -207,48 +213,6 @@ CREATE TABLE `role` (
 INSERT INTO `role` (`role_id`, `role_name`) VALUES
 (1, 'admin'),
 (2, 'member');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user`
---
-
-CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `type` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`id`, `username`, `type`, `password`) VALUES
-(2, 'member', 'member', '1234'),
-(3, 'admin', 'admin', '4444');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
-
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `role_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `username`, `password`, `role_id`) VALUES
-(1, 'admin', '1234', 1),
-(2, 'member', '1234', 2);
 
 --
 -- Indexes for dumped tables
@@ -293,18 +257,6 @@ ALTER TABLE `role`
   ADD PRIMARY KEY (`role_id`);
 
 --
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -318,7 +270,7 @@ ALTER TABLE `events`
 -- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
-  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `member_renewal`
@@ -336,25 +288,13 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
   MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
