@@ -64,30 +64,19 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
                                 It!</button>
                         </div>
                     </div>
-
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
-        <!-- ========== App Menu ========== -->
+                </div>
+            </div>
+        </div>
 
         <?php include './inc/admin_sidebar.php'; ?>
 
-        <!-- Left Sidebar End -->
-        <!-- Vertical Overlay-->
+
         <div class="vertical-overlay"></div>
 
-        <!-- ============================================================== -->
-        <!-- Start right Content here -->
-        <!-- ============================================================== -->
         <div class="main-content">
 
             <div class="page-content">
                 <div class="container-fluid">
-
-                    <!-- start page title -->
-
-                    <!-- end page title -->
-
 
                     <div class="card">
                         <div class="card-header align-items-center d-flex">
@@ -97,20 +86,16 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
 
                                 </div>
                             </div>
-                        </div><!-- end card header -->
-
+                        </div>
                         <div class="card-body">
-
                             <div class="live-preview">
                                 <form method="post" action="backend/post_upload.php" enctype="multipart/form-data">
-
                                     <div>
                                         <label for="placeholderInput" class="form-label">Post Title</label>
                                         <input type="text" name="post_title" class="form-control" id="placeholderInput"
                                             placeholder="Enter post tittle">
                                     </div>
                                     <br>
-                                    <!-- Example Textarea -->
                                     <div>
                                         <label for="exampleFormControlTextarea5" class="form-label">Post
                                             Description</label>
@@ -124,6 +109,14 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
                                             multiple accept="image/*">
                                         <small>You can upload up to 5 images.</small>
                                     </div>
+                                    <br>
+                                    <label for="role_id">Post category</label>
+                                    <select class="form-select" id="role_id" name="post_category" required>
+                                        <option value="Admin" disabled>Select Post category </option>
+                                        <option value="1">Feed</option>
+                                        <option value="2">Blog</option>
+                                        <option value="3">History</option>
+                                    </select>
                                     <br>
                                     <div class="col-md-6" hidden>
                                         <div class="form-group">
@@ -139,30 +132,20 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
                             </div>
                         </div>
                     </div>
-                </div> <!-- end col -->
+                </div>
             </div>
-            <!-- end row -->
         </div>
-
-    </div> <!-- container-fluid -->
     </div>
-    <!-- End Page-content -->
-
+    </div>
 
     <?php include './inc/dash_footer.php'; ?>
     </div>
-    <!-- end main content-->
 
     </div>
-    <!-- END layout-wrapper -->
 
-
-    <!--start back-to-top-->
     <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
         <i class="ri-arrow-up-line"></i>
     </button>
-    <!--end back-to-top-->
-
 
 
     <!-- JAVASCRIPT -->

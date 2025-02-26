@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $post_title = htmlspecialchars(trim($_POST['post_title']));
     $post_description = htmlspecialchars(trim($_POST['post_description']));
     $post_status = htmlspecialchars(trim($_POST['post_status']));
+    $post_category = htmlspecialchars(trim($_POST['post_category']));
     $imageFields = ['post_image1', 'post_image2', 'post_image3', 'post_image4', 'post_image5'];
 
     $uploadedFiles = [];
@@ -33,8 +34,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $member_id = isset($_SESSION['member_id']) ? $_SESSION['member_id'] : null;
 
-    $sql = "INSERT INTO post (post_title, post_description, post_status, admin_id, post_image1, post_image2, post_image3, post_image4, post_image5) 
-            VALUES ('$post_title', '$post_description', '$post_status', 
+    $sql = "INSERT INTO post (post_title, post_description, post_status, post_category, admin_id, post_image1, post_image2, post_image3, post_image4, post_image5) 
+            VALUES ('$post_title', '$post_description', '$post_status', '$post_category',
             " . ($member_id !== null ? "'$member_id'" : "NULL") . ",
             " . (isset($uploadedFiles[0]) ? "'{$uploadedFiles[0]}'" : "NULL") . ", 
             " . (isset($uploadedFiles[1]) ? "'{$uploadedFiles[1]}'" : "NULL") . ", 

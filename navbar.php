@@ -6,6 +6,10 @@ if ($_SESSION) {
 } else {
     $role = 0;
 }
+
+
+
+
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-landing fixed-top job-navbar" id="navbar">
@@ -32,16 +36,19 @@ if ($_SESSION) {
                 <li class="nav-item">
                     <a class="nav-link" href="about_us.php">About Us</a>
                 </li>
-                <!-- <li class="nav-item">
-                            <a class="nav-link" href="contacts.php">Contacts</a>
-                        </li> -->
+                <li class="nav-item">
+                    <a class="nav-link" href="blog.php">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="history.php">History</a>
+                </li>
             </ul>
 
             <div class="sign-in">
                 <?php
                 if ($role == 1) {
                     ?>
-                    <li class="nav-item dropdown" style="list-style:none;" >
+                    <li class="nav-item dropdown" style="list-style:none;">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Admin Account
@@ -55,7 +62,8 @@ if ($_SESSION) {
                             <li><a class="dropdown-item" href="view_members.php">View members </a></li>
                             <li><a class="dropdown-item" href="view_member_renewals.php">View member renewals</a></li>
                             <li><a class="dropdown-item" href="admin_member_renewal.php">My member renewals </a></li>
-                            <li><a class="dropdown-item" href="admin_member_renewal_history.php">My renewal history </a></li>
+                            <li><a class="dropdown-item" href="admin_member_renewal_history.php">My renewal history </a>
+                            </li>
                             <li><a class="dropdown-item" href="admin_change.php">Admin change </a></li>
                             <li><a class="dropdown-item" href="admin_password_change.php">Password settings </a></li>
                             <li><a class="dropdown-item" href="a_profile_settings.php">Profile settings </a></li>
@@ -68,12 +76,23 @@ if ($_SESSION) {
                     </li>
                     <?php
                 } elseif ($role == 2) {
+
+                    $member_id = $_SESSION['member_id'];
+                    $sql = "SELECT member_username FROM members WHERE member_id = '$member_id'";
+                    $result = mysqli_query($conn, $sql);
+
+                    if ($result && mysqli_num_rows($result) > 0) {
+                        $row = mysqli_fetch_assoc($result);
+                        $member_username = $row['member_username'];
+                    }
+
+
                     ?>
-                    
-                    <li class="nav-item dropdown" style="list-style:none;" >
+
+                    <li class="nav-item dropdown" style="list-style:none;">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            Member Account
+                            <?php echo htmlspecialchars($member_username); ?>
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="member_dashboard.php">Dashboard</a></li>

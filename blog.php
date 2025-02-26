@@ -1,8 +1,6 @@
 <?php
 require 'db.php';
 
-
-
 ?>
 
 <!doctype html>
@@ -12,7 +10,7 @@ require 'db.php';
 <head>
 
     <meta charset="utf-8" />
-    <title>Kingswood Cadet Union - Home</title>
+    <title>Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -87,7 +85,7 @@ require 'db.php';
                                     <!-- Swiper -->
                                     <h3>Events</h3>
                                     <?php
-                                    $sql = "SELECT * FROM events ORDER BY event_id DESC LIMIT 10 ";
+                                    $sql = "SELECT * FROM events ORDER BY event_id DESC LIMIT 10";
                                     $result = $conn->query($sql);
                                     $data = [];
                                     if ($result) {
@@ -104,6 +102,7 @@ require 'db.php';
                                         echo "Error: " . $conn->error;
                                     }
                                     ?>
+
                                     <?php foreach ($events as $row): ?>
                                         <a href="event_page.php?event_id=<?= base64_encode($row["event_id"]); ?>"
                                             target="_blank">
@@ -136,6 +135,7 @@ require 'db.php';
                         </div>
                     </div>
                 </div>
+
                 <div class="right-card">
                     <div class="card">
                         <div class="card-body">
@@ -149,7 +149,7 @@ require 'db.php';
                             $totalPosts = $totalPostsResult->fetch_assoc()['total'];
                             $totalPages = ceil($totalPosts / $postsPerPage);
 
-                            $sql = "SELECT * FROM post WHERE post_status = 1 AND post_category IN (1, 2, 3)  ORDER BY post_id DESC LIMIT $postsPerPage OFFSET $offset";
+                            $sql = "SELECT * FROM post WHERE post_status = 1 AND post_category= 2 ORDER BY post_id DESC LIMIT $postsPerPage OFFSET $offset";
                             $result = $conn->query($sql);
                             if ($result && $result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
@@ -243,7 +243,7 @@ require 'db.php';
                                     <?php
                                 }
                             } else {
-                                echo "No Posts found.";
+                                echo "No Blog Posts found.";
                             }
                             ?>
                             <nav aria-label="Page navigation">

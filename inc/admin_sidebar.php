@@ -81,11 +81,7 @@
                         <i class="ri-dashboard-2-line"></i> <span data-key="t-widgets">Dashboard</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="admin_chat.php">
-                        <i class="ri-chat-1-line"></i> <span data-key="t-widgets">Chat</span>
-                    </a>
-                </li>
+               
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="add_posts.php">
                         <i class="ri-terminal-window-fill"></i> <span data-key="t-widgets">Add New Post</span>
@@ -99,6 +95,11 @@
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="add_events.php">
                         <i class="bx bx-notepad"></i> <span data-key="t-widgets">Add Events</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="admin_chat.php">
+                        <i class="ri-chat-1-line"></i> <span data-key="t-widgets">Chat</span>
                     </a>
                 </li>
                 <li class="nav-item">

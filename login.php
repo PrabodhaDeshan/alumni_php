@@ -20,7 +20,7 @@ if ($result->num_rows == 1) {
             if ($user['role'] == '1') {
                 header("Location: admin_dashboard.php");
             } else {
-                header("Location: member_dashboard.php");
+                header("Location: index.php");
             }
         } elseif (in_array($user['status'], [2, 3])) {
             $_SESSION['error'] = "User is not Activated. Contact the Admin.";

@@ -119,6 +119,14 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '2') {
                                         <small>You can upload up to 5 images.</small>
                                     </div>
                                     <br>
+                                    <label for="role_id">Post category</label>
+                                    <select class="form-select" id="role_id" name="post_category" required>
+                                        <option value="Admin" disabled>Select Post category </option>
+                                        <option value="1">Feed</option>
+                                        <option value="2">Blog</option>
+                                        <option value="3">History</option>
+                                    </select>
+                                    <br>
                                     <div class="col-md-6" hidden>
                                         <div class="form-group">
                                             <select class="form-select" id="" name="post_status">
