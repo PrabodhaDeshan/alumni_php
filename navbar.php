@@ -42,6 +42,9 @@ if ($_SESSION) {
                 <li class="nav-item">
                     <a class="nav-link" href="history.php">History</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ecom.php">Store</a>
+                </li>
             </ul>
 
             <div class="sign-in">
@@ -90,6 +93,8 @@ if ($_SESSION) {
                     ?>
 
                     <li class="nav-item dropdown" style="list-style:none;">
+
+
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             <?php echo htmlspecialchars($member_username); ?>

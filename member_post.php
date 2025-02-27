@@ -127,6 +127,11 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '2') {
                                         <option value="3">History</option>
                                     </select>
                                     <br>
+                                    <div>
+                                        <label for="placeholderInput" class="form-label"> Tags</label>
+                                        <input type="text" name="tags" class="form-control" id="placeholderInput"
+                                            placeholder="#Enter Tags here">
+                                    </div>
                                     <div class="col-md-6" hidden>
                                         <div class="form-group">
                                             <select class="form-select" id="" name="post_status">
@@ -134,6 +139,7 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '2') {
                                             </select>
                                         </div>
                                     </div>
+                                    <br>
                                     <div class="col-12">
                                         <button class="btn btn-primary" type="submit">Add post</button>
                                     </div>

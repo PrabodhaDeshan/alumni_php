@@ -118,6 +118,12 @@ if (!isset($_SESSION['member_id']) || $_SESSION['role'] !== '1') {
                                         <option value="3">History</option>
                                     </select>
                                     <br>
+                                    <div>
+                                        <label for="placeholderInput" class="form-label"> Tags</label>
+                                        <input type="text" name="tags" class="form-control" id="placeholderInput"
+                                            placeholder="#Enter Tags here">
+                                    </div>
+                                    <br>
                                     <div class="col-md-6" hidden>
                                         <div class="form-group">
                                             <select class="form-select" id="post_status" name="post_status">

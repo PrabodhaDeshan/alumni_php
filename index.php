@@ -140,7 +140,7 @@ require 'db.php';
                     <div class="card">
                         <div class="card-body">
                             <?php
-                            $postsPerPage = 15;
+                            $postsPerPage = 10;
                             $currentPage = isset($_GET['page']) ? (int) $_GET['page'] : 1;
                             $offset = ($currentPage - 1) * $postsPerPage;
 
@@ -168,22 +168,24 @@ require 'db.php';
                                         $post_date = $row['post_date'];
                                         $post_time = $row['post_time'];
 
-                                        $mem_username = "SELECT member_username FROM members WHERE member_id = '$admin_id'";
-                                        $username_result = mysqli_query($conn, $mem_username);
-                                        $member_username = mysqli_fetch_assoc($username_result)['member_username'];
+                                        $mem_username = "SELECT * FROM members WHERE member_id = '$admin_id'";
+                                        $username_result = mysqli_fetch_assoc(mysqli_query($conn, $mem_username));
                                         ?>
 
                                         <div class="post-head">
                                             <div class="userp">
+
                                                 <?php
-                                                $profilePic = isset($row['profile_pic']) && !empty($row['profile_pic']) ? "backend/uploads/{$row['profile_pic']}" : "inc/user.png";
+                                                $profile_pic = !empty($username_result['profile_pic']) ? 'backend/uploads/' . $username_result['profile_pic'] : 'inc/user.png';
                                                 ?>
-                                                <img src="<?= $profilePic; ?>" alt="" class="img-thumbnail rounded-circle"
+
+                                                <img src="<?= $profile_pic; ?>" alt="" class="img-thumbnail rounded-circle"
                                                     style="width:30px;">
 
                                                 &nbsp;
 
-                                                <h6 style="padding-top:5px;" class="card-title"><?php echo $member_username; ?>
+                                                <h6 style="padding-top:5px;" class="card-title">
+                                                    <?= $username_result['member_first_name'] . " " . $username_result['member_last_name']; ?>
                                                 </h6>
                                             </div>
 
@@ -198,9 +200,11 @@ require 'db.php';
                                         <div class="post-by">
                                             <h2 class="card-title"><?php echo $row['post_title']; ?></h2>
                                             <p class="card-text"><?php echo $row['post_description']; ?></p>
+                                            <h6 style="color: #4b57d8; font-size: 12px; " class="card-title">
+                                                <?php echo $row['tags']; ?>
+                                            </h6>
                                         </div>
                                     </a>
-                                    <br>
                                     <!-- Main Image -->
                                     <div class="main-image">
                                         <img id="mainImage-<?php echo $row['post_id']; ?>"
@@ -221,7 +225,7 @@ require 'db.php';
                                         </div>
                                     <?php endif; ?>
                                     <br>
-                                    
+
 
                                     <div class="post-buttons">
                                         <div class="social-area2">
