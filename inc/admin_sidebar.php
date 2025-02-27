@@ -120,11 +120,10 @@
                                 <a href="view_member_renewals.php" class="nav-link" data-key="t-grid-js">View Member
                                     Renewals</a>
                             </li>
-
-
                         </ul>
                     </div>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="admin_member_renewal.php">
                         <i class="ri-repeat-line"></i> <span data-key="t-widgets">My Member Renewal</span>
@@ -134,6 +133,22 @@
                     <a class="nav-link menu-link" href="admin_member_renewal_history.php">
                         <i class="ri-honour-line"></i> <span data-key="t-widgets">My Renewal History</span>
                     </a>
+                </li>
+                    <a class="nav-link menu-link" href="#sidebarTables4" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarTables4">
+                        <i class="ri-store-3-fill"></i> <span data-key="t-tables">Store</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarTables4">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="add_products.php" class="nav-link" data-key="t-basic-tables">Add new
+                                    Items</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="view_products.php" class="nav-link" data-key="t-grid-js">View Items</a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarCharts" data-bs-toggle="collapse" role="button"

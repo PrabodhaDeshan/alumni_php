@@ -131,8 +131,7 @@ require 'db.php';
                                     <?php endforeach; ?>
                                     <div class="swiper-pagination"></div>
                                 </div>
-                                <!-- end card-body -->
-                            </div><!-- end card -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -159,15 +158,12 @@ require 'db.php';
                                             $images[] = $row["post_image$i"];
                                         }
                                     }
-
                                     ?>
                                     <a href="post_page.php?post_id=<?= base64_encode($row['post_id']); ?>">
                                         <?php
-
                                         $admin_id = $row['admin_id'];
                                         $post_date = $row['post_date'];
                                         $post_time = $row['post_time'];
-
                                         $mem_username = "SELECT * FROM members WHERE member_id = '$admin_id'";
                                         $username_result = mysqli_fetch_assoc(mysqli_query($conn, $mem_username));
                                         ?>
@@ -188,7 +184,6 @@ require 'db.php';
                                                     <?= $username_result['member_first_name'] . " " . $username_result['member_last_name']; ?>
                                                 </h6>
                                             </div>
-
                                             <div class="ptime">
 
                                                 <p style="color:#afafaf;"><?php echo $post_date; ?> &nbsp
