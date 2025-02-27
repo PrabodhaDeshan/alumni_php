@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 26, 2025 at 09:39 AM
+-- Generation Time: Feb 27, 2025 at 07:04 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -96,7 +96,8 @@ INSERT INTO `members` (`member_id`, `member_username`, `member_first_name`, `mem
 (55, 'bnzdjlffho', 'nfthhrth', 'thrthrthr', '5675675675', 'fdfghghd', 'vcbnvbncvbn', 'nbmbmbm', '65757657', '2', 'nmbnm', 'bmghgh', 'bnm@ghgf.hj', '756757', '20250109074636unnamed.jpg', '$2y$10$3F8X6orN4BHcFSN/sIZ2mu9ctxiVu3TLLmR3rgC11yONoSWGVtMEW', '', '3'),
 (56, 'john', 'efwefwfwfe', 'fwefwfwfw', '34554534545', 'wfwe', 'rtherhrhth', 'thrthrth', '45345443455', '2', 'john', 'fgdfg', 'dgdfgf@fdf.kk', '56456456', '20250110071608unnamed.png', '$2y$10$9c57rDnZdN52irH7qs7.oew6AACNPDwbzFE1nEdS0e1DP3P/qheOW', '', '1'),
 (57, 'brian', 'ghfhfgh', 'hfhfh', '5756756757', '56', 'fghfghf', 'fdhdfhhh', '6756767', '2', 'brian', 'gfhfh', 'fhfg@ff.kk', '564756757', NULL, '$2y$10$iuD/JWYYh6D5o6D2LwwTm.yiwCKA51ZgfSJ4ZZQkkximlbBG1cm9W', '', '1'),
-(58, 'sample', 'sample', 'fdgdgsdfg', '3453534535', '33', 'hfgh', 'fghfhfdghgfh', '535454535', '2', 'sample', 'hfghfghfh', 'fhfdh@fdgd.jj', '6456456456', '2025011010352266beeabb5fa40.jpg', '$2y$10$3SxieJhtv/SXlnmafpL9QO48aym.oQW4XkFBe0WI0LoQ1zPK9KUfi', '', '1');
+(58, 'sample', 'sample', 'fdgdgsdfg', '3453534535', '33', 'hfgh', 'fghfhfdghgfh', '535454535', '2', 'sample', 'hfghfghfh', 'fhfdh@fdgd.jj', '6456456456', '2025011010352266beeabb5fa40.jpg', '$2y$10$3SxieJhtv/SXlnmafpL9QO48aym.oQW4XkFBe0WI0LoQ1zPK9KUfi', '', '1'),
+(59, 'deshan', 'deshan', 'dfsgdrg', '6456464646', '56', 'dhdfhfghfd', 'fdhdfhfhfhf', '45645643646', '2', 'deshan', 'dfsdf', 'fghdfh@r.ll', '6567657567', '2025022705225166beeabb5fa40.jpg', '$2y$10$W8Mq4Dn9QeFi0ZvsKiPnD.JhvjMirjcudj3nzk8GTQfoNXge0Ji5a', '', '1');
 
 -- --------------------------------------------------------
 
@@ -155,7 +156,9 @@ INSERT INTO `messages` (`message_id`, `sender_id`, `receiver_id`, `massege_date`
 (4, 21, 29, '2025-01-07', '07:32:59', 'hrthrthr'),
 (5, 21, 29, '2025-01-08', '08:46:45', 'rgerg ergerwgwe gerge rg'),
 (6, 54, 29, '2025-01-08', '11:10:31', 'rgegr'),
-(7, 54, 20, '2025-01-08', '11:10:36', 'ergegrge');
+(7, 54, 20, '2025-01-08', '11:10:36', 'ergegrge'),
+(8, 59, 56, '2025-02-27', '06:51:16', 'ther'),
+(9, 59, 55, '2025-02-27', '06:51:23', 'hrthhrt');
 
 -- --------------------------------------------------------
 
@@ -175,25 +178,34 @@ CREATE TABLE `post` (
   `post_image3` text DEFAULT NULL,
   `post_image4` text DEFAULT NULL,
   `post_image5` text DEFAULT NULL,
-  `post_status` int(11) DEFAULT NULL COMMENT 'admin=1 ,member=2'
+  `post_status` int(11) DEFAULT NULL COMMENT 'admin=1 ,member=2',
+  `post_category` int(11) DEFAULT NULL,
+  `tags` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `post`
 --
 
-INSERT INTO `post` (`post_id`, `admin_id`, `post_title`, `post_description`, `post_date`, `post_time`, `post_image1`, `post_image2`, `post_image3`, `post_image4`, `post_image5`, `post_status`) VALUES
-(25, 20, 'Kingswood college cricket tournement 2024', 'Lorem ipsum dolor sit amet consectetur adipiscing elit quam odio, id blandit est nisi eros nunc massa tortor, lobortis donec senectus ad ornare suspendisse montes egestas. Odio gravida justo per litora sociis viverra sed, blandit fusce primis orci at nibh', '2024-12-12', '12:25:08', '20241212075507IMG_0189.webp', '', NULL, NULL, NULL, 1),
-(26, 22, 'Kingswood cadet', 'Sollicitudin rhoncus augue primis tellus feugiat ante viverra sociosqu, mi sed hac nulla mus ut vehicula penatibus ligula, netus proin metus id purus malesuada ad. Integer nisi porta fusce facilisis vivamus suscipit taciti sodales, neque congue in torquen', '2024-12-12', '12:25:49', '20241212075549IMG_1367-scaled.webp', '', NULL, NULL, NULL, 1),
-(27, 21, 'Sample pos3 nweivw iohweoh', 'Lorem ipsum dolor sit amet consectetur adipiscing elit turpis nibh, erat dui senectus maecenas mauris habitant auctor aenean suscipit, non fringilla netus porttitor diam porta tempus congue. Cubilia placerat lacus cum nisl hendrerit fringilla dapibus eu q', '2024-12-12', '12:33:19', '20241212080319IMG_1307-1.webp', '', NULL, NULL, NULL, 2),
-(28, 20, 'new post upload y3434ythrthrth', 'us rutrum ad dictumst commodo congue bibendum maecenas, ut montes varius aliquet aliquam integer leo. Quis lobortis pretium cum interdum risus aptent leo, nisi quam dapibus blandit turpis mi, suscipit purus est magna metus feugiat. Nascetur conubia facili', '2024-12-19', '13:45:55', '20241219091555_IMG_0189.webp', '20241219091555_IMG_0320.webp', '20241219091555_IMG_1296.webp', '20241219091555_IMG_1307-1.webp', '20241219091555_IMG_1367-scaled.webp', 1),
-(31, 23, 'fwfwfw', 'fwfwefwfwef erferfgere gwg wrge ger egerg', '2025-01-03', '15:50:21', '20250103112021_ai-generated-purple-heart-tree-background-purple-trees-wallpaper-photo.jpg', NULL, NULL, NULL, NULL, 1),
-(32, 21, 'fwefwfwfwf', 'fwefwfwefwf', '2025-01-08', '09:49:34', '20250108051934_desktop-wallpaper-nature-forest-road-and-background-dark-forest-road.jpg', NULL, NULL, NULL, NULL, 1),
-(35, 21, 'new post after update membverwr', 'fwfwqfwfw', '2025-01-08', '10:11:30', '20250108054130_ai-generated-purple-heart-tree-background-purple-trees-wallpaper-photo.jpg', NULL, NULL, NULL, NULL, 1),
-(36, 21, 'adminpost after update', 'e, platea semper potenti odio vehicula cum ad bibendum blandit, tempus orci eget nisi habitasse ridiculus erat. Pellentesque penatibus natoque vulputate consequat platea gravida tincidunt bibendum, tempor ut rutrum conubia phasellus convallis lacinia laor', '2025-01-08', '10:17:16', '20250108054716_desktop-wallpaper-nature-forest-road-and-background-dark-forest-road.jpg', '20250108054716_ai-generated-purple-heart-tree-background-purple-trees-wallpaper-photo.jpg', '20250108054716_dfwef.PNG', '20250108054716_Capture.PNG', NULL, 1),
-(38, 20, 'rgegrge', 'gergeg', '2025-01-09', '15:11:30', '20250109104130_desktop-wallpaper-nature-forest-road-and-background-dark-forest-road.jpg', '20250109104130_ai-generated-purple-heart-tree-background-purple-trees-wallpaper-photo.jpg', NULL, NULL, NULL, 2),
-(39, 58, 'Lorem ipsum dolor sit amet consectetur adipiscing elit 2024', 'Lorem ipsum dolor sit amet consectetur adipiscing elit semper sociosqu tincidunt id et sagittis vestibulum, phasellus ut sem fermentum ridiculus molestie aptent laoreet tempor dignissim suspendisse ac convallis. Orci morbi dictumst auctor mi fringilla him', '2025-01-10', '15:06:50', '20250110103650_2I8A3571-scaled.webp', '20250110103650_IMG_0133.webp', '20250110103650_IMG_1309-1.webp', '20250110103650_IMG_9969-scaled.webp', NULL, 1),
-(45, 58, 'new post', 'efwfe we fwq ef wefwwwwwwwwwwwwwwwwwwwww wefwefe', '2025-01-10', '15:33:36', '20250110110336_IMG_0133.webp', NULL, NULL, NULL, NULL, 1);
+INSERT INTO `post` (`post_id`, `admin_id`, `post_title`, `post_description`, `post_date`, `post_time`, `post_image1`, `post_image2`, `post_image3`, `post_image4`, `post_image5`, `post_status`, `post_category`, `tags`) VALUES
+(25, 20, 'Kingswood college cricket tournement 2024', 'Lorem ipsum dolor sit amet consectetur adipiscing elit quam odio, id blandit est nisi eros nunc massa tortor, lobortis donec senectus ad ornare suspendisse montes egestas. Odio gravida justo per litora sociis viverra sed, blandit fusce primis orci at nibh', '2024-12-12', '12:25:08', '20241212075507IMG_0189.webp', '', NULL, NULL, NULL, 1, 1, '#2025 #alumni'),
+(26, 22, 'Kingswood cadet', 'Sollicitudin rhoncus augue primis tellus feugiat ante viverra sociosqu, mi sed hac nulla mus ut vehicula penatibus ligula, netus proin metus id purus malesuada ad. Integer nisi porta fusce facilisis vivamus suscipit taciti sodales, neque congue in torquen', '2024-12-12', '12:25:49', '20241212075549IMG_1367-scaled.webp', '', NULL, NULL, NULL, 1, 1, NULL),
+(27, 21, 'Sample pos3 nweivw iohweoh', 'Lorem ipsum dolor sit amet consectetur adipiscing elit turpis nibh, erat dui senectus maecenas mauris habitant auctor aenean suscipit, non fringilla netus porttitor diam porta tempus congue. Cubilia placerat lacus cum nisl hendrerit fringilla dapibus eu q', '2024-12-12', '12:33:19', '20241212080319IMG_1307-1.webp', '', NULL, NULL, NULL, 2, 2, '#2025 #alumni'),
+(28, 20, 'new post upload y3434ythrthrth', 'us rutrum ad dictumst commodo congue bibendum maecenas, ut montes varius aliquet aliquam integer leo. Quis lobortis pretium cum interdum risus aptent leo, nisi quam dapibus blandit turpis mi, suscipit purus est magna metus feugiat. Nascetur conubia facili', '2024-12-19', '13:45:55', '20241219091555_IMG_0189.webp', '20241219091555_IMG_0320.webp', '20241219091555_IMG_1296.webp', '20241219091555_IMG_1307-1.webp', '20241219091555_IMG_1367-scaled.webp', 1, 1, '#2025 #alumni'),
+(31, 23, 'fwfwfw', 'fwfwefwfwef erferfgere gwg wrge ger egerg', '2025-01-03', '15:50:21', '20250103112021_ai-generated-purple-heart-tree-background-purple-trees-wallpaper-photo.jpg', NULL, NULL, NULL, NULL, 1, 1, '#2025 #alumni'),
+(32, 21, 'fwefwfwfwf', 'fwefwfwefwf', '2025-01-08', '09:49:34', '20250108051934_desktop-wallpaper-nature-forest-road-and-background-dark-forest-road.jpg', NULL, NULL, NULL, NULL, 1, 1, NULL),
+(35, 21, 'new post after update membverwr', 'fwfwqfwfw', '2025-01-08', '10:11:30', '20250108054130_ai-generated-purple-heart-tree-background-purple-trees-wallpaper-photo.jpg', NULL, NULL, NULL, NULL, 1, 1, '#2025 #alumni'),
+(36, 21, 'adminpost after update', 'e, platea semper potenti odio vehicula cum ad bibendum blandit, tempus orci eget nisi habitasse ridiculus erat. Pellentesque penatibus natoque vulputate consequat platea gravida tincidunt bibendum, tempor ut rutrum conubia phasellus convallis lacinia laor', '2025-01-08', '10:17:16', '20250108054716_desktop-wallpaper-nature-forest-road-and-background-dark-forest-road.jpg', '20250108054716_ai-generated-purple-heart-tree-background-purple-trees-wallpaper-photo.jpg', '20250108054716_dfwef.PNG', '20250108054716_Capture.PNG', NULL, 1, 1, '#2025 #alumni'),
+(38, 20, 'rgegrge', 'gergeg', '2025-01-09', '15:11:30', '20250109104130_desktop-wallpaper-nature-forest-road-and-background-dark-forest-road.jpg', '20250109104130_ai-generated-purple-heart-tree-background-purple-trees-wallpaper-photo.jpg', NULL, NULL, NULL, 2, 1, '#2025 #alumni'),
+(39, 58, 'Lorem ipsum dolor sit amet consectetur adipiscing elit 2024', 'Lorem ipsum dolor sit amet consectetur adipiscing elit semper sociosqu tincidunt id et sagittis vestibulum, phasellus ut sem fermentum ridiculus molestie aptent laoreet tempor dignissim suspendisse ac convallis. Orci morbi dictumst auctor mi fringilla him', '2025-01-10', '15:06:50', '20250110103650_2I8A3571-scaled.webp', '20250110103650_IMG_0133.webp', '20250110103650_IMG_1309-1.webp', '20250110103650_IMG_9969-scaled.webp', NULL, 1, 2, '#2025 #alumni'),
+(45, 58, 'new post', 'efwfe we fwq ef wefwwwwwwwwwwwwwwwwwwwww wefwefe', '2025-01-10', '15:33:36', '20250110110336_IMG_0133.webp', NULL, NULL, NULL, NULL, 1, 1, '#2025 #alumni'),
+(47, 20, 'oghe gehgo[eihgoeghew gewgnerwgweg', 'rgewrgewgergwegwe gegweg wegwegegwegewr', '2025-02-26', '16:00:15', '20250226113015_canva-blue-and-pink-classy-photo-cherry-blossom-inspirational-quotes-facebook-cover-vpnA8PdWGCs.jpg', NULL, NULL, NULL, NULL, 1, 3, '#2025 #alumni'),
+(48, 21, 'eterteterte', 'tertettt', '2025-02-26', '16:04:33', '20250226113433_hq720.jpg', NULL, NULL, NULL, NULL, 2, 1, NULL),
+(49, 20, 'egesgsa gsrg sdgrdgeg', 'ergegergergegewge', '2025-02-26', '16:07:36', '20250226113736_W.png', NULL, NULL, NULL, NULL, 1, 2, NULL),
+(50, 21, 'fefw', 'ewfwef', '2025-02-26', '16:10:37', '20250226114037_pexels-fauxels-3183153.jpg', NULL, NULL, NULL, NULL, 2, 3, '#2025 #alumni'),
+(51, 21, '4tegergeg', 'egrtherthrthrh', '2025-02-27', '09:37:22', '20250227050722_hq720.jpg', NULL, NULL, NULL, NULL, 1, 1, '#2025 #alumni'),
+(52, 59, 'new post ergegegergergergerger', 'dolor sit amet consectetur adipiscing elit natoque diam duis consequat, lacinia cubilia nunc sed imperdiet tincidunt non sem mauris aenean ultricies, hendrerit sodales feugiat ligula malesuada praesent euismod risus nisi ornare. Donec suspendisse proin pe', '2025-02-27', '09:55:37', '20250227052537_software-development-service-flyer-template-bundle-software-agency-poster-leaflet-3-in-1-design-bundle-3-in-1-a4-template-brochure-design-cover-flyer-poster-print-ready-free-vector.jpg', NULL, NULL, NULL, NULL, 1, 1, '#2025 #kingswoodians'),
+(54, 20, 'twertwertwe t', 'wet wertgwergwergwerg', '2025-02-27', '10:37:55', '20250227060755_ai-generated-purple-heart-tree-background-purple-trees-wallpaper-photo.jpg', '20250227060755_Capture.PNG', '20250227060755_software-development-service-flyer-template-bundle-software-agency-poster-leaflet-3-in-1-design-bundle-3-in-1-a4-template-brochure-design-cover-flyer-poster-print-ready-free-vector.jpg', NULL, NULL, 1, 3, '#wefbwiqege');
 
 -- --------------------------------------------------------
 
@@ -270,7 +282,7 @@ ALTER TABLE `events`
 -- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
-  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `member_renewal`
@@ -282,13 +294,13 @@ ALTER TABLE `member_renewal`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT for table `role`
