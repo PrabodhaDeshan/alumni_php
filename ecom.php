@@ -1,4 +1,3 @@
-
 <?php
 require 'db.php';
 
@@ -46,61 +45,61 @@ require 'db.php';
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-3 ">
-                        <div class="card explore-box card-animate">
-                            <div class="bookmark-icon position-absolute top-0 end-0 p-2">
-                                <button type="button" class="btn btn-icon active" data-bs-toggle="button" aria-pressed="true"><i class="mdi mdi-cards-heart fs-16"></i></button>
-                            </div>
-                            <div class="explore-place-bid-img">
-                                <img src="assets/images/mens.jpg" alt="" class="card-img-top explore-img" />
-                                <div class="bg-overlay"></div>
-                                <div class="place-bid-btn">
-                                <a href="product_details.php" type="button" class="btn btn-dark waves-effect waves-light">View product</a>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="mb-1"><a href="apps-nft-item-details.html"><?php echo $row['item_name']; ?></a></h5>
-                                <p class="text-muted mb-0"><?php echo $row['samall_desc']; ?></p>
-                            </div>
-                            <div class="card-footer border-top border-top-dashed">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-grow-1 fs-14">
-                                         LKR: <span class="fw-large"><?php echo $row['item_name']; ?></span>
-                                    </div>
-                                    <a href="#!" class="btn btn-success"> Buy now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col-md-3 ">
-                        <div class="card explore-box card-animate">
-                            <div class="bookmark-icon position-absolute top-0 end-0 p-2">
-                                <button type="button" class="btn btn-icon active" data-bs-toggle="button" aria-pressed="true"><i class="mdi mdi-cards-heart fs-16"></i></button>
-                            </div>
-                            <div class="explore-place-bid-img">
-                                <img src="assets/images/mens.jpg" alt="" class="card-img-top explore-img" />
-                                <div class="bg-overlay"></div>
-                                <div class="place-bid-btn">
-                                <a href="product_details.php" type="button" class="btn btn-dark waves-effect waves-light">View product</a>
+                <?php
+
+                $sql = "SELECT * FROM product_items";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    echo '<div class="row">';
+                    while ($row = $result->fetch_assoc()) {
+                        $item_name = $row['item_name'];
+                        $small_desc = $row['small_desc'];
+                        $item_price = $row['item_price'];
+                        $item_image1 = $row['item_image1'];
+                        ?>
+                        <div class="col-md-3">
+                            <div class="card explore-box card-animate" style="height: 450px;" >
+                                <div class="bookmark-icon position-absolute top-0 end-0 p-2">
+                                    <button type="button" class="btn btn-icon active" data-bs-toggle="button"
+                                        aria-pressed="true">
+                                        <i class="mdi mdi-cards-heart fs-16"></i>
+                                    </button>
                                 </div>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="mb-1"><a href="apps-nft-item-details.html"><?php echo $row['item_name']; ?></a></h5>
-                                <p class="text-muted mb-0"><?php echo $row['samall_desc']; ?></p>
-                            </div>
-                            <div class="card-footer border-top border-top-dashed">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-grow-1 fs-14">
-                                         LKR: <span class="fw-large"><?php echo $row['item_name']; ?></span>
+                                <div class="explore-place-bid-img" >
+                                    <img src="backend/uploads/<?php echo $item_image1; ?>" alt="<?php echo $item_name; ?>"
+                                        class="card-img-top explore-img"/>
+                                    <div class="bg-overlay"></div>
+                                    <div class="place-bid-btn">
+                                        <a href="product_details.php?id=<?php echo $item_id; ?>" type="button"
+                                            class="btn btn-dark waves-effect waves-light">View product</a>
                                     </div>
-                                    <a href="#!" class="btn btn-success"> Buy now</a>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="mb-1"><a href="apps-nft-item-details.html"><?php echo $item_name; ?></a></h5>
+                                    <p class="text-muted mb-0"><?php echo $small_desc; ?></p>
+                                </div>
+                                <div class="card-footer border-top border-top-dashed">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-grow-1 fs-14">
+                                            LKR: <span class="fw-large"><?php echo $item_price; ?></span>
+                                        </div>
+                                        <a href="product_details.php" class="btn btn-success">Buy now</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                        <?php
+                    }
+                    echo '</div>';
+                } else {
+                    echo "No products found.";
+                }
+
+                $conn->close();
+                ?>
+
             </div>
         </section>
 

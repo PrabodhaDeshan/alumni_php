@@ -124,7 +124,7 @@ $userData = mysqli_fetch_assoc(mysqli_query($conn, $query));
                     <div class="dropdown-menu dropdown-menu-end">
                         <!-- item-->
                         <a class="dropdown-item" href="admin_profile.php"><span class="align-middle">Profile</span></a>
-
+                        <a class="dropdown-item" href="index.php"> <span class="align-middle">Home</span></a>
                         <a class="dropdown-item" href="logout.php"> <span class="align-middle">Logout</span></a>
 
                         <!-- <button type="submit">Logout</button> -->

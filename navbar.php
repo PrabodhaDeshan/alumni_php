@@ -57,6 +57,7 @@ if ($_SESSION) {
                             Admin Account
                         </a>
                         <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="admin_dashboard.php">Dashboard</a></li>
                             <li><a class="dropdown-item" href="admin_chat.php">Chat</a></li>
                             <li><a class="dropdown-item" href="add_posts.php">Add new post</a></li>
                             <li><a class="dropdown-item" href="posts.php">Post Approval </a></li>
@@ -69,6 +70,7 @@ if ($_SESSION) {
                             </li>
                             <li><a class="dropdown-item" href="admin_change.php">Admin change </a></li>
                             <li><a class="dropdown-item" href="admin_password_change.php">Password settings </a></li>
+                            <li><a class="dropdown-item" href="add_products.php">Add Items</a></li>
                             <li><a class="dropdown-item" href="a_profile_settings.php">Profile settings </a></li>
 
                             <li>
